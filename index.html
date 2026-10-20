@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kubilay Kenan Işıklı · Kenan Hoca</title>
+<meta name="description" content="İngilizce öğretmeni Kubilay Kenan Işıklı (Kenan Hoca). YDS, e-YDS ve YÖKDİL'e hazırlananlar için Well-Done uygulaması.">
+<link rel="icon" href="simge.png">
+<link rel="canonical" href="https://kubilaykenan.com/">
+<style>
+@font-face { font-family: "Cormorant Garamond"; src: url(fontlar/CormorantGaramond-SemiBold.ttf); font-weight: 600; }
+@font-face { font-family: "Cormorant Garamond"; src: url(fontlar/CormorantGaramond-Bold.ttf); font-weight: 700; }
+@font-face { font-family: "Dancing Script"; src: url(fontlar/DancingScript-Bold.ttf); font-weight: 700; }
+@font-face { font-family: Karla; src: url(fontlar/Karla-Regular.ttf); font-weight: 400; }
+@font-face { font-family: Karla; src: url(fontlar/Karla-SemiBold.ttf); font-weight: 600; }
+:root { --zemin: #FFF6F4; --kart: #FFFFFF; --yumusak: #F9E4E7; --vurgu: #B34D68; --metin: #2B1A1F; --ikincil: #7A6268;
+        --golge: rgba(179, 77, 104, .10); }
+@media (prefers-color-scheme: dark) {
+  :root { --zemin: #1B1316; --kart: #2A1D22; --yumusak: #3A2830; --vurgu: #E58BA2; --metin: #F4E9EC; --ikincil: #B9A2A8;
+          --golge: rgba(0, 0, 0, .25); }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font: 17px/1.6 Karla, -apple-system, sans-serif;
+       -webkit-text-size-adjust: 100%; }
+main { max-width: 680px; margin: 0 auto; padding: 28px 16px 48px; }
+nav { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; margin: 0 0 28px; font-weight: 600; }
+nav a { color: var(--vurgu); text-decoration: none; }
+nav a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
+.kimlik { text-align: center; margin-bottom: 20px; }
+.kimlik img { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 6px 18px var(--golge); }
+.imza { font: 700 44px/1.1 "Dancing Script", cursive; color: var(--vurgu); margin: 10px 0 4px; }
+h1 { font: 700 40px/1.15 "Cormorant Garamond", Georgia, serif; margin: 0 0 8px; }
+h2 { font: 700 24px/1.2 "Cormorant Garamond", Georgia, serif; margin: 0 0 8px; }
+.giris { color: var(--ikincil); margin: 0 0 22px; }
+.kart { background: var(--kart); border-radius: 20px; padding: 18px 20px; margin: 0 0 14px; box-shadow: 0 6px 14px var(--golge); }
+.kart p { margin: 0 0 10px; } .kart p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0; padding-left: 22px; } li { margin: 2px 0; }
+a { color: var(--vurgu); }
+.not { background: var(--yumusak); border-radius: 16px; padding: 14px 18px; margin: 0 0 14px; }
+footer { text-align: center; color: var(--ikincil); font-size: 14px; margin-top: 28px; }
+.dugmeler { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.dugme { display: inline-block; padding: 10px 18px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+.dugme.ana { background: var(--vurgu); color: var(--zemin); }   /* açık: beyaza yakın, koyu: koyu zemin (okunur) */
+.dugme.ikinci { background: var(--yumusak); color: var(--vurgu); }
+.uygulama { display: flex; gap: 16px; align-items: flex-start; }
+.uygulama img { width: 64px; height: 64px; border-radius: 15px; flex: none; box-shadow: 0 4px 12px var(--golge); }
+.ad { font: 700 46px/1.1 "Cormorant Garamond", Georgia, serif; margin: 0; }
+</style>
+</head>
+<body>
+<main>
+<div class="kimlik" style="margin-top:24px">
+<h1 class="ad">Kubilay Kenan Işıklı</h1>
+<div class="imza">Kenan Hoca</div>
+</div>
+<p class="giris" style="text-align:center">İngilizce öğretmeni. YDS, e-YDS ve YÖKDİL'e hazırlananlar için çalışma araçları hazırlıyorum.</p>
+<section class="kart">
+<div class="uygulama"><img src="simge.png" alt="">
+<div><h2>Well-Done: YDS YÖKDİL</h2>
+<p>Kelime, gramer, okuma ve deneme tek yerde; her gün birkaç dakikalık düzenli çalışma. iPhone, iPad ve Mac için.</p>
+<div class="dugmeler"><a class="dugme ana" href="welldone/">Uygulama sayfası</a><a class="dugme ikinci" href="https://testflight.apple.com/join/DeztXAQJ">TestFlight ile dene</a></div>
+</div></div>
+</section>
+<div class="not" style="text-align:center">App Store'da yakında</div>
+<section class="kart"><h2>İletişim</h2>
+<p><a href="mailto:iletisim@kubilaykenan.com">iletisim@kubilaykenan.com</a></p></section>
+<footer>© 2026 Kubilay Kenan Işıklı</footer>
+</main>
+</body>
+</html>
