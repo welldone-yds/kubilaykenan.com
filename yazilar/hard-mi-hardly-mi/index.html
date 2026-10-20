@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hard mı, hardly mi? Bir harf, ters anlam · Kubilay Kenan Işıklı</title>
+<meta name="description" content="Hard &quot;çok, sıkı, çabayla&quot; demektir; hardly &quot;neredeyse hiç&quot;. Hardly zaten olumsuz olduğu için yanına not gelmez.">
+<link rel="canonical" href="https://kubilaykenan.com/yazilar/hard-mi-hardly-mi/">
+<link rel="icon" href="/simge.png">
+<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Hard mı, hardly mi? Bir harf, ters anlam"><meta property="og:description" content="Hard &quot;çok, sıkı, çabayla&quot; demektir; hardly &quot;neredeyse hiç&quot;. Hardly zaten olumsuz olduğu için yanına not gelmez.">
+<meta property="og:image" content="https://kubilaykenan.com/og.png?v=d6bca8a5"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Jost:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/ada-tokenler.css">
+<link rel="stylesheet" href="/ada-bilesenler.css">
+<style>
+@font-face { font-family: "Cormorant Garamond"; src: url(/fontlar/CormorantGaramond-Bold.ttf); font-weight: 700; }
+@font-face { font-family: "Dancing Script"; src: url(/fontlar/DancingScript-Bold.ttf); font-weight: 700; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+:root { color-scheme: light; --bg: #ffffff; --bant: #f3f4f1; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var(--font-sans); -webkit-text-size-adjust: 100%; }
+.sayfa { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+a { color: inherit; }
+/* üst çubuk */
+.ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0; }
+.marka { font: 800 20px/1 var(--font-display); color: var(--heading); text-decoration: none; position: relative; white-space: nowrap; }
+.marka::after { content: ""; position: absolute; left: 0; right: 30%; bottom: -7px; height: 5px; border-radius: 99px; background: var(--green); }
+.ust nav { display: flex; align-items: center; gap: 18px; font-weight: 600; font-size: 15px; }
+.ust nav a { color: var(--heading); text-decoration: none; }
+.ust nav a:hover { color: var(--green-dark); }
+.ust nav a.dil { border: 1.5px solid var(--line); border-radius: 99px; padding: 4px 10px; font-size: 13px; letter-spacing: .04em; }
+/* giriş */
+.kahraman { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items: center; padding: 36px 0 40px; }
+.kahraman h1 { font: 800 clamp(40px, 6.4vw, 66px)/1.02 var(--font-display); color: var(--heading); margin: 16px 0 6px; letter-spacing: -.01em; }
+.kahraman .lakap { font: 800 clamp(30px, 4.6vw, 46px)/1.1 var(--font-display); color: var(--green-dark); margin: 0 0 18px; }
+.kahraman p.alt { font-size: 18px; color: var(--muted); max-width: 30em; margin: 0 0 24px; }
+.dugmeler { display: flex; flex-wrap: wrap; gap: 10px; }
+.kapak { width: 100%; height: auto; display: block; }
+.kapak .navy { fill: var(--navy); } .kapak .pro { fill: var(--level-pro); } .kapak .ileri { fill: var(--level-ileri); }
+.kapak .temel { fill: var(--level-temel); } .kapak .yesil { fill: var(--green); } .kapak .kes rect { fill: var(--bg); }
+/* sınav sayacı */
+.sinav { display: grid; grid-template-columns: .9fr 1.1fr; gap: 0; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; margin: 0 0 56px; }
+.sinav[hidden] { display: none; }
+.sinav .sol { background: var(--navy); color: #fff; padding: 24px 26px; display: flex; flex-direction: column; justify-content: center; }
+.sinav .etiket { font: 700 13px/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--vurgu-acik); }
+.sinav .ad { font: 800 26px/1.15 var(--font-display); margin: 10px 0 2px; }
+.sinav .tarih { color: rgba(255, 255, 255, .78); font-size: 15px; }
+.sinav .sayac { display: flex; align-items: baseline; gap: 10px; margin-top: 14px; }
+.sinav .sayi { font: 800 64px/1 var(--font-display); color: var(--green); }
+.sinav .birim { font: 700 18px/1.2 var(--font-display); }
+.sinav .sag { padding: 22px 26px; background: #fff; }
+.sinav .sag h3 { font: 800 15px/1.2 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--green-dark); margin: 0 0 12px; }
+.sinav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.sinav li[hidden] { display: none; }
+.sinav li b { display: block; color: var(--heading); line-height: 1.3; }
+.sinav li span { color: var(--muted); font-size: 14px; }
+.sinav .not { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+.sinav .abone { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+/* günün kelimesi */
+.kelime { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; border: 1px solid var(--line); border-left: 6px solid var(--green);
+          border-radius: 22px; padding: 22px 26px; margin: 0 0 56px; background: #fff; }
+.sinav + .kelime { margin-top: -36px; }
+.kelime .etiket { font: 700 13px/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); }
+.kelime .k-satir { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 8px 0 6px; }
+.kelime .k-kelime { font: 800 38px/1.05 var(--font-display); color: var(--heading); }
+.kelime .k-dinle { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--line); background: #fff; color: var(--heading); display: grid; place-items: center; cursor: pointer; }
+.kelime .k-dinle:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.kelime .k-dinle svg { width: 18px; height: 18px; fill: currentColor; }
+.kelime .k-dinle[hidden] { display: none; }
+.kelime .k-anlam { font-size: 18px; color: var(--heading); font-weight: 600; margin: 0 0 6px; }
+.kelime .k-es { margin: 0; color: var(--muted); font-size: 15px; }
+.kelime .k-es span:first-child { font-weight: 700; color: var(--text); }
+.kelime .k-ornek { font-style: italic; font-size: 17px; margin: 0 0 6px; color: var(--heading); }
+.kelime .k-ceviri { margin: 0 0 14px; color: var(--muted); }
+.kelime .not { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+/* bant + bölüm başı */
+.bant { background: var(--bant); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 56px 0; }
+.bolum-bas { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+.bolum-bas h2 { font: 800 34px/1.15 var(--font-display); color: var(--heading); margin: 0; }
+.bolum-bas p { margin: 0; color: var(--muted); }
+/* Well-Done kartı */
+.wd { --wd-zemin: #FFF6F4; --wd-yumusak: #F9E4E7; --wd-vurgu: #A84660; --wd-metin: #2B1A1F; --wd-ikincil: #5F5A5C;
+      display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; background: var(--wd-zemin);
+      border-radius: 22px; padding: 24px; box-shadow: 0 10px 30px rgba(168, 70, 96, .12); color: var(--wd-metin); }
+.wd img { width: 92px; height: 92px; border-radius: 21px; box-shadow: 0 6px 16px rgba(168, 70, 96, .18); }
+.wd .imza { font: 700 26px/1 "Dancing Script", cursive; color: var(--wd-vurgu); }
+.wd h3 { font: 700 30px/1.15 "Cormorant Garamond", Georgia, serif; margin: 2px 0 8px; }
+.wd p { margin: 0 0 14px; color: var(--wd-ikincil); }
+.wd .cipler { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+.wd .cip { font: 700 12px/1 var(--font-sans); letter-spacing: .04em; padding: 6px 10px; border-radius: 99px; background: var(--wd-yumusak); color: var(--wd-vurgu); }
+.wd .dugme { display: inline-block; padding: 12px 18px; border-radius: 99px; font-weight: 700; font-size: 15px; text-decoration: none; }
+.wd .dugme.ana { background: var(--wd-vurgu); color: var(--wd-zemin); }
+.wd .dugme.ikinci { background: var(--wd-yumusak); color: var(--wd-vurgu); }
+/* hakkımda */
+.hakkimda { padding: 8px 0 60px; }
+.hk-izgara { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: start; }
+.hk-yazi p { margin: 0 0 14px; font-size: 17px; }
+.hk-yazi h3, .hk-yan h3 { font: 800 15px/1.2 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--green-dark); margin: 26px 0 12px; }
+.hk-yazi ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.hk-yazi li { position: relative; padding-left: 22px; }
+.hk-yazi li::before { content: ""; position: absolute; left: 0; top: .62em; width: 12px; height: 5px; border-radius: 99px; background: var(--green); }
+.hk-yazi .ada-btn { margin-top: 24px; }
+.cipler-ada { display: flex; flex-wrap: wrap; gap: 8px; }
+.zaman { list-style: none; margin: 0; padding: 0; }
+.zaman li { position: relative; padding: 0 0 18px 22px; border-left: 2px solid var(--line); margin-left: 6px; }
+.zaman li:last-child { padding-bottom: 0; border-left-color: transparent; }
+.zaman li::before { content: ""; position: absolute; left: -8px; top: 3px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--navy); }
+.zaman li.suruyor::before { border-color: var(--green); background: var(--green); }
+.zaman b { display: block; color: var(--heading); font-weight: 700; line-height: 1.3; }
+.zaman .yer { display: block; color: var(--text); font-size: 15px; }
+.zaman .tarih { display: block; color: var(--muted); font-size: 14px; }
+.hk-yan .ada-card { padding: 22px 22px 24px; }
+.hk-yan .ada-card + .ada-card { margin-top: 16px; }
+.hk-yan .ada-card h3:first-child { margin-top: 0; }
+.kisa { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.kisa b { display: block; color: var(--heading); line-height: 1.3; }
+.kisa span { color: var(--muted); font-size: 14px; }
+/* son videolar */
+.icerikler, .yazilar-bolum { padding: 0 0 60px; }
+.videolar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.video { display: flex; flex-direction: column; text-decoration: none; color: var(--text); border: 1px solid var(--line);
+         border-radius: 18px; overflow: hidden; background: #fff; transition: transform .15s, box-shadow .15s; }
+.video:hover, .video:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(23, 37, 91, .10); }
+.video img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bant); }
+.video .yazi { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; }
+.video .tur { font: 700 11px/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); }
+.video b { color: var(--heading); line-height: 1.3; font-size: 16px; }
+.video .tarih { color: var(--muted); font-size: 13px; }
+.icerikler .dugmeler { margin-top: 20px; }
+/* sosyal bağlantılar */
+.sosyal { display: flex; gap: 10px; margin-top: 18px; }
+.sosyal a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--line);
+            color: var(--heading); transition: background .15s, color .15s, border-color .15s; }
+.sosyal a:hover, .sosyal a:focus-visible { background: var(--navy); border-color: var(--navy); color: #fff; }
+.sosyal svg { width: 20px; height: 20px; fill: currentColor; }
+.ada-card--navy .sosyal { margin-top: 0; }
+.ada-card--navy .sosyal a { border-color: rgba(255, 255, 255, .28); color: #fff; }
+.ada-card--navy .sosyal a:hover, .ada-card--navy .sosyal a:focus-visible { background: var(--green); border-color: var(--green); color: var(--navy); }
+.iletisim-sag { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+/* iletişim */
+.iletisim { padding: 56px 0 24px; }
+.iletisim .ada-card--navy { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 24px 26px; }
+.iletisim .ada-h { font-size: 26px; }
+.iletisim p { margin: 4px 0 0; }
+footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
+@media (max-width: 860px) { .videolar { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 760px) {
+  .kahraman { grid-template-columns: 1fr; padding-top: 12px; gap: 8px; }
+  .kahraman .gorsel { order: -1; max-width: 360px; }
+  .ust nav { gap: 14px; font-size: 14px; }
+  .wd { grid-template-columns: 1fr; }
+  .hk-izgara { grid-template-columns: 1fr; gap: 26px; }
+  .wd img { width: 76px; height: 76px; border-radius: 17px; }
+  .sinav { grid-template-columns: 1fr; }
+  .kelime { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
+}
+@media (max-width: 520px) {
+  .ust nav a.dar-gizle { display: none; }   /* dar ekranda ad tek satır kalsın; içerikler/iletişim sayfada aşağıda */
+  .videolar { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .video b { font-size: 14px; }
+}
+</style>
+<style>
+.yazi-govde { max-width: 720px; padding: 8px 0 40px; }
+.yazi-govde h1 { font: 800 clamp(32px, 5vw, 46px)/1.1 var(--font-display); color: var(--heading); margin: 14px 0 8px; }
+.yazi-govde .bilgi { color: var(--muted); font-size: 15px; margin: 0 0 26px; }
+.yazi-govde h2 { font: 800 24px/1.2 var(--font-display); color: var(--heading); margin: 32px 0 10px; }
+.yazi-govde p, .yazi-govde li { font-size: 17.5px; line-height: 1.7; }
+.yazi-govde ul, .yazi-govde ol { padding-left: 22px; }
+.yazi-govde li { margin-bottom: 6px; }
+.yazi-govde a:not(.ada-btn) { color: var(--green-dark); }
+.taslak-serit { background: #fff3cd; border: 1px solid #f0d58a; color: #6e5a0e; border-radius: 12px; padding: 10px 14px; font-weight: 600; margin: 8px 0 0; }
+.yazi-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 760px; }
+.yazi-liste a { display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+.yazi-liste a:hover { border-color: var(--green); }
+.yazi-liste b { display: block; color: var(--heading); font: 800 20px/1.25 var(--font-display); }
+.yazi-liste span { color: var(--muted); font-size: 15px; }
+.yazi-son { border-top: 1px solid var(--line); margin-top: 34px; padding-top: 20px; }
+/* danışmanlık */
+.paketler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 6px 0 30px; }
+.paket { border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #fff; }
+.paket.vurgu { border-color: var(--green); box-shadow: 0 10px 28px rgba(216, 178, 41, .22); }
+.paket .fiyat { font: 800 34px/1 var(--font-display); color: var(--heading); }
+.paket .fiyat small { font: 600 13px/1.3 var(--font-sans); color: var(--muted); display: block; margin-top: 4px; }
+.paket h3 { font: 800 20px/1.2 var(--font-display); color: var(--heading); margin: 4px 0 0; }
+.paket p { margin: 0; color: var(--muted); }
+.paket ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.paket .ada-btn { margin-top: auto; align-self: flex-start; }
+.adimlar { counter-reset: a; list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.adimlar li { counter-increment: a; background: var(--bant); border-radius: 16px; padding: 18px; }
+.adimlar li::before { content: counter(a); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; margin-bottom: 8px; }
+.sss dt { font-weight: 700; color: var(--heading); margin-top: 14px; }
+.sss dd { margin: 4px 0 0; }
+.karar { background: #fff3cd; border-radius: 6px; padding: 0 4px; color: #6e5a0e; font-weight: 600; }
+.uyari { color: var(--muted); font-size: 14px; margin-top: 24px; }
+@media (max-width: 860px) { .paketler, .adimlar { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="sayfa">
+<header class="ust"><a class="marka" href="/">Kubilay Kenan</a>
+<nav><a href="/#hakkimda">Hakkımda</a><a href="/yazilar/">Yazılar</a><a class="dar-gizle" href="/#iletisim">İletişim</a></nav></header>
+
+<article class="yazi-govde">
+<span class="ada-chip">Yazı</span>
+<h1>Hard mı, hardly mi? Bir harf, ters anlam</h1>
+<p class="bilgi">20 Ekim 2026 · 1 dk okuma · Kubilay Kenan Işıklı (Kenan Hoca)</p>
+<p><em>Hard</em> ile <em>hardly</em> tek harf farkla birbirine benzer ama anlamları neredeyse zıttır. YDS&#x27;de hem anlam hem kullanım olarak sorulur.</p>
+<h2>Hard: çok, sıkı, çabayla</h2>
+<p><em>Hard</em> hem sıfat (zor) hem zarf (sıkı, çabayla) olabilir. Zarf hâli de <em>hard</em>&#x27;dır, <em>-ly</em> almaz.</p>
+<ul>
+<li><em>She worked hard.</em> (Çok çalıştı.)</li>
+<li><em>It was raining hard.</em> (Bastıran bir yağmur yağıyordu.)</li>
+</ul>
+<h2>Hardly: neredeyse hiç</h2>
+<ul>
+<li><em>She hardly worked.</em> (Neredeyse hiç çalışmadı.)</li>
+<li><em>I could hardly hear the speaker.</em></li>
+<li><em>There was hardly any time left.</em> (Neredeyse hiç zaman kalmamıştı.)</li>
+</ul>
+<p><em>Hardly</em> genellikle yardımcı fiilden sonra, esas fiilden önce gelir. Benzerleri: <em>scarcely</em>, <em>barely</em>.</p>
+<h2>Hardly zaten olumsuz</h2>
+<ul>
+<li>Yanlış: <em>I hardly didn&#x27;t sleep.</em></li>
+<li>Doğru: <em>I hardly slept.</em></li>
+</ul>
+<h2>Devrik yapıda hardly</h2>
+<p>Cümle başına geldiğinde yardımcı fiil öne geçer; YDS&#x27;de bu kalıp da sorulur:</p>
+<ul>
+<li><em>Hardly had we arrived when it started to rain.</em></li>
+</ul>
+<h2>Aynı tuzağın başka örnekleri</h2>
+<p>-ly eki anlamı değiştiren başka çiftler: <em>late</em> (geç) / <em>lately</em> (son zamanlarda), <em>near</em> (yakın) / <em>nearly</em> (neredeyse), <em>high</em> (yüksek) / <em>highly</em> (son derece).</p>
+<h2>Kendini dene</h2>
+<ol>
+<li>The room was so noisy that I could ---- hear the speaker.</li>
+<li>The team trained ---- for months before the final.</li>
+<li>There was ---- any food left after the party.</li>
+</ol>
+<p>Cevaplar: 1. hardly · 2. hard · 3. hardly</p>
+<p><a href="https://www.youtube.com/shorts/wIjwJ25lYbM">Videoyu izle: Hard mı, hardly mi?</a></p>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Hard mı, hardly mi? Bir harf, ters anlam", "description": "Hard \"çok, sıkı, çabayla\" demektir; hardly \"neredeyse hiç\". Hardly zaten olumsuz olduğu için yanına not gelmez.", "datePublished": "2026-10-20", "inLanguage": "tr", "author": {"@type": "Person", "name": "Kubilay Kenan Işıklı", "alternateName": "Kenan Hoca", "url": "https://kubilaykenan.com/"}, "mainEntityOfPage": "https://kubilaykenan.com/yazilar/hard-mi-hardly-mi/", "image": "https://kubilaykenan.com/og.png?v=d6bca8a5"}</script>
+<div class="yazi-son dugmeler"><a class="ada-btn" href="/welldone/">Well-Done ile çalış</a>
+<a class="ada-btn ada-btn--ghost" href="https://www.youtube.com/@kubilaykenan" target="_blank" rel="noopener">YouTube'daki videolar</a></div>
+</article>
+<footer>© 2026 Kubilay Kenan Işıklı</footer>
+</div>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
