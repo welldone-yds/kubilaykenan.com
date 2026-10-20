@@ -357,6 +357,14 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 </script>
 <script>
 (() => {
+  // tarayıcı seslendirmesi: ses seçilmezse Mac Chrome alfabetik ilk sesi (Albert, robotik) alıyordu → doğal ses seç
+  const sesSec = () => { const v = speechSynthesis.getVoices().filter(x => /^en[-_]/i.test(x.lang));
+    const IYI = ["Microsoft Aria Online", "Microsoft Jenny Online", "Microsoft Guy Online", "Ava", "Samantha", "Allison", "Susan", "Zoe",
+                 "Evan", "Nathan", "Tom", "Google US English", "Daniel", "Karen", "Moira", "Serena", "Google UK English Female"];
+    for (const ad of IYI) { const s = v.find(x => x.name.startsWith(ad) && /^en[-_]US/i.test(x.lang)) || v.find(x => x.name.startsWith(ad)); if (s) return s; }
+    const KOTU = /albert|bahh|bells|boing|bubbles|cellos|fred|jester|junior|kathy|ralph|superstar|trinoids|whisper|wobble|zarvox|organ|haber|news|grandma|grandpa|eddy|flo|reed|rocko|sandy|shelley/i;
+    return v.find(x => /^en[-_]US/i.test(x.lang) && !KOTU.test(x.name) && x.name !== "Org") || v.find(x => !KOTU.test(x.name) && x.name !== "Org") || null; };
+  speechSynthesis.getVoices();   // ses listesi erken yüklensin
   const k = document.getElementById("kelime"); if (!k) return;
   const L = JSON.parse(k.dataset.kelimeler), turler = JSON.parse(k.dataset.turler);
   const x = L[String(Math.floor(Date.now() / 864e5))];
@@ -372,7 +380,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
     d.addEventListener("click", () => {
       speechSynthesis.cancel();
       const kelime = k.querySelector("[data-k]").textContent, ornek = k.querySelector("[data-en]").textContent;
-      for (const m of [kelime, ornek]) { const u = new SpeechSynthesisUtterance(m); u.lang = "en-US"; u.rate = .9; speechSynthesis.speak(u); }
+      for (const m of [kelime, ornek]) { const u = new SpeechSynthesisUtterance(m); u.lang = "en-US"; const ses = sesSec(); if (ses) { u.voice = ses; u.lang = ses.lang; } u.rate = .9; speechSynthesis.speak(u); }
     });
   }
 })();
