@@ -87,7 +87,8 @@
 }
 :root {
   --navy: #3D091B; --heading: #3D091B; --on-navy: #FFFFFF; --on-navy-muted: #E8D3D8; --on-navy-faint: #D9BCC3;
-  --green: #D8B229; --green-hover: #C9A21C; --green-dark: #8A6A0E; --green-soft: #F7EFD2; --green-wash: #FBF6E6;
+  --green: #D8B229; --green-hover: #C9A21C; --green-dark: #7A5D0B; --green-soft: #F7EFD2; --green-wash: #FBF6E6;
   --green-line: #EBDDAA; --on-bright: #3D091B; --focus: rgba(216, 178, 41, .45); --vurgu-acik: #D8B229;
   --level-pro: #EFE2AB; --level-ileri: #E9B8C4; --level-temel: #5A1A2E;
+  --text: #3B3236; --muted: #6E6266; --line: #E7E0D8;   /* sıcak nötrler; soluk metin bej zeminde 5,2:1 (AA) */
 }

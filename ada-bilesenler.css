@@ -93,7 +93,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans
 .ada-score__rd span{font:600 14px/1.3 var(--font-sans);color:var(--muted)}
 .ada-score__rng{position:relative;margin-top:34px}
 .ada-score input[type=range]{-webkit-appearance:none;appearance:none;display:block;width:100%;height:14px;margin:0;border-radius:999px;outline:none;cursor:pointer;background:linear-gradient(90deg,var(--level-temel) 0 40%,var(--level-ileri) 40% 60%,var(--level-pro) 60% 100%)}
-.ada-score input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;border-radius:50%;background:#fff;border:4px solid var(--navy);box-shadow:0 6px 16px rgba(23,37,91,.25);cursor:grab}
+.ada-score input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;border-radius:50%;background:#fff;border:4px solid var(--navy);box-shadow:0 6px 16px rgba(61,9,27,.25);cursor:grab}
 .ada-score input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#fff;border:4px solid var(--navy);cursor:grab}
 .ada-score input[type=range]:focus-visible::-webkit-slider-thumb{outline:4px solid var(--focus)}
 .ada-score__bub{position:absolute;top:-34px;transform:translateX(-50%);background:var(--navy);color:var(--on-navy);font:800 14px/1 var(--font-sans);padding:7px 10px;border-radius:9px;white-space:nowrap;pointer-events:none}
