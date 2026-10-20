@@ -112,7 +112,7 @@ a { color: inherit; }
 .hk-yazi ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
 .hk-yazi li { position: relative; padding-left: 22px; }
 .hk-yazi li::before { content: ""; position: absolute; left: 0; top: .62em; width: 12px; height: 5px; border-radius: 99px; background: var(--green); }
-.hk-yazi .ada-btn { margin-top: 24px; }
+.hk-yazi .dugmeler { margin-top: 24px; }
 .cipler-ada { display: flex; flex-wrap: wrap; gap: 8px; }
 .zaman { list-style: none; margin: 0; padding: 0; }
 .zaman li { position: relative; padding: 0 0 18px 22px; border-left: 2px solid var(--line); margin-left: 6px; }
@@ -190,7 +190,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .yazi-liste span { color: var(--muted); font-size: 15px; }
 .yazi-son { border-top: 1px solid var(--line); margin-top: 34px; padding-top: 20px; }
 /* danışmanlık */
-.paketler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 6px 0 30px; }
+.paketler { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 6px 0 30px; max-width: 860px; }
 .paket { border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #fff; }
 .paket.vurgu { border-color: var(--green); box-shadow: 0 10px 28px rgba(216, 178, 41, .22); }
 .paket .fiyat { font: 800 34px/1 var(--font-display); color: var(--heading); }
@@ -212,7 +212,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 <body>
 <div class="sayfa">
 <header class="ust"><a class="marka" href="/">Kubilay Kenan</a>
-<nav><a href="#hakkimda">Hakkımda</a><a class="dar-gizle" href="#icerikler">İçerikler</a><a class="dar-gizle" href="/yazilar/">Yazılar</a><a href="#uygulamalar">Uygulamalar</a><a class="dar-gizle" href="#iletisim">İletişim</a><a class="dil" href="/en/" hreflang="en" lang="en" title="English">EN</a></nav></header>
+<nav><a href="#hakkimda">Hakkımda</a><a class="dar-gizle" href="#icerikler">İçerikler</a><a class="dar-gizle" href="/yazilar/">Yazılar</a><a class="dar-gizle" href="/danismanlik/">Danışmanlık</a><a href="#uygulamalar">Uygulamalar</a><a class="dar-gizle" href="#iletisim">İletişim</a><a class="dil" href="/en/" hreflang="en" lang="en" title="English">EN</a></nav></header>
 <section class="kahraman">
 <div>
 <span class="ada-chip">İngilizce öğretmeni</span>
@@ -260,7 +260,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 <ul><li>Bire bir görüşmelerle hedef puanı belirleyip haftalık çalışma planı kurmak</li><li>İlerlemeyi düzenli kayıtla takip edip gerektiğinde planı güncellemek</li><li>YDS ve YÖKDİL formatında kelime, gramer ve paragraf materyalleri hazırlamak</li><li>“Kenan Hoca” hesaplarında akademik İngilizce içerikleri üretmek</li></ul>
 <h3>Öne çıkanlar</h3>
 <div class="cipler-ada"><span class="ada-chip">Akademik İngilizce</span><span class="ada-chip">Sınav hazırlığı</span><span class="ada-chip">Ders planlaması</span><span class="ada-chip">Sınıf yönetimi</span><span class="ada-chip">Dil öğretimi</span><span class="ada-chip">Topluluk önünde konuşma</span><span class="ada-chip">Çeviri</span></div>
-<a class="ada-btn ada-btn--ghost" href="/ozgecmis.pdf" download>Özgeçmiş (PDF)</a>
+<div class="dugmeler"><a class="ada-btn ada-btn--ghost" href="/ozgecmis.pdf" download>Özgeçmiş (PDF)</a><a class="ada-btn" href="/danismanlik/">Bireysel çalışma programı</a></div>
 </div>
 <div class="hk-yan">
 <div class="ada-card">
