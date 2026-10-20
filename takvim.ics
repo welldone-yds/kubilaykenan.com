@@ -1,0 +1,392 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//kubilaykenan.com//Sinav Takvimi//TR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:YDS · e-YDS · YÖKDİL sınav takvimi (Kenan Hoca)
+X-WR-CALDESC:İngilizce YDS\, e-YDS ve YÖKDİL sınav\, başvuru ve sonuç
+  tarihleri.
+X-WR-TIMEZONE:Europe/Istanbul
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:e-yds-2026-1-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260124
+DTEND;VALUE=DATE:20260125
+SUMMARY:e-YDS 2026/1 İngilizce sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-1-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260107
+DTEND;VALUE=DATE:20260116
+SUMMARY:e-YDS 2026/1 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-2-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260214
+DTEND;VALUE=DATE:20260215
+SUMMARY:e-YDS 2026/2 İngilizce sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-2-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260128
+DTEND;VALUE=DATE:20260206
+SUMMARY:e-YDS 2026/2 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yokdi-l-1-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260308
+DTEND;VALUE=DATE:20260309
+SUMMARY:2026-YÖKDİL/1 sınavı
+DESCRIPTION:Saat: 10.15\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yokdi-l-1-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260121
+DTEND;VALUE=DATE:20260130
+SUMMARY:2026-YÖKDİL/1 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yokdi-l-1-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260204
+DTEND;VALUE=DATE:20260205
+SUMMARY:2026-YÖKDİL/1 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yokdi-l-1-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260318
+DTEND;VALUE=DATE:20260319
+SUMMARY:2026-YÖKDİL/1 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yds-1-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260405
+DTEND;VALUE=DATE:20260406
+SUMMARY:2026-YDS/1 sınavı
+DESCRIPTION:Saat: 10.15\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yds-1-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260218
+DTEND;VALUE=DATE:20260227
+SUMMARY:2026-YDS/1 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yds-1-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260304
+DTEND;VALUE=DATE:20260305
+SUMMARY:2026-YDS/1 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yds-1-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260428
+DTEND;VALUE=DATE:20260429
+SUMMARY:2026-YDS/1 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-4-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260502
+DTEND;VALUE=DATE:20260503
+SUMMARY:e-YDS 2026/4 İngilizce sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-4-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260414
+DTEND;VALUE=DATE:20260423
+SUMMARY:e-YDS 2026/4 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2026-1-i-ngilizce-sosyal-bilimler-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260516
+DTEND;VALUE=DATE:20260517
+SUMMARY:e-YÖKDİL 2026/1 İngilizce-Sosyal Bilimler sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2026-1-i-ngilizce-sosyal-bilimler-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260429
+DTEND;VALUE=DATE:20260508
+SUMMARY:e-YÖKDİL 2026/1 İngilizce-Sosyal Bilimler başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2026-2-i-ngilizce-saglik-bilimleri-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260517
+DTEND;VALUE=DATE:20260518
+SUMMARY:e-YÖKDİL 2026/2 İngilizce-Sağlık Bilimleri sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2026-2-i-ngilizce-saglik-bilimleri-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260429
+DTEND;VALUE=DATE:20260508
+SUMMARY:e-YÖKDİL 2026/2 İngilizce-Sağlık Bilimleri başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2026-3-i-ngilizce-fen-bilimleri-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260606
+DTEND;VALUE=DATE:20260607
+SUMMARY:e-YÖKDİL 2026/3 İngilizce-Fen Bilimleri sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2026-3-i-ngilizce-fen-bilimleri-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260429
+DTEND;VALUE=DATE:20260521
+SUMMARY:e-YÖKDİL 2026/3 İngilizce-Fen Bilimleri başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-6-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260627
+DTEND;VALUE=DATE:20260628
+SUMMARY:e-YDS 2026/6 İngilizce sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-6-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260610
+DTEND;VALUE=DATE:20260619
+SUMMARY:e-YDS 2026/6 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yokdi-l-2-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260809
+DTEND;VALUE=DATE:20260810
+SUMMARY:2026-YÖKDİL/2 sınavı
+DESCRIPTION:Saat: 10.15\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yokdi-l-2-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260616
+DTEND;VALUE=DATE:20260625
+SUMMARY:2026-YÖKDİL/2 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yokdi-l-2-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260630
+DTEND;VALUE=DATE:20260701
+SUMMARY:2026-YÖKDİL/2 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yokdi-l-2-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260820
+DTEND;VALUE=DATE:20260821
+SUMMARY:2026-YÖKDİL/2 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-9-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260822
+DTEND;VALUE=DATE:20260823
+SUMMARY:e-YDS 2026/9 İngilizce sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-9-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260805
+DTEND;VALUE=DATE:20260814
+SUMMARY:e-YDS 2026/9 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-10-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260926
+DTEND;VALUE=DATE:20260927
+SUMMARY:e-YDS 2026/10 İngilizce sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-10-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260909
+DTEND;VALUE=DATE:20260918
+SUMMARY:e-YDS 2026/10 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-11-farsca-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261017
+DTEND;VALUE=DATE:20261018
+SUMMARY:e-YDS 2026/11 Farsça/İngilizce sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-11-farsca-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261009
+SUMMARY:e-YDS 2026/11 Farsça/İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yds-2-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:2026-YDS/2 sınavı
+DESCRIPTION:Saat: 10.15\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yds-2-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260930
+DTEND;VALUE=DATE:20261009
+SUMMARY:2026-YDS/2 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yds-2-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+SUMMARY:2026-YDS/2 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-yds-2-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261210
+DTEND;VALUE=DATE:20261211
+SUMMARY:2026-YDS/2 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-12-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261219
+DTEND;VALUE=DATE:20261220
+SUMMARY:e-YDS 2026/12 İngilizce sınavı
+DESCRIPTION:Saat: 13.45\, 180 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2026-12-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261211
+SUMMARY:e-YDS 2026/12 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

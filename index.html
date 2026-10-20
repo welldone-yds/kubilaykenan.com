@@ -67,7 +67,8 @@ a { color: inherit; }
 .sinav li[hidden] { display: none; }
 .sinav li b { display: block; color: var(--heading); line-height: 1.3; }
 .sinav li span { color: var(--muted); font-size: 14px; }
-.sinav .not { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+.sinav .not { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+.sinav .abone { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 /* bant + bölüm başı */
 .bant { background: var(--bant); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 56px 0; }
 .bolum-bas { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
@@ -217,7 +218,10 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 <div class="sol"><span class="etiket">Sıradaki sınav</span>
 <div class="ad" data-ad>2026-YDS/2</div><div class="tarih" data-tarih>22 Kasım 2026, Pazar</div>
 <div class="sayac"><span class="sayi" data-sayi>33</span><span class="birim" data-birim>gün kaldı</span></div></div>
-<div class="sag"><h3>Yaklaşan İngilizce sınavları</h3><ul><li data-t="2026-12-19"><b>e-YDS 2026/12 İngilizce</b><span>19 Aralık 2026, Cumartesi · Başvuru: 02–10.12.2026</span></li></ul><p class="not">ÖSYM sınav takvimine göre; günleri tarayıcın hesaplar. Tüm takvim Well-Done uygulamasında.</p></div>
+<div class="sag"><h3>Yaklaşan İngilizce sınavları</h3><ul><li data-t="2026-12-19"><b>e-YDS 2026/12 İngilizce</b><span>19 Aralık 2026, Cumartesi · Başvuru: 02–10.12.2026</span></li></ul>
+<div class="abone"><a class="ada-btn ada-btn--navy" href="webcal://kubilaykenan.com/takvim.ics">Takvimime ekle</a>
+<a class="ada-btn ada-btn--ghost" href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkubilaykenan.com%2Ftakvim.ics" target="_blank" rel="noopener">Google Takvim</a></div>
+<p class="not">Bir kez abone ol: sınav ve başvuru tarihleri takvimine kendiliğinden düşer, değişirse güncellenir. ÖSYM sınav takvimine göre; günleri tarayıcın hesaplar. Tüm takvim Well-Done uygulamasında.</p></div>
 </section>
 <section class="hakkimda" id="hakkimda">
 <div class="bolum-bas"><h2>Hakkımda</h2></div>
