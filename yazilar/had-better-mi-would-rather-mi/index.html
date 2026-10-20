@@ -139,6 +139,8 @@ a { color: inherit; }
 .ada-card--navy .sosyal a { border-color: rgba(255, 255, 255, .28); color: #fff; }
 .ada-card--navy .sosyal a:hover, .ada-card--navy .sosyal a:focus-visible { background: var(--green); border-color: var(--green); color: var(--navy); }
 .iletisim-sag { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.ada-card--navy .ada-btn--wa { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .45); }
+.ada-card--navy .ada-btn--wa:hover { background: #fff; color: var(--navy); }
 /* iletişim */
 .iletisim { padding: 56px 0 24px; }
 .iletisim .ada-card--navy { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 24px 26px; }
@@ -158,6 +160,9 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 }
 @media (max-width: 520px) {
   .ust nav a.dar-gizle { display: none; }   /* dar ekranda ad tek satır kalsın; içerikler/iletişim sayfada aşağıda */
+  .sosyal { gap: 8px; flex-wrap: wrap; }
+  .sosyal a { width: 40px; height: 40px; }
+  .sosyal svg { width: 18px; height: 18px; }
   .videolar { grid-template-columns: 1fr 1fr; gap: 12px; }
   .video b { font-size: 14px; }
 }
