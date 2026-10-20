@@ -187,7 +187,8 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .paket h3 { font: 800 20px/1.2 var(--font-display); color: var(--heading); margin: 4px 0 0; }
 .paket p { margin: 0; color: var(--muted); }
 .paket ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
-.paket .ada-btn { margin-top: auto; align-self: flex-start; }
+.paket .ada-btn { align-self: flex-start; }
+.paket > .ada-btn, .paket .dugmeler { margin-top: auto; }
 .adimlar { counter-reset: a; list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .adimlar li { counter-increment: a; background: var(--bant); border-radius: 16px; padding: 18px; }
 .adimlar li::before { content: counter(a); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; margin-bottom: 8px; }
@@ -218,7 +219,8 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 <ul><li>Son deneme ya da sınav sonucun üzerinden seviye analizi</li><li>Hedef puan ve sınav tarihine göre kişisel çalışma planı (PDF)</li>
 <li>Her hafta görüşme, deneme analizi ve plan güncellemesi</li><li>Soru türlerine göre kaynak ve yöntem önerileri</li>
 <li>Görüşmeler arasında e-postayla soru</li></ul>
-<a class="ada-btn" href="mailto:iletisim@kubilaykenan.com?subject=Bireysel%20%C3%A7al%C4%B1%C5%9Fma%20program%C4%B1%3A%20ayl%C4%B1k%20takip&amp;body=Merhaba%20Kenan%20Hoca%2C%0A%0AHedef%20s%C4%B1nav%20%28YDS%20/%20e-YDS%20/%20Y%C3%96KD%C4%B0L%29%3A%0AS%C4%B1nav%20tarihi%3A%0ASon%20puan%C4%B1n%20ya%20da%20deneme%20netin%3A%0AHedef%20puan%C4%B1n%3A%0AUygun%20g%C3%BCn%20ve%20saatler%3A%0A">Takip iste</a></div>
+<div class="dugmeler"><a class="ada-btn" href="mailto:iletisim@kubilaykenan.com?subject=Bireysel%20%C3%A7al%C4%B1%C5%9Fma%20program%C4%B1%3A%20ayl%C4%B1k%20takip&amp;body=Merhaba%20Kenan%20Hoca%2C%0A%0AHedef%20s%C4%B1nav%20%28YDS%20/%20e-YDS%20/%20Y%C3%96KD%C4%B0L%29%3A%0AS%C4%B1nav%20tarihi%3A%0ASon%20puan%C4%B1n%20ya%20da%20deneme%20netin%3A%0AHedef%20puan%C4%B1n%3A%0AUygun%20g%C3%BCn%20ve%20saatler%3A%0A">Takip iste</a></div>
+</div>
 </div>
 <section class="hakkimda" style="padding-bottom:30px"><div class="bolum-bas"><h2>Nasıl işliyor?</h2></div>
 <ol class="adimlar"><li>E-posta düğmesine bas; hedef sınavını, tarihini ve son puanını yaz.</li>

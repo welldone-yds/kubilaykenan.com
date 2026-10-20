@@ -187,7 +187,8 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .paket h3 { font: 800 20px/1.2 var(--font-display); color: var(--heading); margin: 4px 0 0; }
 .paket p { margin: 0; color: var(--muted); }
 .paket ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
-.paket .ada-btn { margin-top: auto; align-self: flex-start; }
+.paket .ada-btn { align-self: flex-start; }
+.paket > .ada-btn, .paket .dugmeler { margin-top: auto; }
 .adimlar { counter-reset: a; list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .adimlar li { counter-increment: a; background: var(--bant); border-radius: 16px; padding: 18px; }
 .adimlar li::before { content: counter(a); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; margin-bottom: 8px; }
