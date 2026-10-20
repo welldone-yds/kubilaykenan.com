@@ -111,7 +111,7 @@ a { color: inherit; }
 .kisa b { display: block; color: var(--heading); line-height: 1.3; }
 .kisa span { color: var(--muted); font-size: 14px; }
 /* son videolar */
-.icerikler { padding: 0 0 60px; }
+.icerikler, .yazilar-bolum { padding: 0 0 60px; }
 .videolar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .video { display: flex; flex-direction: column; text-decoration: none; color: var(--text); border: 1px solid var(--line);
          border-radius: 18px; overflow: hidden; background: #fff; transition: transform .15s, box-shadow .15s; }
@@ -154,11 +154,46 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
   .video b { font-size: 14px; }
 }
 </style>
+<style>
+.yazi-govde { max-width: 720px; padding: 8px 0 40px; }
+.yazi-govde h1 { font: 800 clamp(32px, 5vw, 46px)/1.1 var(--font-display); color: var(--heading); margin: 14px 0 8px; }
+.yazi-govde .bilgi { color: var(--muted); font-size: 15px; margin: 0 0 26px; }
+.yazi-govde h2 { font: 800 24px/1.2 var(--font-display); color: var(--heading); margin: 32px 0 10px; }
+.yazi-govde p, .yazi-govde li { font-size: 17.5px; line-height: 1.7; }
+.yazi-govde ul, .yazi-govde ol { padding-left: 22px; }
+.yazi-govde li { margin-bottom: 6px; }
+.yazi-govde a { color: var(--green-dark); }
+.taslak-serit { background: #fff3cd; border: 1px solid #f0d58a; color: #6e5a0e; border-radius: 12px; padding: 10px 14px; font-weight: 600; margin: 8px 0 0; }
+.yazi-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 760px; }
+.yazi-liste a { display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+.yazi-liste a:hover { border-color: var(--green); }
+.yazi-liste b { display: block; color: var(--heading); font: 800 20px/1.25 var(--font-display); }
+.yazi-liste span { color: var(--muted); font-size: 15px; }
+.yazi-son { border-top: 1px solid var(--line); margin-top: 34px; padding-top: 20px; }
+/* danışmanlık */
+.paketler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 6px 0 30px; }
+.paket { border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #fff; }
+.paket.vurgu { border-color: var(--green); box-shadow: 0 10px 28px rgba(142, 199, 70, .18); }
+.paket .fiyat { font: 800 34px/1 var(--font-display); color: var(--heading); }
+.paket .fiyat small { font: 600 13px/1.3 var(--font-sans); color: var(--muted); display: block; margin-top: 4px; }
+.paket h3 { font: 800 20px/1.2 var(--font-display); color: var(--heading); margin: 4px 0 0; }
+.paket p { margin: 0; color: var(--muted); }
+.paket ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.paket .ada-btn { margin-top: auto; align-self: flex-start; }
+.adimlar { counter-reset: a; list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.adimlar li { counter-increment: a; background: var(--bant); border-radius: 16px; padding: 18px; }
+.adimlar li::before { content: counter(a); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; margin-bottom: 8px; }
+.sss dt { font-weight: 700; color: var(--heading); margin-top: 14px; }
+.sss dd { margin: 4px 0 0; }
+.karar { background: #fff3cd; border-radius: 6px; padding: 0 4px; color: #6e5a0e; font-weight: 600; }
+.uyari { color: var(--muted); font-size: 14px; margin-top: 24px; }
+@media (max-width: 860px) { .paketler, .adimlar { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 <div class="sayfa">
 <header class="ust"><a class="marka" href="/">Kubilay Kenan</a>
-<nav><a href="#hakkimda">Hakkımda</a><a class="dar-gizle" href="#icerikler">İçerikler</a><a href="#uygulamalar">Uygulamalar</a><a class="dar-gizle" href="#iletisim">İletişim</a><a class="dil" href="/en/" hreflang="en" lang="en" title="English">EN</a></nav></header>
+<nav><a href="#hakkimda">Hakkımda</a><a class="dar-gizle" href="#icerikler">İçerikler</a><a class="dar-gizle" href="/yazilar/">Yazılar</a><a href="#uygulamalar">Uygulamalar</a><a class="dar-gizle" href="#iletisim">İletişim</a><a class="dil" href="/en/" hreflang="en" lang="en" title="English">EN</a></nav></header>
 <section class="kahraman">
 <div>
 <span class="ada-chip">İngilizce öğretmeni</span>
@@ -216,6 +251,11 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 <div class="videolar"><a class="video" href="https://www.youtube.com/shorts/as5HfnhiwHo" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/as5HfnhiwHo/hq720.jpg" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/as5HfnhiwHo/hqdefault.jpg'"><span class="yazi"><span class="tur">YDS gramer</span><b>However mı, although mu?</b><span class="tarih">18 Ekim 2026</span></span></a><a class="video" href="https://www.youtube.com/shorts/bEqT2iWBIn4" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/bEqT2iWBIn4/hq720.jpg" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/bEqT2iWBIn4/hqdefault.jpg'"><span class="yazi"><span class="tur">YDS kelime</span><b>Crucial: ÖSYM&#x27;nin sevdiği kelimeler #8</b><span class="tarih">18 Ekim 2026</span></span></a><a class="video" href="https://www.youtube.com/shorts/Qeki5jYFVu4" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/Qeki5jYFVu4/hq720.jpg" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Qeki5jYFVu4/hqdefault.jpg'"><span class="yazi"><span class="tur">YDS bağlaç</span><b>When, following, afterwards: zaman bağlaçlarında üç kalıp</b><span class="tarih">17 Ekim 2026</span></span></a><a class="video" href="https://www.youtube.com/shorts/vZS-x4MrIiE" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/vZS-x4MrIiE/hq720.jpg" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/vZS-x4MrIiE/hqdefault.jpg'"><span class="yazi"><span class="tur">YDS kelime</span><b>Turn down: ÖSYM&#x27;nin sevdiği kelimeler #7</b><span class="tarih">17 Ekim 2026</span></span></a><a class="video" href="https://www.youtube.com/shorts/WX__QoNtWr8" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/WX__QoNtWr8/hq720.jpg" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/WX__QoNtWr8/hqdefault.jpg'"><span class="yazi"><span class="tur">YDS gramer</span><b>Too mu, enough mı?</b><span class="tarih">16 Ekim 2026</span></span></a><a class="video" href="https://www.youtube.com/shorts/oK1e2Ry3l7M" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/oK1e2Ry3l7M/hq720.jpg" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/oK1e2Ry3l7M/hqdefault.jpg'"><span class="yazi"><span class="tur">YDS kelime</span><b>Bring about: ÖSYM&#x27;nin sevdiği kelimeler #6</b><span class="tarih">16 Ekim 2026</span></span></a></div>
 <div class="dugmeler"><a class="ada-btn ada-btn--navy" href="https://www.youtube.com/@kubilaykenan" target="_blank" rel="noopener">YouTube'da tümü</a>
 <a class="ada-btn ada-btn--ghost" href="https://www.instagram.com/_kenanhoca/" target="_blank" rel="noopener">Instagram</a></div>
+</section>
+<section class="yazilar-bolum" id="yazilar">
+<div class="bolum-bas"><h2>Yazılar</h2><p>YDS, e-YDS ve YÖKDİL için kısa çalışma rehberleri</p></div>
+<ul class="yazi-liste" style="max-width:none;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))"><li><a href="/yazilar/yds-4-haftalik-plan/"><b>Sınava 4 hafta kala YDS çalışma planı</b><span>Son dört haftayı yeni konu öğrenmekten çok eksik kapatmaya ve süre yönetimine ayır. Haftalara bölünmüş, uygulanabilir bir plan.</span></a></li><li><a href="/yazilar/yds-baglac-sorulari/"><b>YDS&#x27;de bağlaç soruları: aynı anlam, farklı kalıp</b><span>Şıklarda aynı anlamı taşıyan iki bağlaç varsa doğru olanı boşluktan sonra gelen yapı belirler. Anlamı bul, sonra kalıba bak.</span></a></li></ul>
+<div class="dugmeler" style="margin-top:18px"><a class="ada-btn ada-btn--ghost" href="/yazilar/">Tüm yazılar</a></div>
 </section>
 </div>
 
