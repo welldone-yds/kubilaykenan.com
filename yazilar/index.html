@@ -58,6 +58,23 @@ a { color: inherit; }
 .sinav li span { color: var(--muted); font-size: 14px; }
 .sinav .not { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
 .sinav .abone { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+/* günün kelimesi */
+.kelime { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; border: 1px solid var(--line); border-left: 6px solid var(--green);
+          border-radius: 22px; padding: 22px 26px; margin: 0 0 56px; background: #fff; }
+.sinav + .kelime { margin-top: -36px; }
+.kelime .etiket { font: 700 13px/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); }
+.kelime .k-satir { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 8px 0 6px; }
+.kelime .k-kelime { font: 800 38px/1.05 var(--font-display); color: var(--heading); }
+.kelime .k-dinle { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--line); background: #fff; color: var(--heading); display: grid; place-items: center; cursor: pointer; }
+.kelime .k-dinle:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.kelime .k-dinle svg { width: 18px; height: 18px; fill: currentColor; }
+.kelime .k-dinle[hidden] { display: none; }
+.kelime .k-anlam { font-size: 18px; color: var(--heading); font-weight: 600; margin: 0 0 6px; }
+.kelime .k-es { margin: 0; color: var(--muted); font-size: 15px; }
+.kelime .k-es span:first-child { font-weight: 700; color: var(--text); }
+.kelime .k-ornek { font-style: italic; font-size: 17px; margin: 0 0 6px; color: var(--heading); }
+.kelime .k-ceviri { margin: 0 0 14px; color: var(--muted); }
+.kelime .not { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
 /* bant + bölüm başı */
 .bant { background: var(--bant); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 56px 0; }
 .bolum-bas { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
@@ -137,6 +154,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
   .hk-izgara { grid-template-columns: 1fr; gap: 26px; }
   .wd img { width: 76px; height: 76px; border-radius: 17px; }
   .sinav { grid-template-columns: 1fr; }
+  .kelime { grid-template-columns: 1fr; gap: 10px; padding: 20px; }
 }
 @media (max-width: 520px) {
   .ust nav a.dar-gizle { display: none; }   /* dar ekranda ad tek satır kalsın; içerikler/iletişim sayfada aşağıda */
@@ -152,7 +170,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .yazi-govde p, .yazi-govde li { font-size: 17.5px; line-height: 1.7; }
 .yazi-govde ul, .yazi-govde ol { padding-left: 22px; }
 .yazi-govde li { margin-bottom: 6px; }
-.yazi-govde a { color: var(--green-dark); }
+.yazi-govde a:not(.ada-btn) { color: var(--green-dark); }
 .taslak-serit { background: #fff3cd; border: 1px solid #f0d58a; color: #6e5a0e; border-radius: 12px; padding: 10px 14px; font-weight: 600; margin: 8px 0 0; }
 .yazi-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 760px; }
 .yazi-liste a { display: block; text-decoration: none; border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
