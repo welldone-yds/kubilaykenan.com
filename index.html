@@ -87,6 +87,16 @@ a { color: inherit; }
 .kisa { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .kisa b { display: block; color: var(--heading); line-height: 1.3; }
 .kisa span { color: var(--muted); font-size: 14px; }
+/* sosyal bağlantılar */
+.sosyal { display: flex; gap: 10px; margin-top: 18px; }
+.sosyal a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--line);
+            color: var(--heading); transition: background .15s, color .15s, border-color .15s; }
+.sosyal a:hover, .sosyal a:focus-visible { background: var(--navy); border-color: var(--navy); color: #fff; }
+.sosyal svg { width: 20px; height: 20px; fill: currentColor; }
+.ada-card--navy .sosyal { margin-top: 0; }
+.ada-card--navy .sosyal a { border-color: rgba(255, 255, 255, .28); color: #fff; }
+.ada-card--navy .sosyal a:hover, .ada-card--navy .sosyal a:focus-visible { background: var(--green); border-color: var(--green); color: var(--navy); }
+.iletisim-sag { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 /* iletişim */
 .iletisim { padding: 56px 0 24px; }
 .iletisim .ada-card--navy { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 24px 26px; }
@@ -117,6 +127,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 <p class="lakap">Kenan Hoca</p>
 <p class="alt">YDS, e-YDS ve YÖKDİL'e hazırlananlar için ders veriyor, çalışma araçları hazırlıyorum.</p>
 <div class="dugmeler"><a class="ada-btn ada-btn--lg" href="#uygulamalar">Uygulamalar</a><a class="ada-btn ada-btn--ghost ada-btn--lg" href="#hakkimda">Hakkımda</a></div>
+<div class="sosyal"><a href="https://www.linkedin.com/in/kubilaykenan/" rel="me noopener" target="_blank" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a><a href="https://www.instagram.com/_kenanhoca/" rel="me noopener" target="_blank" aria-label="Instagram · @_kenanhoca" title="Instagram · @_kenanhoca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3"/></svg></a><a href="https://www.youtube.com/@kubilaykenan" rel="me noopener" target="_blank" aria-label="YouTube · Kubilay Kenan" title="YouTube · Kubilay Kenan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://www.facebook.com/kubilaykenanhoca" rel="me noopener" target="_blank" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 22v-8.6h2.9l.45-3.4H13.6V7.85c0-.98.28-1.65 1.68-1.65h1.8V3.16A24 24 0 0 0 14.46 3c-2.6 0-4.38 1.59-4.38 4.5V10H7.14v3.4h2.94V22z"/></svg></a><a href="https://x.com/yvl00kk" rel="me noopener" target="_blank" aria-label="X (Twitter) · @yvl00kk" title="X (Twitter) · @yvl00kk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93zm-1.29 19.5h2.04L6.48 3.24H4.3z"/></svg></a></div>
 </div>
 <div class="gorsel"><svg class="kapak" viewBox="0 0 420 330" role="img" aria-label="">
   <rect class="navy" x="40" y="0" width="176" height="250" rx="18"/>
@@ -176,7 +187,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 <section class="iletisim" id="iletisim">
 <div class="ada-card ada-card--navy">
 <div><h2 class="ada-h">İletişim</h2><p>Görüş, öneri ve iş birliği için</p></div>
-<a class="ada-btn" href="mailto:iletisim@kubilaykenan.com">iletisim@kubilaykenan.com</a>
+<div class="iletisim-sag"><a class="ada-btn" href="mailto:iletisim@kubilaykenan.com">iletisim@kubilaykenan.com</a><div class="sosyal"><a href="https://www.linkedin.com/in/kubilaykenan/" rel="me noopener" target="_blank" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a><a href="https://www.instagram.com/_kenanhoca/" rel="me noopener" target="_blank" aria-label="Instagram · @_kenanhoca" title="Instagram · @_kenanhoca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3"/></svg></a><a href="https://www.youtube.com/@kubilaykenan" rel="me noopener" target="_blank" aria-label="YouTube · Kubilay Kenan" title="YouTube · Kubilay Kenan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://www.facebook.com/kubilaykenanhoca" rel="me noopener" target="_blank" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 22v-8.6h2.9l.45-3.4H13.6V7.85c0-.98.28-1.65 1.68-1.65h1.8V3.16A24 24 0 0 0 14.46 3c-2.6 0-4.38 1.59-4.38 4.5V10H7.14v3.4h2.94V22z"/></svg></a><a href="https://x.com/yvl00kk" rel="me noopener" target="_blank" aria-label="X (Twitter) · @yvl00kk" title="X (Twitter) · @yvl00kk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93zm-1.29 19.5h2.04L6.48 3.24H4.3z"/></svg></a></div></div>
 </div>
 </section>
 <footer>© 2026 Kubilay Kenan Işıklı</footer>
