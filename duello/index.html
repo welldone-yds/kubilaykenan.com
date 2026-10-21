@@ -10,7 +10,7 @@
 <link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="Kelime Düellosu"><meta property="og:description" content="YDS kelimeleriyle 60 saniyelik düello: 10 kelime, eş anlamlısını ya da Türkçe anlamını rakibinden önce bul. Ücretsiz, kayıt yok.">
-<meta property="og:image" content="https://kubilaykenan.com/og.png?v=d6bca8a5"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://kubilaykenan.com/og/duello.png?v=55253f89"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
@@ -118,6 +118,12 @@
   .du-skor { padding: 12px; } .du-skor .p { font-size: 24px; } .du-skor .du-av { display: none; }
   .du-soru { padding: 18px 0 14px; }
 }
+/* sonuç görseli (sonuc-kart.js): küçük önizleme + paylaş/indir */
+.sonuc-gorsel { display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #F1DCE1; border-radius: 18px; padding: 14px; margin: 0 0 18px; }
+.sonuc-gorsel img { width: 92px; aspect-ratio: 9 / 16; border-radius: 12px; object-fit: cover; background: #3D091B; flex: none; box-shadow: 0 8px 18px rgba(31, 3, 12, .2); }
+.sonuc-gorsel b { display: block; color: #2B1A1F; font-size: 17px; } .sonuc-gorsel span { display: block; color: var(--muted); font-size: 14px; margin: 2px 0 10px; }
+.sonuc-gorsel .du-dug { padding: 12px 16px; font-size: 14px; }
+[data-sonuc-paylas][hidden] { display: none; }
 </style>
 </head>
 <body>
@@ -220,6 +226,8 @@
 <div class="balon"><b>Well-Done</b><span></span></div></div>
 <h2></h2><p class="ozet"></p>
 <div class="tablo"><div><b data-s-ben>0</b><span>puan</span></div><div><b data-s-dogru>0/10</b><span data-s-rekor>doğru</span></div></div>
+<div class="sonuc-gorsel"><img data-sonuc-onizle alt="Sonuç görseli önizlemesi" width="92" height="164"><div><b>Sonucunu hikâyende paylaş</b><span>Hazır görsel, 1080×1920</span>
+<div class="du-dugmeler"><button type="button" class="du-dug" data-sonuc-paylas hidden>Görseli paylaş</button><button type="button" class="du-dug ikinci" data-sonuc-indir>Görseli indir</button></div></div></div>
 <p class="du-tekrar-bas" style="font-weight:700;margin:0 0 8px;color:var(--heading)">Tekrar etmen gereken kelimeler</p><ul class="du-tekrar"></ul>
 <p style="margin:-8px 0 16px"><button type="button" class="yildiz-dug" data-hepsi-deftere hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Yanlışların hepsini deftere ekle</button> <a href="/defter/" style="font-size:14px;color:#A84660;font-weight:700">Defterime git</a></p>
 <div class="du-dugmeler"><button type="button" class="du-dug" data-tekrar>Rövanş</button><button type="button" class="du-dug ikinci" data-rakip-degis>Rakibi değiştir</button>
@@ -233,6 +241,76 @@
 <footer>© 2026 Kubilay Kenan Işıklı</footer>
 </div>
 <script>
+// Sonuç görseli (21.10.2026): düello ve seviye testi sonucunu 1080×1920 hikâye kartına çizer; indir ya da telefonda paylaş.
+// window.KKSonuc.hazirla({ cip, ust, buyuk, alt, satirlar: [[ad, oran 0–1, yazi]…], balon, adres, dosya }) → kartı çizer, düğmeleri bağlar.
+// Maskot sayfadaki ilk .maskot SVG'sinden resme çevrilir. Yazı tipleri sitenin (Jost, Inter).
+(() => {
+  const W = 1080, H = 1920;
+  let veri = null, maskot = null;
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const c = cv.getContext("2d");
+  const svg = document.querySelector(".maskot");
+  if (svg) { const im = new Image(); im.onload = () => { maskot = im; if (veri) ciz(); };
+    im.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg).replace("<svg", '<svg width="512" height="460"')); }
+  const kutu = (x, y, w, h, r) => { c.beginPath(); c.roundRect(x, y, w, h, r); };
+  const satirla = (m, en) => { const k = m.split(" "), s = []; let o = ""; for (const w of k) { const d = o ? o + " " + w : w; if (c.measureText(d).width > en && o) { s.push(o); o = w; } else o = d; } if (o) s.push(o); return s; };
+  const sigdir = (m, en, boy, ag, aile) => { let b = boy; do { c.font = `${ag} ${b}px ${aile}`; b -= 4; } while (c.measureText(m).width > en && b > 24); };
+
+  const ciz = () => {
+    const v = veri;
+    const g = c.createRadialGradient(W * .25, H * .1, 40, W * .5, H * .55, H * .95);
+    g.addColorStop(0, "#7A2441"); g.addColorStop(.55, "#3D091B"); g.addColorStop(1, "#1F030C");
+    c.fillStyle = g; c.fillRect(0, 0, W, H);
+    c.strokeStyle = "#D8B229"; c.globalAlpha = .18; c.lineWidth = 3; c.setLineDash([4, 22]);
+    c.beginPath(); c.arc(W * .85, H * .16, 300, 0, Math.PI * 2); c.stroke(); c.setLineDash([]); c.globalAlpha = 1;
+    c.textAlign = "left";
+    // çip
+    c.font = "800 42px Jost, sans-serif"; const cw = c.measureText(v.cip).width + 64;
+    c.fillStyle = "#D8B229"; kutu(90, 230, cw, 82, 41); c.fill(); c.fillStyle = "#3D091B"; c.fillText(v.cip, 122, 286);
+    // üst satır + büyük değer + alt satır
+    c.fillStyle = "rgba(255,255,255,.75)"; c.font = "700 60px Jost, sans-serif"; c.fillText(v.ust, 90, 420);
+    sigdir(v.buyuk, W - 180, 260, 800, "Jost, sans-serif"); c.fillStyle = "#FFFFFF"; c.fillText(v.buyuk, 84, 660);
+    c.fillStyle = "#D8B229"; c.font = "800 72px Jost, sans-serif";
+    let y = 770; for (const s of satirla(v.alt, W - 180)) { c.fillText(s, 90, y); y += 84; }
+    // satırlar (çubuklu)
+    y += 30;
+    for (const [ad, oran, yazi] of v.satirlar || []) {
+      c.fillStyle = "rgba(255,255,255,.85)"; c.font = "600 40px Inter, sans-serif"; c.fillText(ad, 90, y);
+      c.textAlign = "right"; c.fillStyle = "#FFFFFF"; c.font = "800 40px Jost, sans-serif"; c.fillText(yazi, W - 90, y); c.textAlign = "left";
+      c.fillStyle = "rgba(255,255,255,.16)"; kutu(90, y + 22, W - 180, 16, 8); c.fill();
+      if (oran > 0) { c.fillStyle = "#D8B229"; kutu(90, y + 22, Math.max(16, (W - 180) * Math.min(1, oran)), 16, 8); c.fill(); }
+      y += 108;
+    }
+    // maskot + balon
+    const alt = H - 150, mh = 260, mw = mh * 256 / 230, my = alt - 60 - mh;
+    if (maskot && my > y) {
+      c.drawImage(maskot, 70, my, mw, mh);
+      c.font = "700 40px Inter, sans-serif";
+      const bx = 70 + mw + 10, bw = Math.min(W - bx - 70, c.measureText(v.balon).width + 60), sat = satirla(v.balon, bw - 60), bh = 40 + sat.length * 52, by = my + 40;
+      c.fillStyle = "#FFFFFF"; kutu(bx, by, bw, bh, 30); c.fill();
+      c.beginPath(); c.moveTo(bx + 4, by + 40); c.lineTo(bx - 22, by + 58); c.lineTo(bx + 4, by + 70); c.fill();
+      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + i * 52));
+    }
+    // alt bilgi
+    c.fillStyle = "#D8B229"; kutu(90, alt + 6, 64, 10, 5); c.fill();
+    c.fillStyle = "#FFFFFF"; c.font = "800 44px Jost, sans-serif"; c.fillText("Kenan Hoca", 90, alt + 72);
+    c.fillStyle = "rgba(255,255,255,.72)"; c.font = "600 34px Inter, sans-serif"; c.textAlign = "right"; c.fillText(v.adres, W - 90, alt + 70); c.textAlign = "left";
+    const on = document.querySelector("[data-sonuc-onizle]");
+    if (on) on.src = cv.toDataURL("image/png");
+  };
+
+  const dosya = () => new Promise(r => cv.toBlob(b => r(new File([b], veri.dosya, { type: "image/png" })), "image/png"));
+  const indir = async () => { const f = await dosya(), a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+  const paylasabilir = !!(navigator.canShare && navigator.canShare({ files: [new File([""], "a.png", { type: "image/png" })] }));
+  document.querySelectorAll("[data-sonuc-paylas]").forEach(b => { b.hidden = !paylasabilir;
+    b.addEventListener("click", async () => { try { await navigator.share({ files: [await dosya()], text: veri.adres }); } catch (e) { if (e.name !== "AbortError") indir(); } }); });
+  document.querySelectorAll("[data-sonuc-indir]").forEach(b => b.addEventListener("click", indir));
+
+  window.KKSonuc = {
+    hazirla: v => { veri = v; Promise.all(["800 100px Jost", "700 50px Inter", "600 40px Inter"].map(f => document.fonts.load(f))).then(ciz, ciz); },
+  };
+})();
+</script><script>
 // Mini kelime düellosu: Well-Done'daki bot düellosunun web sürümü (BotDuellosu.swift kuralları).
 // 10 kelime, kelime başı 10 sn; doğru = 10 puan + hız bonusu (kalan sürenin oranı × 10). Rakip seviyeleri uygulamadakiyle aynı.
 // Soru türleri: eş anlamlısı (İngilizce), Türkçe anlamı, İngilizcesi (Türkçeden). Veri: /duello/veri.json (duello.csv'den).
@@ -297,7 +375,10 @@
       if (f.length >= 4) havuz = f; else not = "Defterinde düello kelimesi az, karışık oynuyoruz. ";
     }
     TUR_SAY = Math.min(10, havuz.length);
-    turlar = sec(havuz, TUR_SAY).map((x, i) => {
+    // /duello/?k=abandon: sözlükteki kelime sayfasından gelindiyse o kelime ilk soru olur
+    const istek = (new URLSearchParams(location.search).get("k") || "").toLocaleLowerCase("en"), ilk = havuz.find(x => x.k.toLocaleLowerCase("en") === istek);
+    const secilen = ilk ? [ilk, ...sec(havuz.filter(x => x !== ilk), TUR_SAY - 1)] : sec(havuz, TUR_SAY);
+    turlar = secilen.map((x, i) => {
       const s = soruKur(x, ["es", "tr", "en"][i % 3], L);
       const secenek = karistir([s.dogru, ...s.yanlis]);
       const R = RAKIP[rakip], dogruMu = Math.random() < R.dog;
@@ -379,7 +460,8 @@
     yanlis.forEach(s => { const li = document.createElement("li");
       li.innerHTML = `<b lang="en"></b> <span>(${TUR[s.x.t] || s.x.t})</span> · <span class="d"></span> <button type="button" class="yildiz-dug" style="float:right"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span data-e>Deftere ekle</span></button>`;
       li.querySelector(".yildiz-dug").dataset.defter = JSON.stringify(kayit(s.x));
-      li.querySelector("b").textContent = s.x.k; li.querySelector(".d").textContent = s.x.tr + " · " + s.x.es.slice(0, 3).join(", ");
+      li.querySelector("b").textContent = s.x.k;
+      if (s.x.id) { const a = document.createElement("a"); a.href = "/sozluk/" + s.x.id + "/"; a.textContent = s.x.k; a.lang = "en"; li.querySelector("b").replaceChildren(a); } li.querySelector(".d").textContent = s.x.tr + " · " + s.x.es.slice(0, 3).join(", ");
       $(".du-tekrar").appendChild(li); });
     $(".du-tekrar-bas").hidden = !yanlis.length;
     const hepsi = $("[data-hepsi-deftere]"); hepsi.hidden = !yanlis.length || !window.KKDefter;
@@ -390,6 +472,12 @@
     const metin = `Kelime düellosunda ${R.ad} karşısında ${ben} puan aldım (${dogru}/${TUR_SAY} doğru). Sen kaç yaparsın? https://kubilaykenan.com/duello/`;
     $("[data-paylas]").href = "https://wa.me/?text=" + encodeURIComponent(metin);
     if (seri && seri.n) $(".du-son .ozet").textContent += ` · Serin: ${seri.n} gün`;
+    if (window.KKSonuc) window.KKSonuc.hazirla({
+      cip: "Kelime düellosu", ust: ben > o ? `${R.bel} yendim!` : ben < o ? `${R.ad} karşısında` : `${R.ad} ile berabere`,
+      buyuk: `${ben} – ${o}`, alt: ben >= o ? `${dogru}/${TUR_SAY} doğru` : "Rövanşa hazırım!",
+      satirlar: [["Doğru", dogru / TUR_SAY, `${dogru}/${TUR_SAY}`], ["Rakip", { cirak: .25, kalfa: .5, usta: .75, hoca: 1 }[rakip], R.ad]]
+        .concat(seri && seri.n ? [["Seri", Math.min(1, seri.n / 7), `${seri.n} gün`]] : []),
+      balon: ben > o ? "Sen de dene, beni geç!" : "Sen kaç yaparsın?", adres: "kubilaykenan.com/duello", dosya: `duello-${ben}-puan.png` });
   };
 
   $("[data-basla]").addEventListener("click", basla);

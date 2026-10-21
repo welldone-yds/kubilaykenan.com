@@ -10,7 +10,7 @@
 <link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="Seviye Testi"><meta property="og:description" content="10 soruluk ücretsiz YDS seviye testi: tahmini puan aralığın, bölüm karnen ve her sorunun açıklaması. Kayıt yok, yaklaşık 5 dakika.">
-<meta property="og:image" content="https://kubilaykenan.com/og.png?v=d6bca8a5"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://kubilaykenan.com/og/seviye-testi.png?v=48d6e3e3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
@@ -118,6 +118,12 @@
   .du-skor { padding: 12px; } .du-skor .p { font-size: 24px; } .du-skor .du-av { display: none; }
   .du-soru { padding: 18px 0 14px; }
 }
+/* sonuç görseli (sonuc-kart.js): küçük önizleme + paylaş/indir */
+.sonuc-gorsel { display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #F1DCE1; border-radius: 18px; padding: 14px; margin: 0 0 18px; }
+.sonuc-gorsel img { width: 92px; aspect-ratio: 9 / 16; border-radius: 12px; object-fit: cover; background: #3D091B; flex: none; box-shadow: 0 8px 18px rgba(31, 3, 12, .2); }
+.sonuc-gorsel b { display: block; color: #2B1A1F; font-size: 17px; } .sonuc-gorsel span { display: block; color: var(--muted); font-size: 14px; margin: 2px 0 10px; }
+.sonuc-gorsel .du-dug { padding: 12px 16px; font-size: 14px; }
+[data-sonuc-paylas][hidden] { display: none; }
 </style><style>
 /* Seviye testi (/seviye-testi/): düello.css'in kart/düğme/maskot sınıflarını kullanır; burada yalnız teste özgü parçalar. */
 .sv-giris ul { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 8px; }
@@ -239,7 +245,9 @@
 <h2>Sonucun</h2>
 <div class="sv-sonuc"><div><b data-aralik>–</b><span>tahmini YDS puan aralığı</span></div><div><b data-harf>–</b><span>harf seviyesi</span></div><div><b data-dogru>–</b><span>doğru</span></div></div>
 <div class="sv-karne"></div>
-<div class="sv-oneri"><b data-oneri-b></b><p data-oneri></p><a data-oneri-a href="#"></a></div>
+<div class="sonuc-gorsel"><img data-sonuc-onizle alt="Sonuç görseli önizlemesi" width="92" height="164"><div><b>Sonucunu hikâyende paylaş</b><span>Hazır görsel, 1080×1920</span>
+<div class="du-dugmeler"><button type="button" class="du-dug" data-sonuc-paylas hidden>Görseli paylaş</button><button type="button" class="du-dug ikinci" data-sonuc-indir>Görseli indir</button></div></div></div>
+<div class="sv-oneri"><b data-oneri-b></b><p data-oneri></p><a data-oneri-a href="#"></a> · <a data-oneri-a2 href="#"></a></div>
 <p style="font-weight:700;margin:0;color:var(--heading)">Cevaplar ve açıklamalar</p><div class="sv-cozum"></div>
 <div class="du-dugmeler"><button type="button" class="du-dug" data-tekrar>Yeni sorularla tekrar</button><a class="du-dug ikinci" href="/puan-hesaplama/">Puan eşiklerine bak</a>
 <a class="du-dug wa" data-paylas href="#" target="_blank" rel="noopener">Sonucu paylaş</a></div>
@@ -252,6 +260,76 @@
 <footer>© 2026 Kubilay Kenan Işıklı</footer>
 </div>
 <script>
+// Sonuç görseli (21.10.2026): düello ve seviye testi sonucunu 1080×1920 hikâye kartına çizer; indir ya da telefonda paylaş.
+// window.KKSonuc.hazirla({ cip, ust, buyuk, alt, satirlar: [[ad, oran 0–1, yazi]…], balon, adres, dosya }) → kartı çizer, düğmeleri bağlar.
+// Maskot sayfadaki ilk .maskot SVG'sinden resme çevrilir. Yazı tipleri sitenin (Jost, Inter).
+(() => {
+  const W = 1080, H = 1920;
+  let veri = null, maskot = null;
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const c = cv.getContext("2d");
+  const svg = document.querySelector(".maskot");
+  if (svg) { const im = new Image(); im.onload = () => { maskot = im; if (veri) ciz(); };
+    im.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg).replace("<svg", '<svg width="512" height="460"')); }
+  const kutu = (x, y, w, h, r) => { c.beginPath(); c.roundRect(x, y, w, h, r); };
+  const satirla = (m, en) => { const k = m.split(" "), s = []; let o = ""; for (const w of k) { const d = o ? o + " " + w : w; if (c.measureText(d).width > en && o) { s.push(o); o = w; } else o = d; } if (o) s.push(o); return s; };
+  const sigdir = (m, en, boy, ag, aile) => { let b = boy; do { c.font = `${ag} ${b}px ${aile}`; b -= 4; } while (c.measureText(m).width > en && b > 24); };
+
+  const ciz = () => {
+    const v = veri;
+    const g = c.createRadialGradient(W * .25, H * .1, 40, W * .5, H * .55, H * .95);
+    g.addColorStop(0, "#7A2441"); g.addColorStop(.55, "#3D091B"); g.addColorStop(1, "#1F030C");
+    c.fillStyle = g; c.fillRect(0, 0, W, H);
+    c.strokeStyle = "#D8B229"; c.globalAlpha = .18; c.lineWidth = 3; c.setLineDash([4, 22]);
+    c.beginPath(); c.arc(W * .85, H * .16, 300, 0, Math.PI * 2); c.stroke(); c.setLineDash([]); c.globalAlpha = 1;
+    c.textAlign = "left";
+    // çip
+    c.font = "800 42px Jost, sans-serif"; const cw = c.measureText(v.cip).width + 64;
+    c.fillStyle = "#D8B229"; kutu(90, 230, cw, 82, 41); c.fill(); c.fillStyle = "#3D091B"; c.fillText(v.cip, 122, 286);
+    // üst satır + büyük değer + alt satır
+    c.fillStyle = "rgba(255,255,255,.75)"; c.font = "700 60px Jost, sans-serif"; c.fillText(v.ust, 90, 420);
+    sigdir(v.buyuk, W - 180, 260, 800, "Jost, sans-serif"); c.fillStyle = "#FFFFFF"; c.fillText(v.buyuk, 84, 660);
+    c.fillStyle = "#D8B229"; c.font = "800 72px Jost, sans-serif";
+    let y = 770; for (const s of satirla(v.alt, W - 180)) { c.fillText(s, 90, y); y += 84; }
+    // satırlar (çubuklu)
+    y += 30;
+    for (const [ad, oran, yazi] of v.satirlar || []) {
+      c.fillStyle = "rgba(255,255,255,.85)"; c.font = "600 40px Inter, sans-serif"; c.fillText(ad, 90, y);
+      c.textAlign = "right"; c.fillStyle = "#FFFFFF"; c.font = "800 40px Jost, sans-serif"; c.fillText(yazi, W - 90, y); c.textAlign = "left";
+      c.fillStyle = "rgba(255,255,255,.16)"; kutu(90, y + 22, W - 180, 16, 8); c.fill();
+      if (oran > 0) { c.fillStyle = "#D8B229"; kutu(90, y + 22, Math.max(16, (W - 180) * Math.min(1, oran)), 16, 8); c.fill(); }
+      y += 108;
+    }
+    // maskot + balon
+    const alt = H - 150, mh = 260, mw = mh * 256 / 230, my = alt - 60 - mh;
+    if (maskot && my > y) {
+      c.drawImage(maskot, 70, my, mw, mh);
+      c.font = "700 40px Inter, sans-serif";
+      const bx = 70 + mw + 10, bw = Math.min(W - bx - 70, c.measureText(v.balon).width + 60), sat = satirla(v.balon, bw - 60), bh = 40 + sat.length * 52, by = my + 40;
+      c.fillStyle = "#FFFFFF"; kutu(bx, by, bw, bh, 30); c.fill();
+      c.beginPath(); c.moveTo(bx + 4, by + 40); c.lineTo(bx - 22, by + 58); c.lineTo(bx + 4, by + 70); c.fill();
+      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + i * 52));
+    }
+    // alt bilgi
+    c.fillStyle = "#D8B229"; kutu(90, alt + 6, 64, 10, 5); c.fill();
+    c.fillStyle = "#FFFFFF"; c.font = "800 44px Jost, sans-serif"; c.fillText("Kenan Hoca", 90, alt + 72);
+    c.fillStyle = "rgba(255,255,255,.72)"; c.font = "600 34px Inter, sans-serif"; c.textAlign = "right"; c.fillText(v.adres, W - 90, alt + 70); c.textAlign = "left";
+    const on = document.querySelector("[data-sonuc-onizle]");
+    if (on) on.src = cv.toDataURL("image/png");
+  };
+
+  const dosya = () => new Promise(r => cv.toBlob(b => r(new File([b], veri.dosya, { type: "image/png" })), "image/png"));
+  const indir = async () => { const f = await dosya(), a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+  const paylasabilir = !!(navigator.canShare && navigator.canShare({ files: [new File([""], "a.png", { type: "image/png" })] }));
+  document.querySelectorAll("[data-sonuc-paylas]").forEach(b => { b.hidden = !paylasabilir;
+    b.addEventListener("click", async () => { try { await navigator.share({ files: [await dosya()], text: veri.adres }); } catch (e) { if (e.name !== "AbortError") indir(); } }); });
+  document.querySelectorAll("[data-sonuc-indir]").forEach(b => b.addEventListener("click", indir));
+
+  window.KKSonuc = {
+    hazirla: v => { veri = v; Promise.all(["800 100px Jost", "700 50px Inter", "600 40px Inter"].map(f => document.fonts.load(f))).then(ciz, ciz); },
+  };
+})();
+</script><script>
 // Seviye testi (/seviye-testi/, 21.10.2026): 10 soru (3 kelime, 3 dil bilgisi, 2 cümle tamamlama, 2 çeviri), zorluklar karışık.
 // Tahmin: zorluğa göre ağırlıklı doğru oranı (seviye 1/2/3 → 1/1,5/2) × 100, ±8 aralık. Kaba bir tahmindir; sayfada da öyle yazar.
 // Sorular Well-Done havuzundan (/seviye-testi/veri.json: bağımsız, parçaya bağlı olmayan sorular).
@@ -262,10 +340,10 @@
   const AGIRLIK = { 1: 1, 2: 1.5, 3: 2 };
   const AD = { kelime: "Kelime", dilbilgisi: "Dil bilgisi", cumle_tamamlama: "Cümle tamamlama", ceviri: "Çeviri" };
   const ONERI = {
-    kelime: ["Kelime", "Her gün sözlükten 10 kelime çalış, düelloda pekiştir.", "/duello/", "Düelloya geç"],
-    dilbilgisi: ["Dil bilgisi", "Zamanlar ve bağlaçlarla başla; sık karışan yapılar PDF'i işini görür.", "/pdf/", "PDF'lere bak"],
-    cumle_tamamlama: ["Cümle tamamlama", "Önce bağlacın anlamına bak: zıtlık mı, sebep mi, sonuç mu?", "/yazilar/yds-baglac-sorulari/", "Bağlaç yazısını oku"],
-    ceviri: ["Çeviri", "Önce ana yüklemi bul, sonra yan cümleleri eşleştir; şıkları cümlenin iskeletine göre ele.", "/welldone/", "Well-Done'da çalış"],
+    kelime: ["Kelime", "Her gün sözlükten 10 kelime çalış, düelloda pekiştir.", "/duello/", "Düelloya geç", "/sozluk/", "Sözlüğe göz at"],
+    dilbilgisi: ["Dil bilgisi", "Zamanlar ve bağlaçlarla başla; sık karışan yapılar PDF'i işini görür.", "/pdf/", "PDF'lere bak", "/yazilar/", "Gramer yazıları"],
+    cumle_tamamlama: ["Cümle tamamlama", "Önce bağlacın anlamına bak: zıtlık mı, sebep mi, sonuç mu?", "/yazilar/yds-baglac-sorulari/", "Bağlaç yazısını oku", "/pdf/", "Bağlaç tablosu PDF'i"],
+    ceviri: ["Çeviri", "Önce ana yüklemi bul, sonra yan cümleleri eşleştir; şıkları cümlenin iskeletine göre ele.", "/welldone/", "Well-Done'da çalış", "/yazilar/", "Çalışma rehberleri"],
   };
   const $ = s => kok.querySelector(s), $$ = s => [...kok.querySelectorAll(s)];
   const giris = $(".sv-giris"), test = $(".sv-test"), son = $(".sv-son");
@@ -329,6 +407,7 @@
     const zayif = Object.entries(bol).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1])[0][0], o = ONERI[zayif];
     $("[data-oneri-b]").textContent = `Önce ${o[0].toLocaleLowerCase("tr")} çalış`; $("[data-oneri]").textContent = o[1];
     const a = $("[data-oneri-a]"); a.href = o[2]; a.textContent = o[3];
+    const a2 = $("[data-oneri-a2]"); a2.href = o[4]; a2.textContent = o[5];
     $(".sv-cozum").innerHTML = "";
     sorular.forEach((q, n) => {
       const d = document.createElement("details"), dogruMu = q.sec === q.d;
@@ -342,6 +421,10 @@
     const tarih = new Date().toLocaleDateString("tr-TR");
     yaz("seviye-son", { alt, ust, tarih });
     if (window.KKSeri) window.KKSeri.isle();
+    if (window.KKSonuc) window.KKSonuc.hazirla({
+      cip: "YDS seviye testi", ust: "Tahmini puanım", buyuk: `${alt}–${ust}`, alt: `Harf seviyesi: ${harf(p)}`,
+      satirlar: Object.entries(bol).map(([b, [d, n]]) => [AD[b], d / n, `${d}/${n}`]),
+      balon: "Sen kaç alırsın?", adres: "kubilaykenan.com/seviye-testi", dosya: `seviye-testi-${alt}-${ust}.png` });
     konus($(".sv-son .du-maskot"), p >= 70 ? "Çok iyi! Tam deneme çözmenin zamanı." : p >= 50 ? "Temel sağlam, şimdi zayıf bölüme yüklenelim." : "Başlangıç için harika. Planla gidersek hızla çıkar.", p >= 50 ? "sevinc" : "selam");
     $("[data-paylas]").href = "https://wa.me/?text=" + encodeURIComponent(`Kenan Hoca'nın seviye testinde tahmini YDS puanım ${alt}–${ust} çıktı. Sen de dene: https://kubilaykenan.com/seviye-testi/`);
   };
