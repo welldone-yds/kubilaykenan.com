@@ -6,7 +6,8 @@
 <title>Kelime Düellosu: 60 Saniyede YDS Kelimeleri · Kenan Hoca</title>
 <meta name="description" content="YDS kelimeleriyle 60 saniyelik düello: 10 kelime, eş anlamlısını ya da Türkçe anlamını rakibinden önce bul. Ücretsiz, kayıt yok.">
 <link rel="canonical" href="https://kubilaykenan.com/duello/">
-<link rel="icon" href="/simge.png"><link rel="apple-touch-icon" href="/simge.png"><meta name="theme-color" content="#3D091B">
+<link rel="icon" href="/simge.png"><link rel="apple-touch-icon" href="/apple-touch-180.png"><meta name="theme-color" content="#3D091B">
+<link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="Kelime Düellosu"><meta property="og:description" content="YDS kelimeleriyle 60 saniyelik düello: 10 kelime, eş anlamlısını ya da Türkçe anlamını rakibinden önce bul. Ücretsiz, kayıt yok.">
 <meta property="og:image" content="https://kubilaykenan.com/og.png?v=d6bca8a5"><meta name="twitter:card" content="summary_large_image">
@@ -14,7 +15,7 @@
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
 <link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
-<link rel="stylesheet" href="/site.css?v=aa5de041">
+<link rel="stylesheet" href="/site.css?v=a2a0118d">
 <style>
 /* Well-Done maskotu (maskot.svg) kıpırtıları: ana sayfa, düello ve seviye testi ortak. Kapsayıcıya .selam / .ucuyor eklenir. */
 /* maskot kıpırtıları: göz kırpma, püskül, kep, el sallama, hafif süzülme */
@@ -123,11 +124,11 @@
 <a class="atla" href="#icerik">İçeriğe geç</a>
 <div class="sayfa">
 <header class="ust"><a class="marka" href="/">Kubilay Kenan</a>
-<nav><a class="dar-gizle" href="/#hakkimda">Hakkımda</a><a href="/sozluk/">Sözlük</a><a href="/#araclar">Araçlar</a><a href="/yazilar/">Yazılar</a><a class="dar-gizle" href="/#iletisim">İletişim</a><button type="button" class="ara-dug" aria-label="Sözlükte ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Kelime ara</span><kbd>Ctrl K</kbd></button></nav></header>
+<nav><a class="dar-gizle" href="/#hakkimda">Hakkımda</a><a href="/sozluk/">Sözlük</a><a href="/#araclar">Araçlar</a><a href="/yazilar/">Yazılar</a><a class="dar-gizle" href="/#iletisim">İletişim</a><button type="button" class="ara-dug" aria-label="Sözlükte ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Kelime ara</span><kbd>Ctrl K</kbd></button><a class="defter-dug" href="/defter/" hidden aria-label="Kelime defterim" title="Kelime defterim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-say>0</span></a></nav></header>
 <dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
 <main id="icerik">
 
-<section class="du" id="duello" data-veri="/duello/veri.json?v=83fcdee2">
+<section class="du" id="duello" data-veri="/duello/veri.json?v=2c237a45">
 <div class="du-bas"><span class="imza">Well-Done</span><h1>Kelime düellosu</h1><p>10 kelime, her biri 10 saniye. Eş anlamlıyı, Türkçe anlamı ya da İngilizcesini rakibinden önce bul.</p></div>
 <div class="du-kart du-giris">
 <div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
@@ -220,6 +221,7 @@
 <h2></h2><p class="ozet"></p>
 <div class="tablo"><div><b data-s-ben>0</b><span>puan</span></div><div><b data-s-dogru>0/10</b><span data-s-rekor>doğru</span></div></div>
 <p class="du-tekrar-bas" style="font-weight:700;margin:0 0 8px;color:var(--heading)">Tekrar etmen gereken kelimeler</p><ul class="du-tekrar"></ul>
+<p style="margin:-8px 0 16px"><button type="button" class="yildiz-dug" data-hepsi-deftere hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>Yanlışların hepsini deftere ekle</button> <a href="/defter/" style="font-size:14px;color:#A84660;font-weight:700">Defterime git</a></p>
 <div class="du-dugmeler"><button type="button" class="du-dug" data-tekrar>Rövanş</button><button type="button" class="du-dug ikinci" data-rakip-degis>Rakibi değiştir</button>
 <a class="du-dug wa" data-paylas href="#" target="_blank" rel="noopener">Skorunu paylaş</a></div>
 <div class="du-wd"><img src="/simge.png" alt="" width="52" height="52"><div><b>Devamı Well-Done'da</b><span>428 kelimelik düello, Game Center'da arkadaşına karşı maç, 931 soru.</span></div>
@@ -236,7 +238,9 @@
 // Soru türleri: eş anlamlısı (İngilizce), Türkçe anlamı, İngilizcesi (Türkçeden). Veri: /duello/veri.json (duello.csv'den).
 (() => {
   const kok = document.getElementById("duello"); if (!kok) return;
-  const TUR_SAY = 10, SURE = 10;
+  const SURE = 10;
+  let TUR_SAY = 10;
+  const DEFTER_KIPI = new URLSearchParams(location.search).has("defter");   // /duello/?defter=1: yalnız defterdeki düello kelimeleri
   const RAKIP = {
     cirak: { ad: "Çırak", bel: "Çırak'ı", yon: "Çırak'a", dog: .55, sure: [4.5, 8.5] },
     kalfa: { ad: "Kalfa", bel: "Kalfa'yı", yon: "Kalfa'ya", dog: .72, sure: [3.2, 6.5] },
@@ -246,6 +250,7 @@
   const TUR = { v: "fiil", n: "isim", adj: "sıfat", adv: "zarf", phr: "kalıp", prep: "edat", conj: "bağlaç" };
   const $ = s => kok.querySelector(s), $$ = s => [...kok.querySelectorAll(s)];
   const giris = $(".du-giris"), oyun = $(".du-oyun"), son = $(".du-son");
+  const kayit = x => ({ k: x.k, t: x.t, tr: x.tr, es: x.es.slice(0, 4).join(", "), id: x.id || "" });   // deftere yazılan biçim
   const karistir = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const sec = (a, n) => karistir([...a]).slice(0, n);
   const rastgele = ([a, b]) => a + Math.random() * (b - a);
@@ -286,7 +291,13 @@
 
   const basla = async () => {
     const L = await yukle();
-    turlar = sec(L.filter(x => x.es.length && x.ce.length >= 3 && x.ct.length >= 3), TUR_SAY).map((x, i) => {
+    let havuz = L.filter(x => x.es.length && x.ce.length >= 3 && x.ct.length >= 3), not = "";
+    if (DEFTER_KIPI && window.KKDefter) {
+      const d = window.KKDefter.hepsi(), f = havuz.filter(x => x.k.toLocaleLowerCase("en") in d);
+      if (f.length >= 4) havuz = f; else not = "Defterinde düello kelimesi az, karışık oynuyoruz. ";
+    }
+    TUR_SAY = Math.min(10, havuz.length);
+    turlar = sec(havuz, TUR_SAY).map((x, i) => {
       const s = soruKur(x, ["es", "tr", "en"][i % 3], L);
       const secenek = karistir([s.dogru, ...s.yanlis]);
       const R = RAKIP[rakip], dogruMu = Math.random() < R.dog;
@@ -297,7 +308,7 @@
     $("[data-o-ad]").textContent = RAKIP[rakip].ad;
     const av = $(".du-skor .rakip"); av.className = "du-av rakip " + rakip; av.textContent = RAKIP[rakip].ad[0];
     giris.hidden = true; son.hidden = true; oyun.hidden = false;
-    konus($(".du-alt"), `${RAKIP[rakip].ad} hazır. Başlıyoruz!`, "selam");
+    konus($(".du-alt"), `${not}${RAKIP[rakip].ad} hazır. Başlıyoruz!`, "selam");
     tur();
   };
 
@@ -358,6 +369,7 @@
     const baslik = ben > o ? `${R.bel} yendin!` : ben < o ? `${R.yon} yenildin.` : "Berabere!";
     $(".du-son h2").textContent = baslik;
     $(".du-son .ozet").textContent = `${TUR_SAY} kelimeden ${dogru} doğru · Sen ${ben} – ${o} ${R.ad}`;
+    
     $("[data-s-ben]").textContent = ben; $("[data-s-dogru]").textContent = `${dogru}/${TUR_SAY}`;
     const eski = Number(oku("duello-rekor-" + rakip) || 0);
     if (ben > eski) yaz("duello-rekor-" + rakip, ben);
@@ -365,13 +377,19 @@
     const yanlis = turlar.filter(s => s.benSecim !== s.d);
     $(".du-tekrar").innerHTML = "";
     yanlis.forEach(s => { const li = document.createElement("li");
-      li.innerHTML = `<b lang="en"></b> <span>(${TUR[s.x.t] || s.x.t})</span> · <span class="d"></span>`;
+      li.innerHTML = `<b lang="en"></b> <span>(${TUR[s.x.t] || s.x.t})</span> · <span class="d"></span> <button type="button" class="yildiz-dug" style="float:right"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span data-e>Deftere ekle</span></button>`;
+      li.querySelector(".yildiz-dug").dataset.defter = JSON.stringify(kayit(s.x));
       li.querySelector("b").textContent = s.x.k; li.querySelector(".d").textContent = s.x.tr + " · " + s.x.es.slice(0, 3).join(", ");
       $(".du-tekrar").appendChild(li); });
     $(".du-tekrar-bas").hidden = !yanlis.length;
+    const hepsi = $("[data-hepsi-deftere]"); hepsi.hidden = !yanlis.length || !window.KKDefter;
+    hepsi.onclick = () => { yanlis.forEach(s => window.KKDefter.ekle(kayit(s.x))); hepsi.textContent = "Deftere eklendi"; };
+    if (window.KKDefter) window.KKDefter.guncelle();
+    const seri = window.KKSeri ? window.KKSeri.isle() : null;
     konus($(".du-son .du-maskot"), ben > o ? "Muhteşemdin! Bir de bir üst seviyeyi dene." : ben < o ? "Bu kelimeleri tekrar et, rövanşı alırız." : "Kıl payı! Bir el daha?", ben >= o ? "sevinc" : "uzgun");
     const metin = `Kelime düellosunda ${R.ad} karşısında ${ben} puan aldım (${dogru}/${TUR_SAY} doğru). Sen kaç yaparsın? https://kubilaykenan.com/duello/`;
     $("[data-paylas]").href = "https://wa.me/?text=" + encodeURIComponent(metin);
+    if (seri && seri.n) $(".du-son .ozet").textContent += ` · Serin: ${seri.n} gün`;
   };
 
   $("[data-basla]").addEventListener("click", basla);
@@ -423,6 +441,65 @@
   });
   if (/Mac|iPhone|iPad/.test(navigator.platform)) { const k = dug.querySelector("kbd"); if (k) k.textContent = "⌘K"; }
 })();
+</script><script>
+// Kelime defteri + seri sayacı (21.10.2026): her sayfada. Hepsi ziyaretçinin tarayıcısında (localStorage), hesap yok.
+// Defter: { "abandon": {k, t, tr, es, id, z} } — id sözlükte varsa (/sozluk/<id>/), z eklenme zamanı.
+// Seri: { son: "2026-10-21", n, en } — günün sorusu, düello, seviye testi ya da defter kartları bitince o gün "çalışıldı" sayılır.
+(() => {
+  const DK = "kk-defter", SK = "kk-seri";
+  const oku = (k, v) => { try { return JSON.parse(localStorage.getItem(k)) || v; } catch (e) { return v; } };
+  const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  const gun = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const dun = () => { const d = new Date(); d.setDate(d.getDate() - 1); return gun(d); };
+  const anahtar = k => String(k || "").trim().toLocaleLowerCase("en");
+
+  const D = window.KKDefter = {
+    hepsi: () => oku(DK, {}),
+    liste: () => Object.values(oku(DK, {})).sort((a, b) => b.z - a.z),
+    var: k => anahtar(k) in oku(DK, {}),
+    sayi: () => Object.keys(oku(DK, {})).length,
+    ekle: x => { const h = oku(DK, {}); h[anahtar(x.k)] = { k: x.k, t: x.t || "", tr: x.tr || "", es: x.es || "", id: x.id || "", z: Date.now() }; yaz(DK, h); D.guncelle(); },
+    cikar: k => { const h = oku(DK, {}); delete h[anahtar(k)]; yaz(DK, h); D.guncelle(); },
+    guncelle: () => {
+      const n = D.sayi(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".defter-dug").forEach(a => { a.hidden = !n; const s = a.querySelector("[data-say]"); if (s) s.textContent = n; });
+      document.querySelectorAll(".yildiz-dug").forEach(b => {
+        try { const x = JSON.parse(b.dataset.defter); const v = D.var(x.k); b.setAttribute("aria-pressed", String(v));
+          const e = b.querySelector("[data-e]"); if (e) e.textContent = v ? (tr ? "Defterde" : "Saved") : (tr ? "Deftere ekle" : "Save word"); } catch (e) {}
+      });
+    },
+  };
+  const S = window.KKSeri = {
+    durum: () => { const s = oku(SK, { son: "", n: 0, en: 0 }); const aktif = s.son === gun() || s.son === dun(); return { n: aktif ? s.n : 0, en: s.en || 0, bugun: s.son === gun() }; },
+    isle: () => {
+      const s = oku(SK, { son: "", n: 0, en: 0 }), b = gun();
+      if (s.son !== b) { s.n = s.son === dun() ? s.n + 1 : 1; s.son = b; s.en = Math.max(s.en || 0, s.n); yaz(SK, s); }
+      S.goster(); return S.durum();
+    },
+    goster: () => {
+      const d = S.durum(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".seri").forEach(el => {
+        el.hidden = false; el.classList.toggle("sonuk", !d.bugun);
+        el.querySelector("[data-seri]").textContent = d.n
+          ? (tr ? `${d.n} gün üst üste` : `${d.n}-day streak`) + (d.bugun ? "" : (tr ? " · bugün de çöz" : " · keep it going today"))
+          : (tr ? "Seri başlat: bugün bir soru çöz" : "Start a streak: solve one today");
+        const en = el.querySelector("[data-en]"); if (en) en.textContent = d.en > 1 ? (tr ? `en iyi ${d.en}` : `best ${d.en}`) : "";
+      });
+    },
+  };
+  // yıldız düğmeleri (sayfaya sonradan eklenenler dahil): data-defter='{"k":…,"t":…,"tr":…,"es":…,"id":…}'
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".yildiz-dug"); if (!b) return;
+    try { const x = JSON.parse(b.dataset.defter); if (D.var(x.k)) D.cikar(x.k); else D.ekle(x); } catch (er) {}
+  });
+  D.guncelle(); S.goster();
+})();
+</script><script>
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
+(() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
+  addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });
+  d.forEach(x => x.addEventListener("click", async () => { if (!ist) return; ist.prompt(); await ist.userChoice; ist = null; d.forEach(y => { y.hidden = true; }); }));
+  addEventListener("appinstalled", () => d.forEach(x => { x.hidden = true; })); })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

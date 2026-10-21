@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kubilay Kenan Işıklı · English teacher</title>
 <meta name="description" content="Kubilay Kenan Işıklı (Kenan Hoca) is an English teacher who prepares students for Türkiye&#x27;s national English exams (YDS, e-YDS, YÖKDİL) and builds study apps such as Well-Done.">
-<link rel="icon" href="/simge.png"><link rel="apple-touch-icon" href="/simge.png"><meta name="theme-color" content="#3D091B">
+<link rel="icon" href="/simge.png"><link rel="apple-touch-icon" href="/apple-touch-180.png"><meta name="theme-color" content="#3D091B">
+<link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
 <link rel="canonical" href="https://kubilaykenan.com/en/">
 <link rel="alternate" hreflang="tr" href="https://kubilaykenan.com/"><link rel="alternate" hreflang="en" href="https://kubilaykenan.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://kubilaykenan.com/">
@@ -571,6 +572,16 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .wdv-qr small { display: block; color: var(--wd-vurgu); font-weight: 700; font-size: 12px; margin-top: 2px; }
 @media (max-width: 900px) { .wdv-qr { display: none; } .dene { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .dene-kart { grid-template-columns: 1fr; padding: 22px; } .dene-m .maskot { width: 84px; } .dene-kart b { font-size: 24px; } }
+
+/* "Telefonuna kur" (PWA): yalnız tarayıcı kurulumu destekliyorsa görünür (Android/Chrome, masaüstü Chrome/Edge) */
+.kur-dug { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; font: 700 15px/1.2 var(--font-sans); color: var(--heading); background: var(--green-wash);
+           border: 1.5px dashed var(--green); border-radius: 14px; padding: 11px 16px; cursor: pointer; }
+.kur-dug[hidden] { display: none; }
+.kur-dug svg { width: 20px; height: 20px; }
+.kur-dug small { font: 500 13px/1 var(--font-sans); color: var(--muted); }
+.vs-paylas { display: inline-block; margin-top: 12px; font: 700 13px/1 var(--font-sans); color: var(--green-dark); text-decoration: none; }
+.vs-kart.ilk .vs-paylas { color: var(--green); }
+.vs-paylas:hover { text-decoration: underline; }
 /* Üst çubukta sözlük araması (21.10.2026): her sayfada; ⌘K / Ctrl+K ya da "/" ile açılır, /sozluk/veri.json'dan arar. */
 .ara-dug { display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1 var(--font-sans); color: var(--muted); background: var(--bant, #F6F1EC);
            border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px 8px 12px; cursor: pointer; white-space: nowrap; }
@@ -595,13 +606,81 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .ara-alt a { color: var(--green-dark); font-weight: 700; text-decoration: none; }
 @media (max-width: 760px) { .ara-dug span, .ara-dug kbd { display: none; } .ara-dug { padding: 8px; } .ara-pen { margin-top: 16px; } }
 @media (max-width: 480px) { .ust nav { gap: 12px; font-size: 14px; } .ust .marka { font-size: 18px; } }
+/* menü kalabalıklaşınca (arama + defter rozeti eklendi): düğmeler tek satır, arama yazısı geniş ekran dışında gizli */
+.ust-cta, .ust nav a { white-space: nowrap; }
+@media (max-width: 1360px) { .ara-dug span { display: none; } .ara-dug { padding: 8px 10px; } }
+/* telefonda menü: arama + defter simgeleri sığsın diye yazılı bağlantılardan yalnız Sözlük ve dil kalır (diğerleri sayfa içinde var) */
+@media (max-width: 480px) { .ust nav > a:not(.dil):not(.defter-dug):not([href="/sozluk/"]) { display: none; } .ust nav { gap: 8px; } }
+/* Kelime defteri + seri (21.10.2026): üst çubuk rozeti, yıldız düğmesi, seri çipi (her sayfada) ve /defter/ sayfası. */
+.defter-dug { position: relative; display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; border: 1px solid var(--line);
+              background: var(--bant, #F6F1EC); color: var(--heading) !important; text-decoration: none; padding: 0 !important; }
+.defter-dug[hidden] { display: none; }
+.defter-dug svg { width: 18px; height: 18px; }
+.defter-dug span { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 99px; background: #A84660; color: #fff;
+                   font: 800 11px/18px var(--font-sans); text-align: center; }
+.yildiz-dug { display: inline-flex; align-items: center; gap: 6px; font: 700 13px/1 var(--font-sans); color: var(--heading); background: #fff;
+              border: 1.5px solid var(--line); border-radius: 99px; padding: 7px 12px 7px 9px; cursor: pointer; transition: border-color .15s, background .15s; }
+.yildiz-dug:hover { border-color: var(--green); }
+.yildiz-dug svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
+.yildiz-dug[aria-pressed="true"] { background: var(--green-soft, #F7EFD2); border-color: var(--green); }
+.yildiz-dug[aria-pressed="true"] svg { fill: var(--green); stroke: var(--green-dark); }
+.seri { display: inline-flex; align-items: center; gap: 8px; font: 700 14px/1 var(--font-sans); color: var(--heading); background: var(--green-soft, #F7EFD2);
+        border: 1px solid var(--green-line, #EBDDAA); border-radius: 99px; padding: 8px 14px 8px 10px; }
+.seri[hidden] { display: none; }
+.seri svg { width: 18px; height: 18px; fill: #D8B229; stroke: #8A6A0E; stroke-width: 1.5; }
+.seri.sonuk { background: #fff; border-color: var(--line); color: var(--muted); }
+.seri.sonuk svg { fill: #EFE2AB; }
+.seri [data-en] { font-weight: 600; color: var(--muted); }
+.seri [data-en]:empty { display: none; }
+.vb .seri { margin-top: 14px; }
+/* /defter/ sayfası */
+.df-ust { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.df-ust b { font: 800 18px/1 var(--font-display); color: var(--heading); }
+.df-liste { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.df-liste li { position: relative; background: #fff; border: 1px solid #F1DCE1; border-radius: 16px; padding: 14px 40px 14px 16px; }
+.df-k { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.df-k a { font: 700 22px/1.1 "Cormorant Garamond", Georgia, serif; color: #2B1A1F; text-decoration: none; }
+.df-k a[href]:hover { text-decoration: underline; text-decoration-color: #A84660; }
+.df-k .tur { font: 700 11px/1 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; color: #A84660; }
+.df-liste .tr { margin: 6px 0 0; color: var(--text); font-size: 15px; }
+.df-liste .es { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.df-liste .es:empty { display: none; }
+.df-sil { position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; border-radius: 50%; border: 0; background: #F9E4E7; color: #A84660; font: 700 16px/1 var(--font-sans); cursor: pointer; }
+.df-bos[hidden], .df-dolu[hidden], [data-duello][hidden] { display: none; }
+.df-kart-pen { border: 0; padding: 0; border-radius: 26px; width: min(460px, calc(100vw - 24px)); background: #FFF6F4; box-shadow: 0 30px 80px rgba(31, 3, 12, .35); }
+.df-kart-pen::backdrop { background: rgba(31, 3, 12, .45); }
+.df-kart-ic, .df-bitti { padding: 22px; }
+.df-kart-ic[hidden], .df-bitti[hidden], .df-kart-dug[hidden] { display: none; }
+.df-kart-bas { display: flex; justify-content: space-between; color: var(--muted); font: 700 13px/1 var(--font-sans); margin-bottom: 14px; }
+.df-kart-bas button { border: 0; background: none; color: var(--muted); font: inherit; cursor: pointer; }
+.df-cevir { position: relative; width: 100%; min-height: 220px; border: 0; padding: 0; background: none; cursor: pointer; perspective: 1000px; }
+.df-cevir > span { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px;
+                   border-radius: 20px; background: #fff; box-shadow: 0 10px 26px rgba(168, 70, 96, .12); backface-visibility: hidden; transition: transform .5s; }
+.df-cevir .on b { font: 700 40px/1.1 "Cormorant Garamond", Georgia, serif; color: #2B1A1F; }
+.df-cevir .on span, .df-cevir .arka span { color: var(--muted); font-size: 14px; text-align: center; }
+.df-cevir .on small { color: #A84660; font-weight: 700; font-size: 12px; margin-top: 10px; }
+.df-cevir .arka { transform: rotateY(180deg); }
+.df-cevir .arka b { font: 800 22px/1.3 var(--font-display); color: var(--heading); text-align: center; }
+.df-cevir.dondu .on { transform: rotateY(180deg); } .df-cevir.dondu .arka { transform: rotateY(360deg); }
+.df-kart-dug { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.df-kart-dug button { border: 0; border-radius: 14px; padding: 14px; font: 700 15px/1 var(--font-sans); cursor: pointer; color: #fff; }
+.df-kart-dug [data-sonuc="tekrar"] { background: #C25B4E; } .df-kart-dug [data-sonuc="bildim"] { background: #4E8B57; }
+.df-bitti { text-align: center; } .df-bitti b { display: block; font: 800 26px/1.2 var(--font-display); color: var(--heading); margin-bottom: 6px; }
+.df-yazdir-bas { display: none; }
+@media print {
+  .ust, .ara-pen, footer, .du-bas, .df-ust .du-dugmeler, .df-sil, .df-bos, .du-maskot, .wa-yuzen, .atla, .df-not { display: none !important; }
+  .du-kart { box-shadow: none; border: 0; background: #fff; padding: 0; }
+  .df-yazdir-bas { display: block; font: 800 22px/1.2 var(--font-display); color: #3D091B; margin-bottom: 4px; }
+  .df-liste { grid-template-columns: 1fr 1fr; gap: 6px; } .df-liste li { break-inside: avoid; padding: 8px 10px; border-radius: 8px; }
+  .df-k a { font-size: 18px; } .df-liste .tr { font-size: 13px; }
+}
 </style>
 </head>
 <body>
 <a class="atla" href="#icerik">Skip to content</a>
 <div class="ust-sar"><div class="sayfa">
 <header class="ust"><a class="marka" href="/en/">Kubilay Kenan</a>
-<nav><a href="#about">About</a><a class="dar-gizle" href="#videos">Videos</a><a class="dar-gizle" href="#araclar">Tools</a><a href="#apps">Apps</a><a class="dar-gizle" href="#contact">Contact</a><a class="dil" href="/" hreflang="tr" lang="tr" title="Türkçe">TR</a><button type="button" class="ara-dug" aria-label="Search the dictionary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Search</span><kbd>Ctrl K</kbd></button><a class="ust-cta" href="#apps">Try Well-Done</a></nav></header>
+<nav><a href="#about">About</a><a class="dar-gizle" href="#videos">Videos</a><a class="dar-gizle" href="#araclar">Tools</a><a href="#apps">Apps</a><a class="dar-gizle" href="#contact">Contact</a><a class="dil" href="/" hreflang="tr" lang="tr" title="Türkçe">TR</a><button type="button" class="ara-dug" aria-label="Search the dictionary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Search</span><kbd>Ctrl K</kbd></button><a class="defter-dug" href="/defter/" hidden aria-label="My word list" title="My word list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-say>0</span></a><a class="ust-cta" href="#apps">Try Well-Done</a></nav></header>
 </div></div>
 <dialog class="ara-pen" id="ara-pen" aria-label="Search the dictionary"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Word or Turkish meaning…" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ select · Enter open</span><a href="/sozluk/">Full dictionary →</a></div></dialog>
 <main id="icerik">
@@ -615,6 +694,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 <div class="dugmeler"><a class="btn-koyu" href="#araclar">Free tools <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn-acik" href="#apps">Explore Well-Done</a></div>
 <div class="sayilar"><div><b>1,388</b><span>word dictionary</span></div><div><b>931</b><span>original questions</span></div><div><b>4</b><span>free PDFs</span></div></div>
 <div class="sosyal"><a href="https://www.linkedin.com/in/kubilaykenan/" rel="me noopener" target="_blank" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a><a href="https://www.instagram.com/_kenanhoca/" rel="me noopener" target="_blank" aria-label="Instagram · @_kenanhoca" title="Instagram · @_kenanhoca"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3"/></svg></a><a href="https://wa.me/905357357864" rel="me noopener" target="_blank" aria-label="WhatsApp · 0535 735 78 64" title="WhatsApp · 0535 735 78 64"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></a><a href="https://www.youtube.com/@kubilaykenan" rel="me noopener" target="_blank" aria-label="YouTube · Kubilay Kenan" title="YouTube · Kubilay Kenan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://www.facebook.com/kubilaykenanhoca" rel="me noopener" target="_blank" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 22v-8.6h2.9l.45-3.4H13.6V7.85c0-.98.28-1.65 1.68-1.65h1.8V3.16A24 24 0 0 0 14.46 3c-2.6 0-4.38 1.59-4.38 4.5V10H7.14v3.4h2.94V22z"/></svg></a><a href="https://x.com/yvl00kk" rel="me noopener" target="_blank" aria-label="X (Twitter) · @yvl00kk" title="X (Twitter) · @yvl00kk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93zm-1.29 19.5h2.04L6.48 3.24H4.3z"/></svg></a></div>
+<button type="button" class="kur-dug" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v7M9 11l3 3 3-3M10 18h4"/></svg> Install on your phone<small>works offline</small></button>
 </div>
 <div class="vg" aria-hidden="true">
 <div class="gezegen"><i></i></div>
@@ -630,19 +710,21 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 <div class="vb"><span class="et">Exam calendar</span><h2>How many days until your exam?</h2><p>Upcoming English exams on the ÖSYM calendar. Your browser counts the days; add the dates to your calendar in one tap.</p></div>
 <div class="vs-kartlar"><article class="vs-kart" data-t="2026-11-22" data-ad="2026-YDS/2">
 <span class="yakin" hidden>SOON</span><div class="tur">YDS</div><p class="ad">2026-YDS/2</p><p class="bas">Applications closed</p>
-<div class="alt-s"><div><small>Exam date</small><span>22 Nov 2026</span></div><div class="n" data-n>32<small data-birim>days to go</small></div></div></article><article class="vs-kart" data-t="2026-12-19" data-ad="e-YDS 2026/12 İngilizce">
+<div class="alt-s"><div><small>Exam date</small><span>22 Nov 2026</span></div><div class="n" data-n>32<small data-birim>days to go</small></div></div>
+</article><article class="vs-kart" data-t="2026-12-19" data-ad="e-YDS 2026/12 İngilizce">
 <span class="yakin" hidden>SOON</span><div class="tur">e-YDS</div><p class="ad">e-YDS 2026/12 İngilizce</p><p class="bas">Applications: 02–10.12.2026</p>
-<div class="alt-s"><div><small>Exam date</small><span>19 Dec 2026</span></div><div class="n" data-n>59<small data-birim>days to go</small></div></div></article></div>
+<div class="alt-s"><div><small>Exam date</small><span>19 Dec 2026</span></div><div class="n" data-n>59<small data-birim>days to go</small></div></div>
+</article></div>
 <div class="vs-alt"><a class="btn-koyu" href="webcal://kubilaykenan.com/takvim.ics">Add to my calendar</a>
 <a class="btn-acik" href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkubilaykenan.com%2Ftakvim.ics" target="_blank" rel="noopener">Google Calendar</a>
 <p>Subscribe once: exam and application dates appear in your calendar and stay up to date.</p></div>
 </section>
 <section class="v-bolum belir" id="gunluk" style="padding-top:24px">
-<div class="vb"><span class="et">New every day</span><h2>One word, one question</h2><p>Same as the word and question of the day in Well-Done; refreshed daily.</p></div>
+<div class="vb"><span class="et">New every day</span><h2>One word, one question</h2><p>Same as the word and question of the day in Well-Done; refreshed daily.</p><span class="seri" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3-1-3 0-6 1-9.5z"/></svg><span data-seri></span><span data-en></span></span></div>
 <div class="gunluk"><section class="kelime" id="kelime" data-kelimeler='{&quot;20746&quot;: {&quot;g&quot;: 20746, &quot;id&quot;: &quot;controversy&quot;, &quot;k&quot;: &quot;Controversy&quot;, &quot;tur&quot;: &quot;n&quot;, &quot;tr&quot;: &quot;Anlaşmazlık, tartışma, fikir ayrılığı&quot;, &quot;es&quot;: &quot;Dispute, debate, disagreement, argument&quot;, &quot;en&quot;: &quot;The government&#x27;s decision to increase taxes on basic food items has caused widespread public controversy.&quot;, &quot;ce&quot;: &quot;Hükûmetin temel gıda maddelerindeki vergileri artırma kararı, halk arasında yaygın bir tartışmaya neden olmuştur.&quot;}, &quot;20747&quot;: {&quot;g&quot;: 20747, &quot;id&quot;: &quot;deficiency&quot;, &quot;k&quot;: &quot;Deficiency&quot;, &quot;tur&quot;: &quot;n&quot;, &quot;tr&quot;: &quot;Eksiklik, yetersizlik (vitamin, mineral vb.); kusur, noksanlık&quot;, &quot;es&quot;: &quot;Lack, shortage, insufficiency, inadequacy&quot;, &quot;en&quot;: &quot;Vitamin D deficiency can lead to bone pain and muscle weakness if left untreated.&quot;, &quot;ce&quot;: &quot;D vitamini eksikliği, tedavi edilmezse kemik ağrısına ve kas zayıflığına yol açabilir.&quot;}, &quot;20748&quot;: {&quot;g&quot;: 20748, &quot;id&quot;: &quot;look-into&quot;, &quot;k&quot;: &quot;Look into&quot;, &quot;tur&quot;: &quot;phr&quot;, &quot;tr&quot;: &quot;İncelemek, araştırmak, (bir konunun) derinine inmek&quot;, &quot;es&quot;: &quot;Investigate, examine, explore&quot;, &quot;en&quot;: &quot;The school principal has promised to look into the complaints regarding the quality of the cafeteria food.&quot;, &quot;ce&quot;: &quot;Okul müdürü, kafeterya yemeklerinin kalitesine ilişkin şikâyetleri inceleme (araştırma) sözü verdi.&quot;}, &quot;20749&quot;: {&quot;g&quot;: 20749, &quot;id&quot;: &quot;exacerbate&quot;, &quot;k&quot;: &quot;Exacerbate&quot;, &quot;tur&quot;: &quot;v&quot;, &quot;tr&quot;: &quot;Kötüleştirmek, şiddetlendirmek (sorun, hastalık vb.)&quot;, &quot;es&quot;: &quot;Aggravate, worsen, intensify, inflame&quot;, &quot;en&quot;: &quot;The recent heatwave has exacerbated the existing water shortage.&quot;, &quot;ce&quot;: &quot;Son sıcak hava dalgası mevcut su kıtlığını daha da şiddetlendirdi.&quot;}, &quot;20750&quot;: {&quot;g&quot;: 20750, &quot;id&quot;: &quot;clearly&quot;, &quot;k&quot;: &quot;Clearly&quot;, &quot;tur&quot;: &quot;adv&quot;, &quot;tr&quot;: &quot;Açıkça, net bir şekilde&quot;, &quot;es&quot;: &quot;Obviously, evidently, distinctly, manifestly&quot;, &quot;en&quot;: &quot;The report clearly outlines the steps necessary for the organisation to achieve carbon neutrality by 2050.&quot;, &quot;ce&quot;: &quot;Rapor, kuruluşun 2050 yılına kadar karbon nötrlüğüne ulaşması için gerekli adımları açıkça özetlemektedir.&quot;}, &quot;20751&quot;: {&quot;g&quot;: 20751, &quot;id&quot;: &quot;incorporate&quot;, &quot;k&quot;: &quot;Incorporate&quot;, &quot;tur&quot;: &quot;v&quot;, &quot;tr&quot;: &quot;Dâhil etmek, bünyesine katmak, birleştirmek&quot;, &quot;es&quot;: &quot;Include, integrate, combine, absorb&quot;, &quot;en&quot;: &quot;The new educational curriculum aims to incorporate digital literacy into every subject area.&quot;, &quot;ce&quot;: &quot;Yeni eğitim müfredatı, dijital okuryazarlığı her konu alanına dâhil etmeyi amaçlamaktadır.&quot;}, &quot;20752&quot;: {&quot;g&quot;: 20752, &quot;id&quot;: &quot;surplus&quot;, &quot;k&quot;: &quot;Surplus&quot;, &quot;tur&quot;: &quot;n&quot;, &quot;tr&quot;: &quot;Fazlalık, artan miktar (bütçe, gıda vb.)&quot;, &quot;es&quot;: &quot;Excess, redundancy, remainder, glut&quot;, &quot;en&quot;: &quot;Many developing nations struggle to export their agricultural surplus due to strict international trade barriers.&quot;, &quot;ce&quot;: &quot;Birçok gelişmekte olan ülke, katı uluslararası ticaret engelleri nedeniyle tarımsal fazlalıklarını ihraç etmekte zorlanıyor.&quot;}, &quot;20753&quot;: {&quot;g&quot;: 20753, &quot;id&quot;: &quot;alter&quot;, &quot;k&quot;: &quot;Alter&quot;, &quot;tur&quot;: &quot;v&quot;, &quot;tr&quot;: &quot;Değiştirmek, değişikliğe uğramak&quot;, &quot;es&quot;: &quot;Change, modify, adjust, amend&quot;, &quot;en&quot;: &quot;Extreme weather events have the potential to permanently alter the migration routes of many bird species.&quot;, &quot;ce&quot;: &quot;Aşırı hava olayları, birçok kuş türünün göç rotalarını kalıcı olarak değiştirme potansiyeline sahiptir.&quot;}, &quot;20754&quot;: {&quot;g&quot;: 20754, &quot;id&quot;: &quot;surmount&quot;, &quot;k&quot;: &quot;Surmount&quot;, &quot;tur&quot;: &quot;v&quot;, &quot;tr&quot;: &quot;Yenmek, üstesinden gelmek, aşmak&quot;, &quot;es&quot;: &quot;Overcome, conquer, prevail over, transcend&quot;, &quot;en&quot;: &quot;In order to achieve sustainable economic growth, developing nations must first surmount the systemic barriers inherent in their historical administrative structures.&quot;, &quot;ce&quot;: &quot;Sürdürülebilir ekonomik büyümeye ulaşmak için, gelişmekte olan uluslar öncelikle tarihsel idari yapılarında doğal olarak bulunan sistemik engelleri aşmalıdır.&quot;}, &quot;20755&quot;: {&quot;g&quot;: 20755, &quot;id&quot;: &quot;vehemently&quot;, &quot;k&quot;: &quot;Vehemently&quot;, &quot;tur&quot;: &quot;adv&quot;, &quot;tr&quot;: &quot;Şiddetle, sert bir şekilde (savunma/reddetme)&quot;, &quot;es&quot;: &quot;Strongly, fiercely, passionately, vigorously&quot;, &quot;en&quot;: &quot;The environmental group vehemently opposed the construction of the hydroelectric dam on the protected river.&quot;, &quot;ce&quot;: &quot;Çevre grubu, koruma altındaki nehir üzerine hidroelektrik baraj inşa edilmesine şiddetle karşı çıktı.&quot;}, &quot;20756&quot;: {&quot;g&quot;: 20756, &quot;id&quot;: &quot;do-away-with&quot;, &quot;k&quot;: &quot;Do away with&quot;, &quot;tur&quot;: &quot;phr&quot;, &quot;tr&quot;: &quot;Kaldırmak, durdurmak, yok etmek (kural, uygulama vb.)&quot;, &quot;es&quot;: &quot;Abolish, eliminate, discard, get rid of&quot;, &quot;en&quot;: &quot;Many activists are calling on the government to do away with nuclear weapons entirely to ensure global safety.&quot;, &quot;ce&quot;: &quot;Birçok aktivist, küresel güvenliği sağlamak için hükûmete nükleer silahları tamamen kaldırması çağrısında bulunuyor.&quot;}, &quot;20757&quot;: {&quot;g&quot;: 20757, &quot;id&quot;: &quot;decline&quot;, &quot;k&quot;: &quot;Decline&quot;, &quot;tur&quot;: &quot;n&quot;, &quot;tr&quot;: &quot;Düşüş, azalma; gerileme, çöküş&quot;, &quot;es&quot;: &quot;Decrease, reduction, deterioration, ebb&quot;, &quot;en&quot;: &quot;Historians have proposed various theories to explain the sudden decline of the Mayan civilisation.&quot;, &quot;ce&quot;: &quot;Tarihçiler, Maya medeniyetinin ani çöküşünü açıklamak için çeşitli teoriler öne sürmüşlerdir.&quot;}, &quot;20758&quot;: {&quot;g&quot;: 20758, &quot;id&quot;: &quot;stamp-out&quot;, &quot;k&quot;: &quot;Stamp out&quot;, &quot;tur&quot;: &quot;phr&quot;, &quot;tr&quot;: &quot;(Kötü bir şeyi/hastalığı) kökünü kazımak, yok etmek&quot;, &quot;es&quot;: &quot;Eradicate, wipe out, eliminate, extinguish&quot;, &quot;en&quot;: &quot;The global health initiative aims to completely stamp out polio in developing countries within the next five years.&quot;, &quot;ce&quot;: &quot;Küresel sağlık girişimi, önümüzdeki beş yıl içinde gelişmekte olan ülkelerde çocuk felcinin kökünü tamamen kazımayı (yok etmeyi) amaçlamaktadır.&quot;}, &quot;20759&quot;: {&quot;g&quot;: 20759, &quot;id&quot;: &quot;paramount&quot;, &quot;k&quot;: &quot;Paramount&quot;, &quot;tur&quot;: &quot;adj&quot;, &quot;tr&quot;: &quot;En önemli, üstün, her şeyden önce gelen&quot;, &quot;es&quot;: &quot;Supreme, primary, chief, principal&quot;, &quot;en&quot;: &quot;During a public health emergency, the safety of the population is of paramount importance to the government.&quot;, &quot;ce&quot;: &quot;Bir halk sağlığı acil durumu sırasında halkın güvenliği, hükûmet için her şeyden önemlidir (en üstün önceliktir).&quot;}, &quot;20760&quot;: {&quot;g&quot;: 20760, &quot;id&quot;: &quot;set-off&quot;, &quot;k&quot;: &quot;Set off&quot;, &quot;tur&quot;: &quot;phr&quot;, &quot;tr&quot;: &quot;(olay, tepki) tetiklemek, başlatmak; (alarm, patlayıcı) çalıştırmak, patlatmak; yola çıkmak&quot;, &quot;es&quot;: &quot;Trigger, spark, prompt, set in motion&quot;, &quot;en&quot;: &quot;The discovery of gold set off a massive migration to the west.&quot;, &quot;ce&quot;: &quot;Altın keşfi, batıya doğru devasa bir göçü tetikledi.&quot;}, &quot;20761&quot;: {&quot;g&quot;: 20761, &quot;id&quot;: &quot;correlation&quot;, &quot;k&quot;: &quot;Correlation&quot;, &quot;tur&quot;: &quot;n&quot;, &quot;tr&quot;: &quot;Korelasyon, karşılıklı ilişki, bağıntı&quot;, &quot;es&quot;: &quot;Connection, link, correspondence, interdependence&quot;, &quot;en&quot;: &quot;Researchers have found a strong correlation between early childhood education and long-term academic success.&quot;, &quot;ce&quot;: &quot;Araştırmacılar, erken çocukluk eğitimi ile uzun vadeli akademik başarı arasında güçlü bir korelasyon bulmuştur.&quot;}, &quot;20762&quot;: {&quot;g&quot;: 20762, &quot;id&quot;: &quot;notably&quot;, &quot;k&quot;: &quot;Notably&quot;, &quot;tur&quot;: &quot;adv&quot;, &quot;tr&quot;: &quot;Özellikle, bilhassa, göze çarpan bir şekilde&quot;, &quot;es&quot;: &quot;Particularly, especially, remarkably, principally&quot;, &quot;en&quot;: &quot;The new tax policy will affect various industries, notably the automotive and energy sectors, which rely heavily on imported raw materials.&quot;, &quot;ce&quot;: &quot;Yeni vergi politikası, başta ithal hammaddeye büyük ölçüde bağımlı olan otomotiv ve enerji sektörleri olmak üzere çeşitli endüstrileri etkileyecektir.&quot;}, &quot;20763&quot;: {&quot;g&quot;: 20763, &quot;id&quot;: &quot;precaution&quot;, &quot;k&quot;: &quot;Precaution&quot;, &quot;tur&quot;: &quot;n&quot;, &quot;tr&quot;: &quot;Önlem, tedbir&quot;, &quot;es&quot;: &quot;Measure, safeguard, preventive step&quot;, &quot;en&quot;: &quot;Doctors take every possible precaution to prevent infection.&quot;, &quot;ce&quot;: &quot;Doktorlar, enfeksiyonu önlemek için her türlü önlemi alırlar.&quot;}, &quot;20764&quot;: {&quot;g&quot;: 20764, &quot;id&quot;: &quot;exploit&quot;, &quot;k&quot;: &quot;Exploit&quot;, &quot;tur&quot;: &quot;v&quot;, &quot;tr&quot;: &quot;Sömürmek, (kendi çıkarına) faydalanmak, işletmek&quot;, &quot;es&quot;: &quot;Utilise, take advantage of, abuse, harness&quot;, &quot;en&quot;: &quot;Multinational corporations frequently exploit cheap labour markets in developing countries to maximise their profit margins.&quot;, &quot;ce&quot;: &quot;Çok uluslu şirketler, kâr marjlarını en üst düzeye çıkarmak için gelişmekte olan ülkelerdeki ucuz işgücü piyasalarını sıklıkla sömürürler (kendi çıkarlarına kullanırlar).&quot;}, &quot;20765&quot;: {&quot;g&quot;: 20765, &quot;id&quot;: &quot;prospect&quot;, &quot;k&quot;: &quot;Prospect&quot;, &quot;tur&quot;: &quot;n&quot;, &quot;tr&quot;: &quot;Olasılık, ihtimal; beklenti&quot;, &quot;es&quot;: &quot;Possibility, likelihood, anticipation, expectation&quot;, &quot;en&quot;: &quot;The prospect of a global economic recovery has improved significantly with the stabilisation of energy prices.&quot;, &quot;ce&quot;: &quot;Küresel ekonomik iyileşme olasılığı, enerji fiyatlarının dengelenmesiyle önemli ölçüde arttı.&quot;}, &quot;20766&quot;: {&quot;g&quot;: 20766, &quot;id&quot;: &quot;diverge&quot;, &quot;k&quot;: &quot;Diverge&quot;, &quot;tur&quot;: &quot;v&quot;, &quot;tr&quot;: &quot;Farklılaşmak, sapmak, ayrılmak&quot;, &quot;es&quot;: &quot;Differ, deviate, branch off, separate&quot;, &quot;en&quot;: &quot;The findings of the two studies diverge significantly regarding the long-term impact of digital media on adolescent mental health.&quot;, &quot;ce&quot;: &quot;İki çalışmanın bulguları, dijital medyanın ergen ruh sağlığı üzerindeki uzun vadeli etkisi konusunda önemli ölçüde farklılaşmaktadır.&quot;}, &quot;20767&quot;: {&quot;g&quot;: 20767, &quot;id&quot;: &quot;indigenous&quot;, &quot;k&quot;: &quot;Indigenous&quot;, &quot;tur&quot;: &quot;adj&quot;, &quot;tr&quot;: &quot;Yerli, bir bölgeye özgü&quot;, &quot;es&quot;: &quot;Native, local, aboriginal, endemic&quot;, &quot;en&quot;: &quot;The preservation of indigenous languages is crucial for maintaining the cultural diversity of the Amazon rainforest.&quot;, &quot;ce&quot;: &quot;Amazon yağmur ormanlarının kültürel çeşitliliğini korumak için yerli dillerin muhafaza edilmesi çok önemlidir.&quot;}}' data-turler='{&quot;n&quot;: &quot;noun&quot;, &quot;v&quot;: &quot;verb&quot;, &quot;adj&quot;: &quot;adjective&quot;, &quot;adv&quot;: &quot;adverb&quot;, &quot;phr&quot;: &quot;phrase&quot;, &quot;conj&quot;: &quot;conjunction&quot;, &quot;prep&quot;: &quot;preposition&quot;}'>
 <div class="k-sol"><span class="etiket">Word of the day</span>
 <div class="k-satir"><a class="k-kelime" data-k lang="en" href="/sozluk/deficiency/">Deficiency</a><span class="ada-chip" data-tur>noun</span>
-<button class="k-dinle" type="button" data-dinle hidden aria-label="Listen" title="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></button></div>
+<button type="button" class="yildiz-dug" aria-pressed="false" data-defter='{&quot;k&quot;: &quot;Deficiency&quot;, &quot;t&quot;: &quot;n&quot;, &quot;tr&quot;: &quot;Eksiklik, yetersizlik (vitamin, mineral vb.); kusur, noksanlık&quot;, &quot;es&quot;: &quot;Lack, shortage, insufficiency, inadequacy&quot;, &quot;id&quot;: &quot;deficiency&quot;}'><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span data-e>Save word</span></button><button class="k-dinle" type="button" data-dinle hidden aria-label="Listen" title="Listen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></button></div>
 <p class="k-anlam" data-tr>Eksiklik, yetersizlik (vitamin, mineral vb.); kusur, noksanlık</p>
 <p class="k-es"><span>Synonyms:</span> <span data-es lang="en">Lack, shortage, insufficiency, inadequacy</span></p></div>
 <div class="k-sag"><p class="k-ornek" data-en lang="en">Vitamin D deficiency can lead to bone pain and muscle weakness if left untreated.</p><p class="k-ceviri" data-ce>D vitamini eksikliği, tedavi edilmezse kemik ağrısına ve kas zayıflığına yol açabilir.</p>
@@ -798,8 +880,8 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 
 <section class="v-bolum belir" id="sss">
 <div class="vb"><span class="et">FAQ</span><h2>Questions you might have</h2><p>If it&#x27;s not here, write by e-mail or WhatsApp.</p></div>
-<div class="sss-sekme"><button type="button" data-k="" aria-pressed="true">All<sup>9</sup></button><button type="button" data-k="Well-Done" aria-pressed="false">Well-Done<sup>4</sup></button><button type="button" data-k="Tools" aria-pressed="false">Tools<sup>3</sup></button><button type="button" data-k="General" aria-pressed="false">General<sup>2</sup></button></div>
-<div class="sss-liste"><details data-k="Well-Done"><summary><span class="no">01</span>Is Well-Done free?</summary><p>Yes. You can try it on TestFlight now; it is coming to the App Store very soon.</p></details><details data-k="Well-Done"><summary><span class="no">02</span>Which devices does it run on?</summary><p>iPhone, iPad and Mac. There is no Android version yet.</p></details><details data-k="Well-Done"><summary><span class="no">03</span>Where do the questions come from?</summary><p>All 931 are original questions written in the ÖSYM format, each with an explanation of how to solve it.</p></details><details data-k="Well-Done"><summary><span class="no">04</span>Does the app collect my data?</summary><p>No. You don&#x27;t need an account and your progress stays on your device. See the Well-Done privacy page for details.</p></details><details data-k="Tools"><summary><span class="no">05</span>Where do the dictionary and word of the day come from?</summary><p>From the same 1,388-word dictionary as Well-Done, with meanings, synonyms, example sentences and past ÖSYM exams.</p></details><details data-k="Tools"><summary><span class="no">06</span>How accurate is the score calculator?</summary><p>Each correct answer in YDS is worth 1.25 points; the calculator turns your correct answers into a score and a letter level. Thresholds come from official sources; check the institution&#x27;s latest notice before applying.</p></details><details data-k="Tools"><summary><span class="no">07</span>How can I keep track of exam dates?</summary><p>Tap &quot;Add to my calendar&quot; once: exam and application dates appear in your calendar and update if ÖSYM changes them.</p></details><details data-k="General"><summary><span class="no">08</span>Can I use the PDFs?</summary><p>Yes, they are all free to download, print and share with your students.</p></details><details data-k="General"><summary><span class="no">09</span>How do I report a mistake or suggest something?</summary><p>Write to iletisim@kubilaykenan.com or reach me on WhatsApp. I read every note.</p></details></div>
+<div class="sss-sekme"><button type="button" data-k="" aria-pressed="true">All<sup>10</sup></button><button type="button" data-k="Well-Done" aria-pressed="false">Well-Done<sup>4</sup></button><button type="button" data-k="Tools" aria-pressed="false">Tools<sup>3</sup></button><button type="button" data-k="General" aria-pressed="false">General<sup>3</sup></button></div>
+<div class="sss-liste"><details data-k="Well-Done"><summary><span class="no">01</span>Is Well-Done free?</summary><p>Yes. You can try it on TestFlight now; it is coming to the App Store very soon.</p></details><details data-k="Well-Done"><summary><span class="no">02</span>Which devices does it run on?</summary><p>iPhone, iPad and Mac. There is no Android version yet.</p></details><details data-k="Well-Done"><summary><span class="no">03</span>Where do the questions come from?</summary><p>All 931 are original questions written in the ÖSYM format, each with an explanation of how to solve it.</p></details><details data-k="Well-Done"><summary><span class="no">04</span>Does the app collect my data?</summary><p>No. You don&#x27;t need an account and your progress stays on your device. See the Well-Done privacy page for details.</p></details><details data-k="Tools"><summary><span class="no">05</span>Where do the dictionary and word of the day come from?</summary><p>From the same 1,388-word dictionary as Well-Done, with meanings, synonyms, example sentences and past ÖSYM exams.</p></details><details data-k="Tools"><summary><span class="no">06</span>How accurate is the score calculator?</summary><p>Each correct answer in YDS is worth 1.25 points; the calculator turns your correct answers into a score and a letter level. Thresholds come from official sources; check the institution&#x27;s latest notice before applying.</p></details><details data-k="Tools"><summary><span class="no">07</span>How can I keep track of exam dates?</summary><p>Tap &quot;Add to my calendar&quot; once: exam and application dates appear in your calendar and update if ÖSYM changes them.</p></details><details data-k="General"><summary><span class="no">08</span>Can I install the site on my phone?</summary><p>Yes. On Android, open it in Chrome and tap &quot;Install on your phone&quot; or &quot;Add to Home screen&quot;; on iPhone, use Safari › Share › Add to Home Screen. The dictionary, duel, level test and score calculator then work offline. On iPhone, iPad and Mac, Well-Done offers much more.</p></details><details data-k="General"><summary><span class="no">09</span>Can I use the PDFs?</summary><p>Yes, they are all free to download, print and share with your students.</p></details><details data-k="General"><summary><span class="no">10</span>How do I report a mistake or suggest something?</summary><p>Write to iletisim@kubilaykenan.com or reach me on WhatsApp. I read every note.</p></details></div>
 <div class="sss-wa"><div><b>Didn't find your answer?</b><span>Message me on WhatsApp, I'll reply myself.</span></div>
 <a class="btn-wa" href="https://wa.me/905357357864?text=Hello%2C%20I%27m%20writing%20via%20kubilaykenan.com." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>WhatsApp</a></div>
 </section>
@@ -831,6 +913,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
     k.querySelector("[data-tur]").textContent = turler[x.tur] || x.tur;
     k.querySelector("[data-tr]").textContent = x.tr; k.querySelector("[data-es]").textContent = x.es;
     k.querySelector("[data-en]").textContent = x.en; k.querySelector("[data-ce]").textContent = x.ce;
+    const y = k.querySelector(".yildiz-dug"); if (y) y.dataset.defter = JSON.stringify({ k: x.k, t: x.tur, tr: x.tr, es: x.es, id: x.id || "" });
   }
   const d = k.querySelector("[data-dinle]");
   if ("speechSynthesis" in window) {
@@ -860,7 +943,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
   };
   const anahtar = "soru-" + gun;
   try { const eski = localStorage.getItem(anahtar); if (eski) goster(eski); } catch (e) {}
-  dugmeler.forEach(d => d.addEventListener("click", () => { goster(d.dataset.h); try { localStorage.setItem(anahtar, d.dataset.h); } catch (e) {} }));
+  dugmeler.forEach(d => d.addEventListener("click", () => { goster(d.dataset.h); try { localStorage.setItem(anahtar, d.dataset.h); } catch (e) {} if (window.KKSeri) window.KKSeri.isle(); }));
   const metin = q.s + "\n\n" + q.o.map((o, i) => "ABCDE"[i] + ") " + o).join("\n") + "\n\nCevap: https://kubilaykenan.com/#soru";
   k.querySelector("[data-paylas]").href = "https://wa.me/?text=" + encodeURIComponent(metin);
 })();
@@ -1068,6 +1151,65 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
   });
   if (/Mac|iPhone|iPad/.test(navigator.platform)) { const k = dug.querySelector("kbd"); if (k) k.textContent = "⌘K"; }
 })();
+</script><script>
+// Kelime defteri + seri sayacı (21.10.2026): her sayfada. Hepsi ziyaretçinin tarayıcısında (localStorage), hesap yok.
+// Defter: { "abandon": {k, t, tr, es, id, z} } — id sözlükte varsa (/sozluk/<id>/), z eklenme zamanı.
+// Seri: { son: "2026-10-21", n, en } — günün sorusu, düello, seviye testi ya da defter kartları bitince o gün "çalışıldı" sayılır.
+(() => {
+  const DK = "kk-defter", SK = "kk-seri";
+  const oku = (k, v) => { try { return JSON.parse(localStorage.getItem(k)) || v; } catch (e) { return v; } };
+  const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  const gun = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const dun = () => { const d = new Date(); d.setDate(d.getDate() - 1); return gun(d); };
+  const anahtar = k => String(k || "").trim().toLocaleLowerCase("en");
+
+  const D = window.KKDefter = {
+    hepsi: () => oku(DK, {}),
+    liste: () => Object.values(oku(DK, {})).sort((a, b) => b.z - a.z),
+    var: k => anahtar(k) in oku(DK, {}),
+    sayi: () => Object.keys(oku(DK, {})).length,
+    ekle: x => { const h = oku(DK, {}); h[anahtar(x.k)] = { k: x.k, t: x.t || "", tr: x.tr || "", es: x.es || "", id: x.id || "", z: Date.now() }; yaz(DK, h); D.guncelle(); },
+    cikar: k => { const h = oku(DK, {}); delete h[anahtar(k)]; yaz(DK, h); D.guncelle(); },
+    guncelle: () => {
+      const n = D.sayi(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".defter-dug").forEach(a => { a.hidden = !n; const s = a.querySelector("[data-say]"); if (s) s.textContent = n; });
+      document.querySelectorAll(".yildiz-dug").forEach(b => {
+        try { const x = JSON.parse(b.dataset.defter); const v = D.var(x.k); b.setAttribute("aria-pressed", String(v));
+          const e = b.querySelector("[data-e]"); if (e) e.textContent = v ? (tr ? "Defterde" : "Saved") : (tr ? "Deftere ekle" : "Save word"); } catch (e) {}
+      });
+    },
+  };
+  const S = window.KKSeri = {
+    durum: () => { const s = oku(SK, { son: "", n: 0, en: 0 }); const aktif = s.son === gun() || s.son === dun(); return { n: aktif ? s.n : 0, en: s.en || 0, bugun: s.son === gun() }; },
+    isle: () => {
+      const s = oku(SK, { son: "", n: 0, en: 0 }), b = gun();
+      if (s.son !== b) { s.n = s.son === dun() ? s.n + 1 : 1; s.son = b; s.en = Math.max(s.en || 0, s.n); yaz(SK, s); }
+      S.goster(); return S.durum();
+    },
+    goster: () => {
+      const d = S.durum(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".seri").forEach(el => {
+        el.hidden = false; el.classList.toggle("sonuk", !d.bugun);
+        el.querySelector("[data-seri]").textContent = d.n
+          ? (tr ? `${d.n} gün üst üste` : `${d.n}-day streak`) + (d.bugun ? "" : (tr ? " · bugün de çöz" : " · keep it going today"))
+          : (tr ? "Seri başlat: bugün bir soru çöz" : "Start a streak: solve one today");
+        const en = el.querySelector("[data-en]"); if (en) en.textContent = d.en > 1 ? (tr ? `en iyi ${d.en}` : `best ${d.en}`) : "";
+      });
+    },
+  };
+  // yıldız düğmeleri (sayfaya sonradan eklenenler dahil): data-defter='{"k":…,"t":…,"tr":…,"es":…,"id":…}'
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".yildiz-dug"); if (!b) return;
+    try { const x = JSON.parse(b.dataset.defter); if (D.var(x.k)) D.cikar(x.k); else D.ekle(x); } catch (er) {}
+  });
+  D.guncelle(); S.goster();
+})();
+</script><script>
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
+(() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
+  addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });
+  d.forEach(x => x.addEventListener("click", async () => { if (!ist) return; ist.prompt(); await ist.userChoice; ist = null; d.forEach(y => { y.hidden = true; }); }));
+  addEventListener("appinstalled", () => d.forEach(x => { x.hidden = true; })); })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sınavıma Kaç Gün Kaldı? YDS Geri Sayım Kartı · Kenan Hoca</title>
+<meta name="description" content="YDS, e-YDS ve YÖKDİL&#x27;e kaç gün kaldığını gösteren paylaşım kartı: sınavını seç, hedef puanını yaz, Instagram hikâyende paylaş.">
+<link rel="canonical" href="https://kubilaykenan.com/sayac/">
+<link rel="icon" href="/simge.png"><link rel="apple-touch-icon" href="/apple-touch-180.png"><meta name="theme-color" content="#3D091B">
+<link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
+<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Sınavıma Kaç Gün Kaldı?"><meta property="og:description" content="YDS, e-YDS ve YÖKDİL&#x27;e kaç gün kaldığını gösteren paylaşım kartı: sınavını seç, hedef puanını yaz, Instagram hikâyende paylaş.">
+<meta property="og:image" content="https://kubilaykenan.com/og.png?v=d6bca8a5"><meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
+<link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
+<link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
+<link rel="stylesheet" href="/site.css?v=a2a0118d">
+<style>
+/* Well-Done maskotu (maskot.svg) kıpırtıları: ana sayfa, düello ve seviye testi ortak. Kapsayıcıya .selam / .ucuyor eklenir. */
+/* maskot kıpırtıları: göz kırpma, püskül, kep, el sallama, hafif süzülme */
+.maskot .m-govde { transform-origin: 120px 222px; animation: m-sallan 3.2s ease-in-out infinite; }
+.maskot .m-goz { transform-origin: 120px 134px; animation: m-kirp 4.6s infinite; }
+.maskot .m-puskul { transform-origin: 120px 52px; animation: m-puskul 1.8s ease-in-out infinite; }
+.maskot .m-kep { transform-origin: 120px 70px; transform: rotate(-6deg); }
+.maskot .m-el { transform-origin: 206px 160px; }
+.selam .m-el { animation: m-el 1.1s ease-in-out 1; }
+.maskot .m-bebek { transition: transform .4s; }
+.ucuyor .m-bebek { transform: translate(5px, -4px); }
+@keyframes m-sallan { 0%, 100% { transform: rotate(-2deg) translateY(0); } 50% { transform: rotate(2deg) translateY(-6px); } }
+@keyframes m-kirp { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes m-puskul { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(8deg); } }
+@keyframes m-el { 0% { transform: none; } 25% { transform: translate(-6px, -58px) rotate(-22deg); } 50% { transform: translate(-6px, -58px) rotate(6deg); }
+                  75% { transform: translate(-6px, -58px) rotate(-18deg); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .maskot * { animation: none !important; } }
+/* tepkiler (düello, seviye testi): sevinç zıplaması, üzülme */
+.sevinc .maskot { animation: m-zipla .6s cubic-bezier(.3, 1.6, .5, 1) 1; }
+.uzgun .maskot .m-govde { animation: m-uzul 1s ease-in-out 1; }
+@keyframes m-zipla { 0% { transform: none; } 40% { transform: translateY(-22px) scale(1.06, .96); } 100% { transform: none; } }
+@keyframes m-uzul { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(-9deg) translateY(4px); } 60% { transform: rotate(6deg) translateY(4px); } }
+/* konuşma balonu: maskotun yanında; metin kelime kelime yazılır (data-yaz) */
+.balon { position: relative; background: #fff; color: #2B1A1F; border-radius: 18px; padding: 12px 16px; box-shadow: 0 10px 26px rgba(43, 26, 31, .14);
+         font: 600 15px/1.4 var(--font-sans); max-width: 280px; }
+.balon::before { content: ""; position: absolute; left: -7px; top: 22px; width: 16px; height: 16px; background: inherit; transform: rotate(45deg); border-radius: 3px; }
+.balon b { display: block; font: 800 12px/1 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; color: #A84660; margin-bottom: 5px; }
+@media (prefers-reduced-motion: reduce) { .sevinc .maskot, .uzgun .maskot .m-govde { animation: none !important; } }
+/* Mini kelime düellosu (/duello/, 21.10.2026): Well-Done düellosunun 10 kelimelik web sürümü; maskot sunucu. */
+.du { max-width: 760px; margin: 0 auto; padding: 18px 0 40px; }
+.du-bas { text-align: center; margin-bottom: 22px; }
+.du-bas .imza { font: 700 30px/1 "Dancing Script", cursive; color: #A84660; }
+.du-bas h1 { font: 800 clamp(34px, 5vw, 48px)/1.08 var(--font-display); color: var(--heading); margin: 6px 0 10px; letter-spacing: -.02em; }
+.du-bas p { color: var(--muted); margin: 0; font-size: 17px; }
+.du-kart { background: #FFF6F4; border: 1px solid #F1DCE1; border-radius: 26px; padding: 26px; box-shadow: 0 18px 50px rgba(168, 70, 96, .10); }
+.du-kart[hidden] { display: none; }
+.du-maskot { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.du-maskot .maskot { width: 92px; height: auto; flex: none; overflow: visible; }
+.du-rakipler { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0 0 18px; }
+.du-rakip { display: flex; align-items: center; gap: 12px; text-align: left; border: 1.5px solid #EED3D9; background: #fff; border-radius: 16px; padding: 12px 14px; cursor: pointer;
+            font: inherit; color: var(--text); transition: border-color .15s, box-shadow .15s; }
+.du-rakip:hover { border-color: #A84660; }
+.du-rakip[aria-pressed="true"] { border-color: #A84660; box-shadow: 0 0 0 3px rgba(168, 70, 96, .18); }
+.du-av { width: 40px; height: 40px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 800 16px/1 var(--font-display); color: #fff; background: #A84660; }
+.du-av.cirak { background: #6E8B5A; } .du-av.kalfa { background: #C08A2E; } .du-av.usta { background: #A84660; } .du-av.hoca { background: #3D091B; }
+.du-rakip b { display: block; color: var(--heading); }
+.du-rakip small { color: var(--muted); font-size: 13px; line-height: 1.3; display: block; }
+.du-dug { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; cursor: pointer; font: 700 16px/1 var(--font-sans);
+          padding: 16px 24px; border-radius: 14px; background: #A84660; color: #fff; box-shadow: 0 10px 24px rgba(168, 70, 96, .3); text-decoration: none; }
+.du-dug.ikinci { background: #fff; color: #A84660; border: 1.5px solid #EED3D9; box-shadow: none; }
+.du-dug.wa { background: #1FAF54; box-shadow: none; }
+.du-dugmeler { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.du-rekor { color: var(--muted); font-size: 14px; }
+/* oyun */
+.du-skor { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: #3D091B; color: #fff; border-radius: 20px; padding: 14px 18px; }
+.du-skor .taraf { display: flex; align-items: center; gap: 10px; }
+.du-skor .taraf.sag { justify-content: flex-end; text-align: right; }
+.du-skor small { display: block; font-size: 12px; color: #E8D3D8; }
+.du-skor .p { font: 800 30px/1 var(--font-display); }
+.du-skor .tur { text-align: center; font: 700 13px/1.2 var(--font-sans); color: #E8D3D8; }
+.du-skor .tur b { display: block; font: 800 22px/1 var(--font-display); color: #fff; }
+.du-skor .du-av { width: 36px; height: 36px; font-size: 14px; box-shadow: 0 0 0 2px rgba(255, 255, 255, .5); }
+.du-skor .ben { background: #F4C9D2; color: #3D091B; }
+.du-sure { height: 6px; border-radius: 99px; background: #F1DCE1; margin: 14px 0 4px; overflow: hidden; }
+.du-sure i { display: block; height: 100%; width: 100%; background: #A84660; border-radius: inherit; transform-origin: left; }
+.du-durum { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); min-height: 18px; }
+.du-soru { text-align: center; padding: 26px 0 20px; }
+.du-soru .ne { color: var(--muted); font-size: 15px; }
+.du-soru .kel { font: 700 clamp(36px, 7vw, 52px)/1.1 "Cormorant Garamond", Georgia, serif; color: #2B1A1F; margin: 8px 0 2px; }
+.du-soru .kel.tr { font: 800 clamp(24px, 4.6vw, 32px)/1.2 var(--font-display); }
+.du-soru .tt { color: var(--muted); font-size: 14px; }
+.du-sec { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.du-sec button { position: relative; width: 100%; min-height: 58px; text-align: left; font: 600 16px/1.3 var(--font-sans); color: #2B1A1F; background: #fff;
+                 border: 1.5px solid #F1DCE1; border-radius: 16px; padding: 14px 16px; cursor: pointer; transition: border-color .12s, background .12s, transform .12s; }
+.du-sec button:hover:not([disabled]) { border-color: #A84660; transform: translateY(-1px); }
+.du-sec button[disabled] { cursor: default; }
+.du-sec button.dogru { background: #EEF7EE; border-color: #2E7D32; }
+.du-sec button.yanlis { background: #FBEDEC; border-color: #B3261E; }
+.du-sec .rozet { position: absolute; top: -9px; right: 10px; font: 800 10px/1 var(--font-sans); letter-spacing: .05em; padding: 4px 7px; border-radius: 6px; background: #3D091B; color: #fff; }
+.du-alt { display: flex; align-items: center; gap: 12px; margin-top: 18px; min-height: 70px; }
+.du-alt .maskot { width: 64px; height: auto; flex: none; overflow: visible; }
+.du-alt .balon { font-size: 14px; padding: 10px 14px; }
+/* sonuç */
+.du-son h2 { font: 800 34px/1.1 var(--font-display); color: var(--heading); margin: 0 0 4px; }
+.du-son .ozet { color: var(--muted); margin: 0 0 16px; }
+.du-son .tablo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.du-son .tablo div { background: #fff; border-radius: 16px; padding: 14px 16px; border: 1px solid #F1DCE1; }
+.du-son .tablo b { display: block; font: 800 30px/1 var(--font-display); color: #A84660; }
+.du-son .tablo span { font-size: 13px; color: var(--muted); }
+.du-tekrar { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 6px; }
+.du-tekrar li { background: #fff; border-radius: 12px; padding: 10px 14px; border: 1px solid #F1DCE1; font-size: 15px; }
+.du-tekrar b { color: #2B1A1F; } .du-tekrar span { color: var(--muted); }
+.du-tekrar .y { color: #B3261E; font-weight: 700; } .du-tekrar .d { color: #2E7D32; font-weight: 700; }
+.du-wd { margin-top: 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #fff; border-radius: 18px; padding: 16px 18px; border: 1px solid #F1DCE1; }
+.du-wd img { width: 52px; height: 52px; border-radius: 12px; }
+.du-wd div { flex: 1; min-width: 180px; } .du-wd b { display: block; color: #2B1A1F; } .du-wd span { color: var(--muted); font-size: 14px; }
+@media (max-width: 560px) {
+  .du-kart { padding: 18px; border-radius: 22px; }
+  .du-rakipler, .du-sec { grid-template-columns: 1fr; }
+  .du-skor { padding: 12px; } .du-skor .p { font-size: 24px; } .du-skor .du-av { display: none; }
+  .du-soru { padding: 18px 0 14px; }
+}
+</style><style>
+/* "Sınavıma X gün kaldı" kartı (/sayac/): düello.css kart/düğme sınıflarını kullanır; burada yalnız sayfaya özgü düzen. */
+.sy-izgara { display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+.sy-izgara[hidden], .sy-yok[hidden], [data-paylas][hidden] { display: none; }
+.sy-onizle { display: flex; justify-content: center; }
+.sy-onizle canvas { width: 100%; max-width: 360px; height: auto; aspect-ratio: 1080 / 1920; border-radius: 22px; box-shadow: 0 24px 60px rgba(31, 3, 12, .25); }
+.sy-onizle canvas.kare { aspect-ratio: 1080 / 1350; max-width: 400px; }
+.sy-form label { display: block; font: 700 14px/1.2 var(--font-sans); color: var(--heading); margin: 0 0 8px; }
+.sy-form select, .sy-form input { width: 100%; font: 600 16px/1.3 var(--font-sans); color: var(--heading); border: 1.5px solid #EED3D9; border-radius: 12px; padding: 12px 14px; background: #fff; margin-bottom: 18px; }
+.sy-form small { display: block; color: var(--muted); font-size: 13px; margin: -12px 0 18px; }
+.sy-sec { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.sy-sec button { border: 1.5px solid #EED3D9; background: #fff; border-radius: 99px; padding: 9px 14px; font: 700 14px/1 var(--font-sans); color: var(--text); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.sy-sec button[aria-pressed="true"] { border-color: #A84660; box-shadow: 0 0 0 3px rgba(168, 70, 96, .16); }
+.sy-sec i { width: 16px; height: 16px; border-radius: 50%; display: inline-block; }
+.sy-ozet { color: var(--muted); font-size: 14px; margin: 14px 0 0; }
+.sy-maskot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+@media (max-width: 760px) { .sy-izgara { grid-template-columns: 1fr; } .sy-onizle { order: -1; } .sy-onizle canvas { max-width: 260px; } .sy-onizle canvas.kare { max-width: 300px; } }
+</style>
+</head>
+<body>
+<a class="atla" href="#icerik">İçeriğe geç</a>
+<div class="sayfa">
+<header class="ust"><a class="marka" href="/">Kubilay Kenan</a>
+<nav><a class="dar-gizle" href="/#hakkimda">Hakkımda</a><a href="/sozluk/">Sözlük</a><a href="/#araclar">Araçlar</a><a href="/yazilar/">Yazılar</a><a class="dar-gizle" href="/#iletisim">İletişim</a><button type="button" class="ara-dug" aria-label="Sözlükte ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Kelime ara</span><kbd>Ctrl K</kbd></button><a class="defter-dug" href="/defter/" hidden aria-label="Kelime defterim" title="Kelime defterim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-say>0</span></a></nav></header>
+<dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
+<main id="icerik">
+
+<section class="du" id="sayac" style="max-width:980px" data-sinavlar='[{&quot;ad&quot;: &quot;2026-YDS/2&quot;, &quot;tur&quot;: &quot;YDS&quot;, &quot;t&quot;: &quot;2026-11-22&quot;}, {&quot;ad&quot;: &quot;e-YDS 2026/12 İngilizce&quot;, &quot;tur&quot;: &quot;e-YDS&quot;, &quot;t&quot;: &quot;2026-12-19&quot;}]'>
+<div class="du-bas"><span class="imza">Kenan Hoca</span><h1>Sınavıma kaç gün kaldı?</h1><p>Sınavını seç, hedefini yaz; hikâyende ya da gönderinde paylaşacağın kartın hazır.</p></div>
+<div class="du-kart">
+<div class="sy-izgara">
+<div class="sy-onizle"><canvas width="1080" height="1920" role="img" aria-label="Paylaşım kartı önizlemesi"></canvas></div>
+<div class="sy-form">
+<label for="sy-sinav">Sınav</label><select id="sy-sinav" name="sinav"></select>
+<label for="sy-hedef">Hedef puanın (isteğe bağlı)</label><input id="sy-hedef" name="hedef" type="number" inputmode="numeric" min="1" max="100" placeholder="ör. 80">
+<small>Boş bırakırsan kartta hedef yazmaz.</small>
+<label>Renk</label><div class="sy-sec">
+<button type="button" data-tema="bordo" aria-pressed="true"><i style="background:#3D091B"></i>Bordo</button>
+<button type="button" data-tema="altin" aria-pressed="false"><i style="background:#EFE2AB"></i>Altın</button>
+<button type="button" data-tema="gul" aria-pressed="false"><i style="background:#F1C9D2"></i>Gül</button></div>
+<label>Boyut</label><div class="sy-sec">
+<button type="button" data-bicim="hikaye" aria-pressed="true">Hikâye (9:16)</button><button type="button" data-bicim="gonderi" aria-pressed="false">Gönderi (4:5)</button></div>
+<div class="du-dugmeler"><button type="button" class="du-dug" data-paylas hidden>Paylaş</button><button type="button" class="du-dug ikinci" data-indir>PNG indir</button></div>
+<p class="sy-ozet" data-ozet aria-live="polite"></p>
+<p class="sv-not">Kart senin cihazında çizilir; hiçbir bilgi bize gelmez. Gün sayısını bugünün tarihine göre hesaplar.</p>
+</div></div>
+<div class="sy-yok" hidden><div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+<div class="balon"><b>Well-Done</b><span>Şu an takvimde yaklaşan İngilizce sınavı yok. ÖSYM yeni takvimi açıklayınca burada olacak.</span></div></div></div>
+</div>
+<div class="sy-maskot" aria-hidden="true"><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+</div>
+</section>
+</main>
+<footer>© 2026 Kubilay Kenan Işıklı</footer>
+</div>
+<script>
+// "Sınavıma X gün kaldı" paylaşım kartı (/sayac/, 21.10.2026): tarayıcıda <canvas> ile çizilir, PNG indirilir ya da paylaşılır.
+// Hikâye 1080×1920, gönderi 1080×1350. Gün sayısı ziyaretçinin bugününe göre. Maskot sayfadaki gizli SVG'den resme çevrilir.
+(() => {
+  const kok = document.getElementById("sayac"); if (!kok) return;
+  const SINAV = JSON.parse(kok.dataset.sinavlar);
+  const TEMA = {
+    bordo: { bg: ["#6B1F38", "#3D091B", "#1F030C"], yazi: "#FFFFFF", soluk: "rgba(255,255,255,.72)", vurgu: "#D8B229", cip: "#D8B229", cipYazi: "#3D091B" },
+    altin: { bg: ["#FBF3D6", "#EFE2AB", "#E2CC7E"], yazi: "#3D091B", soluk: "rgba(61,9,27,.68)", vurgu: "#A84660", cip: "#3D091B", cipYazi: "#FFFFFF" },
+    gul:   { bg: ["#FFF6F4", "#F9E4E7", "#F1C9D2"], yazi: "#2B1A1F", soluk: "rgba(43,26,31,.66)", vurgu: "#A84660", cip: "#A84660", cipYazi: "#FFFFFF" },
+  };
+  const AY = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+  const GUN = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+  const $ = s => kok.querySelector(s);
+  const cv = $("canvas"), c = cv.getContext("2d");
+  const sec = $("[name=sinav]"), hedef = $("[name=hedef]");
+  let tema = "bordo", bicim = "hikaye", maskot = null;
+
+  const bugun = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
+  const tarih = t => { const [y, a, g] = t.split("-").map(Number); return new Date(y, a - 1, g); };
+  const kalan = t => Math.round((tarih(t) - bugun()) / 864e5);
+  // seçenekler: geçmemiş sınavlar; adresle gelen ?s=YYYY-MM-DD seçili başlar
+  const ileride = SINAV.filter(s => kalan(s.t) >= 0);
+  sec.innerHTML = ileride.map((s, i) => `<option value="${i}">${s.ad} · ${tarih(s.t).getDate()} ${AY[tarih(s.t).getMonth()]}</option>`).join("");
+  const istek = new URLSearchParams(location.search).get("s");
+  const ix = ileride.findIndex(s => s.t === istek); if (ix >= 0) sec.value = String(ix);
+  if (!ileride.length) { $(".sy-izgara").hidden = true; $(".sy-yok").hidden = false; return; }
+
+  // maskotu resme çevir (bir kez)
+  const svg = kok.querySelector(".sy-maskot svg");
+  const img = new Image();
+  img.onload = () => { maskot = img; ciz(); };
+  img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg).replace("<svg", '<svg width="512" height="460"'));
+
+  const yuvarlak = (x, y, w, h, r) => { c.beginPath(); c.roundRect(x, y, w, h, r); };
+  const sigdir = (m, en, boy, agirlik, aile) => { let b = boy; do { c.font = `${agirlik} ${b}px ${aile}`; b -= 4; } while (c.measureText(m).width > en && b > 20); return b + 4; };
+  const satirla = (m, en) => { const k = m.split(" "), s = []; let o = ""; for (const w of k) { const d = o ? o + " " + w : w; if (c.measureText(d).width > en && o) { s.push(o); o = w; } else o = d; } if (o) s.push(o); return s; };
+
+  const ciz = () => {
+    const s = ileride[Number(sec.value) || 0], T = TEMA[tema], W = 1080, H = bicim === "hikaye" ? 1920 : 1350;
+    cv.width = W; cv.height = H;
+    const g = c.createRadialGradient(W * .25, H * .12, 40, W * .5, H * .55, H * .95);
+    g.addColorStop(0, T.bg[0]); g.addColorStop(.55, T.bg[1]); g.addColorStop(1, T.bg[2]);
+    c.fillStyle = g; c.fillRect(0, 0, W, H);
+    // süs: büyük halka + noktalar
+    c.strokeStyle = T.vurgu; c.globalAlpha = .18; c.lineWidth = 3; c.setLineDash([4, 22]);
+    c.beginPath(); c.arc(W * .82, H * .2, 300, 0, Math.PI * 2); c.stroke(); c.setLineDash([]); c.globalAlpha = 1;
+    const n = kalan(s.t), dt = tarih(s.t), ust = bicim === "hikaye" ? 250 : 120, olcek = bicim === "hikaye" ? 1 : .74;
+    c.textAlign = "left"; c.textBaseline = "alphabetic";
+    // üst: tür çipi
+    c.font = "800 44px Jost, sans-serif"; const cw = c.measureText(s.tur).width + 64;
+    c.fillStyle = T.cip; yuvarlak(90, ust, cw, 84, 42); c.fill();
+    c.fillStyle = T.cipYazi; c.fillText(s.tur, 122, ust + 58);
+    // "Sınavıma"
+    c.fillStyle = T.soluk; c.font = `700 ${Math.round(64 * olcek)}px Jost, sans-serif`; c.fillText("Sınavıma", 90, ust + 84 + 110 * olcek);
+    // dev sayı
+    const ny = ust + 84 + 110 * olcek + 400 * olcek;
+    const nm = n === 0 ? "Bugün" : String(n);
+    const nb = sigdir(nm, W - 180, n === 0 ? 300 : Math.round(440 * olcek), 800, "Jost, sans-serif");
+    c.font = `800 ${nb}px Jost, sans-serif`; c.fillStyle = T.yazi; c.fillText(nm, 82, ny);
+    c.font = `800 ${Math.round(96 * olcek)}px Jost, sans-serif`; c.fillStyle = T.vurgu;
+    c.fillText(n === 0 ? "sınav günü!" : "gün kaldı", 90, ny + 120 * olcek);
+    // sınav adı + tarih
+    let y = ny + 120 * olcek + 110 * olcek;
+    c.fillStyle = T.yazi; c.font = `700 ${Math.round(52 * olcek)}px Inter, sans-serif`;
+    for (const sat of satirla(s.ad, W - 180)) { c.fillText(sat, 90, y); y += 64 * olcek; }
+    c.fillStyle = T.soluk; c.font = `500 ${Math.round(42 * olcek)}px Inter, sans-serif`;
+    c.fillText(`${dt.getDate()} ${AY[dt.getMonth()]} ${dt.getFullYear()}, ${GUN[dt.getDay()]}`, 90, y + 6); y += 70 * olcek;
+    // hedef puan
+    const h = parseInt(hedef.value, 10);
+    let icerikSonu = y;
+    if (h > 0 && h <= 100) {
+      const m = `Hedefim: ${h} puan`; c.font = `800 ${Math.round(48 * olcek)}px Jost, sans-serif`;
+      const hw = c.measureText(m).width + 70;
+      c.strokeStyle = T.vurgu; c.lineWidth = 4; yuvarlak(90, y + 10, hw, 92 * olcek, 46 * olcek); c.stroke();
+      c.fillStyle = T.yazi; c.fillText(m, 125, y + 10 + 62 * olcek);
+      icerikSonu = y + 10 + 92 * olcek;
+    }
+    // maskot + balon (alt)
+    const alt = H - 150;
+    // maskot içerikle alt bilgi arasındaki boşluğa sığacak boyda (gönderide yer dar); çok darsa çizilmez
+    const bosluk = alt - 50 - (icerikSonu + 40);
+    if (maskot && bosluk > 110) {
+      const mh = Math.min((bicim === "hikaye" ? 300 : 230) * 230 / 256, bosluk), mw = mh * 256 / 230;
+      const my = alt - 50 - mh;
+      c.drawImage(maskot, 70, my, mw, mh);
+      const bx = 70 + mw + 10, by = my + mh * .2, bm = n <= 7 ? "Son düzlük, başarabilirsin!" : n <= 30 ? "Her gün biraz, tam isabet!" : "Erken başlayan kazanır!";
+      c.font = `700 ${bicim === "hikaye" ? 40 : 34}px Inter, sans-serif`;
+      const bw = Math.min(W - bx - 70, c.measureText(bm).width + 60), sat = satirla(bm, bw - 60), bh = 40 + sat.length * 52;
+      c.fillStyle = "#FFFFFF"; yuvarlak(bx, by, bw, bh, 30); c.fill();
+      c.beginPath(); c.moveTo(bx + 4, by + 40); c.lineTo(bx - 22, by + 58); c.lineTo(bx + 4, by + 70); c.fill();
+      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + i * 52));
+    }
+    // alt bilgi
+    c.fillStyle = T.vurgu; yuvarlak(90, alt + 6, 64, 10, 5); c.fill();
+    c.fillStyle = T.yazi; c.font = "800 44px Jost, sans-serif"; c.fillText("Kenan Hoca", 90, alt + 72);
+    c.fillStyle = T.soluk; c.font = "600 34px Inter, sans-serif"; c.textAlign = "right"; c.fillText("kubilaykenan.com", W - 90, alt + 70);
+    $("[data-ozet]").textContent = n === 0 ? `${s.ad} bugün!` : `${s.ad} sınavına ${n} gün kaldı.`;
+  };
+
+  const dosya = () => new Promise(r => cv.toBlob(b => r(new File([b], `sinavima-${kalan(ileride[Number(sec.value) || 0].t)}-gun-kaldi.png`, { type: "image/png" })), "image/png"));
+  $("[data-indir]").addEventListener("click", async () => {
+    const f = await dosya(), a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  });
+  const pb = $("[data-paylas]");
+  pb.addEventListener("click", async () => {
+    const f = await dosya();
+    try { await navigator.share({ files: [f], text: "kubilaykenan.com/sayac" }); } catch (e) { if (e.name !== "AbortError") $("[data-indir]").click(); }
+  });
+  pb.hidden = !(navigator.canShare && navigator.canShare({ files: [new File([""], "a.png", { type: "image/png" })] }));
+  kok.querySelectorAll("[data-tema]").forEach(b => b.addEventListener("click", () => { tema = b.dataset.tema;
+    kok.querySelectorAll("[data-tema]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); ciz(); }));
+  kok.querySelectorAll("[data-bicim]").forEach(b => b.addEventListener("click", () => { bicim = b.dataset.bicim;
+    kok.querySelectorAll("[data-bicim]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); cv.classList.toggle("kare", bicim !== "hikaye"); ciz(); }));
+  sec.addEventListener("change", ciz); hedef.addEventListener("input", ciz);
+  // yazı tipleri yüklenmeden çizilirse kart yedek yazı tipiyle çıkar
+  Promise.all(["800 100px Jost", "700 50px Inter", "500 40px Inter", "600 34px Inter"].map(f => document.fonts.load(f))).then(ciz, ciz);
+  ciz();
+})();
+</script>
+<script>
+// Üst çubukta sözlük araması: düğme, ⌘K / Ctrl+K ya da "/" ile açılır. Veri ilk açılışta bir kez indirilir (/sozluk/veri.json).
+// Kayıt: [id, kelime, tür, Türkçe, eş anlamlılar, …]. Sıra: kelime başı → kelime içi → Türkçe anlam / eş anlamlı içi.
+(() => {
+  const dug = document.querySelector(".ara-dug"), pen = document.getElementById("ara-pen");
+  if (!dug || !pen || !pen.showModal) { if (dug) dug.hidden = true; return; }
+  const tr = document.documentElement.lang !== "en";
+  const TUR = tr ? { v: "fiil", n: "isim", adj: "sıfat", adv: "zarf", phr: "kalıp", conj: "bağlaç", prep: "edat" }
+                 : { v: "verb", n: "noun", adj: "adj.", adv: "adv.", phr: "phrase", conj: "conj.", prep: "prep." };
+  const g = pen.querySelector("input"), ul = pen.querySelector(".ara-sonuc"), bos = pen.querySelector(".ara-bos");
+  const yalin = s => s.toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i");
+  let veri = null, secili = 0, sonuclar = [];
+  const yukle = () => veri || (veri = fetch("/sozluk/veri.json").then(r => r.json()).then(d => d.v.map(x => ({ x, k: yalin(x[1]), t: yalin(x[3] + " " + x[4]) }))));
+  const ac = () => { pen.showModal(); g.value = ""; g.focus(); yukle(); goster(); };
+  const goster = async () => {
+    const q = yalin(g.value.trim());
+    if (!q) { ul.innerHTML = ""; bos.textContent = tr ? "Kelime ya da Türkçe anlam yaz: abandon, sürdürmek…" : "Type a word or a Turkish meaning…"; bos.hidden = false; sonuclar = []; return; }
+    const L = await yukle();
+    const a = [], b = [], c = [];
+    for (const s of L) { if (s.k.startsWith(q)) a.push(s); else if (s.k.includes(q)) b.push(s); else if (q.length > 2 && s.t.includes(q)) c.push(s); }
+    sonuclar = [...a.sort((m, n) => m.k.length - n.k.length), ...b, ...c].slice(0, 8);
+    secili = 0;
+    ul.innerHTML = sonuclar.map(({ x }, i) => `<li><a href="/sozluk/${x[0]}/" aria-selected="${i === 0}"><b lang="en"></b><span class="tur"></span><span class="tr"></span></a></li>`).join("");
+    ul.querySelectorAll("a").forEach((el, i) => { const x = sonuclar[i].x; el.querySelector("b").textContent = x[1]; el.querySelector(".tur").textContent = TUR[x[2]] || x[2];
+      el.querySelector(".tr").textContent = x[3].split(";")[0]; });
+    bos.hidden = sonuclar.length > 0;
+    if (!sonuclar.length) bos.textContent = tr ? "Bulunamadı. Sözlükte 1.388 kelime var; başka bir yazımla dene." : "No match. Try another spelling.";
+  };
+  const isaretle = () => ul.querySelectorAll("a").forEach((el, i) => { el.setAttribute("aria-selected", String(i === secili)); if (i === secili) el.scrollIntoView({ block: "nearest" }); });
+  dug.addEventListener("click", ac);
+  g.addEventListener("input", goster);
+  g.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown" && sonuclar.length) { e.preventDefault(); secili = (secili + 1) % sonuclar.length; isaretle(); }
+    else if (e.key === "ArrowUp" && sonuclar.length) { e.preventDefault(); secili = (secili - 1 + sonuclar.length) % sonuclar.length; isaretle(); }
+  });
+  pen.querySelector("form").addEventListener("submit", e => { e.preventDefault(); const a = ul.querySelectorAll("a")[secili]; if (a) location.href = a.href; });
+  pen.querySelector(".kapat").addEventListener("click", () => pen.close());
+  pen.addEventListener("click", e => { if (e.target === pen) pen.close(); });
+  addEventListener("keydown", e => {
+    const yaziyor = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
+    if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !yaziyor)) { e.preventDefault(); if (!pen.open) ac(); }
+  });
+  if (/Mac|iPhone|iPad/.test(navigator.platform)) { const k = dug.querySelector("kbd"); if (k) k.textContent = "⌘K"; }
+})();
+</script><script>
+// Kelime defteri + seri sayacı (21.10.2026): her sayfada. Hepsi ziyaretçinin tarayıcısında (localStorage), hesap yok.
+// Defter: { "abandon": {k, t, tr, es, id, z} } — id sözlükte varsa (/sozluk/<id>/), z eklenme zamanı.
+// Seri: { son: "2026-10-21", n, en } — günün sorusu, düello, seviye testi ya da defter kartları bitince o gün "çalışıldı" sayılır.
+(() => {
+  const DK = "kk-defter", SK = "kk-seri";
+  const oku = (k, v) => { try { return JSON.parse(localStorage.getItem(k)) || v; } catch (e) { return v; } };
+  const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  const gun = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const dun = () => { const d = new Date(); d.setDate(d.getDate() - 1); return gun(d); };
+  const anahtar = k => String(k || "").trim().toLocaleLowerCase("en");
+
+  const D = window.KKDefter = {
+    hepsi: () => oku(DK, {}),
+    liste: () => Object.values(oku(DK, {})).sort((a, b) => b.z - a.z),
+    var: k => anahtar(k) in oku(DK, {}),
+    sayi: () => Object.keys(oku(DK, {})).length,
+    ekle: x => { const h = oku(DK, {}); h[anahtar(x.k)] = { k: x.k, t: x.t || "", tr: x.tr || "", es: x.es || "", id: x.id || "", z: Date.now() }; yaz(DK, h); D.guncelle(); },
+    cikar: k => { const h = oku(DK, {}); delete h[anahtar(k)]; yaz(DK, h); D.guncelle(); },
+    guncelle: () => {
+      const n = D.sayi(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".defter-dug").forEach(a => { a.hidden = !n; const s = a.querySelector("[data-say]"); if (s) s.textContent = n; });
+      document.querySelectorAll(".yildiz-dug").forEach(b => {
+        try { const x = JSON.parse(b.dataset.defter); const v = D.var(x.k); b.setAttribute("aria-pressed", String(v));
+          const e = b.querySelector("[data-e]"); if (e) e.textContent = v ? (tr ? "Defterde" : "Saved") : (tr ? "Deftere ekle" : "Save word"); } catch (e) {}
+      });
+    },
+  };
+  const S = window.KKSeri = {
+    durum: () => { const s = oku(SK, { son: "", n: 0, en: 0 }); const aktif = s.son === gun() || s.son === dun(); return { n: aktif ? s.n : 0, en: s.en || 0, bugun: s.son === gun() }; },
+    isle: () => {
+      const s = oku(SK, { son: "", n: 0, en: 0 }), b = gun();
+      if (s.son !== b) { s.n = s.son === dun() ? s.n + 1 : 1; s.son = b; s.en = Math.max(s.en || 0, s.n); yaz(SK, s); }
+      S.goster(); return S.durum();
+    },
+    goster: () => {
+      const d = S.durum(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".seri").forEach(el => {
+        el.hidden = false; el.classList.toggle("sonuk", !d.bugun);
+        el.querySelector("[data-seri]").textContent = d.n
+          ? (tr ? `${d.n} gün üst üste` : `${d.n}-day streak`) + (d.bugun ? "" : (tr ? " · bugün de çöz" : " · keep it going today"))
+          : (tr ? "Seri başlat: bugün bir soru çöz" : "Start a streak: solve one today");
+        const en = el.querySelector("[data-en]"); if (en) en.textContent = d.en > 1 ? (tr ? `en iyi ${d.en}` : `best ${d.en}`) : "";
+      });
+    },
+  };
+  // yıldız düğmeleri (sayfaya sonradan eklenenler dahil): data-defter='{"k":…,"t":…,"tr":…,"es":…,"id":…}'
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".yildiz-dug"); if (!b) return;
+    try { const x = JSON.parse(b.dataset.defter); if (D.var(x.k)) D.cikar(x.k); else D.ekle(x); } catch (er) {}
+  });
+  D.guncelle(); S.goster();
+})();
+</script><script>
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
+(() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
+  addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });
+  d.forEach(x => x.addEventListener("click", async () => { if (!ist) return; ist.prompt(); await ist.userChoice; ist = null; d.forEach(y => { y.hidden = true; }); }));
+  addEventListener("appinstalled", () => d.forEach(x => { x.hidden = true; })); })();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

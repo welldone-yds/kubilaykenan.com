@@ -339,3 +339,71 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .ara-alt a { color: var(--green-dark); font-weight: 700; text-decoration: none; }
 @media (max-width: 760px) { .ara-dug span, .ara-dug kbd { display: none; } .ara-dug { padding: 8px; } .ara-pen { margin-top: 16px; } }
 @media (max-width: 480px) { .ust nav { gap: 12px; font-size: 14px; } .ust .marka { font-size: 18px; } }
+/* menü kalabalıklaşınca (arama + defter rozeti eklendi): düğmeler tek satır, arama yazısı geniş ekran dışında gizli */
+.ust-cta, .ust nav a { white-space: nowrap; }
+@media (max-width: 1360px) { .ara-dug span { display: none; } .ara-dug { padding: 8px 10px; } }
+/* telefonda menü: arama + defter simgeleri sığsın diye yazılı bağlantılardan yalnız Sözlük ve dil kalır (diğerleri sayfa içinde var) */
+@media (max-width: 480px) { .ust nav > a:not(.dil):not(.defter-dug):not([href="/sozluk/"]) { display: none; } .ust nav { gap: 8px; } }
+/* Kelime defteri + seri (21.10.2026): üst çubuk rozeti, yıldız düğmesi, seri çipi (her sayfada) ve /defter/ sayfası. */
+.defter-dug { position: relative; display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; border: 1px solid var(--line);
+              background: var(--bant, #F6F1EC); color: var(--heading) !important; text-decoration: none; padding: 0 !important; }
+.defter-dug[hidden] { display: none; }
+.defter-dug svg { width: 18px; height: 18px; }
+.defter-dug span { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 99px; background: #A84660; color: #fff;
+                   font: 800 11px/18px var(--font-sans); text-align: center; }
+.yildiz-dug { display: inline-flex; align-items: center; gap: 6px; font: 700 13px/1 var(--font-sans); color: var(--heading); background: #fff;
+              border: 1.5px solid var(--line); border-radius: 99px; padding: 7px 12px 7px 9px; cursor: pointer; transition: border-color .15s, background .15s; }
+.yildiz-dug:hover { border-color: var(--green); }
+.yildiz-dug svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
+.yildiz-dug[aria-pressed="true"] { background: var(--green-soft, #F7EFD2); border-color: var(--green); }
+.yildiz-dug[aria-pressed="true"] svg { fill: var(--green); stroke: var(--green-dark); }
+.seri { display: inline-flex; align-items: center; gap: 8px; font: 700 14px/1 var(--font-sans); color: var(--heading); background: var(--green-soft, #F7EFD2);
+        border: 1px solid var(--green-line, #EBDDAA); border-radius: 99px; padding: 8px 14px 8px 10px; }
+.seri[hidden] { display: none; }
+.seri svg { width: 18px; height: 18px; fill: #D8B229; stroke: #8A6A0E; stroke-width: 1.5; }
+.seri.sonuk { background: #fff; border-color: var(--line); color: var(--muted); }
+.seri.sonuk svg { fill: #EFE2AB; }
+.seri [data-en] { font-weight: 600; color: var(--muted); }
+.seri [data-en]:empty { display: none; }
+.vb .seri { margin-top: 14px; }
+/* /defter/ sayfası */
+.df-ust { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.df-ust b { font: 800 18px/1 var(--font-display); color: var(--heading); }
+.df-liste { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.df-liste li { position: relative; background: #fff; border: 1px solid #F1DCE1; border-radius: 16px; padding: 14px 40px 14px 16px; }
+.df-k { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.df-k a { font: 700 22px/1.1 "Cormorant Garamond", Georgia, serif; color: #2B1A1F; text-decoration: none; }
+.df-k a[href]:hover { text-decoration: underline; text-decoration-color: #A84660; }
+.df-k .tur { font: 700 11px/1 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; color: #A84660; }
+.df-liste .tr { margin: 6px 0 0; color: var(--text); font-size: 15px; }
+.df-liste .es { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.df-liste .es:empty { display: none; }
+.df-sil { position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; border-radius: 50%; border: 0; background: #F9E4E7; color: #A84660; font: 700 16px/1 var(--font-sans); cursor: pointer; }
+.df-bos[hidden], .df-dolu[hidden], [data-duello][hidden] { display: none; }
+.df-kart-pen { border: 0; padding: 0; border-radius: 26px; width: min(460px, calc(100vw - 24px)); background: #FFF6F4; box-shadow: 0 30px 80px rgba(31, 3, 12, .35); }
+.df-kart-pen::backdrop { background: rgba(31, 3, 12, .45); }
+.df-kart-ic, .df-bitti { padding: 22px; }
+.df-kart-ic[hidden], .df-bitti[hidden], .df-kart-dug[hidden] { display: none; }
+.df-kart-bas { display: flex; justify-content: space-between; color: var(--muted); font: 700 13px/1 var(--font-sans); margin-bottom: 14px; }
+.df-kart-bas button { border: 0; background: none; color: var(--muted); font: inherit; cursor: pointer; }
+.df-cevir { position: relative; width: 100%; min-height: 220px; border: 0; padding: 0; background: none; cursor: pointer; perspective: 1000px; }
+.df-cevir > span { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px;
+                   border-radius: 20px; background: #fff; box-shadow: 0 10px 26px rgba(168, 70, 96, .12); backface-visibility: hidden; transition: transform .5s; }
+.df-cevir .on b { font: 700 40px/1.1 "Cormorant Garamond", Georgia, serif; color: #2B1A1F; }
+.df-cevir .on span, .df-cevir .arka span { color: var(--muted); font-size: 14px; text-align: center; }
+.df-cevir .on small { color: #A84660; font-weight: 700; font-size: 12px; margin-top: 10px; }
+.df-cevir .arka { transform: rotateY(180deg); }
+.df-cevir .arka b { font: 800 22px/1.3 var(--font-display); color: var(--heading); text-align: center; }
+.df-cevir.dondu .on { transform: rotateY(180deg); } .df-cevir.dondu .arka { transform: rotateY(360deg); }
+.df-kart-dug { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.df-kart-dug button { border: 0; border-radius: 14px; padding: 14px; font: 700 15px/1 var(--font-sans); cursor: pointer; color: #fff; }
+.df-kart-dug [data-sonuc="tekrar"] { background: #C25B4E; } .df-kart-dug [data-sonuc="bildim"] { background: #4E8B57; }
+.df-bitti { text-align: center; } .df-bitti b { display: block; font: 800 26px/1.2 var(--font-display); color: var(--heading); margin-bottom: 6px; }
+.df-yazdir-bas { display: none; }
+@media print {
+  .ust, .ara-pen, footer, .du-bas, .df-ust .du-dugmeler, .df-sil, .df-bos, .du-maskot, .wa-yuzen, .atla, .df-not { display: none !important; }
+  .du-kart { box-shadow: none; border: 0; background: #fff; padding: 0; }
+  .df-yazdir-bas { display: block; font: 800 22px/1.2 var(--font-display); color: #3D091B; margin-bottom: 4px; }
+  .df-liste { grid-template-columns: 1fr 1fr; gap: 6px; } .df-liste li { break-inside: avoid; padding: 8px 10px; border-radius: 8px; }
+  .df-k a { font-size: 18px; } .df-liste .tr { font-size: 13px; }
+}

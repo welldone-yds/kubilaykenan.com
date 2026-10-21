@@ -1,0 +1,48 @@
+{
+ "name": "Kenan Hoca · YDS, e-YDS, YÖKDİL",
+ "short_name": "Kenan Hoca",
+ "lang": "tr",
+ "dir": "ltr",
+ "description": "YDS sözlüğü, kelime düellosu, seviye testi ve puan hesaplama; internetsiz de çalışır.",
+ "start_url": "/?kaynak=uygulama",
+ "scope": "/",
+ "display": "standalone",
+ "background_color": "#FFFFFF",
+ "theme_color": "#3D091B",
+ "icons": [
+  {
+   "src": "/simge-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/simge-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "/maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Sözlük",
+   "url": "/sozluk/"
+  },
+  {
+   "name": "Kelime düellosu",
+   "url": "/duello/"
+  },
+  {
+   "name": "Seviye testi",
+   "url": "/seviye-testi/"
+  },
+  {
+   "name": "Kelime defterim",
+   "url": "/defter/"
+  }
+ ]
+}
