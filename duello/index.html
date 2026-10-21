@@ -10,7 +10,7 @@
 <link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="Kelime Düellosu"><meta property="og:description" content="YDS kelimeleriyle 60 saniyelik düello: 10 kelime, eş anlamlısını ya da Türkçe anlamını rakibinden önce bul. Ücretsiz, kayıt yok.">
-<meta property="og:image" content="https://kubilaykenan.com/og/duello.png?v=55253f89"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://kubilaykenan.com/og/duello.png?v=ac93984b"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
@@ -161,7 +161,7 @@
     </g>
   </g>
 </svg>
-<div class="balon"><b>Well-Done</b><span>Merhaba! Ben sunucunuz. Rakibini seç, başlayalım.</span></div></div>
+<div class="balon"><b>Bibi</b><span>Merhaba! Ben Bibi, bu düellonun sunucusuyum. Rakibini seç, başlayalım.</span></div></div>
 <div class="du-rakipler"><button type="button" class="du-rakip" data-r="cirak" aria-pressed="false"><span class="du-av cirak">Ç</span><span><b>Çırak</b><small>Yavaş düşünür, sık yanılır. Isınmak için.</small></span></button><button type="button" class="du-rakip" data-r="kalfa" aria-pressed="false"><span class="du-av kalfa">K</span><span><b>Kalfa</b><small>Kelimelerin çoğunu bilir, acele etmez.</small></span></button><button type="button" class="du-rakip" data-r="usta" aria-pressed="false"><span class="du-av usta">U</span><span><b>Usta</b><small>Hızlı ve isabetli; dikkat etmezsen geçer.</small></span></button><button type="button" class="du-rakip" data-r="hoca" aria-pressed="false"><span class="du-av hoca">H</span><span><b>Hoca</b><small>Neredeyse hiç yanılmaz, saniyeler içinde cevaplar.</small></span></button></div>
 <div class="du-dugmeler"><button type="button" class="du-dug" data-basla>Düelloyu başlat</button><span class="du-rekor"></span></div>
 </div>
@@ -196,7 +196,7 @@
     </g>
   </g>
 </svg>
-<div class="balon"><span></span></div></div>
+<div class="balon"><b>Bibi</b><span></span></div></div>
 </div>
 <div class="du-kart du-son" hidden>
 <div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
@@ -223,7 +223,7 @@
     </g>
   </g>
 </svg>
-<div class="balon"><b>Well-Done</b><span></span></div></div>
+<div class="balon"><b>Bibi</b><span></span></div></div>
 <h2></h2><p class="ozet"></p>
 <div class="tablo"><div><b data-s-ben>0</b><span>puan</span></div><div><b data-s-dogru>0/10</b><span data-s-rekor>doğru</span></div></div>
 <div class="sonuc-gorsel"><img data-sonuc-onizle alt="Sonuç görseli önizlemesi" width="92" height="164"><div><b>Sonucunu hikâyende paylaş</b><span>Hazır görsel, 1080×1920</span>
@@ -286,10 +286,12 @@
     if (maskot && my > y) {
       c.drawImage(maskot, 70, my, mw, mh);
       c.font = "700 40px Inter, sans-serif";
-      const bx = 70 + mw + 10, bw = Math.min(W - bx - 70, c.measureText(v.balon).width + 60), sat = satirla(v.balon, bw - 60), bh = 40 + sat.length * 52, by = my + 40;
+      const ad = window.KK_MASKOT || "", ust = ad ? 38 : 0;
+      const bx = 70 + mw + 10, bw = Math.min(W - bx - 70, c.measureText(v.balon).width + 60), sat = satirla(v.balon, bw - 60), bh = 40 + ust + sat.length * 52, by = my + 30;
       c.fillStyle = "#FFFFFF"; kutu(bx, by, bw, bh, 30); c.fill();
       c.beginPath(); c.moveTo(bx + 4, by + 40); c.lineTo(bx - 22, by + 58); c.lineTo(bx + 4, by + 70); c.fill();
-      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + i * 52));
+      if (ad) { c.fillStyle = "#A84660"; c.font = "800 26px Inter, sans-serif"; c.fillText(ad.toLocaleUpperCase("tr"), bx + 30, by + 50); c.font = "700 40px Inter, sans-serif"; }
+      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + ust + i * 52));
     }
     // alt bilgi
     c.fillStyle = "#D8B229"; kutu(90, alt + 6, 64, 10, 5); c.fill();
@@ -582,7 +584,7 @@
   });
   D.guncelle(); S.goster();
 })();
-</script><script>
+</script><script>window.KK_MASKOT = "Bibi";</script><script>
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
 (() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
   addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });

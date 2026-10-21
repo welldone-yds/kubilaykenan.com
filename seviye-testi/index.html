@@ -10,7 +10,7 @@
 <link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="Seviye Testi"><meta property="og:description" content="10 soruluk ücretsiz YDS seviye testi: tahmini puan aralığın, bölüm karnen ve her sorunun açıklaması. Kayıt yok, yaklaşık 5 dakika.">
-<meta property="og:image" content="https://kubilaykenan.com/og/seviye-testi.png?v=48d6e3e3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://kubilaykenan.com/og/seviye-testi.png?v=1dd983b7"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
@@ -204,7 +204,7 @@
     </g>
   </g>
 </svg>
-<div class="balon"><b>Well-Done</b><span>Hazır mısın? Kolaydan zora 10 soru soracağım.</span></div></div>
+<div class="balon"><b>Bibi</b><span>Ben Bibi. Hazır mısın? Kolaydan zora 10 soru soracağım.</span></div></div>
 <ul><li>3 kelime, 3 dil bilgisi, 2 cümle tamamlama, 2 çeviri sorusu</li><li>Kolay, orta ve zor sorular karışık; zor sorular daha çok sayılır</li>
 <li>Her seferinde farklı sorular: havuzda 442 soru var</li><li>Sonunda her sorunun açıklaması</li></ul>
 <div class="du-dugmeler"><button type="button" class="du-dug" data-basla>Teste başla</button><span class="sv-onceki"></span></div>
@@ -241,7 +241,7 @@
     </g>
   </g>
 </svg>
-<div class="balon"><b>Well-Done</b><span></span></div></div>
+<div class="balon"><b>Bibi</b><span></span></div></div>
 <h2>Sonucun</h2>
 <div class="sv-sonuc"><div><b data-aralik>–</b><span>tahmini YDS puan aralığı</span></div><div><b data-harf>–</b><span>harf seviyesi</span></div><div><b data-dogru>–</b><span>doğru</span></div></div>
 <div class="sv-karne"></div>
@@ -305,10 +305,12 @@
     if (maskot && my > y) {
       c.drawImage(maskot, 70, my, mw, mh);
       c.font = "700 40px Inter, sans-serif";
-      const bx = 70 + mw + 10, bw = Math.min(W - bx - 70, c.measureText(v.balon).width + 60), sat = satirla(v.balon, bw - 60), bh = 40 + sat.length * 52, by = my + 40;
+      const ad = window.KK_MASKOT || "", ust = ad ? 38 : 0;
+      const bx = 70 + mw + 10, bw = Math.min(W - bx - 70, c.measureText(v.balon).width + 60), sat = satirla(v.balon, bw - 60), bh = 40 + ust + sat.length * 52, by = my + 30;
       c.fillStyle = "#FFFFFF"; kutu(bx, by, bw, bh, 30); c.fill();
       c.beginPath(); c.moveTo(bx + 4, by + 40); c.lineTo(bx - 22, by + 58); c.lineTo(bx + 4, by + 70); c.fill();
-      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + i * 52));
+      if (ad) { c.fillStyle = "#A84660"; c.font = "800 26px Inter, sans-serif"; c.fillText(ad.toLocaleUpperCase("tr"), bx + 30, by + 50); c.font = "700 40px Inter, sans-serif"; }
+      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + ust + i * 52));
     }
     // alt bilgi
     c.fillStyle = "#D8B229"; kutu(90, alt + 6, 64, 10, 5); c.fill();
@@ -529,7 +531,7 @@
   });
   D.guncelle(); S.goster();
 })();
-</script><script>
+</script><script>window.KK_MASKOT = "Bibi";</script><script>
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
 (() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
   addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });

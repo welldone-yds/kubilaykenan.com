@@ -10,7 +10,7 @@
 <link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="Sınavıma Kaç Gün Kaldı?"><meta property="og:description" content="YDS, e-YDS ve YÖKDİL&#x27;e kaç gün kaldığını gösteren paylaşım kartı: sınavını seç, hedef puanını yaz, Instagram hikâyende paylaş.">
-<meta property="og:image" content="https://kubilaykenan.com/og/sayac.png?v=186a0d1e"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://kubilaykenan.com/og/sayac.png?v=35e8a1fa"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
@@ -194,7 +194,7 @@
     </g>
   </g>
 </svg>
-<div class="balon"><b>Well-Done</b><span>Şu an takvimde yaklaşan İngilizce sınavı yok. ÖSYM yeni takvimi açıklayınca burada olacak.</span></div></div></div>
+<div class="balon"><b>Bibi</b><span>Şu an takvimde yaklaşan İngilizce sınavı yok. ÖSYM yeni takvimi açıklayınca burada olacak.</span></div></div></div>
 </div>
 <div class="sy-maskot" aria-hidden="true"><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
   
@@ -313,10 +313,11 @@
       c.drawImage(maskot, 70, my, mw, mh);
       const bx = 70 + mw + 10, by = my + mh * .2, bm = n <= 7 ? "Son düzlük, başarabilirsin!" : n <= 30 ? "Her gün biraz, tam isabet!" : "Erken başlayan kazanır!";
       c.font = `700 ${bicim === "hikaye" ? 40 : 34}px Inter, sans-serif`;
-      const bw = Math.min(W - bx - 70, c.measureText(bm).width + 60), sat = satirla(bm, bw - 60), bh = 40 + sat.length * 52;
+      const bw = Math.min(W - bx - 70, c.measureText(bm).width + 60), sat = satirla(bm, bw - 60), ad = window.KK_MASKOT || "", ust = ad ? 38 : 0, bh = 40 + ust + sat.length * 52;
       c.fillStyle = "#FFFFFF"; yuvarlak(bx, by, bw, bh, 30); c.fill();
       c.beginPath(); c.moveTo(bx + 4, by + 40); c.lineTo(bx - 22, by + 58); c.lineTo(bx + 4, by + 70); c.fill();
-      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + i * 52));
+      if (ad) { c.fillStyle = "#A84660"; c.font = "800 26px Inter, sans-serif"; c.fillText(ad.toLocaleUpperCase("tr"), bx + 30, by + 50); c.font = `700 ${bicim === "hikaye" ? 40 : 34}px Inter, sans-serif`; }
+      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + ust + i * 52));
     }
     // alt bilgi
     c.fillStyle = T.vurgu; yuvarlak(90, alt + 6, 64, 10, 5); c.fill();
@@ -442,7 +443,7 @@
   });
   D.guncelle(); S.goster();
 })();
-</script><script>
+</script><script>window.KK_MASKOT = "Bibi";</script><script>
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
 (() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
   addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });

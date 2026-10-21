@@ -427,8 +427,8 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .wdv .vb .imza { font: 700 34px/1 "Dancing Script", cursive; color: var(--wd-vurgu); }
 .wdv .vb h2 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 700; color: var(--wd-metin); letter-spacing: 0; font-size: clamp(36px, 4.8vw, 54px); }
 .wdv .vb p { color: #5F5A5C; }
-.wdv-sahne { position: relative; padding-top: 150px; }
-.wdv-yol { position: absolute; left: 0; right: 0; top: 34px; width: 100%; height: 120px; overflow: visible; pointer-events: none; }
+.wdv-sahne { position: relative; padding-top: 214px; }   /* maskot (+ etiket, ad rozeti) üstteki sayılara değmesin */
+.wdv-yol { position: absolute; left: 0; right: 0; top: 98px; width: 100%; height: 120px; overflow: visible; pointer-events: none; }
 .wdv-yol path { fill: none; stroke: rgba(168, 70, 96, .45); stroke-width: 2; stroke-dasharray: 2 9; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .wdv-yol .yildiz { fill: rgba(168, 70, 96, .5); }
 .wdv-ray { position: relative; display: flex; justify-content: center; list-style: none; margin: 0; padding: 0 0 36px; }
@@ -543,7 +543,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
   .gunluk { grid-template-columns: 1fr; }
   .ust-cta { display: none; }
   /* telefonlar yatay kaydırma şeridine döner; maskot şeritle birlikte kayar */
-  .wdv-sahne { padding-top: 110px; margin: 0 -20px; }
+  .wdv-sahne { padding-top: 196px; margin: 0 -20px; }   /* maskot + etiket + ad rozeti sayılara değmesin */
   .wdv-yol { display: none; }
   .wdv-ray { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; padding: 120px 20px 36px; margin-top: -120px;
              scrollbar-width: none; gap: 16px; }
@@ -617,6 +617,11 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .vs-paylas { display: inline-block; margin-top: 12px; font: 700 13px/1 var(--font-sans); color: var(--green-dark); text-decoration: none; }
 .vs-kart.ilk .vs-paylas { color: var(--green); }
 .vs-paylas:hover { text-decoration: underline; }
+/* maskotun adı (MASKOT_AD): Well-Done bandında maskotun altında küçük rozet */
+.wdv-m { position: relative; display: inline-block; flex: none; }
+.wdv-m .ad-rozet { position: absolute; left: 50%; top: calc(100% + 6px);   /* maskotun altında boşlukla, ortalı; kuyruğa değmez */
+                    transform: translateX(-50%); font: 800 12px/1 var(--font-sans); letter-spacing: .08em;
+                   text-transform: uppercase; font-style: normal; color: #fff; background: #A84660; padding: 4px 9px; border-radius: 99px; box-shadow: 0 4px 10px rgba(168, 70, 96, .3); }
 /* Üst çubukta sözlük araması (21.10.2026): her sayfada; ⌘K / Ctrl+K ya da "/" ile açılır, /sozluk/veri.json'dan arar. */
 .ara-dug { display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1 var(--font-sans); color: var(--muted); background: var(--bant, #F6F1EC);
            border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px 8px 12px; cursor: pointer; white-space: nowrap; }
@@ -842,7 +847,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 <div class="wdv-sahne">
 <svg class="wdv-yol" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 96 C 160 10, 330 8, 470 56 S 760 116, 900 64 S 1110 6, 1230 40"/>
 <circle class="yildiz" cx="1080" cy="22" r="3"/><circle class="yildiz" cx="140" cy="18" r="2.5"/><circle class="yildiz" cx="640" cy="104" r="2.5"/></svg>
-<div class="wdv-maskot" aria-hidden="true"><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+<div class="wdv-maskot" aria-hidden="true"><span class="wdv-m"><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
   
   <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
   <g class="m-govde">
@@ -866,7 +871,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
     </g>
   </g>
 </svg>
-<span class="wdv-etiket"><b data-no>01</b><span><strong data-ad>Bugünün planı</strong><small data-soz>Günaydın! Bugün ne çalışacağın hazır.</small></span></span></div>
+<i class="ad-rozet">Bibi</i></span><span class="wdv-etiket"><b data-no>01</b><span><strong data-ad>Bugünün planı</strong><small data-soz>Günaydın! Bugün ne çalışacağın hazır.</small></span></span></div>
 <ol class="wdv-ray"><li class="tel aktif" tabindex="0" role="button" data-ad="Bugünün planı" data-acik="Hedef sınavın, kalan gün, tahmini puanın ve günün adımları tek ekranda." data-soz="Günaydın! Bugün ne çalışacağın hazır." aria-label="Bugünün planı"><figure class="cer" style="margin:0"><img src="/img/wd/1_ana.jpg" width="506" height="1100" alt="Well-Done · Bugünün planı" loading="lazy" decoding="async"><figcaption>Hedef sınavın, kalan gün, tahmini puanın ve günün adımları tek ekranda.</figcaption></figure></li><li class="tel" tabindex="0" role="button" data-ad="Kelime kartları" data-acik="1.388 kelime; bildiğin kart seyrek, zorlandığın kart daha sık gelir." data-soz="Bildiğin kart seyrek gelir, unuttuğunu hemen geri getiririm." aria-label="Kelime kartları"><figure class="cer" style="margin:0"><img src="/img/wd/2_calis.jpg" width="506" height="1100" alt="Well-Done · Kelime kartları" loading="lazy" decoding="async"><figcaption>1.388 kelime; bildiğin kart seyrek, zorlandığın kart daha sık gelir.</figcaption></figure></li><li class="tel" tabindex="0" role="button" data-ad="Deneme sınavı" data-acik="931 özgün soru; tam ve mini deneme, süre ve soru haritasıyla." data-soz="Tam ÖSYM düzeni. Süreyi de ben tutuyorum!" aria-label="Deneme sınavı"><figure class="cer" style="margin:0"><img src="/img/wd/4_soru.jpg" width="506" height="1100" alt="Well-Done · Deneme sınavı" loading="lazy" decoding="async"><figcaption>931 özgün soru; tam ve mini deneme, süre ve soru haritasıyla.</figcaption></figure></li><li class="tel" tabindex="0" role="button" data-ad="Okuma" data-acik="76 parça; cümleye dokun, Türkçesini hemen gör." data-soz="Takıldığın cümleye dokun, Türkçesi hemen altında." aria-label="Okuma"><figure class="cer" style="margin:0"><img src="/img/wd/5_okuma.jpg" width="506" height="1100" alt="Well-Done · Okuma" loading="lazy" decoding="async"><figcaption>76 parça; cümleye dokun, Türkçesini hemen gör.</figcaption></figure></li><li class="tel" tabindex="0" role="button" data-ad="Puan tahmini" data-acik="Çözdüklerinden tahmini puanın ve en çok puan kazandıracak bölüm." data-soz="Hangi bölüm sana daha çok puan getirir, söylerim." aria-label="Puan tahmini"><figure class="cer" style="margin:0"><img src="/img/wd/6_puan.jpg" width="506" height="1100" alt="Well-Done · Puan tahmini" loading="lazy" decoding="async"><figcaption>Çözdüklerinden tahmini puanın ve en çok puan kazandıracak bölüm.</figcaption></figure></li><li class="tel" tabindex="0" role="button" data-ad="Kelime düellosu" data-acik="Eş anlamlıyı ilk sen bul: Kalfa&#x27;ya ya da Game Center&#x27;da arkadaşına karşı." data-soz="Düello zamanı! Kalfa seni bekliyor." aria-label="Kelime düellosu"><figure class="cer" style="margin:0"><img src="/img/wd/7_duello.jpg" width="506" height="1100" alt="Well-Done · Kelime düellosu" loading="lazy" decoding="async"><figcaption>Eş anlamlıyı ilk sen bul: Kalfa&#x27;ya ya da Game Center&#x27;da arkadaşına karşı.</figcaption></figure></li></ol>
 </div>
 <div class="wdv-aciklama" aria-live="polite"><b>Bugünün planı</b><span>Hedef sınavın, kalan gün, tahmini puanın ve günün adımları tek ekranda.</span></div>
@@ -919,8 +924,8 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 </section>
 <section class="v-bolum belir" id="sss">
 <div class="vb"><span class="et">Sık sorulanlar</span><h2>Aklına takılanlar</h2><p>Cevabı burada yoksa e-posta ya da WhatsApp&#x27;tan yaz.</p></div>
-<div class="sss-sekme"><button type="button" data-k="" aria-pressed="true">Tümü<sup>10</sup></button><button type="button" data-k="Well-Done" aria-pressed="false">Well-Done<sup>4</sup></button><button type="button" data-k="Araçlar" aria-pressed="false">Araçlar<sup>3</sup></button><button type="button" data-k="Genel" aria-pressed="false">Genel<sup>3</sup></button></div>
-<div class="sss-liste"><details data-k="Well-Done"><summary><span class="no">01</span>Well-Done ücretli mi?</summary><p>Hayır, ücretsiz. Şu an TestFlight ile deneyebilirsin; App Store&#x27;a çok yakında geliyor.</p></details><details data-k="Well-Done"><summary><span class="no">02</span>Hangi cihazlarda çalışıyor?</summary><p>iPhone, iPad ve Mac&#x27;te. Şimdilik Android sürümü yok.</p></details><details data-k="Well-Done"><summary><span class="no">03</span>Sorular nereden geliyor?</summary><p>931 sorunun hepsi ÖSYM düzeninde yazılmış özgün sorular; her birinin çözüm yaklaşımını anlatan açıklaması var.</p></details><details data-k="Well-Done"><summary><span class="no">04</span>Uygulama benden veri topluyor mu?</summary><p>Hayır. Hesap açman gerekmez; ilerlemen cihazında kalır. Ayrıntılar Well-Done gizlilik sayfasında.</p></details><details data-k="Araçlar"><summary><span class="no">05</span>Sözlük ve günün kelimesi nereden?</summary><p>Well-Done&#x27;daki 1.388 kelimelik sözlükle aynı. Her kelimede anlam, eş anlamlılar, örnek cümle ve ÖSYM&#x27;de çıktığı oturumlar var.</p></details><details data-k="Araçlar"><summary><span class="no">06</span>Puan hesaplama ne kadar doğru?</summary><p>YDS&#x27;de her doğru 1,25 puan; hesaplayıcı doğru sayını puana ve harf seviyesine çevirir. Eşikler resmî kaynaklardan; başvurmadan önce kurumun güncel duyurusuna da bak.</p></details><details data-k="Araçlar"><summary><span class="no">07</span>Sınav tarihlerini nasıl takip ederim?</summary><p>Sınav takviminde &quot;Takvimime ekle&quot;ye bir kez dokun: sınav ve başvuru tarihleri takvimine düşer, ÖSYM değiştirirse güncellenir.</p></details><details data-k="Genel"><summary><span class="no">08</span>Siteyi telefona uygulama gibi kurabilir miyim?</summary><p>Evet. Android&#x27;de Chrome ile girişteki &quot;Telefonuna kur&quot; düğmesine ya da menüdeki &quot;Ana ekrana ekle&quot;ye dokun; iPhone&#x27;da Safari&#x27;de Paylaş › Ana Ekrana Ekle. Sözlük, düello, seviye testi ve puan hesaplama internetsiz de açılır. iPhone, iPad ve Mac&#x27;te Well-Done daha kapsamlı.</p></details><details data-k="Genel"><summary><span class="no">09</span>PDF&#x27;leri kullanabilir miyim?</summary><p>Evet, hepsi ücretsiz; indirip yazdırabilir, öğrencilerinle paylaşabilirsin.</p></details><details data-k="Genel"><summary><span class="no">10</span>Hata ya da öneri nasıl iletirim?</summary><p>iletisim@kubilaykenan.com adresine yaz ya da WhatsApp&#x27;tan ulaş. Gelen her notu okuyorum.</p></details></div>
+<div class="sss-sekme"><button type="button" data-k="" aria-pressed="true">Tümü<sup>11</sup></button><button type="button" data-k="Well-Done" aria-pressed="false">Well-Done<sup>4</sup></button><button type="button" data-k="Araçlar" aria-pressed="false">Araçlar<sup>3</sup></button><button type="button" data-k="Genel" aria-pressed="false">Genel<sup>4</sup></button></div>
+<div class="sss-liste"><details data-k="Well-Done"><summary><span class="no">01</span>Well-Done ücretli mi?</summary><p>Hayır, ücretsiz. Şu an TestFlight ile deneyebilirsin; App Store&#x27;a çok yakında geliyor.</p></details><details data-k="Well-Done"><summary><span class="no">02</span>Hangi cihazlarda çalışıyor?</summary><p>iPhone, iPad ve Mac&#x27;te. Şimdilik Android sürümü yok.</p></details><details data-k="Well-Done"><summary><span class="no">03</span>Sorular nereden geliyor?</summary><p>931 sorunun hepsi ÖSYM düzeninde yazılmış özgün sorular; her birinin çözüm yaklaşımını anlatan açıklaması var.</p></details><details data-k="Well-Done"><summary><span class="no">04</span>Uygulama benden veri topluyor mu?</summary><p>Hayır. Hesap açman gerekmez; ilerlemen cihazında kalır. Ayrıntılar Well-Done gizlilik sayfasında.</p></details><details data-k="Araçlar"><summary><span class="no">05</span>Sözlük ve günün kelimesi nereden?</summary><p>Well-Done&#x27;daki 1.388 kelimelik sözlükle aynı. Her kelimede anlam, eş anlamlılar, örnek cümle ve ÖSYM&#x27;de çıktığı oturumlar var.</p></details><details data-k="Araçlar"><summary><span class="no">06</span>Puan hesaplama ne kadar doğru?</summary><p>YDS&#x27;de her doğru 1,25 puan; hesaplayıcı doğru sayını puana ve harf seviyesine çevirir. Eşikler resmî kaynaklardan; başvurmadan önce kurumun güncel duyurusuna da bak.</p></details><details data-k="Araçlar"><summary><span class="no">07</span>Sınav tarihlerini nasıl takip ederim?</summary><p>Sınav takviminde &quot;Takvimime ekle&quot;ye bir kez dokun: sınav ve başvuru tarihleri takvimine düşer, ÖSYM değiştirirse güncellenir.</p></details><details data-k="Genel"><summary><span class="no">08</span>Bibi kim?</summary><p>Well-Done&#x27;ın ve bu sitenin maskotu: konuşma balonu gövdeli, kepli küçük bir çalışma arkadaşı. Düelloyu sunar, testlerde sana eşlik eder, doğru cevapta herkesten çok o sevinir.</p></details><details data-k="Genel"><summary><span class="no">09</span>Siteyi telefona uygulama gibi kurabilir miyim?</summary><p>Evet. Android&#x27;de Chrome ile girişteki &quot;Telefonuna kur&quot; düğmesine ya da menüdeki &quot;Ana ekrana ekle&quot;ye dokun; iPhone&#x27;da Safari&#x27;de Paylaş › Ana Ekrana Ekle. Sözlük, düello, seviye testi ve puan hesaplama internetsiz de açılır. iPhone, iPad ve Mac&#x27;te Well-Done daha kapsamlı.</p></details><details data-k="Genel"><summary><span class="no">10</span>PDF&#x27;leri kullanabilir miyim?</summary><p>Evet, hepsi ücretsiz; indirip yazdırabilir, öğrencilerinle paylaşabilirsin.</p></details><details data-k="Genel"><summary><span class="no">11</span>Hata ya da öneri nasıl iletirim?</summary><p>iletisim@kubilaykenan.com adresine yaz ya da WhatsApp&#x27;tan ulaş. Gelen her notu okuyorum.</p></details></div>
 <div class="sss-wa"><div><b>Cevap bulamadın mı?</b><span>WhatsApp'tan yaz, kendim dönerim.</span></div>
 <a class="btn-wa" href="https://wa.me/905357357864?text=Merhaba%20Kenan%20Hoca%2C%20kubilaykenan.com%20%C3%BCzerinden%20yaz%C4%B1yorum." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>WhatsApp'tan yaz</a></div>
 </section>
@@ -1066,9 +1071,14 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
     const ac = document.querySelector(".wdv-aciklama"), noktalar = [...document.querySelectorAll(".wdv-noktalar button")];
     let aktif = -1, xy = null, bekle = 0, gorunur = false, ustunde = false, ilkKez = true, sayac = 0;
     const dar = () => matchMedia("(max-width: 900px)").matches;
-    const hedef = i => {   // maskotun konması gereken yer (sahneye göre): telefonun sol üstüne doğru, biraz yukarıda
-      const s = sahne.getBoundingClientRect(), t = teller[i].getBoundingClientRect(), mw = mas.querySelector(".maskot").getBoundingClientRect().width;
-      return [t.left - s.left + t.width * (dar() ? .5 : .42) - mw / 2, t.top - s.top - mw * 1.02];
+    const hedef = i => {   // maskotun konması gereken yer (sahneye göre): telefonun üstünde, biraz solunda
+      // Telefonun ÖNE ÇIKMIŞ son hâline göre hesaplanır (CSS .tel.aktif: geniş ekranda translateY(-18px) scale(1.07), dar ekranda -10px / 1.03);
+      // anlık getBoundingClientRect geçiş bitmeden ölçtüğü için maskot telefon kalkınca rozetiyle telefona biniyordu.
+      const t = teller[i], mw = mas.querySelector(".maskot").getBoundingClientRect().width;
+      const [kalk, olc] = dar() ? [10, 1.03] : [18, 1.07];
+      const sol = ray.offsetLeft - ray.scrollLeft + t.offsetLeft + t.offsetWidth / 2 - t.offsetWidth * olc / 2;
+      const ust = ray.offsetTop + t.offsetTop - kalk - t.offsetHeight * (olc - 1) / 2;
+      return [sol + t.offsetWidth * olc * (dar() ? .5 : .42) - mw / 2, ust - mw * 1.02 - (dar() ? 37 : 34)];   // −34: ad rozeti ile telefon arasında maskot–rozet kadar boşluk
     };
     const yerlestir = (i, uc) => {
       let [x, y] = hedef(i);
@@ -1243,7 +1253,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
   });
   D.guncelle(); S.goster();
 })();
-</script><script>
+</script><script>window.KK_MASKOT = "Bibi";</script><script>
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
 (() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
   addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });
