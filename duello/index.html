@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelime Düellosu: 60 Saniyede YDS Kelimeleri · Kenan Hoca</title>
+<meta name="description" content="YDS kelimeleriyle 60 saniyelik düello: 10 kelime, eş anlamlısını ya da Türkçe anlamını rakibinden önce bul. Ücretsiz, kayıt yok.">
+<link rel="canonical" href="https://kubilaykenan.com/duello/">
+<link rel="icon" href="/simge.png"><link rel="apple-touch-icon" href="/simge.png"><meta name="theme-color" content="#3D091B">
+<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Kelime Düellosu"><meta property="og:description" content="YDS kelimeleriyle 60 saniyelik düello: 10 kelime, eş anlamlısını ya da Türkçe anlamını rakibinden önce bul. Ücretsiz, kayıt yok.">
+<meta property="og:image" content="https://kubilaykenan.com/og.png?v=d6bca8a5"><meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
+<link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
+<link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
+<link rel="stylesheet" href="/site.css?v=aa5de041">
+<style>
+/* Well-Done maskotu (maskot.svg) kıpırtıları: ana sayfa, düello ve seviye testi ortak. Kapsayıcıya .selam / .ucuyor eklenir. */
+/* maskot kıpırtıları: göz kırpma, püskül, kep, el sallama, hafif süzülme */
+.maskot .m-govde { transform-origin: 120px 222px; animation: m-sallan 3.2s ease-in-out infinite; }
+.maskot .m-goz { transform-origin: 120px 134px; animation: m-kirp 4.6s infinite; }
+.maskot .m-puskul { transform-origin: 120px 52px; animation: m-puskul 1.8s ease-in-out infinite; }
+.maskot .m-kep { transform-origin: 120px 70px; transform: rotate(-6deg); }
+.maskot .m-el { transform-origin: 206px 160px; }
+.selam .m-el { animation: m-el 1.1s ease-in-out 1; }
+.maskot .m-bebek { transition: transform .4s; }
+.ucuyor .m-bebek { transform: translate(5px, -4px); }
+@keyframes m-sallan { 0%, 100% { transform: rotate(-2deg) translateY(0); } 50% { transform: rotate(2deg) translateY(-6px); } }
+@keyframes m-kirp { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes m-puskul { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(8deg); } }
+@keyframes m-el { 0% { transform: none; } 25% { transform: translate(-6px, -58px) rotate(-22deg); } 50% { transform: translate(-6px, -58px) rotate(6deg); }
+                  75% { transform: translate(-6px, -58px) rotate(-18deg); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .maskot * { animation: none !important; } }
+/* tepkiler (düello, seviye testi): sevinç zıplaması, üzülme */
+.sevinc .maskot { animation: m-zipla .6s cubic-bezier(.3, 1.6, .5, 1) 1; }
+.uzgun .maskot .m-govde { animation: m-uzul 1s ease-in-out 1; }
+@keyframes m-zipla { 0% { transform: none; } 40% { transform: translateY(-22px) scale(1.06, .96); } 100% { transform: none; } }
+@keyframes m-uzul { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(-9deg) translateY(4px); } 60% { transform: rotate(6deg) translateY(4px); } }
+/* konuşma balonu: maskotun yanında; metin kelime kelime yazılır (data-yaz) */
+.balon { position: relative; background: #fff; color: #2B1A1F; border-radius: 18px; padding: 12px 16px; box-shadow: 0 10px 26px rgba(43, 26, 31, .14);
+         font: 600 15px/1.4 var(--font-sans); max-width: 280px; }
+.balon::before { content: ""; position: absolute; left: -7px; top: 22px; width: 16px; height: 16px; background: inherit; transform: rotate(45deg); border-radius: 3px; }
+.balon b { display: block; font: 800 12px/1 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; color: #A84660; margin-bottom: 5px; }
+@media (prefers-reduced-motion: reduce) { .sevinc .maskot, .uzgun .maskot .m-govde { animation: none !important; } }
+/* Mini kelime düellosu (/duello/, 21.10.2026): Well-Done düellosunun 10 kelimelik web sürümü; maskot sunucu. */
+.du { max-width: 760px; margin: 0 auto; padding: 18px 0 40px; }
+.du-bas { text-align: center; margin-bottom: 22px; }
+.du-bas .imza { font: 700 30px/1 "Dancing Script", cursive; color: #A84660; }
+.du-bas h1 { font: 800 clamp(34px, 5vw, 48px)/1.08 var(--font-display); color: var(--heading); margin: 6px 0 10px; letter-spacing: -.02em; }
+.du-bas p { color: var(--muted); margin: 0; font-size: 17px; }
+.du-kart { background: #FFF6F4; border: 1px solid #F1DCE1; border-radius: 26px; padding: 26px; box-shadow: 0 18px 50px rgba(168, 70, 96, .10); }
+.du-kart[hidden] { display: none; }
+.du-maskot { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.du-maskot .maskot { width: 92px; height: auto; flex: none; overflow: visible; }
+.du-rakipler { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0 0 18px; }
+.du-rakip { display: flex; align-items: center; gap: 12px; text-align: left; border: 1.5px solid #EED3D9; background: #fff; border-radius: 16px; padding: 12px 14px; cursor: pointer;
+            font: inherit; color: var(--text); transition: border-color .15s, box-shadow .15s; }
+.du-rakip:hover { border-color: #A84660; }
+.du-rakip[aria-pressed="true"] { border-color: #A84660; box-shadow: 0 0 0 3px rgba(168, 70, 96, .18); }
+.du-av { width: 40px; height: 40px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 800 16px/1 var(--font-display); color: #fff; background: #A84660; }
+.du-av.cirak { background: #6E8B5A; } .du-av.kalfa { background: #C08A2E; } .du-av.usta { background: #A84660; } .du-av.hoca { background: #3D091B; }
+.du-rakip b { display: block; color: var(--heading); }
+.du-rakip small { color: var(--muted); font-size: 13px; line-height: 1.3; display: block; }
+.du-dug { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; cursor: pointer; font: 700 16px/1 var(--font-sans);
+          padding: 16px 24px; border-radius: 14px; background: #A84660; color: #fff; box-shadow: 0 10px 24px rgba(168, 70, 96, .3); text-decoration: none; }
+.du-dug.ikinci { background: #fff; color: #A84660; border: 1.5px solid #EED3D9; box-shadow: none; }
+.du-dug.wa { background: #1FAF54; box-shadow: none; }
+.du-dugmeler { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.du-rekor { color: var(--muted); font-size: 14px; }
+/* oyun */
+.du-skor { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: #3D091B; color: #fff; border-radius: 20px; padding: 14px 18px; }
+.du-skor .taraf { display: flex; align-items: center; gap: 10px; }
+.du-skor .taraf.sag { justify-content: flex-end; text-align: right; }
+.du-skor small { display: block; font-size: 12px; color: #E8D3D8; }
+.du-skor .p { font: 800 30px/1 var(--font-display); }
+.du-skor .tur { text-align: center; font: 700 13px/1.2 var(--font-sans); color: #E8D3D8; }
+.du-skor .tur b { display: block; font: 800 22px/1 var(--font-display); color: #fff; }
+.du-skor .du-av { width: 36px; height: 36px; font-size: 14px; box-shadow: 0 0 0 2px rgba(255, 255, 255, .5); }
+.du-skor .ben { background: #F4C9D2; color: #3D091B; }
+.du-sure { height: 6px; border-radius: 99px; background: #F1DCE1; margin: 14px 0 4px; overflow: hidden; }
+.du-sure i { display: block; height: 100%; width: 100%; background: #A84660; border-radius: inherit; transform-origin: left; }
+.du-durum { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); min-height: 18px; }
+.du-soru { text-align: center; padding: 26px 0 20px; }
+.du-soru .ne { color: var(--muted); font-size: 15px; }
+.du-soru .kel { font: 700 clamp(36px, 7vw, 52px)/1.1 "Cormorant Garamond", Georgia, serif; color: #2B1A1F; margin: 8px 0 2px; }
+.du-soru .kel.tr { font: 800 clamp(24px, 4.6vw, 32px)/1.2 var(--font-display); }
+.du-soru .tt { color: var(--muted); font-size: 14px; }
+.du-sec { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.du-sec button { position: relative; width: 100%; min-height: 58px; text-align: left; font: 600 16px/1.3 var(--font-sans); color: #2B1A1F; background: #fff;
+                 border: 1.5px solid #F1DCE1; border-radius: 16px; padding: 14px 16px; cursor: pointer; transition: border-color .12s, background .12s, transform .12s; }
+.du-sec button:hover:not([disabled]) { border-color: #A84660; transform: translateY(-1px); }
+.du-sec button[disabled] { cursor: default; }
+.du-sec button.dogru { background: #EEF7EE; border-color: #2E7D32; }
+.du-sec button.yanlis { background: #FBEDEC; border-color: #B3261E; }
+.du-sec .rozet { position: absolute; top: -9px; right: 10px; font: 800 10px/1 var(--font-sans); letter-spacing: .05em; padding: 4px 7px; border-radius: 6px; background: #3D091B; color: #fff; }
+.du-alt { display: flex; align-items: center; gap: 12px; margin-top: 18px; min-height: 70px; }
+.du-alt .maskot { width: 64px; height: auto; flex: none; overflow: visible; }
+.du-alt .balon { font-size: 14px; padding: 10px 14px; }
+/* sonuç */
+.du-son h2 { font: 800 34px/1.1 var(--font-display); color: var(--heading); margin: 0 0 4px; }
+.du-son .ozet { color: var(--muted); margin: 0 0 16px; }
+.du-son .tablo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.du-son .tablo div { background: #fff; border-radius: 16px; padding: 14px 16px; border: 1px solid #F1DCE1; }
+.du-son .tablo b { display: block; font: 800 30px/1 var(--font-display); color: #A84660; }
+.du-son .tablo span { font-size: 13px; color: var(--muted); }
+.du-tekrar { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 6px; }
+.du-tekrar li { background: #fff; border-radius: 12px; padding: 10px 14px; border: 1px solid #F1DCE1; font-size: 15px; }
+.du-tekrar b { color: #2B1A1F; } .du-tekrar span { color: var(--muted); }
+.du-tekrar .y { color: #B3261E; font-weight: 700; } .du-tekrar .d { color: #2E7D32; font-weight: 700; }
+.du-wd { margin-top: 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #fff; border-radius: 18px; padding: 16px 18px; border: 1px solid #F1DCE1; }
+.du-wd img { width: 52px; height: 52px; border-radius: 12px; }
+.du-wd div { flex: 1; min-width: 180px; } .du-wd b { display: block; color: #2B1A1F; } .du-wd span { color: var(--muted); font-size: 14px; }
+@media (max-width: 560px) {
+  .du-kart { padding: 18px; border-radius: 22px; }
+  .du-rakipler, .du-sec { grid-template-columns: 1fr; }
+  .du-skor { padding: 12px; } .du-skor .p { font-size: 24px; } .du-skor .du-av { display: none; }
+  .du-soru { padding: 18px 0 14px; }
+}
+</style>
+</head>
+<body>
+<a class="atla" href="#icerik">İçeriğe geç</a>
+<div class="sayfa">
+<header class="ust"><a class="marka" href="/">Kubilay Kenan</a>
+<nav><a class="dar-gizle" href="/#hakkimda">Hakkımda</a><a href="/sozluk/">Sözlük</a><a href="/#araclar">Araçlar</a><a href="/yazilar/">Yazılar</a><a class="dar-gizle" href="/#iletisim">İletişim</a><button type="button" class="ara-dug" aria-label="Sözlükte ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Kelime ara</span><kbd>Ctrl K</kbd></button></nav></header>
+<dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
+<main id="icerik">
+
+<section class="du" id="duello" data-veri="/duello/veri.json?v=83fcdee2">
+<div class="du-bas"><span class="imza">Well-Done</span><h1>Kelime düellosu</h1><p>10 kelime, her biri 10 saniye. Eş anlamlıyı, Türkçe anlamı ya da İngilizcesini rakibinden önce bul.</p></div>
+<div class="du-kart du-giris">
+<div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+<div class="balon"><b>Well-Done</b><span>Merhaba! Ben sunucunuz. Rakibini seç, başlayalım.</span></div></div>
+<div class="du-rakipler"><button type="button" class="du-rakip" data-r="cirak" aria-pressed="false"><span class="du-av cirak">Ç</span><span><b>Çırak</b><small>Yavaş düşünür, sık yanılır. Isınmak için.</small></span></button><button type="button" class="du-rakip" data-r="kalfa" aria-pressed="false"><span class="du-av kalfa">K</span><span><b>Kalfa</b><small>Kelimelerin çoğunu bilir, acele etmez.</small></span></button><button type="button" class="du-rakip" data-r="usta" aria-pressed="false"><span class="du-av usta">U</span><span><b>Usta</b><small>Hızlı ve isabetli; dikkat etmezsen geçer.</small></span></button><button type="button" class="du-rakip" data-r="hoca" aria-pressed="false"><span class="du-av hoca">H</span><span><b>Hoca</b><small>Neredeyse hiç yanılmaz, saniyeler içinde cevaplar.</small></span></button></div>
+<div class="du-dugmeler"><button type="button" class="du-dug" data-basla>Düelloyu başlat</button><span class="du-rekor"></span></div>
+</div>
+<div class="du-kart du-oyun" hidden>
+<div class="du-skor"><div class="taraf"><span class="du-av ben">S</span><div><small>Sen</small><span class="p" data-ben>0</span></div></div>
+<div class="tur">Tur<b data-tur>1/10</b></div>
+<div class="taraf sag"><div><small data-o-ad>Kalfa</small><span class="p" data-o>0</span></div><span class="du-av rakip kalfa">K</span></div></div>
+<div class="du-sure"><i></i></div><div class="du-durum"><span data-not></span><span data-kalan>10 sn</span></div>
+<div class="du-soru" aria-live="polite"><div class="ne"></div><div class="kel"></div><div class="tt"></div></div>
+<ul class="du-sec"><li><button type='button'></button></li><li><button type='button'></button></li><li><button type='button'></button></li><li><button type='button'></button></li></ul>
+<div class="du-alt du-maskot"><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+<div class="balon"><span></span></div></div>
+</div>
+<div class="du-kart du-son" hidden>
+<div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+<div class="balon"><b>Well-Done</b><span></span></div></div>
+<h2></h2><p class="ozet"></p>
+<div class="tablo"><div><b data-s-ben>0</b><span>puan</span></div><div><b data-s-dogru>0/10</b><span data-s-rekor>doğru</span></div></div>
+<p class="du-tekrar-bas" style="font-weight:700;margin:0 0 8px;color:var(--heading)">Tekrar etmen gereken kelimeler</p><ul class="du-tekrar"></ul>
+<div class="du-dugmeler"><button type="button" class="du-dug" data-tekrar>Rövanş</button><button type="button" class="du-dug ikinci" data-rakip-degis>Rakibi değiştir</button>
+<a class="du-dug wa" data-paylas href="#" target="_blank" rel="noopener">Skorunu paylaş</a></div>
+<div class="du-wd"><img src="/simge.png" alt="" width="52" height="52"><div><b>Devamı Well-Done'da</b><span>428 kelimelik düello, Game Center'da arkadaşına karşı maç, 931 soru.</span></div>
+<a class="du-dug" href="/welldone/">Uygulamaya bak</a></div>
+</div>
+<p class="sv-not" style="color:var(--muted);font-size:13px;text-align:center;margin-top:14px">Klavyeyle 1–4 tuşlarıyla da cevaplayabilirsin. Kelimeler Well-Done'un düello havuzundan (428 kelime).</p>
+</section>
+</main>
+<footer>© 2026 Kubilay Kenan Işıklı</footer>
+</div>
+<script>
+// Mini kelime düellosu: Well-Done'daki bot düellosunun web sürümü (BotDuellosu.swift kuralları).
+// 10 kelime, kelime başı 10 sn; doğru = 10 puan + hız bonusu (kalan sürenin oranı × 10). Rakip seviyeleri uygulamadakiyle aynı.
+// Soru türleri: eş anlamlısı (İngilizce), Türkçe anlamı, İngilizcesi (Türkçeden). Veri: /duello/veri.json (duello.csv'den).
+(() => {
+  const kok = document.getElementById("duello"); if (!kok) return;
+  const TUR_SAY = 10, SURE = 10;
+  const RAKIP = {
+    cirak: { ad: "Çırak", bel: "Çırak'ı", yon: "Çırak'a", dog: .55, sure: [4.5, 8.5] },
+    kalfa: { ad: "Kalfa", bel: "Kalfa'yı", yon: "Kalfa'ya", dog: .72, sure: [3.2, 6.5] },
+    usta: { ad: "Usta", bel: "Usta'yı", yon: "Usta'ya", dog: .86, sure: [2.0, 4.5] },
+    hoca: { ad: "Hoca", bel: "Hoca'yı", yon: "Hoca'ya", dog: .95, sure: [1.2, 3.0] },
+  };
+  const TUR = { v: "fiil", n: "isim", adj: "sıfat", adv: "zarf", phr: "kalıp", prep: "edat", conj: "bağlaç" };
+  const $ = s => kok.querySelector(s), $$ = s => [...kok.querySelectorAll(s)];
+  const giris = $(".du-giris"), oyun = $(".du-oyun"), son = $(".du-son");
+  const karistir = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const sec = (a, n) => karistir([...a]).slice(0, n);
+  const rastgele = ([a, b]) => a + Math.random() * (b - a);
+  const oku = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const yaz = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+
+  let veri = null, rakip = oku("duello-rakip") || "kalfa", turlar = [], t = 0, ben = 0, o = 0, zam = null, bas = 0, bitti = false;
+  const yukle = () => veri || (veri = fetch(kok.dataset.veri).then(r => r.json()));
+  yukle();
+
+  // maskot: tepki + balon
+  const konus = (yer, m, tepki) => {
+    const b = yer.querySelector(".balon span"); if (b) b.textContent = m;
+    if (tepki) { yer.classList.remove("sevinc", "uzgun", "selam"); void yer.offsetWidth; yer.classList.add(tepki); }
+  };
+  const ALKIS = ["Süper!", "Tam isabet!", "Çok hızlıydın!", "Harika gidiyorsun!", "İşte bu!"];
+  const TESELLI = ["Olsun, sıradakine!", "Bunu Well-Done'da tekrar ederiz.", "Yakındın!", "Dert etme, devam!"];
+
+  // rakip seçimi
+  const rekorGoster = () => { const r = oku("duello-rekor-" + rakip); $(".du-rekor").textContent = r ? `${RAKIP[rakip].ad} karşısında en iyi skorun: ${r}` : ""; };
+  $$(".du-rakip").forEach(d => {
+    d.setAttribute("aria-pressed", String(d.dataset.r === rakip));
+    d.addEventListener("click", () => { rakip = d.dataset.r; yaz("duello-rakip", rakip); $$(".du-rakip").forEach(x => x.setAttribute("aria-pressed", String(x === d))); rekorGoster(); });
+  });
+  rekorGoster();
+
+  const soruKur = (x, tur, havuz) => {
+    if (tur === "es") {
+      return { ne: "Hangisi eş anlamlısı?", kel: x.k, tt: TUR[x.t] || x.t, tr: false,
+               dogru: x.es[Math.floor(Math.random() * x.es.length)], yanlis: sec(x.ce, 3) };
+    }
+    if (tur === "tr") {
+      return { ne: "Türkçe anlamı hangisi?", kel: x.k, tt: TUR[x.t] || x.t, tr: false, dogru: x.tr, yanlis: sec(x.ct, 3) };
+    }
+    const ayni = havuz.filter(y => y.t === x.t && y.k !== x.k);
+    return { ne: "İngilizcesi hangisi?", kel: x.tr, tt: TUR[x.t] || x.t, tr: true, dogru: x.k, yanlis: sec(ayni, 3).map(y => y.k) };
+  };
+
+  const basla = async () => {
+    const L = await yukle();
+    turlar = sec(L.filter(x => x.es.length && x.ce.length >= 3 && x.ct.length >= 3), TUR_SAY).map((x, i) => {
+      const s = soruKur(x, ["es", "tr", "en"][i % 3], L);
+      const secenek = karistir([s.dogru, ...s.yanlis]);
+      const R = RAKIP[rakip], dogruMu = Math.random() < R.dog;
+      const botSecim = dogruMu ? secenek.indexOf(s.dogru) : karistir(secenek.map((_, j) => j).filter(j => secenek[j] !== s.dogru))[0];
+      return { ...s, x, secenek, d: secenek.indexOf(s.dogru), botSure: rastgele(R.sure), botSecim, benSecim: null, benSure: null };
+    });
+    t = 0; ben = 0; o = 0; bitti = false;
+    $("[data-o-ad]").textContent = RAKIP[rakip].ad;
+    const av = $(".du-skor .rakip"); av.className = "du-av rakip " + rakip; av.textContent = RAKIP[rakip].ad[0];
+    giris.hidden = true; son.hidden = true; oyun.hidden = false;
+    konus($(".du-alt"), `${RAKIP[rakip].ad} hazır. Başlıyoruz!`, "selam");
+    tur();
+  };
+
+  const tur = () => {
+    const s = turlar[t];
+    $("[data-tur]").textContent = `${t + 1}/${TUR_SAY}`;
+    $("[data-ben]").textContent = ben; $("[data-o]").textContent = o;
+    $(".du-soru .ne").textContent = s.ne;
+    const kel = $(".du-soru .kel"); kel.textContent = s.kel; kel.classList.toggle("tr", s.tr); kel.lang = s.tr ? "tr" : "en";
+    $(".du-soru .tt").textContent = s.tt;
+    $$(".du-sec button").forEach((b, i) => {
+      b.disabled = false; b.className = ""; b.lang = s.tr ? "en" : (s.ne.startsWith("Türkçe") ? "tr" : "en");
+      b.textContent = s.secenek[i];
+    });
+    $(".du-durum [data-not]").textContent = "";
+    bas = performance.now();
+    const cubuk = $(".du-sure i");
+    cubuk.style.transition = "none"; cubuk.style.transform = "scaleX(1)"; void cubuk.offsetWidth;
+    cubuk.style.transition = `transform ${SURE}s linear`; cubuk.style.transform = "scaleX(0)";
+    clearInterval(zam);
+    zam = setInterval(() => {
+      const gecen = (performance.now() - bas) / 1000;
+      $(".du-durum [data-kalan]").textContent = Math.max(0, Math.ceil(SURE - gecen)) + " sn";
+      if (s.benSecim === null && s.botSure <= gecen && !s.botBildi) { s.botBildi = true; $(".du-durum [data-not]").textContent = `${RAKIP[rakip].ad} cevapladı.`; }
+      if (gecen >= SURE) bitir(null);
+    }, 100);
+  };
+
+  const puan = sn => sn == null ? 0 : 10 + Math.round(10 * Math.max(0, SURE - sn) / SURE);
+
+  const bitir = secim => {
+    const s = turlar[t]; if (s.benSecim !== null || bitti) return;
+    clearInterval(zam);
+    const gecen = Math.min(SURE, (performance.now() - bas) / 1000);
+    s.benSecim = secim; s.benSure = secim === null ? null : gecen;
+    // oyuncu önce cevaplarsa rakip hızlanır (en geç 0,8 sn sonra), süre içinde değilse cevapsız
+    const botSn = s.botSure <= gecen ? s.botSure : Math.min(SURE, gecen + .8, s.botSure);
+    s.botGercek = botSn < SURE ? botSn : null;
+    const benP = secim === s.d ? puan(gecen) : 0, botP = s.botGercek != null && s.botSecim === s.d ? puan(s.botGercek) : 0;
+    ben += benP; o += botP; s.benP = benP;
+    const dug = $$(".du-sec button");
+    dug.forEach((b, i) => { b.disabled = true; if (i === s.d) b.classList.add("dogru"); else if (i === secim) b.classList.add("yanlis"); });
+    if (s.botGercek != null) { const r = document.createElement("span"); r.className = "rozet"; r.textContent = RAKIP[rakip].ad; dug[s.botSecim].appendChild(r); }
+    $(".du-sure i").style.transition = "none";
+    $("[data-ben]").textContent = ben; $("[data-o]").textContent = o;
+    const yer = $(".du-alt");
+    if (secim === null) konus(yer, `Süre doldu! Doğrusu: ${s.dogru}`, "uzgun");
+    else if (secim === s.d) konus(yer, `${ALKIS[Math.floor(Math.random() * ALKIS.length)]} +${benP}`, "sevinc");
+    else konus(yer, `${TESELLI[Math.floor(Math.random() * TESELLI.length)]} Doğrusu: ${s.dogru}`, "uzgun");
+    setTimeout(() => { t++; if (t < TUR_SAY) tur(); else sonuc(); }, secim === s.d ? 1300 : 2200);
+  };
+  $$(".du-sec button").forEach((b, i) => b.addEventListener("click", () => bitir(i)));
+  addEventListener("keydown", e => { if (!oyun.hidden && /^[1-4]$/.test(e.key)) bitir(Number(e.key) - 1); });
+
+  const sonuc = () => {
+    bitti = true; oyun.hidden = true; son.hidden = false;
+    const R = RAKIP[rakip], dogru = turlar.filter(s => s.benSecim === s.d).length;
+    const baslik = ben > o ? `${R.bel} yendin!` : ben < o ? `${R.yon} yenildin.` : "Berabere!";
+    $(".du-son h2").textContent = baslik;
+    $(".du-son .ozet").textContent = `${TUR_SAY} kelimeden ${dogru} doğru · Sen ${ben} – ${o} ${R.ad}`;
+    $("[data-s-ben]").textContent = ben; $("[data-s-dogru]").textContent = `${dogru}/${TUR_SAY}`;
+    const eski = Number(oku("duello-rekor-" + rakip) || 0);
+    if (ben > eski) yaz("duello-rekor-" + rakip, ben);
+    $("[data-s-rekor]").textContent = ben > eski && eski ? "Yeni rekor!" : (ben > eski ? "İlk skorun" : `Rekorun ${eski}`);
+    const yanlis = turlar.filter(s => s.benSecim !== s.d);
+    $(".du-tekrar").innerHTML = "";
+    yanlis.forEach(s => { const li = document.createElement("li");
+      li.innerHTML = `<b lang="en"></b> <span>(${TUR[s.x.t] || s.x.t})</span> · <span class="d"></span>`;
+      li.querySelector("b").textContent = s.x.k; li.querySelector(".d").textContent = s.x.tr + " · " + s.x.es.slice(0, 3).join(", ");
+      $(".du-tekrar").appendChild(li); });
+    $(".du-tekrar-bas").hidden = !yanlis.length;
+    konus($(".du-son .du-maskot"), ben > o ? "Muhteşemdin! Bir de bir üst seviyeyi dene." : ben < o ? "Bu kelimeleri tekrar et, rövanşı alırız." : "Kıl payı! Bir el daha?", ben >= o ? "sevinc" : "uzgun");
+    const metin = `Kelime düellosunda ${R.ad} karşısında ${ben} puan aldım (${dogru}/${TUR_SAY} doğru). Sen kaç yaparsın? https://kubilaykenan.com/duello/`;
+    $("[data-paylas]").href = "https://wa.me/?text=" + encodeURIComponent(metin);
+  };
+
+  $("[data-basla]").addEventListener("click", basla);
+  $("[data-tekrar]").addEventListener("click", basla);
+  $("[data-rakip-degis]").addEventListener("click", () => { son.hidden = true; giris.hidden = false; rekorGoster(); });
+})();
+</script>
+<script>
+// Üst çubukta sözlük araması: düğme, ⌘K / Ctrl+K ya da "/" ile açılır. Veri ilk açılışta bir kez indirilir (/sozluk/veri.json).
+// Kayıt: [id, kelime, tür, Türkçe, eş anlamlılar, …]. Sıra: kelime başı → kelime içi → Türkçe anlam / eş anlamlı içi.
+(() => {
+  const dug = document.querySelector(".ara-dug"), pen = document.getElementById("ara-pen");
+  if (!dug || !pen || !pen.showModal) { if (dug) dug.hidden = true; return; }
+  const tr = document.documentElement.lang !== "en";
+  const TUR = tr ? { v: "fiil", n: "isim", adj: "sıfat", adv: "zarf", phr: "kalıp", conj: "bağlaç", prep: "edat" }
+                 : { v: "verb", n: "noun", adj: "adj.", adv: "adv.", phr: "phrase", conj: "conj.", prep: "prep." };
+  const g = pen.querySelector("input"), ul = pen.querySelector(".ara-sonuc"), bos = pen.querySelector(".ara-bos");
+  const yalin = s => s.toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i");
+  let veri = null, secili = 0, sonuclar = [];
+  const yukle = () => veri || (veri = fetch("/sozluk/veri.json").then(r => r.json()).then(d => d.v.map(x => ({ x, k: yalin(x[1]), t: yalin(x[3] + " " + x[4]) }))));
+  const ac = () => { pen.showModal(); g.value = ""; g.focus(); yukle(); goster(); };
+  const goster = async () => {
+    const q = yalin(g.value.trim());
+    if (!q) { ul.innerHTML = ""; bos.textContent = tr ? "Kelime ya da Türkçe anlam yaz: abandon, sürdürmek…" : "Type a word or a Turkish meaning…"; bos.hidden = false; sonuclar = []; return; }
+    const L = await yukle();
+    const a = [], b = [], c = [];
+    for (const s of L) { if (s.k.startsWith(q)) a.push(s); else if (s.k.includes(q)) b.push(s); else if (q.length > 2 && s.t.includes(q)) c.push(s); }
+    sonuclar = [...a.sort((m, n) => m.k.length - n.k.length), ...b, ...c].slice(0, 8);
+    secili = 0;
+    ul.innerHTML = sonuclar.map(({ x }, i) => `<li><a href="/sozluk/${x[0]}/" aria-selected="${i === 0}"><b lang="en"></b><span class="tur"></span><span class="tr"></span></a></li>`).join("");
+    ul.querySelectorAll("a").forEach((el, i) => { const x = sonuclar[i].x; el.querySelector("b").textContent = x[1]; el.querySelector(".tur").textContent = TUR[x[2]] || x[2];
+      el.querySelector(".tr").textContent = x[3].split(";")[0]; });
+    bos.hidden = sonuclar.length > 0;
+    if (!sonuclar.length) bos.textContent = tr ? "Bulunamadı. Sözlükte 1.388 kelime var; başka bir yazımla dene." : "No match. Try another spelling.";
+  };
+  const isaretle = () => ul.querySelectorAll("a").forEach((el, i) => { el.setAttribute("aria-selected", String(i === secili)); if (i === secili) el.scrollIntoView({ block: "nearest" }); });
+  dug.addEventListener("click", ac);
+  g.addEventListener("input", goster);
+  g.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown" && sonuclar.length) { e.preventDefault(); secili = (secili + 1) % sonuclar.length; isaretle(); }
+    else if (e.key === "ArrowUp" && sonuclar.length) { e.preventDefault(); secili = (secili - 1 + sonuclar.length) % sonuclar.length; isaretle(); }
+  });
+  pen.querySelector("form").addEventListener("submit", e => { e.preventDefault(); const a = ul.querySelectorAll("a")[secili]; if (a) location.href = a.href; });
+  pen.querySelector(".kapat").addEventListener("click", () => pen.close());
+  pen.addEventListener("click", e => { if (e.target === pen) pen.close(); });
+  addEventListener("keydown", e => {
+    const yaziyor = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
+    if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !yaziyor)) { e.preventDefault(); if (!pen.open) ac(); }
+  });
+  if (/Mac|iPhone|iPad/.test(navigator.platform)) { const k = dug.querySelector("kbd"); if (k) k.textContent = "⌘K"; }
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

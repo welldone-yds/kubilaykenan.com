@@ -14,14 +14,15 @@
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
 <link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
-<link rel="stylesheet" href="/site.css?v=5e23bfdd">
+<link rel="stylesheet" href="/site.css?v=aa5de041">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "DefinedTerm", "name": "Exhaust", "description": "Tüketmek, bitirmek; çok yormak, bitkin düşürmek", "inLanguage": "en", "url": "https://kubilaykenan.com/sozluk/exhaust/", "inDefinedTermSet": {"@type": "DefinedTermSet", "name": "Kenan Hoca YDS Sözlüğü", "url": "https://kubilaykenan.com/sozluk/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "YDS Sözlüğü", "item": "https://kubilaykenan.com/sozluk/"}, {"@type": "ListItem", "position": 2, "name": "Exhaust", "item": "https://kubilaykenan.com/sozluk/exhaust/"}]}]}</script>
 </head>
 <body>
 <a class="atla" href="#icerik">İçeriğe geç</a>
 <div class="sayfa">
 <header class="ust"><a class="marka" href="/">Kubilay Kenan</a>
-<nav><a class="dar-gizle" href="/#hakkimda">Hakkımda</a><a href="/sozluk/">Sözlük</a><a href="/#araclar">Araçlar</a><a href="/yazilar/">Yazılar</a><a class="dar-gizle" href="/#iletisim">İletişim</a></nav></header>
+<nav><a class="dar-gizle" href="/#hakkimda">Hakkımda</a><a href="/sozluk/">Sözlük</a><a href="/#araclar">Araçlar</a><a href="/yazilar/">Yazılar</a><a class="dar-gizle" href="/#iletisim">İletişim</a><button type="button" class="ara-dug" aria-label="Sözlükte ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Kelime ara</span><kbd>Ctrl K</kbd></button></nav></header>
+<dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
 <main id="icerik">
 
 <p class="sz-iz"><a href="/sozluk/">YDS Sözlüğü</a> › Exhaust</p>
@@ -60,6 +61,51 @@
     const kelime = document.querySelector("h1").textContent, ornek = document.querySelector(".sz-ex p");
     for (const m of [kelime, ornek && ornek.textContent].filter(Boolean)) { const u = new SpeechSynthesisUtterance(m); u.lang = "en-US"; const ses = sesSec(); if (ses) { u.voice = ses; u.lang = ses.lang; } u.rate = .9; speechSynthesis.speak(u); }
   });
+})();
+</script>
+<script>
+// Üst çubukta sözlük araması: düğme, ⌘K / Ctrl+K ya da "/" ile açılır. Veri ilk açılışta bir kez indirilir (/sozluk/veri.json).
+// Kayıt: [id, kelime, tür, Türkçe, eş anlamlılar, …]. Sıra: kelime başı → kelime içi → Türkçe anlam / eş anlamlı içi.
+(() => {
+  const dug = document.querySelector(".ara-dug"), pen = document.getElementById("ara-pen");
+  if (!dug || !pen || !pen.showModal) { if (dug) dug.hidden = true; return; }
+  const tr = document.documentElement.lang !== "en";
+  const TUR = tr ? { v: "fiil", n: "isim", adj: "sıfat", adv: "zarf", phr: "kalıp", conj: "bağlaç", prep: "edat" }
+                 : { v: "verb", n: "noun", adj: "adj.", adv: "adv.", phr: "phrase", conj: "conj.", prep: "prep." };
+  const g = pen.querySelector("input"), ul = pen.querySelector(".ara-sonuc"), bos = pen.querySelector(".ara-bos");
+  const yalin = s => s.toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i");
+  let veri = null, secili = 0, sonuclar = [];
+  const yukle = () => veri || (veri = fetch("/sozluk/veri.json").then(r => r.json()).then(d => d.v.map(x => ({ x, k: yalin(x[1]), t: yalin(x[3] + " " + x[4]) }))));
+  const ac = () => { pen.showModal(); g.value = ""; g.focus(); yukle(); goster(); };
+  const goster = async () => {
+    const q = yalin(g.value.trim());
+    if (!q) { ul.innerHTML = ""; bos.textContent = tr ? "Kelime ya da Türkçe anlam yaz: abandon, sürdürmek…" : "Type a word or a Turkish meaning…"; bos.hidden = false; sonuclar = []; return; }
+    const L = await yukle();
+    const a = [], b = [], c = [];
+    for (const s of L) { if (s.k.startsWith(q)) a.push(s); else if (s.k.includes(q)) b.push(s); else if (q.length > 2 && s.t.includes(q)) c.push(s); }
+    sonuclar = [...a.sort((m, n) => m.k.length - n.k.length), ...b, ...c].slice(0, 8);
+    secili = 0;
+    ul.innerHTML = sonuclar.map(({ x }, i) => `<li><a href="/sozluk/${x[0]}/" aria-selected="${i === 0}"><b lang="en"></b><span class="tur"></span><span class="tr"></span></a></li>`).join("");
+    ul.querySelectorAll("a").forEach((el, i) => { const x = sonuclar[i].x; el.querySelector("b").textContent = x[1]; el.querySelector(".tur").textContent = TUR[x[2]] || x[2];
+      el.querySelector(".tr").textContent = x[3].split(";")[0]; });
+    bos.hidden = sonuclar.length > 0;
+    if (!sonuclar.length) bos.textContent = tr ? "Bulunamadı. Sözlükte 1.388 kelime var; başka bir yazımla dene." : "No match. Try another spelling.";
+  };
+  const isaretle = () => ul.querySelectorAll("a").forEach((el, i) => { el.setAttribute("aria-selected", String(i === secili)); if (i === secili) el.scrollIntoView({ block: "nearest" }); });
+  dug.addEventListener("click", ac);
+  g.addEventListener("input", goster);
+  g.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown" && sonuclar.length) { e.preventDefault(); secili = (secili + 1) % sonuclar.length; isaretle(); }
+    else if (e.key === "ArrowUp" && sonuclar.length) { e.preventDefault(); secili = (secili - 1 + sonuclar.length) % sonuclar.length; isaretle(); }
+  });
+  pen.querySelector("form").addEventListener("submit", e => { e.preventDefault(); const a = ul.querySelectorAll("a")[secili]; if (a) location.href = a.href; });
+  pen.querySelector(".kapat").addEventListener("click", () => pen.close());
+  pen.addEventListener("click", e => { if (e.target === pen) pen.close(); });
+  addEventListener("keydown", e => {
+    const yaziyor = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
+    if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !yaziyor)) { e.preventDefault(); if (!pen.open) ac(); }
+  });
+  if (/Mac|iPhone|iPad/.test(navigator.platform)) { const k = dug.querySelector("kbd"); if (k) k.textContent = "⌘K"; }
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
