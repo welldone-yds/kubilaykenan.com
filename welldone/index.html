@@ -152,6 +152,24 @@ h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 3.6vw, 
   background: #2B1A1F; box-shadow: var(--golge-kart); }
 .serit figcaption { font-size: 13px; color: var(--ikincil); text-align: center; margin-top: 8px; }
 @media (prefers-color-scheme: dark) { .serit img { border-color: #0d090a; background: #0d090a; } }
+.serit-sar { position: relative; }
+.serit-sar::before, .serit-sar::after { content: ""; position: absolute; top: 6px; bottom: 46px; width: 36px;
+  pointer-events: none; z-index: 2; transition: opacity .2s ease; }
+.serit-sar::before { left: 0; background: linear-gradient(to right, var(--zemin) 20%, transparent); opacity: 0; }
+.serit-sar::after { right: 0; background: linear-gradient(to left, var(--zemin) 20%, transparent); }
+.serit-sar.bas::before { opacity: 1; }
+.serit-sar.son::after { opacity: 0; }
+.serit-ok { position: absolute; top: 42%; width: 40px; height: 40px; display: none; place-items: center;
+  border-radius: 999px; border: 1px solid var(--cizgi); background: var(--kart); color: var(--vurgu);
+  cursor: pointer; z-index: 3; box-shadow: var(--golge-kart); transition: opacity .15s, transform .15s; }
+.serit-ok svg { width: 18px; height: 18px; }
+.serit-ok:hover:not([disabled]) { transform: scale(1.06); }
+.serit-ok[disabled] { opacity: .32; cursor: default; }
+.serit-ok.bas { left: 2px; }
+.serit-ok.son { right: 2px; }
+@media (min-width: 900px) { .serit-ok { display: grid; } .serit-sar::before, .serit-sar::after { display: block; } }
+@media (max-width: 899px) { .serit-sar::before, .serit-sar::after { display: none; } }
+@media (prefers-reduced-motion: reduce) { .serit-ok { transition: none; } }
 
 /* SSS */
 details { border-top: 1px solid var(--cizgi); padding: 16px 0; }
@@ -272,13 +290,19 @@ Hepsi aynı yerde durunca günlük çalışma kararı vermek gerekmiyor.</p>
 
 <div class="bolum-bas belir"><h2>Ekranlar</h2>
 <p>Soldan sağa kaydır.</p></div>
-<div class="serit belir" role="region" aria-label="Uygulama ekranları" tabindex="0">
+<div class="serit-sar belir">
+<button class="serit-ok bas" type="button" data-geri aria-label="Önceki ekranlar" disabled>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+<div class="serit" role="region" aria-label="Uygulama ekranları" tabindex="0">
 <figure><picture><source srcset="/img/wd/3_testler.webp" type="image/webp"><img src="/img/wd/3_testler.jpg" width="506" height="1100" alt="Testler ekranı" loading="lazy"></picture><figcaption>Testler</figcaption></figure>
 <figure><picture><source srcset="/img/wd/4_soru.webp" type="image/webp"><img src="/img/wd/4_soru.jpg" width="506" height="1100" alt="Soru ekranı" loading="lazy"></picture><figcaption>Soru ve açıklama</figcaption></figure>
 <figure><picture><source srcset="/img/wd/5_okuma.webp" type="image/webp"><img src="/img/wd/5_okuma.jpg" width="506" height="1100" alt="Okuma ekranı" loading="lazy"></picture><figcaption>Okuma</figcaption></figure>
 <figure><picture><source srcset="/img/wd/6_puan.webp" type="image/webp"><img src="/img/wd/6_puan.jpg" width="506" height="1100" alt="Puan ekranı" loading="lazy"></picture><figcaption>Puan ve hedef</figcaption></figure>
 <figure><picture><source srcset="/img/wd/7_duello.webp" type="image/webp"><img src="/img/wd/7_duello.jpg" width="506" height="1100" alt="Düello ekranı" loading="lazy"></picture><figcaption>Düello</figcaption></figure>
 <figure><picture><source srcset="/img/wd/8_fiil.webp" type="image/webp"><img src="/img/wd/8_fiil.jpg" width="506" height="1100" alt="Fiil köşesi ekranı" loading="lazy"></picture><figcaption>Fiil köşesi</figcaption></figure>
+</div>
+<button class="serit-ok son" type="button" data-ileri aria-label="Sonraki ekranlar">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
 </div>
 
 <div class="bolum-bas belir" id="sss"><h2>Sık sorulanlar</h2></div>
@@ -330,6 +354,29 @@ Hepsi aynı yerde durunca günlük çalışma kararı vermek gerekmiyor.</p>
     girisler.forEach(g => { if (g.isIntersecting) { g.target.classList.add("gorundu"); goz.unobserve(g.target); } });
   }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
   ogeler.forEach(o => goz.observe(o));
+})();
+
+// Ekran şeridi: oklar ve kenar solmaları (yalnız gerçekten taşıyorsa)
+(() => {
+  const sar = document.querySelector(".serit-sar");
+  if (!sar) return;
+  const s = sar.querySelector(".serit"), geri = sar.querySelector("[data-geri]"), ileri = sar.querySelector("[data-ileri]");
+  const yumusak = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  const durum = () => {
+    const tasiyor = s.scrollWidth - s.clientWidth > 4;
+    const max = s.scrollWidth - s.clientWidth - 2;
+    const bas = s.scrollLeft <= 4, son = s.scrollLeft >= max;
+    sar.classList.toggle("bas", !bas);
+    sar.classList.toggle("son", son || !tasiyor);
+    geri.disabled = bas;
+    ileri.disabled = son || !tasiyor;
+  };
+  const adim = () => Math.max(180, Math.round(s.clientWidth * 0.6));
+  geri.addEventListener("click", () => s.scrollBy({ left: -adim(), behavior: yumusak }));
+  ileri.addEventListener("click", () => s.scrollBy({ left: adim(), behavior: yumusak }));
+  s.addEventListener("scroll", durum, { passive: true });
+  addEventListener("resize", durum);
+  durum();
 })();
 </script>
 </body>
