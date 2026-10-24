@@ -3,7 +3,7 @@
 // Sayfalar: önce ağ, olmazsa önbellek (güncel içerik önce). Veri/stil/görsel: önbellekten hemen, arkada tazele.
 const SURUM = "0c866630ed";
 const KAP = "kk-" + SURUM;
-const ON_BELLEK = ["/", "/en/", "/sozluk/", "/sozluk/calis/", "/haftanin-10-kelimesi/", "/kocluk/", "/deneme/", "/deneme/veri.json", "/duello/", "/seviye-testi/", "/puan-hesaplama/", "/cevrimdisi/", "/defter/", "/sayac/", "/ada-tokenler.css?v=48b342d0", "/ada-bilesenler.css?v=48b342d0", "/site.css?v=a2a0118d", "/fontlar/fontlar.css?v=1", "/fontlar/Inter-latin.woff2", "/fontlar/Inter-latin-ext.woff2", "/fontlar/Jost-latin.woff2", "/fontlar/Jost-latin-ext.woff2", "/fontlar/CormorantGaramond-Bold.ttf", "/fontlar/DancingScript-Bold.ttf", "/sozluk/veri.json", "/sozluk/veri.json?v=45db7baa", "/duello/veri.json?v=2c237a45", "/seviye-testi/veri.json?v=e945b772", "/simge.png", "/simge-192.png", "/apple-touch-180.png", "/manifest.webmanifest", "/pdf/"];
+const ON_BELLEK = ["/", "/en/", "/sozluk/", "/sozluk/calis/", "/haftanin-10-kelimesi/", "/deneme/", "/deneme/veri.json", "/duello/", "/seviye-testi/", "/puan-hesaplama/", "/cevrimdisi/", "/defter/", "/sayac/", "/ada-tokenler.css?v=48b342d0", "/ada-bilesenler.css?v=48b342d0", "/site.css?v=a2a0118d", "/fontlar/fontlar.css?v=1", "/fontlar/Inter-latin.woff2", "/fontlar/Inter-latin-ext.woff2", "/fontlar/Jost-latin.woff2", "/fontlar/Jost-latin-ext.woff2", "/fontlar/CormorantGaramond-Bold.ttf", "/fontlar/DancingScript-Bold.ttf", "/sozluk/veri.json", "/sozluk/veri.json?v=45db7baa", "/duello/veri.json?v=2c237a45", "/seviye-testi/veri.json?v=e945b772", "/simge.png", "/simge-192.png", "/apple-touch-180.png", "/manifest.webmanifest", "/pdf/"];
 const CEVRIMDISI = "/cevrimdisi/";
 
 self.addEventListener("install", e => {
