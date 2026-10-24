@@ -146,8 +146,10 @@ h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 3.6vw, 
 /* ekran şeridi */
 .serit { display: flex; gap: 14px; overflow-x: auto; padding: 6px 2px 18px; margin: 0;
   scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-.serit figure { margin: 0; flex: 0 0 clamp(200px, 42vw, 240px); scroll-snap-align: start; }
-.serit img { border-radius: 22px; border: 6px solid #2B1A1F; background: #2B1A1F; box-shadow: var(--golge-kart); }
+.serit figure { margin: 0; flex: 0 0 clamp(190px, 26vw, 230px); scroll-snap-align: start; }
+.serit picture { display: block; }
+.serit img { width: 100%; height: auto; border-radius: 22px; border: 6px solid #2B1A1F;
+  background: #2B1A1F; box-shadow: var(--golge-kart); }
 .serit figcaption { font-size: 13px; color: var(--ikincil); text-align: center; margin-top: 8px; }
 @media (prefers-color-scheme: dark) { .serit img { border-color: #0d090a; background: #0d090a; } }
 
