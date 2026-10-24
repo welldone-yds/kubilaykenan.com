@@ -16,6 +16,17 @@
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
 <link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
 <link rel="stylesheet" href="/site.css?v=a2a0118d">
+<style>
+/* 404: arama kutusu + adresten tahmin (24.10.2026) */
+.ara404{display:flex;gap:10px;align-items:stretch;max-width:560px;margin:20px 0 0}
+.ara404 input{flex:1 1 auto;min-width:0;font:500 17px/1.3 var(--font-sans);padding:13px 20px;
+  border:1px solid var(--line);border-radius:var(--radius-pill);background:#fff;color:var(--text)}
+.ara404 input:focus{outline:none;box-shadow:0 0 0 4px var(--focus);border-color:var(--green)}
+.ara404 .ada-btn{white-space:nowrap}
+.ipucu{max-width:560px;margin:14px 0 0;font-size:15px;color:var(--muted)}
+.ipucu a{color:var(--green-dark);font-weight:700;border-bottom:1px solid var(--green-line)}
+@media (max-width:520px){.ara404{flex-wrap:wrap}.ara404 input{flex:1 1 100%}.ara404 .ada-btn{flex:1 1 100%}}
+</style>
 
 </head>
 <body>
@@ -27,10 +38,18 @@
 <main id="icerik">
 
 <section class="kahraman" style="grid-template-columns:1fr;padding-bottom:30px">
-<div><span class="ada-chip">404</span>
+<div id="sayfa404"><span class="ada-chip">404</span>
 <h1 style="font-size:clamp(34px,5.4vw,54px)">Bu sayfa burada değil</h1>
-<p class="alt">Adres değişmiş ya da yanlış yazılmış olabilir. Aradığın şey büyük ihtimalle şunlardan birinde:</p>
-<div class="dugmeler"><a class="ada-btn ada-btn--lg" href="/">Ana sayfa</a><a class="ada-btn ada-btn--ghost ada-btn--lg" href="/yazilar/">Yazılar</a>
+<p class="alt">Adres değişmiş ya da yanlış yazılmış olabilir. Aradığını aşağıda arayabilirsin — sözlükte 1.388 kelime var.</p>
+<form class="ara404" action="/sozluk/" method="get" role="search">
+<input type="search" name="q" id="q404" placeholder="Kelime ya da Türkçe anlam yaz…" autocomplete="off" enterkeyhint="search" aria-label="Sözlükte ara">
+<button class="ada-btn ada-btn--lg" type="submit">Sözlükte ara</button>
+</form>
+<p class="ipucu" id="ipucu404" hidden></p>
+<div class="dugmeler" style="margin-top:26px"><a class="ada-btn ada-btn--ghost ada-btn--lg" href="/">Ana sayfa</a>
+<a class="ada-btn ada-btn--ghost ada-btn--lg" href="/sozluk/">Sözlük</a>
+<a class="ada-btn ada-btn--ghost ada-btn--lg" href="/yazilar/">Yazılar</a>
+<a class="ada-btn ada-btn--ghost ada-btn--lg" href="/puan-hesaplama/">Puan hesaplama</a>
 <a class="ada-btn ada-btn--ghost ada-btn--lg" href="/welldone/">Well-Done</a></div>
 <p class="alt" lang="en" style="margin-top:22px;font-size:15px">Page not found. <a href="/en/">English version</a></p></div>
 </section>
@@ -143,5 +162,28 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
   addEventListener("appinstalled", () => d.forEach(x => { x.hidden = true; })); })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+// Adresteki son parçadan tahmin: /sozluk/abandonnment → "abandonnment" araması önerilir.
+(() => {
+  const ipucu = document.getElementById("ipucu404"), kutu = document.getElementById("q404");
+  if (!ipucu || !kutu) return;
+  let ham = "";
+  try { ham = decodeURIComponent(location.pathname); } catch (e) { ham = location.pathname; }
+  const parcalar = ham.split("/").filter(Boolean);
+  const son = parcalar[parcalar.length - 1] || "";
+  if (!son || /\.(html?|php|aspx?|xml|json)$/i.test(son) || son === "404") return;
+  const kelime = son.replace(/-/g, " ").slice(0, 40);
+  kutu.value = kelime;
+  const bolum = parcalar[0] === "yazilar" ? "yazılar" : parcalar[0] === "sozluk" ? "sözlük" : "site";
+  ipucu.hidden = false;
+  ipucu.append("Adreste ");
+  const b = document.createElement("b"); b.textContent = "“" + kelime + "”"; ipucu.append(b);
+  ipucu.append(" geçiyor. " + bolum + " içinde aramak için: ");
+  const a = document.createElement("a");
+  a.href = "/sozluk/?q=" + encodeURIComponent(kelime);
+  a.textContent = "sözlükte ara →";
+  ipucu.append(a);
+})();
+</script>
 </body>
 </html>
