@@ -42,6 +42,12 @@
 .dn-ilerle i{display:block;height:100%;width:0;background:var(--green);transition:width .2s}
 .dn-bolum{display:inline-block;font:700 11px/1 var(--font-sans);letter-spacing:.08em;text-transform:uppercase;
   color:var(--green-dark);background:var(--green-wash);border:1px solid var(--green-line);border-radius:999px;padding:5px 10px;margin-bottom:12px}
+.dn-metin{border:1px solid var(--line);background:var(--surface-soft);border-radius:14px;padding:14px 16px;
+  margin:0 0 16px;max-height:320px;overflow:auto}
+.dn-metin[hidden]{display:none}
+.dn-metin b{display:block;font:800 12px/1.3 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--green-dark);margin-bottom:8px}
+.dn-metin p{margin:0;font:500 15.5px/1.75 var(--font-sans);color:var(--text);white-space:pre-line}
 .dn-soru{margin:0 0 18px;font:500 17.5px/1.7 var(--font-sans);color:var(--text);white-space:pre-line}
 .dn-siklar{display:grid;gap:10px}
 .dn-sik{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;padding:13px 16px;border-radius:14px;
@@ -87,8 +93,9 @@
 <section class="dn" id="deneme">
 <div class="dn-bas"><span class="ada-chip">Ücretsiz · 20 soru</span>
 <h1>Mini <em>deneme</em></h1>
-<p>YDS formatında yirmi soru: dil bilgisi, kelime, cümle tamamlama, çeviri, anlamca yakın ve diyalog.
-Sonunda bölüm bölüm doğru-yanlış, en çok puan kaybettiğin yer ve her sorunun açıklaması.</p></div>
+<p>YDS formatında yirmi soru: dil bilgisi, kelime, cümle tamamlama, çeviri ve diyalog artı
+<b>bir okuma parçası</b> ile <b>bir cloze parçası</b>. Sonunda bölüm bölüm doğru-yanlış, en çok puan
+kaybettiğin yer ve her sorunun açıklaması.</p></div>
 
 <div class="dn-kart" id="dn-giris">
 <p class="dn-sonuc-gecmis" id="dn-gecmis" hidden></p>
@@ -97,14 +104,15 @@ Sonunda bölüm bölüm doğru-yanlış, en çok puan kaybettiğin yer ve her so
 <button type="button" data-sure="0" aria-pressed="false">Süresiz</button>
 </div>
 <button type="button" class="ada-btn ada-btn--lg" id="dn-basla" disabled>Sorular yükleniyor…</button>
-<p class="dn-not">Soru bankası Well-Done'daki 931 sorunun bir bölümünden geliyor; her denemede farklı soru gelir.
-Cevapların cihazında kalır, hiçbir yere gönderilmez.</p>
+<p class="dn-not">Soru bankası Well-Done'daki 931 soru ve 76 okuma parçasından geliyor; her denemede farklı sorular gelir.
+Her denemede 11 tek soru, 4 okuma ve 5 cloze sorusundan oluşan iki parça bulunur. Cevapların cihazında kalır.</p>
 </div>
 
 <div class="dn-kart" id="dn-sinav" hidden>
 <div class="dn-ust"><span data-sira>1 / 20</span><span class="dn-sure" data-sure-yazi>30:00</span></div>
 <div class="dn-ilerle"><i data-ilerle></i></div>
 <span class="dn-bolum" data-bolum></span>
+<div class="dn-metin" data-metin hidden><b data-metin-baslik></b><p data-metin-metin></p></div>
 <p class="dn-soru" data-soru></p>
 <div class="dn-siklar" data-siklar></div>
 <div class="dn-alt"><button type="button" class="ada-btn ada-btn--ghost" data-geri>← Önceki</button>
@@ -195,14 +203,16 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
   if (!kok) return;
   const $ = s => kok.querySelector(s);
   const AD = { dilbilgisi: "Dil bilgisi", kelime: "Kelime", cumle_tamamlama: "Cümle tamamlama",
-               ceviri: "Çeviri", anlamca_yakin: "Anlamca yakın", diyalog: "Diyalog" };
-  const KOTA = { dilbilgisi: 6, kelime: 4, cumle_tamamlama: 3, ceviri: 3, anlamca_yakin: 2, diyalog: 2 };
+               ceviri: "Çeviri", anlamca_yakin: "Anlamca yakın", diyalog: "Diyalog",
+               okuma: "Okuma", cloze: "Cloze test" };
+  const TEKIL = ["dilbilgisi", "kelime", "cumle_tamamlama", "ceviri", "anlamca_yakin", "diyalog"];
+  const SORU_SAYISI = 20;
   const DEPO = "kk-deneme", HARF = "ABCDE";
   const oku = (k, v) => { try { return JSON.parse(localStorage.getItem(k)) || v; } catch (e) { return v; } };
   const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
   const karistir = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
 
-  let HAVUZ = [], oyun = null, sureli = true, zamanlayici = null;
+  let HAVUZ = [], METIN = {}, oyun = null, sureli = true, zamanlayici = null;
 
   function goster(id) {
     ["dn-giris", "dn-sinav", "dn-sonuc"].forEach(x => { document.getElementById(x).hidden = x !== id; });
@@ -220,6 +230,7 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
 
   fetch("/deneme/veri.json").then(r => r.json()).then(v => {
     HAVUZ = v.s || [];
+    METIN = v.metinler || {};
     const b = document.getElementById("dn-basla");
     b.disabled = !HAVUZ.length;
     b.textContent = HAVUZ.length ? "Denemeye başla" : "Sorular yüklenemedi";
@@ -235,16 +246,27 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
   kok.querySelector("[data-ayar-don]").addEventListener("click", () => { goster("dn-giris"); gecmisGoster(); });
   kok.querySelector("[data-yeniden]").addEventListener("click", basla);
 
+  function blokSec(bolum) {
+    const gruplar = {};
+    HAVUZ.filter(s => s.b === bolum && s.m).forEach(s => { (gruplar[s.m] = gruplar[s.m] || []).push(s); });
+    const idler = karistir(Object.keys(gruplar));
+    if (!idler.length) return [];
+    return gruplar[idler[0]].slice().sort((a, b) => a.i.localeCompare(b.i, "tr"));
+  }
+
   function basla() {
     if (!HAVUZ.length) return;
-    const secili = [];
-    Object.keys(KOTA).forEach(bolum => {
-      const adaylar = karistir(HAVUZ.filter(s => s.b === bolum));
-      secili.push(...adaylar.slice(0, KOTA[bolum]));
-    });
-    oyun = { liste: karistir(secili), i: 0, cevap: secili.map(() => null), bitti: false };
-    // karıştırmadan sonra cevap dizisini eşle
-    oyun.cevap = oyun.liste.map(() => null);
+    const bloklar = blokSec("okuma").concat(blokSec("cloze"));   // parça soruları birlikte gelir
+    const tekil = [];
+    const havuzlar = {};
+    TEKIL.forEach(b => { havuzlar[b] = karistir(HAVUZ.filter(s => s.b === b && !s.m)); });
+    let j = 0;
+    while (tekil.length + bloklar.length < SORU_SAYISI && TEKIL.some(b => havuzlar[b].length)) {
+      const b = TEKIL[j % TEKIL.length]; j++;
+      if (havuzlar[b].length) tekil.push(havuzlar[b].shift());
+    }
+    const liste = tekil.concat(bloklar);
+    oyun = { liste, i: 0, cevap: liste.map(() => null), bitti: false };
     goster("dn-sinav");
     sayac(30 * 60);
     soruCiz();
@@ -273,6 +295,16 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
     $("[data-sira]").textContent = (oyun.i + 1) + " / " + oyun.liste.length;
     $("[data-ilerle]").style.width = Math.round((oyun.i + 1) / oyun.liste.length * 100) + "%";
     $("[data-bolum]").textContent = AD[s.b] || s.b;
+    const mk = $("[data-metin]");
+    const metin = s.m ? METIN[s.m] : null;
+    if (metin) {
+      const degisti = mk.dataset.mid !== s.m;
+      mk.hidden = false;
+      mk.dataset.mid = s.m;
+      $("[data-metin-baslik]").textContent = metin.b || "Metin";
+      $("[data-metin-metin]").textContent = metin.t;
+      if (degisti) mk.scrollTop = 0;
+    } else { mk.hidden = true; mk.dataset.mid = ""; }
     $("[data-soru]").textContent = s.q;
     $("[data-siklar]").innerHTML = s.o.map((metin, j) =>
       '<button type="button" class="dn-sik" data-j="' + j + '" aria-pressed="' + (oyun.cevap[oyun.i] === j) + '">' +
