@@ -171,16 +171,16 @@ a { color: var(--vurgu); }
 .y5 i svg { width: 16px; height: 16px; }
 @media (max-width: 980px) {
   .y2, .y5 { display: none; }
-  .y1 { left: 0; } .y3 { right: 0; } .y4 { right: 0; top: 340px; }
+  .y1 { left: 16px; } .y3 { right: 16px; } .y4 { right: 16px; top: 340px; }
 }
 @media (max-width: 720px) {
   .sahne { height: 520px; margin-top: 44px; }
   .telefon { width: 236px; border-radius: 38px; padding: 8px; }
   .telefon img { border-radius: 31px; }
   .telefon::after { top: 16px; width: 68px; height: 20px; }
-  .y1 { width: 176px; top: 236px; left: -4px; padding: 12px 14px; border-radius: 18px; }
+  .y1 { width: 176px; top: 236px; left: 10px; padding: 12px 14px; border-radius: 18px; }
   .y1 b { font-size: 16px; } .y1 .gun strong { font-size: 34px; } .y1 .bant { display: none; }
-  .y3 { width: 190px; top: 46px; right: -4px; padding: 12px 14px; border-radius: 18px; }
+  .y3 { width: 190px; top: 46px; right: 10px; padding: 12px 14px; border-radius: 18px; }
   .y3 .kelime { font-size: 22px; } .y3 .kutular { display: none; }
   .y4 { display: none; }
 }
@@ -359,7 +359,7 @@ h2 em { font-family: var(--el); font-style: normal; color: var(--vurgu); font-si
 footer { max-width: 1160px; margin: 0 auto; padding: 40px 20px 50px; color: var(--ikincil); font-size: 14px;
   display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
 footer .marka { margin-right: auto; }
-footer a { color: var(--ikincil); text-decoration: none; }
+footer a { color: var(--ikincil); text-decoration: none; padding-block: 12px; }   /* dokunma alanı ~44 px */
 footer a:hover { color: var(--vurgu); }
 
 /* giriş animasyonu (hareket azaltmaya saygılı; JS yoksa ya da gecikirse içerik görünür kalır) */

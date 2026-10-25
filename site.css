@@ -9,9 +9,10 @@ a { color: inherit; }
 /* üst çubuk */
 .ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0; }
 .marka { font: 800 20px/1 var(--font-display); color: var(--heading); text-decoration: none; position: relative; white-space: nowrap; }
-.marka::after { content: ""; position: absolute; left: 0; right: 30%; bottom: -7px; height: 5px; border-radius: 99px; background: var(--green); }
+.marka::after { content: ""; position: absolute; left: 0; right: 30%; bottom: 5px; height: 5px; border-radius: 99px; background: var(--green); }
+.ust .marka { padding: 12px 0; margin: -12px 0; }   /* parmakla dokunma alanı ~44 px, görünüm aynı */
 .ust nav { display: flex; align-items: center; gap: 18px; font-weight: 600; font-size: 15px; }
-.ust nav a { color: var(--heading); text-decoration: none; }
+.ust nav a { color: var(--heading); text-decoration: none; padding-block: 11px; }
 .ust nav a:hover { color: var(--green-dark); }
 .ust nav a.dil { border: 1.5px solid var(--line); border-radius: 99px; padding: 4px 10px; font-size: 13px; letter-spacing: .04em; }
 /* giriş */
@@ -306,7 +307,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .pdf-kart p { margin: 0 0 8px; font-size: 15.5px; line-height: 1.5; }
 .pdf-kart .bilgi { color: var(--muted); font-size: 13.5px; margin: 0 0 12px; }
 @media (max-width: 860px) { .pdf-liste { grid-template-columns: 1fr; } }
-@media (max-width: 480px) { .pdf-kart { grid-template-columns: 96px 1fr; gap: 12px; padding: 12px; } .pdf-kart .dugmeler .ada-btn { width: 100%; justify-content: center; } }
+@media (max-width: 480px) { .pdf-kart { grid-template-columns: 96px 1fr; gap: 12px; padding: 12px; } .pdf-kart .dugmeler .ada-btn { width: 100%; justify-content: center; white-space: nowrap; padding-inline: 10px; } }
 @media (max-width: 760px) {
   .sz-harf, .sz-filt { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
   .sz-harf::-webkit-scrollbar, .sz-filt::-webkit-scrollbar { display: none; }

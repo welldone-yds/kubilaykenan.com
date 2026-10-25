@@ -11,9 +11,10 @@ a { color: inherit; }
 /* üst çubuk */
 .ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0; }
 .marka { font: 800 20px/1 var(--font-display); color: var(--heading); text-decoration: none; position: relative; white-space: nowrap; }
-.marka::after { content: ""; position: absolute; left: 0; right: 30%; bottom: -7px; height: 5px; border-radius: 99px; background: var(--green); }
+.marka::after { content: ""; position: absolute; left: 0; right: 30%; bottom: 5px; height: 5px; border-radius: 99px; background: var(--green); }
+.ust .marka { padding: 12px 0; margin: -12px 0; }   /* parmakla dokunma alanı ~44 px, görünüm aynı */
 .ust nav { display: flex; align-items: center; gap: 18px; font-weight: 600; font-size: 15px; }
-.ust nav a { color: var(--heading); text-decoration: none; }
+.ust nav a { color: var(--heading); text-decoration: none; padding-block: 11px; }
 .ust nav a:hover { color: var(--green-dark); }
 .ust nav a.dil { border: 1.5px solid var(--line); border-radius: 99px; padding: 4px 10px; font-size: 13px; letter-spacing: .04em; }
 /* giriş */
@@ -495,6 +496,9 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .wa-yuzen { position: fixed; right: 20px; bottom: 20px; z-index: 50; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff;
             display: grid; place-items: center; box-shadow: 0 12px 28px rgba(37, 211, 102, .4); transition: transform .2s; }
 .wa-yuzen:hover { transform: scale(1.07); }
+/* girişte içeriğin (sayılar) üstüne binmesin: kahraman geçilince belirir (vitrin.js) */
+.wa-yuzen { transition: transform .2s, opacity .3s; }
+.wa-yuzen.gizli { opacity: 0; transform: translateY(14px); pointer-events: none; }
 .wa-yuzen svg { width: 30px; height: 30px; fill: currentColor; }
 
 /* iletişim + alt bilgi */
@@ -511,6 +515,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 @media (max-width: 900px) {
   .vk { grid-template-columns: 1fr; gap: 10px; padding-bottom: 40px; }
   .vg { justify-self: center; max-width: 480px; margin-top: 10px; }
+  .yk-kelime { bottom: 18%; }   /* iPad dikeyde "Puan hesapla" kartı kelime kartının üstüne binmesin */
   .gunluk { grid-template-columns: 1fr; }
   .ust-cta { display: none; }
   /* telefonlar yatay kaydırma şeridine döner; maskot şeritle birlikte kayar */
@@ -535,7 +540,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
   .yk-sinav { width: 205px; top: 30%; } .yk-sinav .n { font-size: 34px; }
   .yk-kelime { width: 200px; right: 0; } .yk-kelime .k b { font-size: 20px; }
   .yk-puan { left: 0; bottom: 0; }
-  .sayilar { gap: 18px 24px; } .sayilar b { font-size: 26px; }
+  .sayilar { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; } .sayilar b { font-size: 26px; }
   .v-bolum { padding: 56px 0; }
   .serit { grid-auto-columns: 62vw; }
   .sss-liste details p { padding-left: 20px; }

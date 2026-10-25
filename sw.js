@@ -1,9 +1,9 @@
 // kubilaykenan.com servis çalışanı (21.10.2026): siteyi telefona "uygulama gibi" kurulabilir ve çevrimdışı kullanılabilir yapar.
 // Üretici sürümü ve ön bellek listesini aşağıya yazar; sürüm, ön belleğe alınan dosyaların içerik özetidir (içerik değişince yenilenir).
 // Sayfalar: önce ağ, olmazsa önbellek (güncel içerik önce). Veri/stil/görsel: önbellekten hemen, arkada tazele.
-const SURUM = "a39ab4b933";
+const SURUM = "36ec9737b8";
 const KAP = "kk-" + SURUM;
-const ON_BELLEK = ["/", "/en/", "/sozluk/", "/sozluk/calis/", "/haftanin-10-kelimesi/", "/deneme/", "/plan/", "/calisma-plani/", "/deneme/veri.json", "/duello/", "/seviye-testi/", "/puan-hesaplama/", "/cevrimdisi/", "/defter/", "/sayac/", "/ada-tokenler.css?v=48b342d0", "/ada-bilesenler.css?v=48b342d0", "/site.css?v=a2a0118d", "/fontlar/fontlar.css?v=1", "/fontlar/Inter-latin.woff2", "/fontlar/Inter-latin-ext.woff2", "/fontlar/Jost-latin.woff2", "/fontlar/Jost-latin-ext.woff2", "/fontlar/CormorantGaramond-Bold.ttf", "/fontlar/DancingScript-Bold.ttf", "/sozluk/veri.json", "/sozluk/veri.json?v=45db7baa", "/duello/veri.json?v=2c237a45", "/seviye-testi/veri.json?v=e945b772", "/simge.png", "/simge-192.png", "/apple-touch-180.png", "/manifest.webmanifest", "/pdf/"];
+const ON_BELLEK = ["/", "/en/", "/sozluk/", "/sozluk/calis/", "/haftanin-10-kelimesi/", "/deneme/", "/plan/", "/calisma-plani/", "/deneme/veri.json", "/duello/", "/seviye-testi/", "/puan-hesaplama/", "/cevrimdisi/", "/defter/", "/sayac/", "/ada-tokenler.css?v=48b342d0", "/ada-bilesenler.css?v=48b342d0", "/site.css?v=98c4d800", "/fontlar/fontlar.css?v=1", "/fontlar/Inter-latin.woff2", "/fontlar/Inter-latin-ext.woff2", "/fontlar/Jost-latin.woff2", "/fontlar/Jost-latin-ext.woff2", "/fontlar/CormorantGaramond-Bold.ttf", "/fontlar/DancingScript-Bold.ttf", "/sozluk/veri.json", "/sozluk/veri.json?v=45db7baa", "/duello/veri.json?v=2c237a45", "/seviye-testi/veri.json?v=e945b772", "/simge.png", "/simge-192.png", "/apple-touch-180.png", "/manifest.webmanifest", "/pdf/"];
 const CEVRIMDISI = "/cevrimdisi/";
 
 self.addEventListener("install", e => {

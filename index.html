@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
 <link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
-<link rel="stylesheet" href="/anasayfa.css?v=9b391c86">
+<link rel="stylesheet" href="/anasayfa.css?v=11609f8e">
 </head>
 <body>
 <a class="atla" href="#icerik">İçeriğe geç</a>
@@ -466,6 +466,15 @@
       ds.forEach(d => { d.hidden = !!b.dataset.k && d.dataset.k !== b.dataset.k; });
     }));
   }
+})();
+
+// Yüzen WhatsApp: girişte sayıların üstüne binmesin; kahraman geçilince belirir
+(() => {
+  const wa = document.querySelector(".wa-yuzen");
+  if (!wa) return;
+  const yap = () => wa.classList.toggle("gizli", scrollY < Math.min(560, innerHeight * 0.7));
+  addEventListener("scroll", yap, { passive: true });
+  yap();
 })();
 </script>
 <script>
