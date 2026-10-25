@@ -1,0 +1,96 @@
+/* Ortak açılır menü (ek/ust_menu.py). Renkler sitenin bordo-altın tokenlerinden; yoksa yedek değerler. */
+.mega-ust { position: relative; display: flex; align-items: center; gap: 14px; z-index: 40; }
+.mega-ust .marka { flex: none; }
+.mega { flex: 1; display: flex; justify-content: center; }
+.mega-liste { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 2px; }
+.mega-oge { position: static; }
+.mega-dug {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 0; border-radius: 99px;
+  background: none; color: var(--heading, #3D091B); font: 600 15px/1 var(--font-sans, Inter, system-ui, sans-serif);
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+}
+.mega-dug:hover, .mega-oge.acik > .mega-dug { background: var(--green-wash, #FBF6E6); }
+.mega-oge.aktif > .mega-dug { color: var(--green-dark, #7A5D0B); }
+.mega-dug:focus-visible { outline: 3px solid var(--focus, rgba(216, 178, 41, .45)); outline-offset: 2px; }
+.mega-ok { width: 12px; height: 12px; transition: transform .2s ease; }
+.mega-oge.acik .mega-ok { transform: rotate(180deg); }
+
+/* Pano: şeridin altında, ortada; üç sütun bağlantı + sağda öne çıkan kart */
+.mega-pano {
+  position: absolute; top: calc(100% + 6px); left: 50%; width: min(860px, calc(100vw - 32px));
+  display: grid; grid-template-columns: 1fr 230px; gap: 18px; padding: 18px;
+  background: #fff; border: 1px solid var(--line, #E7E0D8); border-radius: 22px;
+  box-shadow: 0 24px 60px -18px rgba(61, 9, 27, .28), 0 2px 6px rgba(61, 9, 27, .06);
+  opacity: 0; visibility: hidden; transform: translate(-50%, -6px); transition: opacity .18s ease, transform .18s ease, visibility 0s .18s;
+}
+.mega-oge.acik > .mega-pano { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition-delay: 0s; }
+.mega-izgara { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; align-content: start; }
+.mega-sat {
+  display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 14px; text-decoration: none;
+  color: var(--text, #3B3236);
+}
+.mega-sat:hover, .mega-sat:focus-visible { background: var(--green-wash, #FBF6E6); outline: none; }
+.mega-sat b { display: block; color: var(--heading, #3D091B); font: 650 15px/1.25 var(--font-sans, Inter, system-ui, sans-serif); }
+.mega-sat small { display: block; margin-top: 2px; color: var(--muted, #6E6266); font-size: 13px; line-height: 1.35; }
+.mega-simge {
+  flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px;
+  background: var(--green-soft, #F7EFD2); color: var(--heading, #3D091B);
+}
+.mega-simge svg { width: 20px; height: 20px; }
+.mega-one {
+  display: flex; flex-direction: column; gap: 8px; padding: 18px; border-radius: 16px; text-decoration: none;
+  background: var(--navy, #3D091B); color: var(--on-navy-muted, #E8D3D8);
+  background-image: radial-gradient(120% 90% at 100% 0%, rgba(216, 178, 41, .35), transparent 60%);
+}
+.mega-one b { color: #fff; font: 700 19px/1.2 var(--font-display, Jost, system-ui, sans-serif); }
+.mega-one span { font-size: 14px; line-height: 1.45; }
+.mega-one em { margin-top: auto; font-style: normal; font-weight: 700; color: var(--green, #D8B229); }
+.mega-one:hover em { text-decoration: underline; }
+
+.mega-arac { flex: none; display: flex; align-items: center; gap: 8px; }
+.mega-ac { display: none; }
+
+/* iPad yatay ve dar dizüstü: açıklamalar gizlenmez, kart daralır */
+@media (max-width: 1080px) {
+  .mega-pano { grid-template-columns: 1fr 200px; }
+  .mega-dug { padding: 0 9px; font-size: 14.5px; }
+  .mega-arac .ust-cta { display: none; }
+}
+
+/* Telefon ve dikey iPad: ☰ ile tam ekran, katlanır liste */
+@media (max-width: 899px) {
+  .mega-ust { justify-content: space-between; }
+  .mega {
+    position: fixed; inset: 0; z-index: 60; display: block; overflow-y: auto; padding: 84px 16px 32px;
+    background: var(--green-wash, #FBF6E6); opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s .2s;
+  }
+  html.mega-acik { overflow: hidden; }
+  html.mega-acik .mega { opacity: 1; visibility: visible; transition-delay: 0s; }
+  .mega-liste { flex-direction: column; align-items: stretch; gap: 0; max-width: 560px; margin: 0 auto; }
+  .mega-oge { border-bottom: 1px solid var(--line, #E7E0D8); }
+  .mega-dug { width: 100%; justify-content: space-between; min-height: 56px; padding: 0 4px; border-radius: 0;
+    font: 700 20px/1 var(--font-display, Jost, system-ui, sans-serif); }
+  .mega-dug:hover, .mega-oge.acik > .mega-dug { background: none; }
+  .mega-ok { width: 16px; height: 16px; }
+  .mega-pano {
+    position: static; width: auto; display: none; grid-template-columns: 1fr; padding: 0 0 14px; gap: 10px;
+    border: 0; box-shadow: none; background: none; opacity: 1; visibility: visible; transform: none; transition: none;
+  }
+  .mega-oge.acik > .mega-pano { display: grid; transform: none; }
+  .mega-izgara { grid-template-columns: 1fr; }
+  .mega-sat { padding: 10px 6px; }
+  .mega-arac { position: relative; z-index: 70; }
+  .mega-arac .ust-cta, .mega-arac .ara-dug kbd, .mega-arac .ara-dug span { display: none; }
+  .mega-ac {
+    display: inline-grid; place-content: center; gap: 5px; width: 44px; height: 44px; border: 1.5px solid var(--line, #E7E0D8);
+    border-radius: 99px; background: #fff; cursor: pointer;
+  }
+  .mega-ac span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--heading, #3D091B); transition: transform .2s ease, opacity .2s ease; }
+  html.mega-acik .mega-ac span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  html.mega-acik .mega-ac span:nth-child(2) { opacity: 0; }
+  html.mega-acik .mega-ac span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mega-pano, .mega, .mega-ok, .mega-ac span { transition: none; }
+}
