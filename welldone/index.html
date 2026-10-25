@@ -3,381 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Well-Done · YDS, e-YDS, YÖKDİL çalışma uygulaması</title>
-<meta name="description" content="YDS, e-YDS ve YÖKDİL'e hazırlananlar için bir çalışma defteri: 1.388 kelime, 931 soru, 76 okuma parçası ve deneme tek uygulamada. Her gün birkaç dakikalık düzenli çalışmaya göre.">
+<title>Well-Done · YDS, e-YDS, YÖKDİL</title>
+<meta name="description" content="YDS, e-YDS ve YÖKDİL&#x27;e hazırlananlar için bir çalışma defteri: kelime, gramer, okuma ve deneme tek yerde, her gün birkaç dakikalık düzenli çalışmaya göre.">
 <link rel="icon" href="simge.png">
 <link rel="canonical" href="https://kubilaykenan.com/welldone/">
-<meta name="theme-color" content="#FFF6F4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1B1316" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Well-Done">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:url" content="https://kubilaykenan.com/welldone/">
-<meta property="og:title" content="Well-Done · YDS, e-YDS, YÖKDİL çalışma uygulaması">
-<meta property="og:description" content="1.388 kelime, 931 soru, 76 okuma parçası ve deneme tek uygulamada. iPhone, iPad ve Mac için.">
+<meta property="og:title" content="Well-Done · YDS, e-YDS, YÖKDİL">
+<meta property="og:description" content="YDS, e-YDS ve YÖKDİL&#x27;e hazırlananlar için bir çalışma defteri: kelime, gramer, okuma ve deneme tek yerde, her gün birkaç dakikalık düzenli çalışmaya göre.">
 <meta property="og:image" content="https://kubilaykenan.com/welldone/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Well-Done: YDS, e-YDS, YÖKDİL çalışma uygulaması">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-@font-face { font-family: "Cormorant Garamond"; src: url(fontlar/CormorantGaramond-SemiBold.ttf); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Cormorant Garamond"; src: url(fontlar/CormorantGaramond-Bold.ttf); font-weight: 700; font-display: swap; }
-@font-face { font-family: "Dancing Script"; src: url(fontlar/DancingScript-Bold.ttf); font-weight: 700; font-display: swap; }
-@font-face { font-family: Karla; src: url(fontlar/Karla-Regular.ttf); font-weight: 400; font-display: swap; }
-@font-face { font-family: Karla; src: url(fontlar/Karla-SemiBold.ttf); font-weight: 600; font-display: swap; }
-@font-face { font-family: Karla; src: url(fontlar/Karla-Bold.ttf); font-weight: 700; font-display: swap; }
-
-:root {
-  --zemin: #FFF9F7; --kart: #FFFFFF; --yumusak: #FBE9EC; --vurgu: #B34D68; --vurgu-koyu: #8E3450;
-  --metin: #2B1A1F; --ikincil: #7A6268; --cizgi: #F0DCE0;
-  --g1: #FDE7EC; --g2: #FFEFE4; --g3: #F3E6FB;
-  --golge: 0 18px 50px rgba(179, 77, 104, .10);
-  --golge-kart: 0 8px 24px rgba(179, 77, 104, .07);
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --el: "Dancing Script", cursive;
-}
+@font-face { font-family: "Cormorant Garamond"; src: url(fontlar/CormorantGaramond-SemiBold.ttf); font-weight: 600; }
+@font-face { font-family: "Cormorant Garamond"; src: url(fontlar/CormorantGaramond-Bold.ttf); font-weight: 700; }
+@font-face { font-family: "Dancing Script"; src: url(fontlar/DancingScript-Bold.ttf); font-weight: 700; }
+@font-face { font-family: Karla; src: url(fontlar/Karla-Regular.ttf); font-weight: 400; }
+@font-face { font-family: Karla; src: url(fontlar/Karla-SemiBold.ttf); font-weight: 600; }
+:root { --zemin: #FFF6F4; --kart: #FFFFFF; --yumusak: #F9E4E7; --vurgu: #B34D68; --metin: #2B1A1F; --ikincil: #7A6268;
+        --golge: rgba(179, 77, 104, .10); }
 @media (prefers-color-scheme: dark) {
-  :root {
-    --zemin: #17100F; --kart: #241A1E; --yumusak: #33232A; --vurgu: #E58BA2; --vurgu-koyu: #F0A8B9;
-    --metin: #F6ECEE; --ikincil: #BFA9AF; --cizgi: #3A2A31;
-    --g1: #2C1B26; --g2: #2A1D1A; --g3: #241B2C;
-    --golge: 0 18px 50px rgba(0,0,0,.4); --golge-kart: 0 8px 24px rgba(0,0,0,.3);
-  }
+  :root { --zemin: #1B1316; --kart: #2A1D22; --yumusak: #3A2830; --vurgu: #E58BA2; --metin: #F4E9EC; --ikincil: #B9A2A8;
+          --golge: rgba(0, 0, 0, .25); }
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-html, body { overflow-x: hidden; }
-body { margin: 0; background: var(--zemin); color: var(--metin);
-  font: 17px/1.65 Karla, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  -webkit-text-size-adjust: 100%; }
-img { max-width: 100%; display: block; }
-picture { display: block; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font: 17px/1.6 Karla, -apple-system, sans-serif;
+       -webkit-text-size-adjust: 100%; }
+main { max-width: 680px; margin: 0 auto; padding: 28px 16px 48px; }
+nav { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; margin: 0 0 28px; font-weight: 600; }
+nav a { color: var(--vurgu); text-decoration: none; }
+nav a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
+.kimlik { text-align: center; margin-bottom: 20px; }
+.kimlik img { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 6px 18px var(--golge); }
+.imza { font: 700 44px/1.1 "Dancing Script", cursive; color: var(--vurgu); margin: 10px 0 4px; }
+h1 { font: 700 40px/1.15 "Cormorant Garamond", Georgia, serif; margin: 0 0 8px; }
+h2 { font: 700 24px/1.2 "Cormorant Garamond", Georgia, serif; margin: 0 0 8px; }
+.giris { color: var(--ikincil); margin: 0 0 22px; }
+.kart { background: var(--kart); border-radius: 20px; padding: 18px 20px; margin: 0 0 14px; box-shadow: 0 6px 14px var(--golge); }
+.kart p { margin: 0 0 10px; } .kart p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0; padding-left: 22px; } li { margin: 2px 0; }
 a { color: var(--vurgu); }
-:focus-visible { outline: 3px solid var(--vurgu); outline-offset: 3px; border-radius: 6px; }
-.atla { position: absolute; left: -9999px; top: 12px; background: var(--vurgu); color: #fff; padding: 10px 16px; border-radius: 10px; z-index: 99; }
-.atla:focus { left: 12px; }
-
-/* üst çubuk */
-.ust { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px);
-  background: color-mix(in srgb, var(--zemin) 82%, transparent); border-bottom: 1px solid var(--cizgi); }
-.ust-ic { max-width: 1120px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; gap: 16px; }
-.marka { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--metin); font-weight: 700; }
-.marka img { width: 30px; height: 30px; border-radius: 8px; }
-.marka span { font-family: var(--el); font-size: 24px; color: var(--vurgu); line-height: 1; }
-.ust nav { display: flex; gap: 18px; margin-left: auto; font-size: 15px; font-weight: 600; }
-.ust nav a { color: var(--ikincil); text-decoration: none; }
-.ust nav a:hover { color: var(--vurgu); }
-@media (max-width: 720px) { .ust nav { display: none; } }
-.dug { display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
-  font: 700 16px/1 Karla, sans-serif; padding: 13px 22px; border-radius: 999px; background: var(--vurgu); color: #fff;
-  border: 1px solid transparent; transition: transform .15s, background .15s; }
-.dug:hover { transform: translateY(-1px); background: var(--vurgu-koyu); }
-.dug.ikinci { background: transparent; color: var(--vurgu); border-color: var(--cizgi); }
-.dug.ikinci:hover { background: var(--kart); }
-.ust .dug { padding: 10px 16px; font-size: 14px; }
-
-main { max-width: 1120px; margin: 0 auto; padding: 22px 20px 0; }
-
-/* kahraman */
-.cerceve { position: relative; overflow: hidden; border-radius: 34px; padding: 56px 24px 0;
-  background:
-    radial-gradient(120% 90% at 18% 0%, var(--g1) 0%, transparent 60%),
-    radial-gradient(110% 90% at 82% 8%, var(--g3) 0%, transparent 58%),
-    radial-gradient(120% 100% at 50% 100%, var(--g2) 0%, transparent 62%),
-    var(--kart);
-  border: 1px solid var(--cizgi); text-align: center; }
-.rozet { display: inline-flex; align-items: center; gap: 8px; font: 700 12.5px/1 Karla, sans-serif;
-  letter-spacing: .06em; text-transform: uppercase; color: var(--vurgu); background: var(--kart);
-  border: 1px solid var(--cizgi); border-radius: 999px; padding: 9px 14px; box-shadow: var(--golge-kart); }
-.cerceve h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(38px, 6vw, 68px); line-height: 1.02;
-  letter-spacing: -.01em; margin: 22px auto 0; max-width: 15em; }
-.cerceve h1 em { display: block; font-family: var(--el); font-style: normal; font-size: .92em;
-  color: var(--vurgu); margin-top: 6px; }
-.cerceve .alt { color: var(--ikincil); font-size: clamp(16px, 1.6vw, 18.5px); max-width: 34em; margin: 18px auto 0; }
-.dugmeler { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 26px 0 0; }
-.kucuk { color: var(--ikincil); font-size: 13.5px; margin: 14px 0 0; }
-.telefon { position: relative; width: min(300px, 62vw); margin: 38px auto -34px; border-radius: 36px; overflow: hidden;
-  border: 9px solid #2B1A1F; box-shadow: 0 30px 70px rgba(43, 26, 31, .34); background: #2B1A1F; }
-.telefon img { width: 100%; height: auto; }
-@media (prefers-color-scheme: dark) { .telefon { border-color: #0d090a; background: #0d090a; } }
-
-/* bölüm başlıkları */
-section { scroll-margin-top: 74px; }
-h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; margin: 0 0 8px; }
-.bolum-bas { margin: 64px 0 22px; }
-.bolum-bas p { margin: 0; color: var(--ikincil); max-width: 46em; }
-
-/* özellik ızgarası */
-.ozellikler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-@media (max-width: 900px) { .ozellikler { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .ozellikler { grid-template-columns: 1fr; } }
-.okart { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 22px; padding: 22px;
-  box-shadow: var(--golge-kart); display: flex; flex-direction: column; gap: 8px; }
-.okart .ik { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center;
-  background: var(--yumusak); color: var(--vurgu); }
-.okart .ik svg { width: 20px; height: 20px; }
-.okart b { font-size: 17.5px; font-weight: 700; }
-.okart p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ikincil); }
-.okart .sayi { font: 700 13px/1 Karla, sans-serif; color: var(--vurgu); letter-spacing: .02em; }
-.okart.vitrin { padding: 22px 22px 0; overflow: hidden; justify-content: flex-start; max-height: 392px;
-  background: linear-gradient(165deg, var(--g1), var(--kart) 62%); }
-.okart.vitrin .mock { display: block; width: 54%; margin: 14px auto 0; border: 8px solid #2B1A1F; border-bottom: 0;
-  border-radius: 26px 26px 0 0; overflow: hidden; box-shadow: 0 -8px 30px rgba(43,26,31,.14); }
-.okart.vitrin .mock img { width: 100%; height: auto; }
-@media (prefers-color-scheme: dark) { .okart.vitrin .mock { border-color: #0d090a; } }
-
-/* nasıl çalışır */
-.panel { margin: 14px 0 0; border-radius: 30px; padding: 44px 24px; text-align: center;
-  background: linear-gradient(160deg, var(--g1), var(--kart) 60%, var(--g2)); border: 1px solid var(--cizgi); }
-.adimlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 26px 0 0; text-align: left; }
-@media (max-width: 780px) { .adimlar { grid-template-columns: 1fr; } }
-.adim { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 20px; padding: 20px; }
-.adim b { display: block; font-family: var(--serif); font-size: 30px; color: var(--vurgu); line-height: 1; margin-bottom: 8px; }
-.adim strong { display: block; font-size: 16.5px; margin-bottom: 4px; }
-.adim p { margin: 0; font-size: 14.8px; color: var(--ikincil); line-height: 1.55; }
-
-/* sayılar */
-.sayilar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 26px 0 0; }
-@media (max-width: 720px) { .sayilar { grid-template-columns: 1fr 1fr; } }
-.sayilar div { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 18px; padding: 18px 16px; text-align: center; }
-.sayilar b { display: block; font-family: var(--serif); font-size: 34px; line-height: 1; color: var(--vurgu); }
-.sayilar span { display: block; margin-top: 6px; font-size: 13.5px; color: var(--ikincil); }
-
-/* ekran şeridi */
-.serit { display: flex; gap: 14px; overflow-x: auto; padding: 6px 2px 18px; margin: 0;
-  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
-.serit figure { margin: 0; flex: 0 0 clamp(190px, 26vw, 230px); scroll-snap-align: start; }
-.serit picture { display: block; }
-.serit img { width: 100%; height: auto; border-radius: 22px; border: 6px solid #2B1A1F;
-  background: #2B1A1F; box-shadow: var(--golge-kart); }
-.serit figcaption { font-size: 13px; color: var(--ikincil); text-align: center; margin-top: 8px; }
-@media (prefers-color-scheme: dark) { .serit img { border-color: #0d090a; background: #0d090a; } }
-.serit-sar { position: relative; }
-.serit-sar::before, .serit-sar::after { content: ""; position: absolute; top: 6px; bottom: 46px; width: 36px;
-  pointer-events: none; z-index: 2; transition: opacity .2s ease; }
-.serit-sar::before { left: 0; background: linear-gradient(to right, var(--zemin) 20%, transparent); opacity: 0; }
-.serit-sar::after { right: 0; background: linear-gradient(to left, var(--zemin) 20%, transparent); }
-.serit-sar.bas::before { opacity: 1; }
-.serit-sar.son::after { opacity: 0; }
-.serit-ok { position: absolute; top: 42%; width: 40px; height: 40px; display: none; place-items: center;
-  border-radius: 999px; border: 1px solid var(--cizgi); background: var(--kart); color: var(--vurgu);
-  cursor: pointer; z-index: 3; box-shadow: var(--golge-kart); transition: opacity .15s, transform .15s; }
-.serit-ok svg { width: 18px; height: 18px; }
-.serit-ok:hover:not([disabled]) { transform: scale(1.06); }
-.serit-ok[disabled] { opacity: .32; cursor: default; }
-.serit-ok.bas { left: 2px; }
-.serit-ok.son { right: 2px; }
-@media (min-width: 900px) { .serit-ok { display: grid; } .serit-sar::before, .serit-sar::after { display: block; } }
-@media (max-width: 899px) { .serit-sar::before, .serit-sar::after { display: none; } }
-@media (prefers-reduced-motion: reduce) { .serit-ok { transition: none; } }
-
-/* SSS */
-details { border-top: 1px solid var(--cizgi); padding: 16px 0; }
-details summary { cursor: pointer; font-weight: 700; font-size: 16.5px; }
-details p { margin: 10px 0 0; color: var(--ikincil); font-size: 15.5px; line-height: 1.6; }
-
-/* kapanış */
-.kapanis { margin: 56px 0 0; border-radius: 30px; padding: 44px 24px; text-align: center;
-  background: linear-gradient(150deg, var(--g3), var(--g1) 55%, var(--g2)); border: 1px solid var(--cizgi); }
-.kapanis h2 { max-width: 18em; margin: 0 auto 10px; }
-.kapanis p { color: var(--ikincil); max-width: 34em; margin: 0 auto; }
-
-/* şeffaflık */
-.seffaf { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 56px 0 0; }
-@media (max-width: 860px) { .seffaf { grid-template-columns: 1fr; } }
-.seffaf section { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 20px; padding: 20px; }
-.seffaf h3 { font-family: var(--serif); font-size: 20px; margin: 0 0 8px; }
-.seffaf p { margin: 0 0 8px; font-size: 14.8px; line-height: 1.6; color: var(--ikincil); }
-.seffaf p:last-child { margin-bottom: 0; }
-
-footer { max-width: 1120px; margin: 0 auto; padding: 34px 20px 46px; color: var(--ikincil); font-size: 14px;
-  display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; justify-content: center; text-align: center; }
-footer a { color: var(--ikincil); }
-footer a:hover { color: var(--vurgu); }
-
-/* giriş animasyonu (reduced motion'a saygılı) */
-@media (prefers-reduced-motion: no-preference) {
-  html.js .belir { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
-  html.js .belir.gorundu { opacity: 1; transform: none; }
-}
+.not { background: var(--yumusak); border-radius: 16px; padding: 14px 18px; margin: 0 0 14px; }
+footer { text-align: center; color: var(--ikincil); font-size: 14px; margin-top: 28px; }
 </style>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "SoftwareApplication",
- "name": "Well-Done", "operatingSystem": "iOS, iPadOS, macOS",
- "applicationCategory": "EducationalApplication", "inLanguage": "tr",
- "url": "https://kubilaykenan.com/welldone/",
- "description": "YDS, e-YDS ve YÖKDİL'e hazırlananlar için çalışma uygulaması: 1.388 kelime, 931 soru, 76 okuma parçası ve deneme.",
- "author": {"@type": "Person", "name": "Kubilay Kenan Işıklı"},
- "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"}}
-</script>
 </head>
 <body>
-<a class="atla" href="#icerik">İçeriğe geç</a>
-
-<header class="ust">
-<div class="ust-ic">
-<a class="marka" href="/welldone/"><img src="simge.png" alt=""><span>Well-Done</span></a>
-<nav aria-label="Sayfa içi">
-<a href="#ozellikler">Özellikler</a><a href="#nasil">Nasıl çalışır</a><a href="#sss">SSS</a>
-</nav>
-<a class="dug" href="https://testflight.apple.com/join/DeztXAQJ">TestFlight'ta dene</a>
-</div>
-</header>
-
-<main id="icerik">
-
-<section class="cerceve">
-<div class="rozet">YDS · e-YDS · YÖKDİL</div>
-<h1>Her gün birkaç dakika,<em>sınav düzeninde</em></h1>
-<p class="alt">Kelime, gramer, okuma ve deneme tek uygulamada. Hedef sınavına, kalan güne ve seviyene göre
-günlük plan; her gün nereye çalışacağını düşünmeden açıp başlıyorsun.</p>
-<div class="dugmeler"><a class="dug" href="https://testflight.apple.com/join/DeztXAQJ">TestFlight'ta dene</a>
-<a class="dug ikinci" href="#nasil">Nasıl çalışır?</a></div>
-<p class="kucuk">iPhone, iPad ve Mac · App Store'da yakında · Ücretsiz</p>
-<div class="telefon"><picture><source srcset="/img/wd/1_ana.webp" type="image/webp"><img src="/img/wd/1_ana.jpg" width="506" height="1100" alt="Well-Done ana ekranı: bugünün planı, kalan gün ve günün adımları"></picture></div>
-</section>
-
-<div class="bolum-bas belir" id="ozellikler">
-<h2>Bir uygulama, dört iş</h2>
-<p>Kelimeyi unutmadan biriktirmek, soru tiplerini tanımak, okumayı hızlandırmak ve sınav gününe kadar ritmi korumak.
-Hepsi aynı yerde durunca günlük çalışma kararı vermek gerekmiyor.</p>
-</div>
-
-<div class="ozellikler">
-<div class="okart belir"><span class="ik" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 5h7a2 2 0 0 1 2 2v13a2.5 2.5 0 0 0-2.5-2.5H4z"/><path d="M20 5h-7a2 2 0 0 0-2 2v13a2.5 2.5 0 0 1 2.5-2.5H20z"/></svg></span>
-<span class="sayi">1.388 kelime</span><b>Sözlük ve aralıklı tekrar</b>
-<p>ÖSYM sorularında çıkmış kelimeler; anlam, eş anlamlı, örnek cümle. Bildiğin kelime seyrekleşerek gelir, bilmediğin sık.</p></div>
-
-<div class="okart vitrin belir"><span class="sayi">günlük plan</span><b>Bugünün planı</b>
-<p>Kalan gün, tahmini puan ve günün adımları tek ekranda. Sırayı uygulama kurar.</p>
-<span class="mock"><picture><source srcset="/img/wd/2_calis.webp" type="image/webp"><img src="/img/wd/2_calis.jpg" width="506" height="1100" alt="Well-Done çalışma ekranı" loading="lazy"></picture></span></div>
-
-<div class="okart belir"><span class="ik" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
-<span class="sayi">931 soru</span><b>Deneme ve soru bankası</b>
-<p>Tam deneme, mini deneme, bölüm bölüm çalışma. Her sorunun açıklaması; yanlışın hangi konuya düştüğünü görüyorsun.</p></div>
-
-<div class="okart belir"><span class="ik" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 20h8"/></svg></span>
-<span class="sayi">76 parça · 20 sınıf</span><b>Okuma</b>
-<p>Paragraflar cümle cümle Türkçesiyle; okuma sınıfı tarzı Doğru/Yanlış çalışmaları ve hız denemeleri.</p></div>
-
-<div class="okart belir"><span class="ik" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M5 16l7 5 7-5"/></svg></span>
-<span class="sayi">14 konu · 88 bağlaç · 105 edat</span><b>Gramer</b>
-<p>Konular örnek cümlelerle; bağlaç ve edat kalıpları sınavda çıktığı biçimde gruplanmış.</p></div>
-
-<div class="okart belir"><span class="ik" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
-<span class="sayi">148 fiil · 428 kelime</span><b>Fiil köşesi ve düello</b>
-<p>Tohum–Filiz–Çınar aşamalarıyla fiiller; arkadaşınla ya da rastgele eşleşerek kelime düellosu.</p></div>
-</div>
-
-<section class="panel belir" id="nasil">
-<h2>Nasıl çalışır?</h2>
-<p>Üç adım: aç, günün adımlarını bitir, ilerlemeni gör.</p>
-<div class="adimlar">
-<div class="adim"><b>01</b><strong>Hedefini gir</strong><p>Hangi sınav, ne zaman, hedef kaç puan. Kalan gün ve gereken doğru sayısı kendiliğinden çıkar.</p></div>
-<div class="adim"><b>02</b><strong>Günün adımlarını bitir</strong><p>Kelime, soru, okuma ve gramer karışık gelir; her biri 5–10 dakika. Sırayı uygulama kurar.</p></div>
-<div class="adim"><b>03</b><strong>İlerlemeyi gör</strong><p>Tahmini puan, bölüm bazlı doğru oranı ve seri. Zayıf bölüm plana kendiliğinden girer.</p></div>
-</div>
-</section>
-
-<div class="bolum-bas belir"><h2>İçinde ne var?</h2>
-<p>Hepsi özgün olarak yazıldı; hiçbir kitaptan soru, metin ya da çeviri alınmadı.</p></div>
-<div class="sayilar belir">
-<div><b>931</b><span>özgün soru</span></div>
-<div><b>1.388</b><span>kelime</span></div>
-<div><b>76</b><span>okuma parçası</span></div>
-<div><b>31</b><span>sınavlık ÖSYM takvimi</span></div>
-</div>
-
-<div class="bolum-bas belir"><h2>Ekranlar</h2>
-<p>Soldan sağa kaydır.</p></div>
-<div class="serit-sar belir">
-<button class="serit-ok bas" type="button" data-geri aria-label="Önceki ekranlar" disabled>
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-<div class="serit" role="region" aria-label="Uygulama ekranları" tabindex="0">
-<figure><picture><source srcset="/img/wd/3_testler.webp" type="image/webp"><img src="/img/wd/3_testler.jpg" width="506" height="1100" alt="Testler ekranı" loading="lazy"></picture><figcaption>Testler</figcaption></figure>
-<figure><picture><source srcset="/img/wd/4_soru.webp" type="image/webp"><img src="/img/wd/4_soru.jpg" width="506" height="1100" alt="Soru ekranı" loading="lazy"></picture><figcaption>Soru ve açıklama</figcaption></figure>
-<figure><picture><source srcset="/img/wd/5_okuma.webp" type="image/webp"><img src="/img/wd/5_okuma.jpg" width="506" height="1100" alt="Okuma ekranı" loading="lazy"></picture><figcaption>Okuma</figcaption></figure>
-<figure><picture><source srcset="/img/wd/6_puan.webp" type="image/webp"><img src="/img/wd/6_puan.jpg" width="506" height="1100" alt="Puan ekranı" loading="lazy"></picture><figcaption>Puan ve hedef</figcaption></figure>
-<figure><picture><source srcset="/img/wd/7_duello.webp" type="image/webp"><img src="/img/wd/7_duello.jpg" width="506" height="1100" alt="Düello ekranı" loading="lazy"></picture><figcaption>Düello</figcaption></figure>
-<figure><picture><source srcset="/img/wd/8_fiil.webp" type="image/webp"><img src="/img/wd/8_fiil.jpg" width="506" height="1100" alt="Fiil köşesi ekranı" loading="lazy"></picture><figcaption>Fiil köşesi</figcaption></figure>
-</div>
-<button class="serit-ok son" type="button" data-ileri aria-label="Sonraki ekranlar">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-</div>
-
-<div class="bolum-bas belir" id="sss"><h2>Sık sorulanlar</h2></div>
-<div class="belir">
-<details><summary>Ücretsiz mi?</summary><p>Evet. Uygulama ücretsiz; içeriğin tamamı —soru bankası, sözlük, okuma parçaları— açık. Reklam yok.</p></details>
-<details><summary>Hangi cihazlarda çalışıyor?</summary><p>iPhone, iPad ve Mac. Şu an TestFlight üzerinden denenebiliyor; App Store sürümü yakında.</p></details>
-<details><summary>Sorular nereden geliyor?</summary><p>Sorular, okuma parçaları, çeviriler ve örnek cümleler Well-Done için özgün olarak yazıldı. ÖSYM'nin soru biçimi ve zorluk düzeyi örnek alındı; hiçbir kitaptan ya da yayından soru, metin veya çeviri alınmadı.</p></details>
-<details><summary>Puan hesabı resmî mi?</summary><p>Değil. Uygulamadaki tahmini puan, doğru sayına göre ÖSYM'nin puanlama kuralıyla hesaplanır; resmî sonuç yerine geçmez.</p></details>
-<details><summary>Verilerim nerede duruyor?</summary><p>Cihazında. Hesap açman gerekmiyor; çalışma kaydın sunucuya gönderilmiyor. Ayrıntılar <a href="gizlilik.html">gizlilik</a> sayfasında.</p></details>
-<details><summary>ÖSYM ile bağlantınız var mı?</summary><p>Hayır. Well-Done; ÖSYM, YÖK ya da herhangi bir kamu kurumuyla bağlantılı değildir, onlar adına konuşmaz. YDS, e-YDS ve YÖKDİL adları yalnız sınavları tanımlamak için geçer.</p></details>
-</div>
-
-<section class="kapanis belir">
-<h2>Sınava kadar ritmi birlikte tutalım</h2>
-<p>TestFlight sürümünü dene; geri bildirimin doğrudan uygulamaya giriyor.</p>
-<div class="dugmeler"><a class="dug" href="https://testflight.apple.com/join/DeztXAQJ">TestFlight'ta dene</a>
-<a class="dug ikinci" href="https://www.instagram.com/ydswelldone/" rel="me noopener">@ydswelldone</a></div>
-</section>
-
-<div class="seffaf">
-<section><h3>Kim hazırladı?</h3>
+<main>
+<nav><a href="index.html" aria-current=page>Well-Done</a> <a href="gizlilik.html">Gizlilik</a> <a href="kosullar.html">Koşullar</a> <a href="destek.html">Destek</a></nav>
+<div class="kimlik"><img src="simge.png" alt=""><div class="imza">Well-Done</div></div>
+<p class="giris" style="text-align:center">YDS, e-YDS ve YÖKDİL'e hazırlananlar için bir çalışma defteri: kelime, gramer, okuma ve deneme tek yerde, her gün birkaç dakikalık düzenli çalışmaya göre.</p>
+<div class="not" style="text-align:center">iPhone, iPad ve Mac için · App Store'da yakında<br>Yenilikler Instagram'da: <a href="https://www.instagram.com/ydswelldone/" rel="noopener">@ydswelldone</a></div>
+<section class="kart"><h2>Kim hazırladı?</h2>
 <p>Well-Done'ı İngilizce öğretmeni <strong>Kubilay Kenan Işıklı</strong> (Kenan Hoca) hazırladı. Sınıfta yıllardır gördüğü ihtiyaçlardan doğdu: kelimeyi unutmadan biriktirmek, soru tiplerini tanımak, sınav gününe kadar ritmi korumak.</p>
 <p>Bireysel bir çalışmadır; herhangi bir kurum, yayınevi ya da kursla bağı yoktur.</p></section>
-<section><h3>Puan ve takvim</h3>
-<p>Puan eşikleri ve sınav takvimi, ÖSYM'nin ve kurumların kamuya açık duyurularından derlenir. Başvuru, sınav günü ve sonuçlar için her zaman <strong><a href="https://www.osym.gov.tr" rel="noopener">osym.gov.tr</a></strong> esas alınmalıdır.</p></section>
-<section><h3>Bağımsızlık notu</h3>
-<p>Well-Done ÖSYM, YÖK ya da herhangi bir kamu kurumuyla bağlantılı değildir; onlar adına konuşmaz. Sınav adları yalnızca sınavları tanımlamak için kullanılır.</p></section>
-</div>
-
+<section class="kart"><h2>İçinde ne var?</h2>
+<ul><li>1.388 kelimelik sözlük, aralıklı tekrar ve kısım kısım kelime kartları</li><li>931 özgün soru: tam deneme, mini deneme, bölüm bölüm çalışma</li><li>76 okuma parçası, cümle cümle Türkçesiyle; okuma sınıfı tarzı Doğru/Yanlış çalışmaları</li><li>14 gramer konusu, her biri örnek cümlelerle</li><li>88 bağlaç ve 105 edat kalıbı</li><li>148 düzenli ve düzensiz fiil: Tohum, Filiz, Çınar; fiil kartları ve tablosu</li><li>428 kelimelik düello havuzu</li><li>31 sınavlık ÖSYM takvimi ve puan hesabı</li></ul></section>
+<section class="kart"><h2>Sorular nereden geliyor?</h2>
+<p>Sorular, okuma parçaları, çeviriler ve örnek cümleler Well-Done için özgün olarak yazıldı. ÖSYM'nin soru biçimi ve zorluk düzeyi örnek alındı; hiçbir kitaptan ya da yayından soru, metin veya çeviri alınmadı.</p>
+<p>Puan eşikleri ve sınav takvimi, ÖSYM'nin ve kurumların kamuya açık duyurularından derlenir.</p></section>
+<section class="kart"><h2>Bağımsızlık notu</h2>
+<p>Well-Done; ÖSYM, YÖK ya da herhangi bir kamu kurumuyla bağlantılı değildir, onlar adına konuşmaz. YDS, e-YDS ve YÖKDİL adları yalnız sınavları tanımlamak için geçer. Başvuru, sınav günü ve sonuçlar için her zaman <strong><a href="https://www.osym.gov.tr">osym.gov.tr</a></strong> esas alınmalıdır.</p></section>
+<footer>© 2026 Kubilay Kenan Işıklı · <a href="https://www.instagram.com/ydswelldone/" rel="me noopener">Instagram: @ydswelldone</a> · Well-Done ÖSYM ve YÖK ile bağlantılı değildir.</footer>
 </main>
-
-<footer>
-<span>© 2026 Kubilay Kenan Işıklı</span>
-<a href="gizlilik.html">Gizlilik</a><a href="kosullar.html">Koşullar</a><a href="destek.html">Destek</a>
-<a href="https://www.instagram.com/ydswelldone/" rel="me noopener">Instagram</a>
-<a href="/">kubilaykenan.com</a>
-</footer>
-
-<script>
-// Bölümler göründükçe yumuşak giriş; hareket azaltma tercihine saygılı.
-(() => {
-  document.documentElement.classList.add("js");
-  const ogeler = document.querySelectorAll(".belir");
-  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    ogeler.forEach(o => o.classList.add("gorundu"));
-    return;
-  }
-  const goz = new IntersectionObserver((girisler) => {
-    girisler.forEach(g => { if (g.isIntersecting) { g.target.classList.add("gorundu"); goz.unobserve(g.target); } });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
-  ogeler.forEach(o => goz.observe(o));
-})();
-
-// Ekran şeridi: oklar ve kenar solmaları (yalnız gerçekten taşıyorsa)
-(() => {
-  const sar = document.querySelector(".serit-sar");
-  if (!sar) return;
-  const s = sar.querySelector(".serit"), geri = sar.querySelector("[data-geri]"), ileri = sar.querySelector("[data-ileri]");
-  const yumusak = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-  const durum = () => {
-    const tasiyor = s.scrollWidth - s.clientWidth > 4;
-    const max = s.scrollWidth - s.clientWidth - 2;
-    const bas = s.scrollLeft <= 4, son = s.scrollLeft >= max;
-    sar.classList.toggle("bas", !bas);
-    sar.classList.toggle("son", son || !tasiyor);
-    geri.disabled = bas;
-    ileri.disabled = son || !tasiyor;
-  };
-  const adim = () => Math.max(180, Math.round(s.clientWidth * 0.6));
-  geri.addEventListener("click", () => s.scrollBy({ left: -adim(), behavior: yumusak }));
-  ileri.addEventListener("click", () => s.scrollBy({ left: adim(), behavior: yumusak }));
-  s.addEventListener("scroll", durum, { passive: true });
-  addEventListener("resize", durum);
-  durum();
-})();
-</script>
 </body>
 </html>

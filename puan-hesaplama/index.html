@@ -188,17 +188,6 @@
 #kk-ph .ph-cta a:hover{border-color:var(--g)}
 #kk-ph .ph-cta a small{display:block;font-weight:400;color:var(--mu);font-size:13px;margin-top:3px}
 @media (max-width:767px){#kk-ph .ph-cta{grid-template-columns:1fr}}
-
-/* Sonuç kartı (24.10.2026): /sayac/ kartıyla aynı dil — bordo zemin, altın çizgi, Jost */
-#kk-ph .ph-kart-dug{margin-top:14px;width:100%;gap:8px}
-#ph-kart{padding:0;border:0;background:transparent;max-width:100vw;max-height:100vh}
-#ph-kart::backdrop{background:rgba(25,5,12,.74)}
-#ph-kart .ic{background:#fff;border-radius:22px;padding:16px;width:min(420px,92vw);margin:auto;
-  box-shadow:0 30px 80px rgba(0,0,0,.4)}
-#ph-kart canvas{display:block;width:100%;height:auto;border-radius:14px;background:#3D091B}
-#ph-kart .not{font-size:13px;line-height:1.5;color:#6E6266;margin:12px 2px 0}
-#ph-kart .dug{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-#ph-kart .dug .ada-btn{flex:1 1 120px}
 </style>
 
 <div class="ph-head">
@@ -259,7 +248,6 @@
         </div>
         <ul class="ph-notes" id="ph-notes"></ul>
         <div class="ph-kap" id="ph-kap"></div>
-<button class="ada-btn ada-btn--ghost ph-kart-dug" type="button" id="ph-kart-dug">Sonuç kartı oluştur</button>
       </div>
     </div>
   </div>
@@ -268,8 +256,7 @@
 <div class="ph-cta">
   <a href="/welldone/">Well-Done ile çalış →<small>851 soru, 56 okuma parçası ve 1.388 kelime; iPhone, iPad ve Mac'te</small></a>
   <a href="/sozluk/">YDS sözlüğü →<small>ÖSYM'de çıkan kelimeler, örnek cümleleri ve çevirileriyle</small></a>
-  <a href="/plan/">Çalışma planı →<small>Hedef puandan haftalık plana</small></a>
-<a href="/#sinav">Sınav takvimi →<small>Sıradaki YDS, e-YDS ve YÖKDİL tarihleri; takvimine ekle</small></a>
+  <a href="/#sinav">Sınav takvimi →<small>Sıradaki YDS, e-YDS ve YÖKDİL tarihleri; takvimine ekle</small></a>
 </div>
 
 <div class="ph-esik" id="ph-esik">
@@ -547,13 +534,6 @@
 </script>
 </div>
 </section><section class="yazi-govde" style="max-width:none;padding-top:0"><h2>Sıradaki adım</h2><div class="sz-cta"><a href="/seviye-testi/">Seviye testi →<small>10 soruda tahmini puan aralığın</small></a><a href="/duello/">Kelime düellosu →<small>60 saniyede 10 YDS kelimesi</small></a><a href="/sayac/">Sınavıma kaç gün kaldı? →<small>Paylaşım kartını hazırla</small></a></div></section>
-<dialog id="ph-kart" aria-label="Puan sonuç kartı">
-<div class="ic"><canvas id="ph-cv" width="1080" height="1350" role="img" aria-label="Puan kartı önizlemesi"></canvas>
-<p class="not">Kart tarayıcında hazırlanıyor. İndirip hikâyede ya da WhatsApp’ta paylaşabilirsin; puanın sende kalır, hiçbir yere gönderilmez.</p>
-<div class="dug"><button type="button" class="ada-btn" data-kart-indir>PNG indir</button>
-<button type="button" class="ada-btn ada-btn--ghost" data-kart-paylas hidden>Paylaş</button>
-<button type="button" class="ada-btn ada-btn--ghost" data-kart-kapat>Kapat</button></div></div>
-</dialog>
 </main>
 <footer>© 2026 Kubilay Kenan Işıklı</footer>
 </div>
@@ -661,125 +641,6 @@ if ("serviceWorker" in navigator) addEventListener("load", () => navigator.servi
   addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });
   d.forEach(x => x.addEventListener("click", async () => { if (!ist) return; ist.prompt(); await ist.userChoice; ist = null; d.forEach(y => { y.hidden = true; }); }));
   addEventListener("appinstalled", () => d.forEach(x => { x.hidden = true; })); })();
-</script>
-<script>
-// Puan sonuç kartı — tarayıcıda <canvas> ile çizilir, PNG indirilir ya da paylaşılır.
-(() => {
-  const dug = document.getElementById("ph-kart-dug"), pnc = document.getElementById("ph-kart");
-  if (!dug || !pnc || !pnc.showModal) { if (dug) dug.hidden = true; return; }
-  const cv = document.getElementById("ph-cv"), c = cv.getContext("2d");
-  const metin = s => { const e = document.querySelector(s); return e ? e.textContent.trim() : ""; };
-  const rr = (x, y, w, h, r) => { c.beginPath(); c.roundRect(x, y, w, h, r); };
-  const sigdir = (m, en, boy, agirlik, aile) => { let b = boy; do { c.font = `${agirlik} ${b}px ${aile}`; b -= 4; } while (c.measureText(m).width > en && b > 24); return b + 4; };
-
-  function ciz() {
-    const W = 1080, H = 1350;
-    cv.width = W; cv.height = H;
-    const g = c.createRadialGradient(W * .74, H * .08, 40, W * .45, H * .58, H * 1.05);
-    g.addColorStop(0, "#4B0D22"); g.addColorStop(.55, "#3D091B"); g.addColorStop(1, "#250511");
-    c.fillStyle = g; c.fillRect(0, 0, W, H);
-
-    c.save(); c.strokeStyle = "#D8B229"; c.globalAlpha = .2; c.lineWidth = 3; c.setLineDash([5, 24]);
-    c.beginPath(); c.arc(880, 168, 176, 0, Math.PI * 2); c.stroke(); c.restore();
-
-    c.textAlign = "left"; c.textBaseline = "alphabetic";
-    const sinav = metin(".ph-sn") || "YDS";
-    c.font = "800 44px Jost, sans-serif";
-    const cw = c.measureText(sinav).width + 72;
-    c.fillStyle = "#D8B229"; rr(90, 150, cw, 86, 43); c.fill();
-    c.fillStyle = "#3D091B"; c.fillText(sinav, 126, 208);
-
-    c.fillStyle = "rgba(247,239,210,.66)"; c.font = "700 38px Inter, sans-serif";
-    c.fillText("PUANIN", 92, 334);
-
-    const puan = metin("#ph-p") || "0";
-    const pb = sigdir(puan, W - 420, 300, 800, "Jost, sans-serif");
-    const taban = 334 + pb * 0.95;                       // büyük sayının oturduğu çizgi
-    c.fillStyle = "#F7EFD2"; c.font = `800 ${pb}px Jost, sans-serif`;
-    c.fillText(puan, 82, taban);
-    const pw = c.measureText(puan).width;
-    c.fillStyle = "rgba(247,239,210,.5)"; c.font = "700 44px Inter, sans-serif";
-    c.fillText("/ 100", 82 + pw + 24, taban);
-
-    // seviye rozeti
-    const lv = metin("#ph-lv");
-    let y = taban + 76;
-    if (lv) {
-      c.font = "800 44px Jost, sans-serif";
-      const lw = c.measureText(lv).width + 76;
-      c.strokeStyle = "#D8B229"; c.lineWidth = 4; rr(90, y, lw, 92, 46); c.stroke();
-      c.fillStyle = "#F7EFD2"; c.fillText(lv, 128, y + 62);
-      y += 128;
-    }
-
-    // doğru / yanlış / boş
-    const eksen = [["#ph-sd", "Doğru"], ["#ph-sy", "Yanlış"], ["#ph-sb", metin("#ph-sbl") || "Boş"]];
-    c.textAlign = "center";
-    eksen.forEach(([sel, etiket], i) => {
-      const x = 240 + i * 300;
-      c.fillStyle = "#F7EFD2"; c.font = "800 92px Jost, sans-serif"; c.fillText(metin(sel) || "0", x, y + 96);
-      c.fillStyle = "rgba(247,239,210,.58)"; c.font = "600 32px Inter, sans-serif"; c.fillText(etiket, x, y + 146);
-    });
-    c.textAlign = "left";
-
-    // hedef satırı + alt bilgiler (tekrarsız)
-    const yAlt = y + 214;
-    const hdf = document.querySelector("#ph-chips [aria-pressed='true']");
-    const dSay = Number(metin("#ph-sd").replace(",", ".")) || 0;
-    const pSay = parseFloat((metin("#ph-p") || "0").replace(",", ".")) || 0;
-    let satir, gerek = null;
-    if (hdf) {
-      const h = Number(hdf.dataset.h);
-      gerek = Math.ceil(h / 1.25);
-      satir = dSay >= gerek ? `Hedefim ${h} puan · hedefi geçtim` : `Hedefim ${h} puan · ${gerek - dSay} doğru kaldı`;
-    } else {
-      satir = "Hedefini belirle: kubilaykenan.com/puan-hesaplama";
-    }
-    c.fillStyle = "#D8B229";
-    c.font = `700 ${sigdir(satir, W - 180, 40, 700, "Inter, sans-serif")}px Inter, sans-serif`;
-    c.fillText(satir, 90, yAlt);
-
-    const ESIK = [50, 60, 70, 80, 90], HARF = { 50: "E", 60: "D", 70: "C", 80: "B", 90: "A" };
-    const sirada = ESIK.filter(t => t > pSay)[0];
-    const altlar = [];
-    if (sirada && Math.ceil(sirada / 1.25) !== gerek) {
-      altlar.push(`${HARF[sirada]} seviyesi (${sirada} puan) için ${Math.ceil(sirada / 1.25) - dSay} doğru kaldı`);
-    } else if (!sirada) {
-      altlar.push("En üst seviyedesin: A bandı");
-    }
-    const bosSay = Number(metin("#ph-sb").replace(",", ".")) || 0;
-    if (bosSay > 0 && metin("#ph-sbl") !== "Yanlış + boş") {
-      altlar.push(`${bosSay} boş · hepsini işaretleseydin ortalama +${(bosSay * 0.25).toFixed(2).replace(".", ",")} puan`);
-    }
-    c.fillStyle = "rgba(247,239,210,.62)"; c.font = "600 32px Inter, sans-serif";
-    altlar.slice(0, 2).forEach((t, i) => c.fillText(t, 90, yAlt + 56 + i * 52));
-
-    // alt bilgi
-    c.fillStyle = "#A84660"; rr(90, 1198, 64, 10, 5); c.fill();
-    c.fillStyle = "#F7EFD2"; c.font = "800 44px Jost, sans-serif"; c.fillText("Kenan Hoca", 90, 1268);
-    c.fillStyle = "rgba(247,239,210,.6)"; c.font = "600 32px Inter, sans-serif"; c.textAlign = "right";
-    c.fillText("kubilaykenan.com", W - 90, 1266); c.textAlign = "left";
-  }
-
-  const dosya = () => new Promise(r => cv.toBlob(b => r(new File([b], `puan-${metin("#ph-p").replace(",", "-")}.png`, { type: "image/png" })), "image/png"));
-  const hazir = () => Promise.all(["800 100px Jost", "700 40px Inter", "600 32px Inter"].map(f => document.fonts.load(f))).catch(() => {});
-
-  dug.addEventListener("click", async () => { await hazir(); ciz(); pnc.showModal(); });
-  pnc.querySelector("[data-kart-kapat]").addEventListener("click", () => pnc.close());
-  pnc.addEventListener("click", e => { if (e.target === pnc) pnc.close(); });
-  pnc.querySelector("[data-kart-indir]").addEventListener("click", async () => {
-    const f = await dosya(), a = document.createElement("a");
-    a.href = URL.createObjectURL(f); a.download = f.name; a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-  });
-  const pb = pnc.querySelector("[data-kart-paylas]");
-  pb.addEventListener("click", async () => {
-    const f = await dosya();
-    try { await navigator.share({ files: [f], text: "kubilaykenan.com/puan-hesaplama" }); }
-    catch (e) { if (e.name !== "AbortError") pnc.querySelector("[data-kart-indir]").click(); }
-  });
-  pb.hidden = !(navigator.canShare && navigator.canShare({ files: [new File([""], "a.png", { type: "image/png" })] }));
-})();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
