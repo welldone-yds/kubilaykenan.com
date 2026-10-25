@@ -94,3 +94,16 @@
 @media (prefers-reduced-motion: reduce) {
   .mega-pano, .mega, .mega-ok, .mega-ac span { transition: none; }
 }
+/* Alt sayfalardaki TR/EN düğmesi (ana sayfadaki .dil ile aynı görünüm) */
+.mega-arac .mega-dil { display: inline-grid; place-items: center; min-width: 44px; min-height: 36px; padding: 0 10px;
+  border: 1.5px solid var(--line, #E7E0D8); border-radius: 99px; font: 700 13px/1 var(--font-sans, Inter, system-ui, sans-serif);
+  letter-spacing: .04em; color: var(--heading, #3D091B); text-decoration: none; }
+.mega-arac .mega-dil:hover { background: var(--green-wash, #FBF6E6); }
+
+/* Telefonda Well-Done şeridi: TestFlight düğmesi sığmıyor (giriş bölümünde büyüğü var) */
+@media (max-width: 520px) {
+  .mega-arac .dug { display: none; }
+}
+/* Well-Done şeridinde menü .ust-ic kabının içinde: aynı yatay düzen */
+.mega-ust > .mega-ic { flex: 1; width: 100%; display: flex; align-items: center; gap: 14px; }
+@media (max-width: 899px) { .mega-ust > .mega-ic { justify-content: space-between; padding-inline: 16px; } }
