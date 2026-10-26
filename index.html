@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
 <link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
-<link rel="stylesheet" href="/anasayfa.css?v=11609f8e">
+<link rel="stylesheet" href="/anasayfa.css?v=8b33fc7a">
 <link rel="stylesheet" href="/menu.css?v=1855d8ad">
 </head>
 <body>
@@ -475,6 +475,24 @@
   const yap = () => wa.classList.toggle("gizli", scrollY < Math.min(560, innerHeight * 0.7));
   addEventListener("scroll", yap, { passive: true });
   yap();
+})();
+
+// Maskot kıpırtıları SVG içinde ve gölge filtreli → her karede yeniden çizilir; kaydırmayı ağırlaştırıyordu
+// (26.10.2026 Kenan: "kaydırırken yavaş"). Ekranda değilken ve sayfa kaydırılırken durur (maskot.css .durgun).
+(() => {
+  const mlar = [...document.querySelectorAll(".maskot")];
+  if (!mlar.length) return;
+  const gorulen = new Set(mlar);
+  let kayiyor = false, zt = 0;
+  const uygula = () => mlar.forEach(m => m.classList.toggle("durgun", kayiyor || !gorulen.has(m)));
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(g => { g.forEach(x => x.isIntersecting ? gorulen.add(x.target) : gorulen.delete(x.target)); uygula(); });
+    mlar.forEach(m => io.observe(m));
+  }
+  addEventListener("scroll", () => {
+    if (!kayiyor) { kayiyor = true; uygula(); }
+    clearTimeout(zt); zt = setTimeout(() => { kayiyor = false; uygula(); }, 180);
+  }, { passive: true });
 })();
 </script>
 <script>
