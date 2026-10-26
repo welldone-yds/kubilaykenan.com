@@ -270,6 +270,48 @@ h2 em { font-family: var(--el); font-style: normal; color: var(--vurgu); font-si
 .asamalar b { font-family: var(--serif); font-size: 19px; }
 .asamalar small { display: block; color: var(--ikincil); font-size: 12px; }
 
+/* son eklenenler */
+.yeniler { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.yeniler .b { min-height: 300px; }
+.yeniler .b.odak { background: var(--murdum); border-color: transparent; color: var(--murdum-metin); }
+.yeniler .b.odak p { color: var(--murdum-ikincil); }
+.yeniler .b.odak .etiket { background: rgba(255,255,255,.1); color: #F4C9D4; }
+.yeniler .b.tarla { background: var(--yumusak); border-color: transparent; }
+.yeniler .b.tarla .etiket { background: var(--kart); }
+.yeni-rozet { position: absolute; right: 22px; top: 22px; font: 700 11px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase;
+  color: #3A2A08; background: var(--altin); border-radius: 999px; padding: 7px 10px; }
+.kadran { display: flex; align-items: center; gap: 22px; margin-top: auto; padding-top: 22px; }
+.kadran .halka { flex: none; width: 112px; height: 112px; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(#E58BA2 0 62%, rgba(255,255,255,.12) 62% 100%);
+  -webkit-mask: radial-gradient(circle, transparent 47px, #000 48px); mask: radial-gradient(circle, transparent 47px, #000 48px); }
+.kadran .ic { position: relative; width: 112px; height: 112px; flex: none; }
+.kadran .ic b { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--serif); font-size: 30px; }
+.kadran ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 14px; font-weight: 600; }
+.kadran li::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; background: #E58BA2; vertical-align: 0; }
+.kadran li:nth-child(2)::before, .kadran li:nth-child(3)::before { background: var(--altin); }
+.parsel { display: grid; grid-template-columns: repeat(7, 1fr) 40px; gap: 6px; margin-top: auto; padding-top: 22px; align-items: end; }
+.parsel span { height: 44px; border-radius: 10px; background: #E9D2C0; position: relative; }
+.parsel span::after { content: ""; position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); border-radius: 50% 50% 4px 4px;
+  background: linear-gradient(180deg, #6FA77B, #3F7D4E); }
+.parsel .e1::after { width: 6px; height: 6px; background: #8A6A4A; border-radius: 50%; }
+.parsel .e2::after { width: 9px; height: 14px; }
+.parsel .e3::after { width: 14px; height: 24px; }
+.parsel .e4::after { width: 16px; height: 26px; background: radial-gradient(circle at 50% 30%, #E58BA2 0 5px, transparent 6px), linear-gradient(180deg, #6FA77B, #3F7D4E); }
+.parsel .cinar { background: none; height: 64px; }
+.parsel .cinar::after { width: 34px; height: 56px; bottom: 0; }
+.parsel-alt { display: grid; grid-template-columns: repeat(7, 1fr) 40px; gap: 6px; margin-top: 8px; text-align: center; font-size: 12px; color: var(--ikincil); font-weight: 600; }
+.diller { display: grid; gap: 10px; margin-top: auto; padding-top: 22px; }
+.diller div { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; }
+.diller span { padding: 10px 13px; border-radius: 12px; background: var(--yumusak-2); border: 1px solid var(--cizgi); }
+.diller span:last-child { background: var(--yumusak); border-color: transparent; color: var(--vurgu-koyu); }
+.diller i { color: var(--vurgu); font-style: normal; }
+.siralama { display: grid; gap: 8px; margin-top: auto; padding-top: 22px; }
+.siralama div { display: grid; grid-template-columns: 26px 1fr auto; gap: 10px; align-items: center; padding: 11px 14px;
+  border-radius: 14px; background: var(--yumusak-2); border: 1px solid var(--cizgi); font-size: 14.5px; font-weight: 600; }
+.siralama div:first-child { background: var(--yumusak); border-color: transparent; }
+.siralama b { font-family: var(--serif); font-size: 19px; color: var(--vurgu); }
+@media (max-width: 820px) { .yeniler { grid-template-columns: 1fr; } .yeniler .b { min-height: 0; } }
+
 /* sayılar bandı */
 .sayilar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--cizgi); border-bottom: 1px solid var(--cizgi); }
 .sayilar div { padding: 34px 24px; border-left: 1px solid var(--cizgi); }
@@ -504,6 +546,53 @@ With everything in one place, there is no daily decision about what to study.</p
 <div><i></i><b>Seed</b><small>most frequent</small></div>
 <div><i></i><b>Sprout</b><small>common</small></div>
 <div><i></i><b>Plane tree</b><small>academic</small></div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="bolum" id="yeni">
+<div class="bolum-bas belir">
+<div><div class="ust-yazi">New</div><h2>Latest <em>additions</em></h2></div>
+<p>The app grows every week on TestFlight. Here is what the latest builds brought; all free, all on your device.</p>
+</div>
+<div class="yeniler">
+<article class="b odak belir">
+<span class="yeni-rozet">New</span>
+<span class="etiket">Focus timer</span>
+<h3>Study with Pomodoro</h3>
+<p>25 minutes of focus, a 5-minute break, a long break every four rounds; you set the lengths. The timer runs on the Lock Screen and in the Dynamic Island, and a notification arrives when a round ends.</p>
+<div class="kadran" aria-hidden="true"><div class="ic"><div class="halka"></div><b>15:32</b></div>
+<ul><li>Focus 25 min</li><li>Short break 5 min</li><li>Long break 15 min</li></ul></div>
+</article>
+
+<article class="b tarla belir">
+<span class="yeni-rozet">New</span>
+<span class="etiket">Field</span>
+<h3>A field that grows as you study</h3>
+<p>One plot a day. Word cards, tests, practice exams and focus rounds grow that day's plant: seed, sprout, sapling, flower. A week with five full days ends with a plane tree.</p>
+<div class="parsel" aria-hidden="true"><span class="e3"></span><span class="e4"></span><span class="e2"></span><span class="e4"></span><span class="e3"></span><span class="e1"></span><span></span><span class="cinar"></span></div>
+<div class="parsel-alt" aria-hidden="true"><span>Mon</span><span style="grid-column:7">Sun</span></div>
+</article>
+
+<article class="b dil belir">
+<span class="yeni-rozet">New</span>
+<span class="etiket">Türkçe · English</span>
+<h3>English interface</h3>
+<p>If your phone is set to English, menus and buttons appear in English. Meanings, explanations and instructions stay in Turkish; the study is the same.</p>
+<div class="diller" aria-hidden="true">
+<div><span>Bugünün&nbsp;planı</span><i>→</i><span>Today's plan</span></div>
+<div><span>Kelime&nbsp;çalış</span><i>→</i><span>Study words</span></div>
+</div>
+</article>
+
+<article class="b duello belir">
+<span class="etiket">Game Center</span>
+<h3>Live duels and leaderboard</h3>
+<p>Challenge a friend or join a live match with a random opponent. See where you stand on the weekly leaderboard.</p>
+<div class="siralama" aria-hidden="true">
+<div><b>1</b><span>You</span><span>940</span></div>
+<div><b>2</b><span>Opponent</span><span>885</span></div>
 </div>
 </article>
 </div>
