@@ -565,6 +565,10 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .wdv-m .ad-rozet { position: absolute; left: 50%; top: calc(100% + 6px);   /* maskotun altında boşlukla, ortalı; kuyruğa değmez */
                     transform: translateX(-50%); font: 800 12px/1 var(--font-sans); letter-spacing: .08em;
                    text-transform: uppercase; font-style: normal; color: #fff; background: #A84660; padding: 4px 9px; border-radius: 99px; box-shadow: 0 4px 10px rgba(168, 70, 96, .3); }
+/* sınav takvimi süzgeci + "Tüm takvimi göster" (28.10.2026, ÖSYM 2027) */
+.vs-tumu-kap { text-align: center; }
+.vs-tumu { font: inherit; font-weight: 700; cursor: pointer; margin-top: 20px; }
+.vs-tumu[hidden] { display: none; }
 /* Üst çubukta sözlük araması (21.10.2026): her sayfada; ⌘K / Ctrl+K ya da "/" ile açılır, /sozluk/veri.json'dan arar. */
 .ara-dug { display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1 var(--font-sans); color: var(--muted); background: var(--bant, #F6F1EC);
            border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px 8px 12px; cursor: pointer; white-space: nowrap; }

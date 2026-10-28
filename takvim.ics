@@ -3,9 +3,10 @@ VERSION:2.0
 PRODID:-//kubilaykenan.com//Sinav Takvimi//TR
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:YDS · e-YDS · YÖKDİL sınav takvimi (Kenan Hoca)
-X-WR-CALDESC:İngilizce YDS\, e-YDS ve YÖKDİL sınav\, başvuru ve sonuç
-  tarihleri.
+X-WR-CALNAME:YDS · e-YDS · YÖKDİL · e-TEP · AGS sınav takvimi (Kenan
+  Hoca)
+X-WR-CALDESC:İngilizce YDS\, e-YDS\, YÖKDİL\, e-TEP ve MEB-AGS sınav\, 
+ başvuru ve sonuç tarihleri.
 X-WR-TIMEZONE:Europe/Istanbul
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
@@ -230,6 +231,46 @@ DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-meb-ags-ags-oabt-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260726
+DTEND;VALUE=DATE:20260727
+SUMMARY:2026-MEB-AGS (AGS + ÖABT) sınavı
+DESCRIPTION:Saat: AGS 10.15\, 110 dk\; ÖABT 14.45\, 90/70 dk. Kaynak: ÖSY
+ M. Ayrıntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-meb-ags-ags-oabt-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260508
+DTEND;VALUE=DATE:20260521
+SUMMARY:2026-MEB-AGS (AGS + ÖABT) başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-meb-ags-ags-oabt-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260603
+DTEND;VALUE=DATE:20260606
+SUMMARY:2026-MEB-AGS (AGS + ÖABT) geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-meb-ags-ags-oabt-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260826
+DTEND;VALUE=DATE:20260827
+SUMMARY:2026-MEB-AGS (AGS + ÖABT) sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-yokdi-l-2-sinav@kubilaykenan.com
 DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20260809
@@ -385,6 +426,546 @@ DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20261202
 DTEND;VALUE=DATE:20261211
 SUMMARY:e-YDS 2026/12 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-1-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270116
+DTEND;VALUE=DATE:20270117
+SUMMARY:e-YDS 2027/1 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-1-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270104
+DTEND;VALUE=DATE:20270108
+SUMMARY:e-YDS 2027/1 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-1-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270130
+DTEND;VALUE=DATE:20270131
+SUMMARY:e-TEP 2027/1 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-1-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270106
+DTEND;VALUE=DATE:20270114
+SUMMARY:e-TEP 2027/1 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-1-i-ngilizce-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270226
+DTEND;VALUE=DATE:20270227
+SUMMARY:e-TEP 2027/1 İngilizce sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-2-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:e-YDS 2027/2 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-2-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270129
+SUMMARY:e-YDS 2027/2 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yokdi-l-1-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270228
+DTEND;VALUE=DATE:20270301
+SUMMARY:2027-YÖKDİL/1 sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yokdi-l-1-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270121
+SUMMARY:2027-YÖKDİL/1 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yokdi-l-1-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:2027-YÖKDİL/1 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yokdi-l-1-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270326
+DTEND;VALUE=DATE:20270327
+SUMMARY:2027-YÖKDİL/1 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yds-1-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270328
+DTEND;VALUE=DATE:20270329
+SUMMARY:2027-YDS/1 sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yds-1-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270203
+DTEND;VALUE=DATE:20270212
+SUMMARY:2027-YDS/1 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yds-1-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270218
+DTEND;VALUE=DATE:20270219
+SUMMARY:2027-YDS/1 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yds-1-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270421
+DTEND;VALUE=DATE:20270422
+SUMMARY:2027-YDS/1 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-2-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270403
+DTEND;VALUE=DATE:20270404
+SUMMARY:e-TEP 2027/2 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-2-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270303
+DTEND;VALUE=DATE:20270318
+SUMMARY:e-TEP 2027/2 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-2-i-ngilizce-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270430
+DTEND;VALUE=DATE:20270501
+SUMMARY:e-TEP 2027/2 İngilizce sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-4-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270424
+DTEND;VALUE=DATE:20270425
+SUMMARY:e-YDS 2027/4 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-4-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270407
+DTEND;VALUE=DATE:20270415
+SUMMARY:e-YDS 2027/4 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-meb-ags-ags-oabt-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270508
+DTEND;VALUE=DATE:20270510
+SUMMARY:2027-MEB-AGS (AGS + ÖABT) sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-meb-ags-ags-oabt-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270319
+DTEND;VALUE=DATE:20270330
+SUMMARY:2027-MEB-AGS (AGS + ÖABT) başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-meb-ags-ags-oabt-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270406
+DTEND;VALUE=DATE:20270407
+SUMMARY:2027-MEB-AGS (AGS + ÖABT) geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-meb-ags-ags-oabt-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270611
+DTEND;VALUE=DATE:20270612
+SUMMARY:2027-MEB-AGS (AGS + ÖABT) sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2027-1-i-ngilizce-sosyal-bilimler-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270529
+DTEND;VALUE=DATE:20270530
+SUMMARY:e-YÖKDİL 2027/1 İngilizce-Sosyal Bilimler sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2027-1-i-ngilizce-sosyal-bilimler-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270504
+DTEND;VALUE=DATE:20270513
+SUMMARY:e-YÖKDİL 2027/1 İngilizce-Sosyal Bilimler başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2027-2-i-ngilizce-saglik-bilimleri-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270530
+DTEND;VALUE=DATE:20270531
+SUMMARY:e-YÖKDİL 2027/2 İngilizce-Sağlık Bilimleri sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2027-2-i-ngilizce-saglik-bilimleri-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270504
+DTEND;VALUE=DATE:20270513
+SUMMARY:e-YÖKDİL 2027/2 İngilizce-Sağlık Bilimleri başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2027-3-i-ngilizce-fen-bilimleri-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270605
+DTEND;VALUE=DATE:20270606
+SUMMARY:e-YÖKDİL 2027/3 İngilizce-Fen Bilimleri sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yokdi-l-2027-3-i-ngilizce-fen-bilimleri-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270504
+DTEND;VALUE=DATE:20270528
+SUMMARY:e-YÖKDİL 2027/3 İngilizce-Fen Bilimleri başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-6-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270626
+DTEND;VALUE=DATE:20270627
+SUMMARY:e-YDS 2027/6 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-6-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270609
+DTEND;VALUE=DATE:20270618
+SUMMARY:e-YDS 2027/6 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-3-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270717
+DTEND;VALUE=DATE:20270718
+SUMMARY:e-TEP 2027/3 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-3-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270616
+DTEND;VALUE=DATE:20270701
+SUMMARY:e-TEP 2027/3 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-3-i-ngilizce-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270817
+DTEND;VALUE=DATE:20270818
+SUMMARY:e-TEP 2027/3 İngilizce sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yokdi-l-2-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270725
+DTEND;VALUE=DATE:20270726
+SUMMARY:2027-YÖKDİL/2 sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yokdi-l-2-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270608
+DTEND;VALUE=DATE:20270617
+SUMMARY:2027-YÖKDİL/2 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yokdi-l-2-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270623
+DTEND;VALUE=DATE:20270624
+SUMMARY:2027-YÖKDİL/2 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yokdi-l-2-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270813
+DTEND;VALUE=DATE:20270814
+SUMMARY:2027-YÖKDİL/2 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-9-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270821
+DTEND;VALUE=DATE:20270822
+SUMMARY:e-YDS 2027/9 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-9-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270804
+DTEND;VALUE=DATE:20270813
+SUMMARY:e-YDS 2027/9 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-10-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270925
+DTEND;VALUE=DATE:20270926
+SUMMARY:e-YDS 2027/10 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-10-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270908
+DTEND;VALUE=DATE:20270917
+SUMMARY:e-YDS 2027/10 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-11-farsca-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271016
+DTEND;VALUE=DATE:20271017
+SUMMARY:e-YDS 2027/11 Farsça/İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-11-farsca-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270929
+DTEND;VALUE=DATE:20271008
+SUMMARY:e-YDS 2027/11 Farsça/İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-4-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271113
+DTEND;VALUE=DATE:20271114
+SUMMARY:e-TEP 2027/4 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-4-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271013
+DTEND;VALUE=DATE:20271028
+SUMMARY:e-TEP 2027/4 İngilizce başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-tep-2027-4-i-ngilizce-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271210
+DTEND;VALUE=DATE:20271211
+SUMMARY:e-TEP 2027/4 İngilizce sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yds-2-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271121
+DTEND;VALUE=DATE:20271122
+SUMMARY:2027-YDS/2 sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yds-2-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271005
+DTEND;VALUE=DATE:20271014
+SUMMARY:2027-YDS/2 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yds-2-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271020
+DTEND;VALUE=DATE:20271021
+SUMMARY:2027-YDS/2 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-yds-2-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271210
+DTEND;VALUE=DATE:20271211
+SUMMARY:2027-YDS/2 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-12-i-ngilizce-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271218
+DTEND;VALUE=DATE:20271219
+SUMMARY:e-YDS 2027/12 İngilizce sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:e-yds-2027-12-i-ngilizce-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271201
+DTEND;VALUE=DATE:20271210
+SUMMARY:e-YDS 2027/12 İngilizce başvuru
 DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
   sayım: https://kubilaykenan.com/
 TRANSP:TRANSPARENT
