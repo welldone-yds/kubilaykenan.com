@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//kubilaykenan.com//Sinav Takvimi//TR
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:YDS · e-YDS · YÖKDİL · e-TEP · AGS sınav takvimi (Kenan
-  Hoca)
+X-WR-CALNAME:YDS · e-YDS · YÖKDİL · e-TEP · AGS sınav takvimi (Kubil
+ ay Kenan Hoca)
 X-WR-CALDESC:İngilizce YDS\, e-YDS\, YÖKDİL\, e-TEP ve MEB-AGS sınav\, 
  başvuru ve sonuç tarihleri.
 X-WR-TIMEZONE:Europe/Istanbul
