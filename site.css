@@ -8,9 +8,12 @@ body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var(
 a { color: inherit; }
 /* üst çubuk */
 .ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0; }
-.marka { font: 800 20px/1 var(--font-display); color: var(--heading); text-decoration: none; position: relative; white-space: nowrap; }
-.marka::after { content: ""; position: absolute; left: 0; right: 30%; bottom: 5px; height: 5px; border-radius: 99px; background: var(--green); }
-.ust .marka { padding: 12px 0; margin: -12px 0; }   /* parmakla dokunma alanı ~44 px, görünüm aynı */
+/* logo (03.11.2026, Kenan "A · Çift K"): işaret kisisel/logo/kk-favicon.svg + "Kubilay Kenan / HOCA" */
+.marka { display: inline-flex; align-items: center; gap: 10px; font: 800 20px/1 var(--font-display); color: var(--heading); text-decoration: none; white-space: nowrap; }
+.marka-isaret { flex: none; width: 34px; height: 34px; display: block; }
+.marka span { display: grid; gap: 4px; }
+.marka small { font: 600 10px/1 var(--font-sans); letter-spacing: .3em; text-transform: uppercase; color: #8A6A0E; }
+.ust .marka { padding: 5px 0; margin: -5px 0; }   /* parmakla dokunma alanı ~44 px, görünüm aynı */
 .ust nav { display: flex; align-items: center; gap: 18px; font-weight: 600; font-size: 15px; }
 .ust nav a { color: var(--heading); text-decoration: none; padding-block: 11px; }
 .ust nav a:hover { color: var(--green-dark); }
