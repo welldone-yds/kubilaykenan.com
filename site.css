@@ -270,7 +270,12 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .sz-bos { text-align: center; color: var(--muted); padding: 18px; border: 1px dashed var(--line); border-radius: 14px; }
 .sz-bos[hidden], .sz-daha[hidden] { display: none; }
 .sz-daha { display: block; margin: 12px auto 0; background: var(--navy); color: #fff; font: 700 14.5px/1 var(--font-sans); border: 0; border-radius: 99px; padding: 13px 26px; cursor: pointer; }
-.sz-cta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 26px; }
+.sz-esler a { color: var(--heading); font-weight: 600; }
+.sz-ilgili { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 14px; }
+.sz-ilgili a { color: var(--muted); text-decoration: none; font-size: 15px; line-height: 1.35; }
+.sz-ilgili a b { color: var(--heading); }
+.sz-ilgili a:hover b { color: var(--green); }
+.sz-cta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 26px; }
 .sz-cta a { display: block; border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; background: var(--bant); color: var(--heading); font-weight: 700; text-decoration: none; }
 .sz-cta a:hover { border-color: var(--green); }
 .sz-cta a small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 3px; }
@@ -315,7 +320,7 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
   .sz-harf, .sz-filt { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
   .sz-harf::-webkit-scrollbar, .sz-filt::-webkit-scrollbar { display: none; }
   .sz-harf button, .sz-filt button { flex: 0 0 auto; }
-  .sz-cta { grid-template-columns: 1fr; }
+  .sz-cta, .sz-ilgili { grid-template-columns: 1fr; }
   .sz-k, .sz-tek { padding: 14px; }
   .sz-gun { padding: 18px; }
 }
