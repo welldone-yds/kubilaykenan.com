@@ -1,0 +1,25 @@
+/* Ortak alt bilgi (10.11.2026) — ek/alt_bilgi.py ekler. Mürdüm zemin, altın vurgu. Sayfanın .sayfa kutusundan taşar (tam genişlik). */
+.altbilgi { background: #2A0612; color: #E9D9DF; margin: 64px calc(50% - 50vw) 0; padding: 56px 0 28px; font-family: Inter, system-ui, sans-serif; text-align: left; }
+.ab-ic { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.ab-sutunlar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.ab-sutun h2 { font: 800 13px/1 Jost, Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #fff; margin: 0 0 14px; }
+.ab-sutun h2::after { content: ""; display: block; width: 30px; height: 3px; border-radius: 3px; background: #D8B229; margin-top: 12px; }
+.ab-sutun ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.ab-sutun a { color: #E9D9DF; text-decoration: none; font-size: 15px; display: inline-block; padding: 6px 0; }
+.ab-sutun a:hover, .ab-sutun a:focus-visible { color: #D8B229; }
+.ab-marka { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin-top: 42px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, .12); }
+.ab-logo { display: flex; align-items: center; gap: 12px; margin-right: auto; }
+.ab-logo svg { width: 46px; height: 46px; border-radius: 12px; }
+.ab-logo b { display: block; color: #fff; font: 800 19px/1.2 Jost, Inter, sans-serif; }
+.ab-logo span { font-size: 13px; color: #C9AEB8; }
+.ab-ep { display: inline-flex; align-items: center; gap: 8px; color: #E9D9DF; text-decoration: none; font-size: 15px; }
+.ab-ep svg { width: 18px; height: 18px; color: #D8B229; }
+.ab-ep:hover { color: #D8B229; }
+.ab-sos { display: flex; gap: 10px; }
+.ab-sos a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .2); display: grid; place-items: center; color: #fff; transition: background .2s, border-color .2s; }
+.ab-sos a:hover, .ab-sos a:focus-visible { background: #D8B229; border-color: #D8B229; color: #2A0612; }
+.ab-sos svg { width: 18px; height: 18px; }
+.ab-son { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .08); font-size: 13px; color: #B89AA5; }
+@media (max-width: 900px) { .ab-sutunlar { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .ab-sutunlar { gap: 22px 16px; } .ab-sutun a { font-size: 14px; } .altbilgi { padding-top: 44px; } }
+@media print { .altbilgi { display: none; } }
