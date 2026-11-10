@@ -127,7 +127,7 @@
 [data-sonuc-paylas][hidden] { display: none; }
 </style><style>
 /* Tercih sihirbazı (/tercih/, 10.11.2026). duello.css + maskot.css üstüne. */
-.tr-bibi { position: sticky; top: 76px; z-index: 3; background: linear-gradient(#fff 85%, transparent); padding: 6px 0 10px; margin-bottom: 4px; }
+.tr-bibi { margin-bottom: 4px; }   /* 10.11.2026: yapışkan (sticky) kaldırıldı; kaydırınca adımların üstüne biniyordu (Kenan: "kayıyor") */
 .tr-ilerle { display: flex; gap: 6px; margin: 0 0 16px; }
 .tr-ilerle i { flex: 1; height: 6px; border-radius: 99px; background: #F1DCE1; }
 .tr-ilerle i.tamam { background: #A84660; }
@@ -179,7 +179,6 @@
   .tr-giris { grid-template-columns: 1fr; }
   .tr-prg { grid-template-columns: 1fr; }
   .tr-sayi { text-align: left; }
-  .tr-bibi { position: static; }
 }
 @media print {
   header, footer, .tr-bibi, .tr-ilerle, .tr-adim, .du-bas p, .sz-cta, .tr-alt, .tr-oklar, .tr-uyari { display: none !important; }
@@ -304,7 +303,8 @@
     $(".tr-geri").hidden = n === 0 || n > 4;
     if (n <= 4) bibi(ADIM_SOZ[n], "selam");
     if (n === 2 && V) sehirCiz();
-    kok.scrollIntoView({ block: "start", behavior: "smooth" });
+    const kart = kok.querySelector(".du-kart"), ust = kart.getBoundingClientRect().top;   // yalnız kart ekranın üstünden çıktıysa kaydır (her adımda zıplamasın)
+    if (ust < 0 || ust > innerHeight * .6) scrollTo({ top: scrollY + ust - 90, behavior: "smooth" });
   };
 
   // ---- 1. puan türü ----
