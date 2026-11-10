@@ -275,6 +275,18 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .sz-ilgili a { color: var(--muted); text-decoration: none; font-size: 15px; line-height: 1.35; }
 .sz-ilgili a b { color: var(--heading); }
 .sz-ilgili a:hover b { color: var(--green); }
+.sz-ack { color: var(--muted); font-size: 14px; margin: 0; }
+.sz-durum { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; }
+.sz-durum span { font-weight: 700; color: var(--heading); } .sz-durum a { margin-left: auto; font-weight: 600; }
+.sz-durum button { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 14px; min-height: 40px; font: 600 14px var(--font-sans); color: var(--heading); cursor: pointer; }
+.sz-durum button[aria-pressed="true"] { background: #3D091B; border-color: #3D091B; color: #fff; }
+.sz-gezin { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; } .sz-gezin a { border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-weight: 600; font-size: 14px; text-decoration: none; color: var(--heading); background: #fff; }
+.sz-gezin a:hover { border-color: #3D091B; }
+.sz-tablo { width: 100%; border-collapse: collapse; margin-top: 12px; } .sz-tablo td, .sz-tablo th { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.sz-tablo th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); } .sz-tablo td:first-child { font-weight: 700; white-space: nowrap; } .sz-tablo td.sy { white-space: nowrap; color: var(--muted); }
+.sz-cift { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; } .sz-cift a { display: block; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; text-decoration: none; color: var(--muted); background: #fff; }
+.sz-cift a b { display: block; color: var(--heading); font-size: 17px; }
+@media (max-width: 560px) { .sz-cift { grid-template-columns: 1fr; } .sz-durum a { margin-left: 0; } .sz-tablo { font-size: 14px; } .sz-tablo td, .sz-tablo th { padding: 8px 4px; } .sz-tablo td:first-child, .sz-tablo td.sy { white-space: normal; overflow-wrap: anywhere; } }
 .sz-cta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 26px; }
 .sz-cta a { display: block; border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; background: var(--bant); color: var(--heading); font-weight: 700; text-decoration: none; }
 .sz-cta a:hover { border-color: var(--green); }
