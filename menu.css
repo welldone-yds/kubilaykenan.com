@@ -107,3 +107,21 @@
 /* Well-Done şeridinde menü .ust-ic kabının içinde: aynı yatay düzen */
 .mega-ust > .mega-ic { flex: 1; width: 100%; display: flex; align-items: center; gap: 14px; }
 @media (max-width: 899px) { .mega-ust > .mega-ic { justify-content: space-between; padding-inline: 16px; } }
+
+/* Gruplu pano (10.11.2026): Çalış ve Araçlar'da bağlantılar başlıklı sütunlara ayrılır */
+.mega-pano.mega-genis { width: min(1060px, calc(100vw - 32px)); }
+.mega-izgara.mega-gruplu { display: block; columns: 3; column-gap: 18px; }
+.mega-grup { break-inside: avoid; margin: 0 0 14px; padding: 0 0 4px; }
+.mega-grup-ad { display: block; margin: 2px 12px 6px; padding-bottom: 8px; border-bottom: 1px solid var(--line, #E7E0D8);
+  font: 800 11.5px/1 var(--font-sans, Inter, system-ui, sans-serif); letter-spacing: .14em; text-transform: uppercase; color: var(--green-dark, #7A5D0B); }
+.mega-gruplu .mega-sat { padding: 7px 12px; gap: 10px; }
+.mega-gruplu .mega-simge { width: 34px; height: 34px; border-radius: 10px; }
+.mega-gruplu .mega-simge svg { width: 17px; height: 17px; }
+.mega-gruplu .mega-sat b { font-size: 14.5px; }
+.mega-gruplu .mega-sat small { font-size: 12.5px; }
+@media (max-width: 1080px) { .mega-izgara.mega-gruplu { columns: 2; } }
+@media (max-width: 899px) {
+  .mega-pano.mega-genis { width: auto; }
+  .mega-izgara.mega-gruplu { columns: 1; }
+  .mega-grup-ad { margin: 10px 6px 4px; }
+}
