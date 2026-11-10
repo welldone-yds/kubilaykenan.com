@@ -436,6 +436,8 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .wdv-aciklama span { color: #5F5A5C; }
 .wdv-noktalar { display: flex; justify-content: center; gap: 8px; margin: 18px 0 0; }
 .wdv-noktalar button { width: 9px; height: 9px; padding: 0; border-radius: 99px; border: 0; background: #E7C9D0; cursor: pointer; transition: width .3s, background .3s; }
+.wdv-noktalar button { position: relative; }
+.wdv-noktalar button::after { content: ""; position: absolute; inset: -10px -4px; }   /* dokunma alanı (denetim 10.11.2026) */
 .wdv-noktalar button[aria-current="true"] { width: 28px; background: var(--wd-vurgu); }
 .wdv-alt { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 30px; }
 .wdv-alt .dugme { display: inline-flex; align-items: center; gap: 8px; padding: 15px 22px; border-radius: 14px; font-weight: 700; text-decoration: none; flex: none; white-space: nowrap; }
@@ -596,7 +598,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .kur-dug[hidden] { display: none; }
 .kur-dug svg { width: 20px; height: 20px; }
 .kur-dug small { font: 500 13px/1 var(--font-sans); color: var(--muted); }
-.vs-paylas { display: inline-block; margin-top: 12px; font: 700 13px/1 var(--font-sans); color: var(--green-dark); text-decoration: none; }
+.vs-paylas { display: inline-block; margin-top: 4px; padding: 8px 0; font: 700 13px/1 var(--font-sans); color: var(--green-dark); text-decoration: none; }
 .vs-kart.ilk .vs-paylas { color: var(--green); }
 .vs-paylas:hover { text-decoration: underline; }
 /* maskotun adı (MASKOT_AD): Well-Done bandında maskotun altında küçük rozet */
