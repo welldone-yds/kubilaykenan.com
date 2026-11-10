@@ -195,7 +195,7 @@
 <dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
 <main id="icerik">
 
-<section class="du" id="tercih" data-veri="/tercih/veri.json?v=7a488a49">
+<section class="du" id="tercih" data-veri="/tercih/veri.json?v=80ee35f6">
 <div class="du-bas"><span class="imza">Bibi ile</span><h1>Tercih sihirbazı</h1><p>Puanını ya da sıranı söyle; ÖSYM'nin 2026 yerleştirme sonuçlarındaki 12.239 lisans ve 9.254 ön lisans programından sana uyanları güvenli, hedef ve riskli diye ayırayım.</p></div>
 <div class="du-kart">
 <div class="tr-bibi"><div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
@@ -251,14 +251,14 @@
 <div class="tr-liste du-kart" style="margin-top:18px"><h2>Tercih listem (<span class="tr-liste-sayi">0</span>/24)</h2>
 <p class="tr-not">Liste yalnız bu tarayıcıda saklanır. Sıralamayı oklarla değiştir; ÖSYM'ye program kodlarıyla girersin.</p><ol></ol>
 <div class="tr-alt"><button type="button" class="du-dug" data-kopyala>Listeyi kopyala</button><button type="button" class="du-dug ikinci" data-yazdir>Yazdır / PDF</button></div></div>
-<p class="tr-uyari">Veri: ÖSYM 2026-YKS yerleştirme sonuçları, TABLO-3 ve TABLO-4 (en küçük puanlar, kontenjan, yerleşen). ÖSYM bu tablolarda başarı sırası vermez; sıralar 2026-YKS sayısal bilgilerindeki resmî puan dağılımından tahmin edilir. 2027 kontenjanları ve taban puanları farklı olacaktır; Bibi'nin önerileri yol göstericidir, tercihten önce ÖSYM'nin 2027 tercih kılavuzunu mutlaka kontrol et.</p>
+<p class="tr-uyari">Veri: ÖSYM 2026-YKS yerleştirme sonuçları, TABLO-3 ve TABLO-4 (en küçük puanlar, kontenjan, yerleşen). Başarı sıraları (2026, 2025), ücretler ve sıra şartları YÖK Atlas'tan; taban puanlar iki kaynakta birebir aynı. Sırası olmayan birkaç program için sıra, resmî puan dağılımından tahmin edilir ve "tahmini sıra" diye yazılır. Sıra şartını karşılamadığın programlar (ör. tıp için 50.000) listede çıkmaz. 2027 kontenjanları ve taban puanları farklı olacaktır; Bibi'nin önerileri yol göstericidir, tercihten önce ÖSYM'nin 2027 tercih kılavuzunu mutlaka kontrol et.</p>
 </section>
 </main>
 <footer>© 2026 Kubilay Kenan Işıklı</footer>
 </div>
 <script>
 // Tercih sihirbazı (/tercih/, 10.11.2026): Bibi adım adım sorar, ÖSYM 2026 yerleştirme tablolarından (TABLO-3/4) programları
-// güvenli / hedef / riskli diye ayırır. Veri /tercih/veri.json (kisisel/yks/yks_veri.json). Bant kuralı (bizim, ÖSYM'nin değil):
+// güvenli / hedef / riskli diye ayırır. Veri /tercih/veri.json (kisisel/yks/yks_veri.json; 10.11.2026'dan beri sıralar YÖK Atlas'ın gerçek 2026 sıraları). Bant kuralı (bizim, ÖSYM'nin değil):
 // programın 2026 tahmini sırası ps, adayın sırası s → güvenli ps ≥ 1,25 s · hedef s ≤ ps < 1,25 s · riskli 0,8 s ≤ ps < s.
 // Tercih listesi tarayıcıda (localStorage "kk-tercih"), en çok 24 (YKS tercih sınırı).
 (() => {
@@ -274,7 +274,7 @@
   const sayi = n => Math.round(n).toLocaleString("tr-TR");
   const puanY = p => p.toFixed(2).replace(".", ",");
   let V = null, durum = { tur: null, puan: null, sira: null, sehir: [], uturu: ["DEVLET", "VAKIF"], burs: ["Burslu", "%50", "%25", "Ücretli", "ücretsiz"],
-    dil: "hepsi", orgun: true, ara: "" }, adim = 0, sonuc = [], sekme = "hedef", goster = 60;
+    dil: "hepsi", orgun: true, ara: "" }, sartDisi = 0, adim = 0, sonuc = [], sekme = "hedef", goster = 60;
   let liste = oku("kk-tercih", []);
   const veri = () => V ? Promise.resolve(V) : fetch(kok.dataset.veri).then(r => r.json()).then(d => (V = d));
 
@@ -353,24 +353,26 @@
   const bant = ps => { const r = ps / durum.sira; return r >= 1.25 ? "guvenli" : r >= 1 ? "hedef" : r >= 0.8 ? "riskli" : null; };
   const hesapla = () => {
     const q = TR(durum.ara.trim()), uturu = new Set(durum.uturu.flatMap(t => t === "YURTDISI" ? ["YURTDISI KAMU", "YURTDISI VAKIF"] : [t]));
-    sonuc = [];
+    sonuc = []; sartDisi = 0;
     for (const p of V.p) {
-      const [kod, ui, fi, ad, pt, kont, yer, enk, , ps, duzey] = p, u = V.u[ui];
+      const [kod, ui, fi, ad, pt, kont, yer, enk, , ps, duzey, ps25, ps24, ucret, sart, gercek] = p, u = V.u[ui];
       if (pt !== durum.tur || /KKTC Uyruklu|M\.T\.O\.K\.|Bakanlığı Adına/.test(ad)) continue;
       if (!uturu.has(u[1]) || (durum.sehir.length && !durum.sehir.includes(u[2]))) continue;
       if (u[1] !== "DEVLET" && !durum.burs.includes(burs(ad))) continue;
       if (durum.dil !== "hepsi" && dil(ad) !== durum.dil) continue;
       if (durum.orgun && uzaktan(ad)) continue;
       if (q && !TR(ad).includes(q) && !TR(V.f[fi]).includes(q)) continue;
-      const b = ps ? bant(ps) : (kont > yer ? "bos" : null);
-      if (b) sonuc.push({ kod, ad, uni: u[0], tur: u[1], il: u[2], fak: V.f[fi], kont, yer, enk, ps, b, duzey });
+      if (sart && durum.sira > sart) { sartDisi++; continue; }   // başarı sırası şartı (ör. tıp 50.000, hukuk 125.000): aday tercih edemez
+      // YÖK Atlas'ta sırası olmayan ve kontenjanı dolmayan program = "boş kalan" (taban anlamsız)
+      const b = (!gercek && kont > yer) || !ps ? (kont > yer ? "bos" : null) : bant(ps);
+      if (b) sonuc.push({ kod, ad, uni: u[0], tur: u[1], il: u[2], fak: V.f[fi], kont, yer, enk, ps, ps25, ucret, sart, gercek, b, duzey });
     }
     sonuc.sort((a, b) => (a.ps || 9e9) - (b.ps || 9e9));
   };
   const satir = x => {
     const ekli = liste.some(y => y.kod === x.kod);
-    return `<li class="tr-prg"><div><b>${x.ad}</b><span>${UNI(x.uni)} · ${BUYUK(x.il)}</span><small>${BASLIK(x.fak)} · ${x.tur === "DEVLET" ? "Devlet" : x.tur === "VAKIF" ? "Vakıf" : BUYUK(x.tur)} · Kod ${x.kod}</small></div>
-      <div class="tr-sayi">${x.enk ? `<span><b>${puanY(x.enk)}</b>taban puan</span><span><b>${sayi(x.ps)}</b>tahmini sıra</span>` : `<span><b>Boş kaldı</b>2026'da dolmadı</span>`}
+    return `<li class="tr-prg"><div><b>${x.ad}</b><span>${UNI(x.uni)} · ${BUYUK(x.il)}</span><small>${BASLIK(x.fak)} · ${x.tur === "DEVLET" ? "Devlet" : x.tur === "VAKIF" ? "Vakıf" : BUYUK(x.tur)} · Kod ${x.kod}${x.ucret ? ` · yıllık ${sayi(x.ucret)} TL (indirimsiz)` : ""}${x.sart ? ` · en az ${sayi(x.sart)}. sıra şartı` : ""}</small></div>
+      <div class="tr-sayi">${x.b !== "bos" ? `<span><b>${puanY(x.enk)}</b>taban puan</span><span><b>${sayi(x.ps)}</b>${x.gercek ? "2026 sırası" : "tahmini sıra"}</span>${x.ps25 ? `<span><b>${sayi(x.ps25)}</b>2025 sırası</span>` : ""}` : `<span><b>Boş kaldı</b>2026'da dolmadı</span>`}
       <span><b>${x.yer}/${x.kont}</b>yerleşen</span></div>
       <button type="button" class="tr-ekle" data-kod="${x.kod}" aria-pressed="${ekli}">${ekli ? "Listende" : "+ Listeme ekle"}</button></li>`;
   };
@@ -387,7 +389,8 @@
     const g = sonuc.filter(x => x.b === "guvenli").length, h = sonuc.filter(x => x.b === "hedef").length, r = sonuc.filter(x => x.b === "riskli").length;
     $(".tr-ozet").textContent = `${durum.puan ? puanY(durum.puan) + " puan · " : ""}tahmini sıra ${sayi(durum.sira)} · ${durum.tur}`;
     bibi(sonuc.length ? `${h} hedef, ${g} güvenli, ${r} riskli program buldum. Listeni hedef ağırlıklı kur, sonuna mutlaka güvenli ekle!`
-      : "Bu filtrelerle program çıkmadı. Şehir ya da bölüm seçimini genişletelim mi?", sonuc.length ? "sevinc" : "uzgun");
+      : sartDisi ? `${sartDisi} program başarı sırası şartı istiyor (ör. tıp 50.000, hukuk 125.000) ve senin sıran şartı karşılamıyor. Başka bölümlere bakalım mı?`
+        : "Bu filtrelerle program çıkmadı. Şehir ya da bölüm seçimini genişletelim mi?", sonuc.length ? "sevinc" : "uzgun");
   });
   $$("[data-sekme]").forEach(d => d.addEventListener("click", () => { sekme = d.dataset.sekme; goster = 60; ciz(); }));
   $("[data-daha]").addEventListener("click", () => { goster += 60; ciz(); });

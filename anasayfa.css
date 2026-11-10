@@ -418,10 +418,11 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .wdv-ray:hover .tel:not(.aktif) { filter: saturate(.9); }
 .tel figcaption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .tel:focus-visible .cer { box-shadow: 0 0 0 4px var(--focus); }
-.wdv-maskot { position: absolute; left: 0; top: 0; z-index: 5; display: flex; align-items: center; gap: 2px; pointer-events: none; will-change: transform; }
+.wdv-maskot { position: absolute; left: 0; top: 0; z-index: 5; pointer-events: none; will-change: transform; }   /* 10.11.2026: kutu = yalnız maskot; etiket ona iliştirilir (yan değiştirince maskot ışınlanmasın) */
 .wdv-maskot .maskot { width: 104px; height: auto; overflow: visible; filter: drop-shadow(0 10px 14px rgba(168, 70, 96, .25)); }
 .wdv-etiket { display: inline-flex; align-items: center; gap: 10px; max-width: 300px; background: var(--wd-metin); color: #fff; font: 700 15px/1 var(--font-sans);
-              padding: 9px 18px 9px 9px; border-radius: 22px; box-shadow: 0 10px 22px rgba(43, 26, 31, .25); margin-top: -46px;
+              padding: 9px 18px 9px 9px; border-radius: 22px; box-shadow: 0 10px 22px rgba(43, 26, 31, .25);
+              position: absolute; top: 50%; left: calc(100% + 2px); width: max-content; transform: translateY(calc(-50% - 23px));
               transition: opacity .2s; }
 .wdv-etiket strong { display: block; white-space: nowrap; }
 .wdv-etiket small { display: block; font: 500 13px/1.35 var(--font-sans); color: #F4C9D2; margin-top: 3px; min-height: 1.35em; }
@@ -429,7 +430,7 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .wdv-etiket small i.g { opacity: 1; }
 .wdv-etiket b { width: 26px; flex: none; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #F4C9D2; color: var(--wd-metin); font-size: 12px; }
 .wdv-maskot.ucuyor .wdv-etiket { opacity: 0; }
-.wdv-maskot.sol { flex-direction: row-reverse; }
+.wdv-maskot.sol .wdv-etiket { left: auto; right: calc(100% + 2px); }
 .wdv-aciklama { text-align: center; min-height: 52px; margin: 6px auto 0; max-width: 560px; }
 .wdv-aciklama b { display: block; font: 700 26px/1.2 "Cormorant Garamond", Georgia, serif; color: var(--wd-metin); }
 .wdv-aciklama span { color: #5F5A5C; }

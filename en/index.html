@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
 <link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
-<link rel="stylesheet" href="/anasayfa-en.css?v=01afa625">
+<link rel="stylesheet" href="/anasayfa-en.css?v=f9432715">
 
 <link rel="stylesheet" href="/menu.css?v=1855d8ad">
 </head>
@@ -51,7 +51,7 @@
 </div>
 <div class="vg" aria-hidden="true">
 <div class="gezegen"><i></i></div>
-<div class="yk yk-kisi"><span class="mono">KK</span><div><b>Kubilay Kenan Hoca</b><span style="font-size:13px;color:var(--muted)">English teacher</span><br><span class="rozet">PTE TRAINER</span></div></div>
+<div class="yk yk-kisi"><span class="mono">KK</span><div><b>Kubilay Kenan Hoca</b><span style="font-size:13px;color:var(--muted)">English teacher</span></div></div>
 <div class="yk yk-sinav"><div class="ust-s"><span class="et">Next exam</span><span class="yakin" data-hs-yakin>SOON</span></div>
 <div class="n" data-hs-n>12<small data-hs-birim>days to go</small></div><div class="ad" data-hs-ad>2026-YDS/2</div></div>
 <a class="yk yk-kelime" href="/sozluk/indigenous/"><span class="et">Word of the day</span>
@@ -502,11 +502,13 @@
     const yerlestir = (i, uc) => {
       let [x, y] = hedef(i);
       const mw = mas.querySelector(".maskot").getBoundingClientRect().width;
-      // geniş ekranda sağ kenara gelince etiket maskotun soluna geçer; dar ekranda maskot+etiket ekranın içinde tutulur
-      const sol = !dar() && x + mas.offsetWidth > sahne.clientWidth - 8;
+      // 10.11.2026 (Kenan: "atlarken yanlış oluyor"): eskiden etiket yan değiştirince (flex row-reverse) kutunun sol kenarı etiket kadar
+      // kayıyor, maskot uçuştan önce ışınlanıyordu; etiket metni sonradan değişince de maskot oynuyordu. Artık kutu = maskot, etiket
+      // ona iliştirilmiş (vitrin.css), x/y daima MASKOTUN yeri. Geniş ekranda sağa sığmazsa etiket sola geçer (genişlik = en çok 300 px).
+      const ew = dar() ? mas.querySelector(".wdv-etiket").offsetWidth : 300;
+      const sol = !dar() && x + mw + ew > sahne.clientWidth - 8;
       mas.classList.toggle("sol", sol);
-      if (sol) x -= mas.offsetWidth - mw;
-      else if (dar()) x = Math.max(8, Math.min(x, sahne.clientWidth - mas.offsetWidth - 8));
+      if (dar()) x = Math.max(8, Math.min(x, sahne.clientWidth - mw - ew - 8));
       const son = `translate(${x}px, ${y}px)`;
       if (uc && xy && !azHareket && mas.animate) {
         const [x0, y0] = xy, tepe = Math.min(y0, y) - 70, yon = x > x0 ? 8 : -8;
