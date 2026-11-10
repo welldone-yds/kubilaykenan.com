@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>YKS Tercih Sihirbazı (Robotu): Bibi ile Program Bul · Kubilay Kenan Hoca</title>
-<meta name="description" content="Bibi ile YKS tercih sihirbazı: puanına ya da sırana göre ÖSYM 2026 yerleştirme sonuçlarından güvenli, hedef ve riskli programlar; tercih listeni kur.">
+<title>YKS Tercih Sihirbazı (Robotu) 2026: Taban Puan ve Sıralamalar · Kubilay Kenan Hoca</title>
+<meta name="description" content="YKS tercih sihirbazı: puanına ya da sırana göre ÖSYM 2026 yerleştirme sonuçları ve YÖK Atlas sıralarıyla güvenli, hedef, riskli programlar; tercih listeni kur.">
 <link rel="canonical" href="https://kubilaykenan.com/tercih/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-180.png"><meta name="theme-color" content="#3D091B">
 <link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
-<meta property="og:title" content="Tercih Sihirbazı"><meta property="og:description" content="Bibi ile YKS tercih sihirbazı: puanına ya da sırana göre ÖSYM 2026 yerleştirme sonuçlarından güvenli, hedef ve riskli programlar; tercih listeni kur.">
+<meta property="og:title" content="Tercih Sihirbazı"><meta property="og:description" content="YKS tercih sihirbazı: puanına ya da sırana göre ÖSYM 2026 yerleştirme sonuçları ve YÖK Atlas sıralarıyla güvenli, hedef, riskli programlar; tercih listeni kur.">
 <meta property="og:image" content="https://kubilaykenan.com/og.png?v=c75e2815"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
@@ -126,63 +126,143 @@
 .sonuc-gorsel .du-dug { padding: 12px 16px; font-size: 14px; }
 [data-sonuc-paylas][hidden] { display: none; }
 </style><style>
-/* Tercih sihirbazı (/tercih/, 10.11.2026). duello.css + maskot.css üstüne. */
-.tr-bibi { margin-bottom: 4px; }   /* 10.11.2026: yapışkan (sticky) kaldırıldı; kaydırınca adımların üstüne biniyordu (Kenan: "kayıyor") */
-.tr-ilerle { display: flex; gap: 6px; margin: 0 0 16px; }
-.tr-ilerle i { flex: 1; height: 6px; border-radius: 99px; background: #F1DCE1; }
-.tr-ilerle i.tamam { background: #A84660; }
-.tr-adim[hidden] { display: none; }
-.tr-adim h2 { font: 800 22px/1.2 var(--font-display); color: var(--heading); margin: 0 0 12px; }
-.tr-turler { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-.tr-turler button { border: 1.5px solid #EED3D9; background: #fff; border-radius: 16px; padding: 14px; text-align: left; cursor: pointer; font: 600 14px/1.35 var(--font-sans); color: var(--muted); min-height: 44px; }
-.tr-turler button b { display: block; font: 800 18px/1.2 var(--font-display); color: var(--heading); margin-bottom: 4px; }
-.tr-turler button[aria-pressed=true], .tr-turler button:hover { border-color: #A84660; box-shadow: 0 8px 24px rgba(168, 70, 96, .15); }
-.tr-giris { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
-.tr-giris label { display: grid; gap: 6px; font-weight: 700; color: var(--heading); font-size: 14px; }
-.tr-giris input, #tr-il-ara, #tr-ara { min-height: 46px; border: 1.5px solid #EED3D9; border-radius: 12px; padding: 8px 12px; font: 600 16px var(--font-sans); color: var(--heading); background: #fff; width: 100%; box-sizing: border-box; }
-.tr-not { color: var(--muted); font-size: 14px; margin: 6px 0 14px; }
-.tr-iller { display: flex; flex-wrap: wrap; gap: 6px; max-height: 300px; overflow: auto; margin: 10px 0; padding: 2px; }
-.tr-cip, .tr-sec button { border: 1.5px solid #EED3D9; background: #fff; border-radius: 999px; padding: 8px 14px; font: 600 14px var(--font-sans); color: var(--heading); cursor: pointer; min-height: 40px; }
-.tr-cip[aria-pressed=true], .tr-sec button[aria-pressed=true] { background: #A84660; border-color: #A84660; color: #fff; }
-.tr-sec { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
-.tr-sec-bas { font-weight: 700; color: var(--heading); font-size: 14px; margin: 6px 0 0; }
-.tr-alt { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
-.tr-geri { background: none; border: 0; color: var(--muted); font: 600 15px var(--font-sans); cursor: pointer; min-height: 44px; }
-.tr-ozet { color: var(--muted); font-weight: 600; margin: 0 0 10px; }
-.tr-sekmeler { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-.tr-sekmeler button { border: 1.5px solid #EED3D9; background: #fff; border-radius: 999px; padding: 9px 16px; font: 700 14px var(--font-sans); cursor: pointer; color: var(--heading); min-height: 44px; }
-.tr-sekmeler button sup { font-size: 11px; margin-left: 4px; color: var(--muted); }
-.tr-sekmeler button[aria-pressed=true] { background: var(--navy); border-color: var(--navy); color: #fff; }
-.tr-sekmeler button[aria-pressed=true] sup { color: #E9D9DF; }
-.tr-bant { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
-.tr-sonuclar, .tr-liste ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-.tr-prg { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
-.tr-prg b { color: var(--heading); display: block; }
-.tr-prg span, .tr-prg small { display: block; color: var(--muted); font-size: 14px; }
-.tr-prg small { font-size: 12px; }
-.tr-sayi { display: flex; gap: 14px; text-align: right; }
-.tr-sayi span { font-size: 11px; }
-.tr-sayi b { font: 800 16px/1.2 var(--font-display); }
-.tr-ekle { border: 1.5px solid #A84660; background: #fff; color: #A84660; border-radius: 999px; padding: 8px 12px; font: 700 13px var(--font-sans); cursor: pointer; min-height: 40px; white-space: nowrap; }
-.tr-ekle[aria-pressed=true] { background: #A84660; color: #fff; }
-.tr-bos { color: var(--muted); padding: 14px; text-align: center; }
-.tr-liste { margin-top: 22px; }
-.tr-liste h2 { font: 800 22px var(--font-display); color: var(--heading); margin: 0 0 4px; }
-.tr-liste li { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
-.tr-liste .no { width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 13px; }
-.tr-liste small { display: block; color: var(--muted); font-size: 12px; }
-.tr-oklar { display: flex; gap: 4px; }
-.tr-oklar button { width: 36px; height: 36px; border: 1px solid var(--line); background: #fff; border-radius: 10px; cursor: pointer; font-size: 16px; }
-.tr-oklar button:disabled { opacity: .35; cursor: default; }
-.tr-uyari { font-size: 13px; color: var(--muted); margin-top: 16px; }
-@media (max-width: 640px) {
-  .tr-giris { grid-template-columns: 1fr; }
-  .tr-prg { grid-template-columns: 1fr; }
-  .tr-sayi { text-align: left; }
+/* Tercih sihirbazı 2. sürüm (10.11.2026 gece): ÖSYM kılavuz tablosu düzeni, KK renkleri. Seçim = mürdüm, eylem = gül, vurgu = altın. */
+.tr { --m: #3D091B; --a: #D8B229; --g: #A84660; --c: var(--line, #E7E0D8); --s: var(--muted, #6E6266); --k: #FAF6F1; width: min(1280px, calc(100vw - 40px)); margin-left: calc(50% - min(640px, 50vw - 20px)); }   /* sayfa kutusundan taşar: tablo geniş ister */
+.tr [hidden] { display: none !important; }
+.tr-bas { text-align: center; max-width: 760px; margin: 0 auto 22px; }
+.tr-rozet { display: inline-block; background: var(--a); color: var(--m); font: 700 12px/1 var(--font-sans); letter-spacing: .06em; padding: 6px 12px; border-radius: 999px; }
+.tr-bas h1 { font: 800 clamp(34px, 5vw, 52px)/1.05 var(--font-display); color: var(--m); letter-spacing: -.02em; margin: 12px 0 10px; }
+.tr-bas p { color: var(--s); margin: 0; font-size: 17px; }
+.tr-giris { max-width: 760px; margin: 0 auto; background: #fff; border: 1px solid var(--c); border-radius: 26px; padding: 26px; box-shadow: 0 14px 40px rgba(61, 9, 27, .07); }
+.tr-bibi .du-maskot { margin-bottom: 14px; }
+.tr-ilerle { display: flex; gap: 6px; margin: 0 0 18px; }
+.tr-ilerle i { flex: 1; height: 6px; border-radius: 99px; background: #EFE4E7; }
+.tr-ilerle i.tamam { background: var(--m); }
+.tr-adim h2 { font: 800 22px/1.2 var(--font-display); color: var(--m); margin: 0 0 12px; }
+.tr-turler { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.tr-turler button { border: 1.5px solid var(--c); background: #fff; border-radius: 16px; padding: 14px 12px; text-align: left; cursor: pointer; font: 500 13px/1.35 var(--font-sans); color: var(--s); min-height: 92px; transition: transform .2s, border-color .2s; }
+.tr-turler button b { display: block; font: 800 18px/1.2 var(--font-display); color: var(--m); margin-bottom: 4px; }
+.tr-turler button:hover { border-color: var(--m); transform: translateY(-2px); }
+.tr-turler button[aria-pressed=true] { background: var(--m); border-color: var(--m); color: #E9D9DF; } .tr-turler button[aria-pressed=true] b { color: #fff; }
+.tr-giris-alan { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: end; }
+.tr-giris-alan label, .tr-f2 label { display: grid; gap: 6px; font: 700 13px var(--font-sans); color: var(--m); }
+.tr-giris-alan .ya { padding-bottom: 14px; color: var(--s); font-weight: 600; }
+.tr input:not([type=checkbox]), .tr select { min-height: 46px; border: 1.5px solid var(--c); border-radius: 12px; padding: 8px 12px; font: 600 16px var(--font-sans); color: var(--m); background: #fff; width: 100%; box-sizing: border-box; }
+.tr input:focus-visible, .tr select:focus-visible, .tr button:focus-visible { outline: 3px solid rgba(216, 178, 41, .55); outline-offset: 2px; }
+.tr-onizle { min-height: 1.5em; margin: 10px 0 0; font-weight: 700; color: var(--m); font-variant-numeric: tabular-nums; }
+.tr-not { color: var(--s); font-size: 13.5px; margin: 6px 0 0; }
+.tr-dugmeler { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+.tr-ana { min-height: 48px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--g); color: #fff; font: 800 16px var(--font-sans); cursor: pointer; }
+.tr-ana:hover { background: #8F3A51; }
+.tr-yan { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--c); background: #fff; color: var(--m); font: 600 14px var(--font-sans); cursor: pointer; }
+.tr-yan:hover { border-color: var(--m); }
+
+/* özet + süzgeçler */
+.tr-ozet { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 0 0 12px; }
+.tr-ozet-cip { min-height: 40px; border: 0; border-radius: 999px; background: var(--m); color: #fff; padding: 0 16px; font: 700 14px var(--font-sans); cursor: pointer; font-variant-numeric: tabular-nums; }
+.tr-bibi-s { display: flex; align-items: center; gap: 10px; margin: 0 0 0 6px; font-weight: 600; color: var(--m); font-size: 14.5px; flex: 1; min-width: 240px; }
+.tr-bibi-s svg { width: 44px; height: auto; flex: none; overflow: visible; }
+.tr-filtre { background: var(--k); border-radius: 22px; padding: 16px 18px; display: grid; gap: 12px; }
+.tr-f { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.tr-f > b, .tr-il summary b { font: 800 11.5px var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: #7A5D0B; min-width: 92px; }
+.tr-f2 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; align-items: end; }
+.tr-f2 label b { font: 800 11.5px var(--font-sans); letter-spacing: .12em; text-transform: uppercase; color: #7A5D0B; }
+.tr-cip { border: 1.5px solid var(--c); background: #fff; border-radius: 999px; padding: 7px 13px; font: 600 14px var(--font-sans); color: var(--m); cursor: pointer; min-height: 38px; }
+.tr-cip sup { font-size: 10px; color: var(--s); margin-left: 4px; }
+.tr-cip[aria-pressed=true], .tr-cip.secili { background: var(--m); border-color: var(--m); color: #fff; } .tr-cip[aria-pressed=true] sup { color: #E9D9DF; }
+.tr-il summary { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; cursor: pointer; list-style: none; }
+.tr-il summary::-webkit-details-marker { display: none; }
+.tr-il summary::after { content: "▾"; color: var(--m); margin-left: 4px; } .tr-il[open] summary::after { content: "▴"; }
+.tr-il-ozet { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; } .tr-il-ozet > span { font-weight: 600; color: var(--m); }
+.tr-il-ic { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 10px; }
+.tr-iller { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; }
+.tr-onay { display: inline-flex; gap: 8px; align-items: center; font-size: 14px; font-weight: 600; color: var(--m); margin-right: auto; }
+
+/* düzen: tablo + liste */
+.tr-duzen { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 22px; align-items: start; margin-top: 18px; }
+.tr-sekmeler { display: flex; gap: 6px; position: sticky; top: 0; z-index: 4; background: #fff; padding: 8px 0; overflow-x: auto; scrollbar-width: none; }
+.tr-sekmeler button { flex: none; border: 1.5px solid var(--c); background: #fff; border-radius: 999px; padding: 0 16px; min-height: 42px; font: 700 14px var(--font-sans); color: var(--m); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.tr-sekmeler button sup { font-size: 11px; color: var(--s); font-variant-numeric: tabular-nums; }
+.tr-sekmeler button::before, .nk { content: ""; width: 10px; height: 10px; border-radius: 50%; display: inline-block; background: var(--bc, #bbb); }
+.tr-sekmeler [data-sekme=hedef], .b-hedef { --bc: #D8B229; } .tr-sekmeler [data-sekme=guvenli], .b-guvenli { --bc: #1F9D55; }
+.tr-sekmeler [data-sekme=riskli], .b-riskli { --bc: #A84660; } .tr-sekmeler [data-sekme=bos], .b-bos { --bc: #9A8F93; } .b-diger { --bc: #CFC6C9; }
+.tr-sekmeler button[aria-selected=true] { background: var(--m); border-color: var(--m); color: #fff; } .tr-sekmeler button[aria-selected=true] sup { color: #E9D9DF; }
+.tr-bant { color: var(--s); font-size: 14px; margin: 4px 0 10px; }
+.tr-baslik, .tr-satir { display: grid; grid-template-columns: minmax(0, 1fr) 76px 82px 96px 88px 84px 86px 44px; gap: 0 10px; align-items: center; }
+.tr-baslik { position: sticky; top: 58px; z-index: 3; background: var(--m); color: #fff; border-radius: 12px; padding: 10px 12px 10px 16px; font: 700 11.5px/1.2 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; }
+.tr-baslik span:not(:first-child) { text-align: right; }
+.tr-satir { border-bottom: 1px solid var(--c); padding: 10px 12px 10px 12px; border-left: 4px solid var(--bc, transparent); font-variant-numeric: tabular-nums; }
+.tr-satir:hover, .tr-satir.acik { background: var(--k); }
+.tr-ad { all: unset; cursor: pointer; display: grid; gap: 2px; min-width: 0; }
+.tr-ad b { font: 700 15.5px/1.3 var(--font-sans); color: var(--m); }
+.tr-ad .yer { font-size: 13.5px; color: var(--s); }
+.kod { font: 600 12.5px ui-monospace, SFMono-Regular, Menlo, monospace; color: #7A5D0B; letter-spacing: .03em; user-select: all; }
+.rzl { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 3px; }
+.rz { font: 700 11px/1 var(--font-sans); font-style: normal; border-radius: 999px; padding: 4px 8px; background: #F1EBEC; color: var(--m); }
+.rz.devlet { background: #E8EEF7; color: #24457A; } .rz.burslu { background: #E6F4EA; color: #1F7A3F; } .rz.ucretli { background: #FBF3D5; color: #7A5D0B; }
+.rz.uyari { background: #FDECE4; color: #B5532F; } .rz.sart { background: #EFE7F6; color: #5B3A86; }
+.tr-satir .h { text-align: right; font: 500 14px var(--font-sans); color: var(--text, #3B3236); }
+.tr-satir .h.guclu { font-weight: 700; color: var(--m); }
+.tr-satir .h small { display: block; font-size: 11.5px; color: var(--s); font-weight: 500; }
+.tr-satir .h sup { color: var(--s); font-size: 10px; margin-left: 1px; }
+.eg { font-style: normal; font-size: 10px; margin-left: 3px; } .eg.zor { color: #B5532F; } .eg.kolay { color: #1F7A3F; }
+.fk { font-weight: 700; } .fk.arti { color: #1F7A3F; } .fk.eksi { color: #A84660; } .fk.bos { color: var(--s); font-weight: 600; }
+.tr-ekle { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--g); background: #fff; color: var(--g); font: 800 20px/1 var(--font-sans); cursor: pointer; justify-self: end; }
+.tr-ekle[aria-pressed=true] { background: var(--g); color: #fff; font-size: 16px; }
+.tr-detay { grid-column: 1 / -1; background: #fff; border: 1px solid var(--c); border-radius: 16px; padding: 14px 16px; margin-top: 10px; }
+.tr-detay dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px 22px; margin: 0; }
+.tr-detay dt { font: 700 11px var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--s); }
+.tr-detay dd { margin: 2px 0 0; font-size: 14.5px; color: var(--m); font-weight: 600; }
+.tr-detay .kb { font: 800 12px var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: #7A5D0B; margin: 14px 0 6px; }
+.tr-kosul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 13.5px; color: var(--text, #3B3236); max-height: 300px; overflow: auto; }
+.tr-kosul b { display: inline-block; min-width: 58px; color: #7A5D0B; font-family: ui-monospace, Menlo, monospace; }
+.tr-bos { color: var(--s); padding: 22px 12px; text-align: center; margin: 0; }
+.tr-aciklama, .tr-uyari { font-size: 13px; color: var(--s); }
+.tr-uyari { max-width: 900px; margin: 26px auto 0; }
+
+/* liste */
+.tr-liste { position: sticky; top: 12px; background: #fff; border: 1px solid var(--c); border-radius: 22px; padding: 18px; box-shadow: 0 14px 40px rgba(61, 9, 27, .07); max-height: calc(100vh - 24px); overflow: auto; }
+.tr-liste h2 { font: 800 20px var(--font-display); color: var(--m); margin: 0; display: flex; justify-content: space-between; align-items: baseline; }
+.tr-liste .say { font: 700 14px var(--font-sans); color: #7A5D0B; font-variant-numeric: tabular-nums; }
+.tr-yazdir-bas { display: none; }
+.tr-denge { display: flex; gap: 6px 12px; flex-wrap: wrap; font-size: 13px; font-weight: 600; color: var(--m); margin: 8px 0; min-height: 0; }
+.tr-denge .nk { margin-right: 5px; } .tr-denge .uy { flex-basis: 100%; color: #B5532F; }
+.tr-liste ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.tr-liste li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 2px 8px; align-items: start; border-left: 4px solid var(--bc, var(--c)); background: var(--k); border-radius: 0 12px 12px 0; padding: 8px 8px 8px 10px; }
+.tr-liste li .no { font: 800 14px var(--font-sans); color: var(--m); font-variant-numeric: tabular-nums; }
+.tr-liste li b { display: block; font: 700 13.5px/1.3 var(--font-sans); color: var(--m); }
+.tr-liste li small { display: block; font-size: 12px; color: var(--s); font-variant-numeric: tabular-nums; }
+.tr-oklar { grid-column: 2; display: flex; gap: 4px; margin-top: 4px; }
+.tr-oklar button { width: 32px; height: 32px; border: 1px solid var(--c); background: #fff; border-radius: 9px; cursor: pointer; font-size: 14px; color: var(--m); }
+.tr-oklar button:disabled { opacity: .3; cursor: default; }
+.tr-liste li.tr-bos { display: block; border: 0; background: none; font-size: 14px; padding: 14px 4px; }
+.tr-liste-dug { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; } .tr-liste-dug .tr-ana { min-height: 42px; font-size: 14.5px; padding: 0 18px; } .tr-liste-dug .tr-yan { min-height: 38px; font-size: 13px; padding: 0 12px; }
+.tr-geri-al { margin-top: 8px; }
+.tr-cubuk { display: none; }
+
+@media (max-width: 1180px) {
+  .tr-duzen { grid-template-columns: minmax(0, 1fr); } .tr-liste { position: static; max-height: none; }
+  .tr-cubuk { display: flex; gap: 8px; align-items: center; position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 20; min-height: 48px; padding: 0 20px; border: 0; border-radius: 999px;
+    background: var(--m); color: #fff; font: 700 15px var(--font-sans); box-shadow: 0 12px 30px rgba(61, 9, 27, .35); cursor: pointer; } .tr-cubuk b { color: var(--a); }
+}
+@media (max-width: 980px) { .gizle-orta { display: none; } .tr-baslik, .tr-satir { grid-template-columns: minmax(0, 1fr) 76px 82px 96px 88px 86px 44px; } }
+@media (max-width: 820px) {
+  .tr-turler { grid-template-columns: 1fr 1fr; } .tr-giris-alan { grid-template-columns: 1fr; } .tr-giris-alan .ya { padding: 0; text-align: center; }
+  .tr-f2 { grid-template-columns: 1fr 1fr; } .tr-f2 label:first-child { grid-column: 1 / -1; } .tr-f > b { min-width: 0; flex-basis: 100%; }
+  .tr-baslik { display: none; }
+  .tr-satir { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 10px; padding: 14px 12px; position: relative; border: 1px solid var(--c); border-left: 5px solid var(--bc, var(--c)); border-radius: 16px; margin-bottom: 10px; background: #fff; }
+  .tr-ad { grid-column: 1 / -1; padding-right: 48px; }
+  .tr-ekle { position: absolute; right: 10px; top: 10px; }
+  .tr-satir .h { text-align: left; font-size: 14.5px; } .tr-satir .h::before { content: attr(data-e); display: block; font: 600 10.5px var(--font-sans); letter-spacing: .06em; text-transform: uppercase; color: var(--s); }
+  .tr-satir .h.gizle-orta { display: block; }
+  .tr-liste li { grid-template-columns: 22px minmax(0, 1fr); }
+  .tr-giris, .tr-filtre { padding: 16px; border-radius: 18px; }
 }
 @media print {
-  header, footer, .tr-bibi, .tr-ilerle, .tr-adim, .du-bas p, .sz-cta, .tr-alt, .tr-oklar, .tr-uyari { display: none !important; }
-  .tr-liste { margin: 0; }
+  header.ust, footer, .tr-bas p, .tr-rozet, .tr-giris, .tr-ozet, .tr-filtre, .tr-tablo, .tr-cubuk, .tr-oklar, .tr-liste-dug, .tr-geri-al, .tr-liste .tr-not, .tr-uyari, .wa-yuzen, .altbilgi { display: none !important; }
+  .tr-duzen { display: block; } .tr-liste { position: static; border: 0; box-shadow: none; padding: 0; max-height: none; overflow: visible; }
+  .tr-yazdir-bas { display: block; font-weight: 600; margin: 4px 0 10px; } .tr-liste li { background: none; border-left: 0; border-bottom: 1px solid #ccc; border-radius: 0; break-inside: avoid; }
+  .tr-liste li b { font-size: 12pt; } .tr-liste li small { font-size: 10pt; color: #333; }
 }
 </style>
 <link rel="stylesheet" href="/menu.css?v=ed172468">
@@ -195,9 +275,12 @@
 <dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" aria-label="Sözlükte ara" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
 <main id="icerik">
 
-<section class="du" id="tercih" data-veri="/tercih/veri.json?v=80ee35f6">
-<div class="du-bas"><span class="imza">Bibi ile</span><h1>Tercih sihirbazı</h1><p>Puanını ya da sıranı söyle; ÖSYM'nin 2026 yerleştirme sonuçlarındaki 12.239 lisans ve 9.254 ön lisans programından sana uyanları güvenli, hedef ve riskli diye ayırayım.</p></div>
-<div class="du-kart">
+<!-- Tercih sihirbazı gövdesi (2. sürüm, 10.11.2026 gece). kisisel_site_uret.py çift süslü ayraçlı yer tutucuları doldurur. Mantık tercih.js, görünüm tercih.css. -->
+<section class="tr" id="tercih" data-veri="/tercih/veri.json?v=40cebd70" data-kosul="/tercih/kosul.json?v=82b728ab">
+<header class="tr-bas"><span class="tr-rozet">Veri: ÖSYM 2026 yerleştirme · YÖK Atlas</span><h1>Tercih sihirbazı</h1>
+<p>Puanını ya da sıranı yaz; 12.239 lisans ve 9.254 ön lisans programını ÖSYM tercih kılavuzu düzeninde, sana göre güvenli, hedef ve riskli diye ayrılmış gör.</p></header>
+
+<div class="tr-giris">
 <div class="tr-bibi"><div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
   
   <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
@@ -223,36 +306,84 @@
   </g>
 </svg>
 <div class="balon"><b>Bibi</b><span>Merhaba, ben Bibi!</span></div></div></div>
-<div class="tr-ilerle" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-<div class="tr-adim"><h2>1. Hangi puan türüyle?</h2><div class="tr-turler"><button type="button" data-tur="TYT" aria-pressed="false"><b>TYT</b>Ön lisans (2 yıllık)</button><button type="button" data-tur="SAY" aria-pressed="false"><b>Sayısal</b>Mühendislik, tıp, fen</button><button type="button" data-tur="EA" aria-pressed="false"><b>Eşit ağırlık</b>Hukuk, işletme, psikoloji</button><button type="button" data-tur="SÖZ" aria-pressed="false"><b>Sözel</b>Tarih, edebiyat, iletişim</button><button type="button" data-tur="DİL" aria-pressed="false"><b>Dil</b>İngilizce öğretmenliği, mütercimlik</button></div></div>
-<div class="tr-adim" hidden><h2>2. Puanın ya da sıran</h2><div class="tr-giris">
-<label>Yerleştirme puanı (OBP dâhil)<input id="tr-puan" inputmode="decimal" placeholder="örn. 412,35"></label>
-<label>ya da başarı sırası<input id="tr-sira" inputmode="numeric" placeholder="örn. 85.000"></label></div>
-<p class="tr-not">İkisini birden yazarsan sırayı esas alırım. Puanını bilmiyor musun? <a href="/yks-puan-hesaplama/">YKS puan hesaplama</a> netlerinden bulur.</p>
-<div class="tr-alt"><button type="button" class="du-dug" data-ileri2>Devam</button></div></div>
-<div class="tr-adim" hidden><h2>3. Şehir</h2><input id="tr-il-ara" placeholder="Şehir ara" aria-label="Şehir ara"><div class="tr-iller"></div>
-<p class="tr-not"><span class="tr-secili"></span> · <button type="button" class="tr-geri" data-il-temizle style="min-height:auto">Seçimi temizle</button></p>
-<div class="tr-alt"><button type="button" class="du-dug" data-ileri="3">Devam</button></div></div>
-<div class="tr-adim" hidden><h2>4. Üniversite ve burs</h2>
-<p class="tr-sec-bas">Üniversite türü</p><div class="tr-sec"><button type="button" data-ut="DEVLET" aria-pressed="true">Devlet</button><button type="button" data-ut="VAKIF" aria-pressed="true">Vakıf</button><button type="button" data-ut="KKTC" aria-pressed="false">KKTC</button><button type="button" data-ut="YURTDISI" aria-pressed="false">Yurt dışı</button></div>
-<p class="tr-sec-bas">Vakıf ve KKTC'de burs</p><div class="tr-sec"><button type="button" data-burs="Burslu" aria-pressed="true">Tam burslu</button><button type="button" data-burs="%50" aria-pressed="true">%50 indirimli</button><button type="button" data-burs="%25" aria-pressed="true">%25 indirimli</button><button type="button" data-burs="Ücretli" aria-pressed="true">Ücretli</button><button type="button" data-burs="ücretsiz" aria-pressed="true">Belirtilmemiş</button></div>
-<p class="tr-sec-bas">Eğitim dili</p><div class="tr-sec"><button type="button" data-dil="hepsi" aria-pressed="true">Fark etmez</button><button type="button" data-dil="tr" aria-pressed="false">Türkçe</button><button type="button" data-dil="ing" aria-pressed="false">İngilizce</button><button type="button" data-dil="diger" aria-pressed="false">Diğer diller</button></div>
-<label class="tr-not"><input type="checkbox" id="tr-orgun" checked> Açıköğretim ve uzaktan öğretim programlarını gösterme</label>
-<div class="tr-alt"><button type="button" class="du-dug" data-ileri="4">Devam</button></div></div>
-<div class="tr-adim" hidden><h2>5. Bölüm (isteğe bağlı)</h2><input id="tr-ara" placeholder="örn. psikoloji, mühendislik, öğretmenliği" aria-label="Bölüm ya da fakülte ara">
-<div class="tr-alt"><button type="button" class="du-dug" data-bitir>Programları göster</button></div></div>
-<div class="tr-adim" hidden><p class="tr-ozet"></p>
-<div class="tr-sekmeler"><button type="button" data-sekme="hedef" aria-pressed="false">Hedef<sup>0</sup></button><button type="button" data-sekme="guvenli" aria-pressed="false">Güvenli<sup>0</sup></button><button type="button" data-sekme="riskli" aria-pressed="false">Riskli<sup>0</sup></button><button type="button" data-sekme="bos" aria-pressed="false">2026'da boş kalan<sup>0</sup></button></div>
-<p class="tr-bant">Hedef: 2026'da senin sıranla girilen, sınırına yakın programlar. Güvenli: taban sırası seninkinden en az %25 geride. Riskli: 2026'da senden biraz daha iyi sırayla dolan programlar (%20'ye kadar).</p>
-<ul class="tr-sonuclar"></ul>
-<div class="tr-alt"><button type="button" class="du-dug ikinci" data-daha hidden>Daha fazla göster</button><button type="button" class="du-dug ikinci" data-yeniden>Filtreleri değiştir</button></div></div>
-<div class="tr-alt"><button type="button" class="tr-geri">← Geri</button></div>
+<div class="tr-ilerle" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="tr-adim"><h2>1. Puan türün</h2><div class="tr-turler"><button type="button" data-tur="SAY" aria-pressed="false"><b>Sayısal</b>Mühendislik, tıp, fen</button><button type="button" data-tur="EA" aria-pressed="false"><b>Eşit ağırlık</b>Hukuk, işletme, psikoloji</button><button type="button" data-tur="SÖZ" aria-pressed="false"><b>Sözel</b>Tarih, edebiyat, iletişim</button><button type="button" data-tur="DİL" aria-pressed="false"><b>Dil</b>İngilizce öğretmenliği, mütercimlik</button><button type="button" data-tur="TYT" aria-pressed="false"><b>TYT</b>Ön lisans (2 yıllık)</button></div></div>
+<form class="tr-adim" id="tr-form" hidden><h2>2. Puanın ya da sıran</h2>
+<div class="tr-giris-alan"><label>Yerleştirme puanı (OBP dâhil)<input id="tr-puan" inputmode="decimal" autocomplete="off" placeholder="örn. 412,35"></label>
+<span class="ya">ya da</span><label>Başarı sırası<input id="tr-sira" inputmode="numeric" autocomplete="off" placeholder="örn. 85.000"></label></div>
+<p class="tr-onizle" aria-live="polite"></p>
+<p class="tr-not">İkisini birden yazarsan sırayı esas alırım. Puanını bilmiyorsan <a href="/yks-puan-hesaplama/">YKS puan hesaplama</a> netlerinden bulur.</p>
+<div class="tr-dugmeler"><button type="submit" class="tr-ana">Programları göster</button><button type="button" class="tr-yan" data-geri>← Puan türünü değiştir</button></div>
+</form>
 </div>
-<div class="tr-liste du-kart" style="margin-top:18px"><h2>Tercih listem (<span class="tr-liste-sayi">0</span>/24)</h2>
-<p class="tr-not">Liste yalnız bu tarayıcıda saklanır. Sıralamayı oklarla değiştir; ÖSYM'ye program kodlarıyla girersin.</p><ol></ol>
-<div class="tr-alt"><button type="button" class="du-dug" data-kopyala>Listeyi kopyala</button><button type="button" class="du-dug ikinci" data-yazdir>Yazdır / PDF</button></div></div>
-<p class="tr-uyari">Veri: ÖSYM 2026-YKS yerleştirme sonuçları, TABLO-3 ve TABLO-4 (en küçük puanlar, kontenjan, yerleşen). Başarı sıraları (2026, 2025), ücretler ve sıra şartları YÖK Atlas'tan; taban puanlar iki kaynakta birebir aynı. Sırası olmayan birkaç program için sıra, resmî puan dağılımından tahmin edilir ve "tahmini sıra" diye yazılır. Sıra şartını karşılamadığın programlar (ör. tıp için 50.000) listede çıkmaz. 2027 kontenjanları ve taban puanları farklı olacaktır; Bibi'nin önerileri yol göstericidir, tercihten önce ÖSYM'nin 2027 tercih kılavuzunu mutlaka kontrol et.</p>
+
+<div class="tr-sonuc" hidden>
+<div class="tr-ozet"><button type="button" class="tr-ozet-cip" data-degistir="tur" title="Puan türünü değiştir"><span class="tr-ozet-tur"></span> ✎</button>
+<button type="button" class="tr-ozet-cip" data-degistir="sira" title="Puanı ya da sırayı değiştir"><span class="tr-ozet-sira"></span> ✎</button>
+<p class="tr-bibi-s"><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+<span aria-live="polite"></span></p></div>
+
+<div class="tr-filtre">
+<details class="tr-il"><summary><b>Şehir</b><span class="tr-il-ozet"></span></summary>
+<div class="tr-il-ic"><input id="tr-il-ara" type="search" placeholder="Şehir ara" aria-label="Şehir ara"><button type="button" class="tr-yan" data-il-temizle>Seçimi temizle</button><div class="tr-iller"></div></div></details>
+<div class="tr-f"><b>Üniversite</b><button type="button" class="tr-cip" data-ut="DEVLET" aria-pressed="true">Devlet</button><button type="button" class="tr-cip" data-ut="VAKIF" aria-pressed="true">Vakıf</button><button type="button" class="tr-cip" data-ut="KKTC" aria-pressed="false">KKTC</button><button type="button" class="tr-cip" data-ut="YURTDISI" aria-pressed="false">Yurt dışı</button></div>
+<div class="tr-f tr-burs"><b>Burs</b><button type="button" class="tr-cip" data-burs="Burslu" aria-pressed="true">Tam burslu</button><button type="button" class="tr-cip" data-burs="%50" aria-pressed="true">%50 indirimli</button><button type="button" class="tr-cip" data-burs="%25" aria-pressed="true">%25 indirimli</button><button type="button" class="tr-cip" data-burs="Ücretli" aria-pressed="true">Ücretli</button></div>
+<div class="tr-f tr-f2"><label><b>Bölüm, fakülte ya da üniversite</b><input id="tr-ara" type="search" list="tr-bolumler" placeholder="örn. psikoloji, hukuk, Hacettepe" autocomplete="off"></label><datalist id="tr-bolumler"></datalist>
+<label><b>Dil</b><select id="tr-dil"><option value="hepsi">Fark etmez</option><option value="tr">Türkçe</option><option value="ing">İngilizce</option><option value="diger">Diğer diller</option></select></label>
+<label><b>Sırala</b><select id="tr-diz"><option value="yakin">Sırana en yakın</option><option value="sira">Başarı sırası (iyiden)</option><option value="taban">Taban puan (yüksekten)</option><option value="ucret">Ücret (düşükten)</option><option value="sehir">Şehir</option><option value="uni">Üniversite adı</option></select></label></div>
+<div class="tr-f"><label class="tr-onay"><input type="checkbox" id="tr-uzaktan"> Açıköğretim ve uzaktan öğretimi de göster</label><button type="button" class="tr-yan" data-sifirla>Süzgeçleri sıfırla</button></div>
+</div>
+
+<div class="tr-duzen">
+<div class="tr-tablo">
+<div class="tr-sekmeler" role="tablist"><button type="button" role="tab" data-sekme="hedef" aria-selected="false">Hedef<sup>0</sup></button><button type="button" role="tab" data-sekme="guvenli" aria-selected="false">Güvenli<sup>0</sup></button><button type="button" role="tab" data-sekme="riskli" aria-selected="false">Riskli<sup>0</sup></button><button type="button" role="tab" data-sekme="bos" aria-selected="false">Boş kontenjanlı<sup>0</sup></button></div>
+<p class="tr-bant"></p>
+<div class="tr-baslik" aria-hidden="true"><span>Program kodu · program adı</span><span>Genel kont.</span><span>En küçük puan</span><span>Başarı sırası 2026</span><span>2025</span><span class="gizle-orta">2024</span><span>Sana göre</span><span></span></div>
+<div class="tr-govde"></div>
+<div class="tr-dugmeler"><button type="button" class="tr-yan" data-daha hidden>Daha fazla göster</button></div>
+<p class="tr-aciklama"><b>Sana göre:</b> programın 2026 taban sırası ile senin sıran arasındaki fark; artı (+) taban senden geride, eksi (−) senden önde demek. <b>▲</b> 2025'e göre daha iyi sırayla, <b>▼</b> daha geriden doldu. <sup>t</sup> sıra resmî değil, puan dağılımından tahmin. Satıra dokununca özel koşullar, ücret ve kontenjan ayrıntısı açılır.</p>
+</div>
+
+<aside class="tr-liste" aria-label="Tercih listem">
+<h2>Tercih listem <span class="say"><span class="tr-liste-sayi">0</span>/24</span></h2>
+<p class="tr-yazdir-bas"></p>
+<p class="tr-denge"></p>
+<ol></ol>
+<button type="button" class="tr-yan tr-geri-al" hidden>Son çıkarılanı geri al</button>
+<div class="tr-liste-dug"><button type="button" class="tr-ana" data-kopyala>Listeyi kopyala</button><button type="button" class="tr-yan" data-baglanti>Bağlantıyı kopyala</button>
+<button type="button" class="tr-yan" data-yazdir>Yazdır / PDF</button><button type="button" class="tr-yan" data-sirala>Sıraya göre diz</button><button type="button" class="tr-yan" data-temizle>Listeyi temizle</button></div>
+<p class="tr-not">Liste bu tarayıcıda saklanır. ÖSYM'de tercih, program kodlarıyla ve tercih sırasıyla yapılır; en çok 24 tercih.</p>
+</aside>
+</div>
+<button type="button" class="tr-cubuk">Tercih listem <b><span class="tr-liste-sayi">0</span>/24</b> ↓</button>
+</div>
+
+<p class="tr-uyari">Taban puanlar, kontenjanlar ve yerleşen sayıları ÖSYM'nin 2026-YKS yerleştirme sonuçlarından (TABLO-3 ve TABLO-4); başarı sıraları (2026, 2025, 2024), öğrenim süresi, ücretler, başarı sırası şartları ve özel koşullar YÖK Atlas'tan. Güvenli, hedef ve riskli ayrımı benim kuralımdır, ÖSYM'nin değil. 2027 kontenjanları, koşulları ve taban puanları farklı olacaktır; tercihten önce ÖSYM'nin 2027 Yükseköğretim Programları ve Kontenjanları Kılavuzu'nu mutlaka kontrol et.</p>
 </section>
+
 </main>
 <footer class="altbilgi" data-altbilgi>
 <div class="ab-ic"><div class="ab-sutunlar"><div class="ab-sutun"><h2>Çalış</h2><ul><li><a href="/sozluk/">YDS sözlüğü</a></li><li><a href="/sozluk/calis/">Kelime çalış</a></li><li><a href="/deneme/">Mini deneme</a></li><li><a href="/seviye-testi/">Seviye testi</a></li><li><a href="/yokdil-testi/">YÖKDİL alan testi</a></li><li><a href="/duello/">Kelime düellosu</a></li><li><a href="/oyunlar/">YDS oyunları</a></li><li><a href="/calis/">Çalışma sayacı</a></li><li><a href="/deneme-analizi/">Deneme analizi</a></li><li><a href="/yanlislarim/">Yanlışlarım</a></li></ul></div><div class="ab-sutun"><h2>Hesaplama</h2><ul><li><a href="/puan-hesaplama/">YDS puan hesaplama</a></li><li><a href="/yks-puan-hesaplama/">YKS puan hesaplama</a></li><li><a href="/ags-puan-hesaplama/">AGS puan hesaplama</a></li><li><a href="/kpss-puan-hesaplama/">KPSS puan hesaplama</a></li><li><a href="/ales-puan-hesaplama/">ALES net hesaplama</a></li><li><a href="/etep-puan-hesaplama/">e-TEP ve YDS karşılığı</a></li><li><a href="/lgs-puan-hesaplama/">LGS net hesaplama</a></li><li><a href="/araclar/">Bütün araçlar</a></li></ul></div><div class="ab-sutun"><h2>Sınav ve tercih</h2><ul><li><a href="/tercih/">Tercih sihirbazı</a></li><li><a href="/yks-siralama-hesaplama/">YKS sıralama</a></li><li><a href="/araclar/#sayaclar">Sınav sayaçları</a></li><li><a href="/sayac/">Paylaşım kartı</a></li><li><a href="/#sinav">Sınav takvimi</a></li><li><a href="/takvim.ics">Takvimine ekle</a></li><li><a href="/plan/">Çalışma planı üreteci</a></li><li><a href="/hoca-sinavda/">Hoca da sınava giriyor</a></li></ul></div><div class="ab-sutun"><h2>Kubilay Kenan</h2><ul><li><a href="/#hakkimda">Hakkımda</a></li><li><a href="/yazilar/">Yazılar</a></li><li><a href="/pdf/">Ücretsiz PDF'ler</a></li><li><a href="/welldone/">Well-Done</a></li><li><a href="/linkup/">LINK UP</a></li><li><a href="/#iletisim">İletişim</a></li></ul></div></div>
@@ -263,181 +394,297 @@
 </footer>
 </div>
 <script>
-// Tercih sihirbazı (/tercih/, 10.11.2026): Bibi adım adım sorar, ÖSYM 2026 yerleştirme tablolarından (TABLO-3/4) programları
-// güvenli / hedef / riskli diye ayırır. Veri /tercih/veri.json (kisisel/yks/yks_veri.json; 10.11.2026'dan beri sıralar YÖK Atlas'ın gerçek 2026 sıraları). Bant kuralı (bizim, ÖSYM'nin değil):
-// programın 2026 tahmini sırası ps, adayın sırası s → güvenli ps ≥ 1,25 s · hedef s ≤ ps < 1,25 s · riskli 0,8 s ≤ ps < s.
-// Tercih listesi tarayıcıda (localStorage "kk-tercih"), en çok 24 (YKS tercih sınırı).
+// Tercih sihirbazı (/tercih/) — 2. sürüm, 10.11.2026 gece (Kenan: "ÖSYM'deki gibi olsun, güzel olsun").
+// İki adım (puan türü → puan/sıra), sonra ÖSYM tercih kılavuzu düzeninde tablo: program kodu, program, süre, kontenjan, yerleşen,
+// taban puan, başarı sıraları (2026, 2025, 2024). Süzgeçler sonuç ekranında, yerinde değişir. Bantlar (BİZİM kuralımız):
+// güvenli ps ≥ 1,25 s · hedef s ≤ ps < 1,25 s · riskli 0,8 s ≤ ps < s · boş kontenjanlı: 2026'da dolmayan programlar.
+// Veri /tercih/veri.json (yks_hazirla.py): satır = [0 kod, 1 üni, 2 fakülte, 3 ad, 4 puan türü, 5 kontenjan, 6 yerleşen, 7 taban, 8 en büyük,
+// 9 sıra 2026, 10 düzey, 11 sıra 2025, 12 sıra 2024, 13 ücret, 14 sıra şartı, 15 sıra gerçek mi, 16 il, 17 ilçe, 18 süre, 19 koşul kodları,
+// 20 akreditasyon, 21 okul birincisi kontenjanı]. Durum adreste ve localStorage'da; liste "kk-tercih" (en çok 24).
 (() => {
   const kok = document.getElementById("tercih"); if (!kok) return;
   const $ = s => kok.querySelector(s), $$ = s => [...kok.querySelectorAll(s)];
   const oku = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } };
   const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
-  const TR = s => s.toLocaleLowerCase("tr");
-  const BUYUK = s => s.toLocaleLowerCase("tr").replace(/(^|[\s(\-/])(\p{L})/gu, (m, a, b) => a + b.toLocaleUpperCase("tr"));
-  const KUCUK = new Set(["ve", "ile", "için", "de", "da"]);
-  const BASLIK = s => BUYUK(s).replace(/(?<=\s)(\p{L}+)/gu, w => KUCUK.has(TR(w)) ? TR(w) : w);
+  const TR = s => String(s).toLocaleLowerCase("tr");
+  const KUCUK = new Set(["ve", "ile", "için"]);
+  const BASLIK = s => TR(s).replace(/(^|[\s(\-/])(\p{L})/gu, (m, a, b) => a + b.toLocaleUpperCase("tr")).replace(/(?<=\s)(\p{L}+)/gu, w => KUCUK.has(TR(w)) ? TR(w) : w)
+    .replace(/\bKktc\b/g, "KKTC").replace(/\bMyo\b/g, "MYO");
   const UNI = s => BASLIK(s.replace(/\s*\([^()]*\)\s*$/, ""));
-  const sayi = n => Math.round(n).toLocaleString("tr-TR");
-  const puanY = p => p.toFixed(2).replace(".", ",");
-  let V = null, durum = { tur: null, puan: null, sira: null, sehir: [], uturu: ["DEVLET", "VAKIF"], burs: ["Burslu", "%50", "%25", "Ücretli", "ücretsiz"],
-    dil: "hepsi", orgun: true, ara: "" }, sartDisi = 0, adim = 0, sonuc = [], sekme = "hedef", goster = 60;
-  let liste = oku("kk-tercih", []);
-  const veri = () => V ? Promise.resolve(V) : fetch(kok.dataset.veri).then(r => r.json()).then(d => (V = d));
+  const sayi = n => n == null ? "–" : Math.round(n).toLocaleString("tr-TR");
+  const puanY = p => p == null ? "–" : p.toFixed(2).replace(".", ",");
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const TUR_AD = { TYT: "TYT", SAY: "Sayısal", EA: "Eşit ağırlık", "SÖZ": "Sözel", "DİL": "Dil" };
+  const UT_AD = { DEVLET: "Devlet", VAKIF: "Vakıf", KKTC: "KKTC", "YURTDISI KAMU": "Yurt dışı", "YURTDISI VAKIF": "Yurt dışı" };
+  const BANT = { hedef: ["Hedef", "2026'da senin sıranla girilen, sınıra yakın programlar (taban sırası seninkinin en çok %25 gerisinde)."],
+    guvenli: ["Güvenli", "Taban sırası seninkinden en az %25 geride olan programlar; listenin sonuna bunlardan koy."],
+    riskli: ["Riskli", "2026'da senden biraz daha iyi sırayla dolan programlar (en çok %20). Listenin başına birkaç tane yazılabilir."],
+    bos: ["Boş kontenjanlı", "2026'da kontenjanı dolmayan programlar. Koşulları tutuyorsan sıra engeli yoktu; en çok boş kalan üstte."] };
 
-  // ---- Bibi konuşur ----
-  const bibi = (m, tepki) => {
-    const b = $(".tr-bibi"); b.querySelector(".balon span").textContent = m;
-    if (tepki) { b.classList.remove("sevinc", "selam", "uzgun"); void b.offsetWidth; b.classList.add(tepki); }
-  };
-  const ADIM_SOZ = [
-    "Merhaba, ben Bibi! Önce hangi puan türüyle tercih yapacağını seçelim.",
-    "Şimdi yerleştirme puanını ya da başarı sıranı yaz. Bilmiyorsan puan hesaplamadan bulabilirsin.",
-    "Nerede okumak istersin? İstediğin kadar şehir seç; boş bırakırsan bütün Türkiye.",
-    "Devlet mi vakıf mı, burslu mu? Eğitim dilini de seçebilirsin.",
-    "Aklında bir bölüm var mı? Yazarsan yalnız onları gösteririm; boş bırakırsan hepsini.",
-  ];
-  const adimGit = n => {
-    adim = n;
-    $$(".tr-adim").forEach((d, i) => { d.hidden = i !== n; });
-    $$(".tr-ilerle i").forEach((d, i) => d.classList.toggle("tamam", i <= n));
-    $(".tr-geri").hidden = n === 0 || n > 4;
-    if (n <= 4) bibi(ADIM_SOZ[n], "selam");
-    if (n === 2 && V) sehirCiz();
-    const kart = kok.querySelector(".du-kart"), ust = kart.getBoundingClientRect().top;   // yalnız kart ekranın üstünden çıktıysa kaydır (her adımda zıplamasın)
-    if (ust < 0 || ust > innerHeight * .6) scrollTo({ top: scrollY + ust - 90, behavior: "smooth" });
-  };
+  let V = null, KOSUL = null, sonuc = [], sartDisi = 0, goster = 50, acik = null;
+  const VARS = { tur: null, puan: null, sira: null, siraElle: false, sehir: [], ut: ["DEVLET", "VAKIF"], burs: ["Burslu", "%50", "%25", "Ücretli"],
+    dil: "hepsi", uzaktan: false, ara: "", diz: "yakin", sekme: "hedef" };
+  let durum = Object.assign({}, VARS, oku("kk-tercih-durum", {}));
+  let liste = oku("kk-tercih", []).map(x => typeof x === "string" ? x : x.kod).filter(Boolean);
+  const veri = () => V ? Promise.resolve(V) : fetch(kok.dataset.veri).then(r => r.json()).then(d => { V = d; V.kod = new Map(d.p.map(p => [p[0], p])); return V; });
 
-  // ---- 1. puan türü ----
-  $$("[data-tur]").forEach(d => d.addEventListener("click", () => {
-    durum.tur = d.dataset.tur; $$("[data-tur]").forEach(x => x.setAttribute("aria-pressed", x === d)); adimGit(1);
-  }));
-  // ---- 2. puan / sıra ----
+  // ---------- yardımcılar ----------
   const sira = (p, tur) => {
     const t = V.yer, k = V.tur.indexOf(tur) + 1;
     if (p >= t[0][0]) return Math.max(1, Math.round(t[0][k] * (1 - Math.min(1, (p - t[0][0]) / 10))));
     for (let i = 0; i < t.length - 1; i++) { const a = t[i], b = t[i + 1]; if (p <= a[0] && p >= b[0]) return Math.round(b[k] + (a[k] - b[k]) * (p - b[0]) / (a[0] - b[0])); }
     return t[t.length - 1][k];
   };
-  $("[data-ileri2]").addEventListener("click", async () => {
-    await veri();
-    const p = parseFloat(($("#tr-puan").value || "").replace(",", ".")), s = parseInt(($("#tr-sira").value || "").replace(/\D/g, ""), 10);
-    if (!(p >= 100 && p <= 560) && !(s > 0)) { bibi("Puanını (100–560) ya da sıranı yazman gerekiyor.", "uzgun"); return; }
-    durum.puan = p >= 100 ? p : null; durum.sira = s > 0 ? s : sira(p, durum.tur);
-    adimGit(2);
-  });
-  // ---- 3. şehir ----
-  const sehirCiz = () => {
-    const iller = [...new Set(V.u.map(u => u[2]))].sort((a, b) => a.localeCompare(b, "tr"));
-    const q = TR($("#tr-il-ara").value.trim());
-    $(".tr-iller").innerHTML = iller.filter(i => !q || TR(i).includes(q)).map(i =>
-      `<button type="button" class="tr-cip" data-il="${i}" aria-pressed="${durum.sehir.includes(i)}">${BUYUK(i)}</button>`).join("");
-    $(".tr-secili").textContent = durum.sehir.length ? `${durum.sehir.length} şehir seçili` : "Bütün Türkiye";
+  const bursu = ad => /\(Burslu\)/.test(ad) ? "Burslu" : /%50/.test(ad) ? "%50" : /%25/.test(ad) ? "%25" : "Ücretli";
+  const dili = ad => { const m = ad.match(/\((İngilizce|Almanca|Fransızca|Arapça|Rusça|İspanyolca|İtalyanca|Çince|Japonca|Korece|Farsça)\)/); return m ? m[1] : "Türkçe"; };
+  const uzaktanMi = ad => /\((Açıköğretim|Uzaktan Öğretim)\)/.test(ad);
+  const bantOf = (p) => {
+    const ps = p[9], dolmadi = p[5] > p[6];
+    if ((!p[15] && dolmadi) || !ps) return dolmadi ? "bos" : null;
+    const r = ps / durum.sira; return r >= 1.25 ? "guvenli" : r >= 1 ? "hedef" : r >= 0.8 ? "riskli" : null;
   };
-  $(".tr-iller").addEventListener("click", e => {
-    const d = e.target.closest("[data-il]"); if (!d) return;
-    const i = d.dataset.il; durum.sehir = durum.sehir.includes(i) ? durum.sehir.filter(x => x !== i) : [...durum.sehir, i]; sehirCiz();
-  });
-  $("#tr-il-ara").addEventListener("input", sehirCiz);
-  $("[data-il-temizle]").addEventListener("click", () => { durum.sehir = []; sehirCiz(); });
-  // ---- 4. tür, burs, dil ----
-  const coklu = (sec, alan) => $$(sec).forEach(d => d.addEventListener("click", () => {
-    const v = d.dataset.v, a = durum[alan]; durum[alan] = a.includes(v) ? a.filter(x => x !== v) : [...a, v];
-    d.setAttribute("aria-pressed", durum[alan].includes(v));
+  const kayit = p => { const u = V.u[p[1]]; return { p, kod: p[0], ad: p[3], uni: UNI(u[0]), ut: u[1], il: BASLIK(V.il[p[16]] || u[2] || ""), ilce: BASLIK(V.ilce[p[17]] || ""),
+    fak: BASLIK(V.f[p[2]]), kont: p[5], yer: p[6], enk: p[7], enb: p[8], ps: p[9], ps25: p[11], ps24: p[12], ucret: p[13], sart: p[14], gercek: p[15], sure: p[18], kosul: p[19], akr: p[20], obs: p[21] }; };
+  const bibi = (m, tepki) => { const b = $(".tr-bibi"); b.querySelector(".balon span").textContent = m;
+    if (tepki) { b.classList.remove("sevinc", "selam", "uzgun"); void b.offsetWidth; b.classList.add(tepki); } };
+  const kaydet = () => {
+    yaz("kk-tercih-durum", durum); yaz("kk-tercih", liste);
+    const q = new URLSearchParams();
+    if (durum.tur) q.set("t", durum.tur); if (durum.sira) q.set("s", durum.sira);
+    if (durum.sehir.length) q.set("il", durum.sehir.join(",")); if (durum.ara) q.set("q", durum.ara);
+    history.replaceState(null, "", q.toString() ? "?" + q : location.pathname);
+  };
+
+  // ---------- giriş: 1) puan türü 2) puan / sıra ----------
+  const adim = n => {
+    $(".tr-giris").hidden = n > 1; $(".tr-sonuc").hidden = n < 2;
+    $$(".tr-adim").forEach((d, i) => { d.hidden = i !== n; });
+    $$(".tr-ilerle i").forEach((d, i) => d.classList.toggle("tamam", i <= n));
+    if (n === 0) bibi("Merhaba, ben Bibi! Önce hangi puan türüyle tercih yapacağını seçelim.", "selam");
+    if (n === 1) { bibi(`${TUR_AD[durum.tur]} seçtin. Şimdi yerleştirme puanını ya da başarı sıranı yaz.`, "selam"); setTimeout(() => $("#tr-puan").focus(), 50); }
+  };
+  $$("[data-tur]").forEach(d => d.addEventListener("click", () => {
+    durum.tur = d.dataset.tur; $$("[data-tur]").forEach(x => x.setAttribute("aria-pressed", x === d)); durum.sehir = []; durum.ara = ""; adim(1); veri();
   }));
-  coklu("[data-ut]", "uturu"); coklu("[data-burs]", "burs");
-  $$("[data-dil]").forEach(d => d.addEventListener("click", () => { durum.dil = d.dataset.dil; $$("[data-dil]").forEach(x => x.setAttribute("aria-pressed", x === d)); }));
-  $("#tr-orgun").addEventListener("change", e => { durum.orgun = e.target.checked; });
-  $$("[data-ileri]").forEach(d => d.addEventListener("click", () => adimGit(+d.dataset.ileri)));
-  $(".tr-geri").addEventListener("click", () => adimGit(Math.max(0, adim - 1)));
+  const girisOku = () => {
+    const p = parseFloat(($("#tr-puan").value || "").replace(",", ".")), s = parseInt(($("#tr-sira").value || "").replace(/\D/g, ""), 10);
+    return { p: p >= 100 && p <= 560 ? p : null, s: s > 0 ? s : null };
+  };
+  const onizle = async () => {
+    const { p, s } = girisOku(); const o = $(".tr-onizle");
+    if (s) { o.textContent = `Sıran: ${sayi(s)}`; return; }
+    if (!p) { o.textContent = ""; return; }
+    await veri(); o.textContent = `≈ ${sayi(sira(p, durum.tur))}. sıra (2026 puan dağılımına göre tahmin)`;
+  };
+  $("#tr-puan").addEventListener("input", onizle);
+  $("#tr-sira").addEventListener("input", e => { const n = e.target.value.replace(/\D/g, ""); e.target.value = n ? Number(n).toLocaleString("tr-TR") : ""; onizle(); });
+  $("#tr-form").addEventListener("submit", async e => {
+    e.preventDefault(); await veri();
+    const { p, s } = girisOku();
+    if (!p && !s) { bibi("Puanını (100–560) ya da sıranı yazman gerekiyor.", "uzgun"); return; }
+    durum.puan = p; durum.siraElle = !!s; durum.sira = s || sira(p, durum.tur); durum.sekme = "hedef";
+    sonucAc(true);
+  });
+  $("[data-geri]").addEventListener("click", () => adim(0));
 
-  // ---- program özellikleri adından ----
-  const burs = ad => /\(Burslu\)/.test(ad) ? "Burslu" : /%50/.test(ad) ? "%50" : /%25/.test(ad) ? "%25" : /\(Ücretli\)/.test(ad) ? "Ücretli" : "ücretsiz";
-  const dil = ad => /\((İngilizce|Almanca|Fransızca|Arapça|Rusça|İspanyolca)\)/.test(ad) ? (/\(İngilizce\)/.test(ad) ? "ing" : "diger") : "tr";
-  const uzaktan = ad => /\((Açıköğretim|Uzaktan Öğretim)\)/.test(ad);
-
-  // ---- sonuç ----
-  const BANT = { guvenli: [1.25, Infinity], hedef: [1, 1.25], riskli: [0.8, 1] };
-  const bant = ps => { const r = ps / durum.sira; return r >= 1.25 ? "guvenli" : r >= 1 ? "hedef" : r >= 0.8 ? "riskli" : null; };
+  // ---------- sonuç ekranı ----------
+  const ilSecenek = () => {
+    const ut = new Set(durum.ut.flatMap(t => t === "YURTDISI" ? ["YURTDISI KAMU", "YURTDISI VAKIF"] : [t])), s = new Map();
+    for (const p of V.p) if (p[4] === durum.tur && ut.has(V.u[p[1]][1])) { const il = V.il[p[16]]; if (il) s.set(il, (s.get(il) || 0) + 1); }
+    return [...s.entries()].sort((a, b) => a[0].localeCompare(b[0], "tr"));
+  };
+  const filtreCiz = () => {
+    $(".tr-ozet-tur").textContent = TUR_AD[durum.tur];
+    $(".tr-ozet-sira").textContent = `${durum.siraElle ? "Sıran" : "Tahmini sıran"} ${sayi(durum.sira)}${durum.puan ? ` · ${puanY(durum.puan)} puan` : ""}`;
+    $$("[data-ut]").forEach(b => b.setAttribute("aria-pressed", durum.ut.includes(b.dataset.ut)));
+    $$("[data-burs]").forEach(b => b.setAttribute("aria-pressed", durum.burs.includes(b.dataset.burs)));
+    $(".tr-burs").hidden = !durum.ut.some(t => t !== "DEVLET");
+    $("#tr-dil").value = durum.dil; $("#tr-uzaktan").checked = durum.uzaktan; if (document.activeElement !== $("#tr-ara")) $("#tr-ara").value = durum.ara; $("#tr-diz").value = durum.diz;
+    const q = TR($("#tr-il-ara").value.trim()), L = ilSecenek();
+    $(".tr-iller").innerHTML = L.filter(([il]) => !q || TR(il).includes(q)).map(([il, n]) =>
+      `<button type="button" class="tr-cip" data-il="${esc(il)}" aria-pressed="${durum.sehir.includes(il)}">${BASLIK(il)}<sup>${n}</sup></button>`).join("");
+    $(".tr-il-ozet").innerHTML = durum.sehir.length ? durum.sehir.map(il => `<button type="button" class="tr-cip secili" data-il="${esc(il)}" aria-label="${BASLIK(il)} seçimini kaldır">${BASLIK(il)} ×</button>`).join("") : "<span>Bütün Türkiye</span>";
+    // bölüm önerileri (bu puan türündeki bölüm adları)
+    if ($("#tr-bolumler").dataset.tur !== durum.tur) {
+      const b = new Set(); for (const p of V.p) if (p[4] === durum.tur) b.add(p[3].replace(/\s*\(.*/, ""));
+      $("#tr-bolumler").innerHTML = [...b].sort((a, c) => a.localeCompare(c, "tr")).map(x => `<option value="${esc(x)}">`).join(""); $("#tr-bolumler").dataset.tur = durum.tur;
+    }
+  };
   const hesapla = () => {
-    const q = TR(durum.ara.trim()), uturu = new Set(durum.uturu.flatMap(t => t === "YURTDISI" ? ["YURTDISI KAMU", "YURTDISI VAKIF"] : [t]));
+    const q = TR(durum.ara.trim()), ut = new Set(durum.ut.flatMap(t => t === "YURTDISI" ? ["YURTDISI KAMU", "YURTDISI VAKIF"] : [t]));
     sonuc = []; sartDisi = 0;
     for (const p of V.p) {
-      const [kod, ui, fi, ad, pt, kont, yer, enk, , ps, duzey, ps25, ps24, ucret, sart, gercek] = p, u = V.u[ui];
-      if (pt !== durum.tur || /KKTC Uyruklu|M\.T\.O\.K\.|Bakanlığı Adına/.test(ad)) continue;
-      if (!uturu.has(u[1]) || (durum.sehir.length && !durum.sehir.includes(u[2]))) continue;
-      if (u[1] !== "DEVLET" && !durum.burs.includes(burs(ad))) continue;
-      if (durum.dil !== "hepsi" && dil(ad) !== durum.dil) continue;
-      if (durum.orgun && uzaktan(ad)) continue;
-      if (q && !TR(ad).includes(q) && !TR(V.f[fi]).includes(q)) continue;
-      if (sart && durum.sira > sart) { sartDisi++; continue; }   // başarı sırası şartı (ör. tıp 50.000, hukuk 125.000): aday tercih edemez
-      // YÖK Atlas'ta sırası olmayan ve kontenjanı dolmayan program = "boş kalan" (taban anlamsız)
-      const b = (!gercek && kont > yer) || !ps ? (kont > yer ? "bos" : null) : bant(ps);
-      if (b) sonuc.push({ kod, ad, uni: u[0], tur: u[1], il: u[2], fak: V.f[fi], kont, yer, enk, ps, ps25, ucret, sart, gercek, b, duzey });
+      const ad = p[3], u = V.u[p[1]];
+      if (p[4] !== durum.tur || /KKTC Uyruklu|M\.T\.O\.K\.|Bakanlığı Adına/.test(ad)) continue;
+      if (!ut.has(u[1]) || (durum.sehir.length && !durum.sehir.includes(V.il[p[16]]))) continue;
+      if (u[1] !== "DEVLET" && !durum.burs.includes(bursu(ad))) continue;
+      if (durum.dil !== "hepsi" && (durum.dil === "tr" ? dili(ad) !== "Türkçe" : durum.dil === "ing" ? dili(ad) !== "İngilizce" : ["Türkçe", "İngilizce"].includes(dili(ad)))) continue;
+      if (!durum.uzaktan && uzaktanMi(ad)) continue;
+      if (q && !TR(ad).includes(q) && !TR(V.f[p[2]]).includes(q) && !TR(u[0]).includes(q)) continue;
+      if (p[14] && durum.sira > p[14]) { sartDisi++; continue; }
+      const b = bantOf(p); if (b) { const k = kayit(p); k.b = b; sonuc.push(k); }
     }
-    sonuc.sort((a, b) => (a.ps || 9e9) - (b.ps || 9e9));
   };
+  const DIZ = {
+    yakin: (a, b) => Math.abs((a.ps || 9e9) - durum.sira) - Math.abs((b.ps || 9e9) - durum.sira),
+    sira: (a, b) => (a.ps || 9e9) - (b.ps || 9e9),
+    taban: (a, b) => (b.enk || 0) - (a.enk || 0),
+    ucret: (a, b) => (a.ucret || 0) - (b.ucret || 0) || (a.ps || 9e9) - (b.ps || 9e9),
+    sehir: (a, b) => a.il.localeCompare(b.il, "tr") || a.uni.localeCompare(b.uni, "tr"),
+    uni: (a, b) => a.uni.localeCompare(b.uni, "tr") || a.ad.localeCompare(b.ad, "tr"),
+    bos: (a, b) => (b.kont - b.yer) - (a.kont - a.yer),
+  };
+  const odenecek = x => { if (!x.ucret) return null; const b = bursu(x.ad); return b === "Burslu" ? 0 : b === "%50" ? x.ucret * .5 : b === "%25" ? x.ucret * .75 : x.ucret; };
+  const rozetler = x => {
+    const r = [], b = bursu(x.ad), d = dili(x.ad);
+    r.push(x.ut === "DEVLET" ? `<i class="rz devlet">Devlet</i>` : `<i class="rz ${b === "Burslu" ? "burslu" : "ucretli"}">${UT_AD[x.ut]} · ${b === "%50" ? "%50 indirimli" : b === "%25" ? "%25 indirimli" : b}</i>`);
+    if (x.sure) r.push(`<i class="rz">${x.sure} yıl</i>`);
+    if (d !== "Türkçe") r.push(`<i class="rz">${d}</i>`);
+    if (uzaktanMi(x.ad)) r.push(`<i class="rz">${/Açıköğretim/.test(x.ad) ? "Açıköğretim" : "Uzaktan"}</i>`);
+    if (x.kont <= 5) r.push(`<i class="rz uyari" title="Tek bir adayın sırası tabanı belirler">Küçük kontenjan</i>`);
+    if (x.sart) r.push(`<i class="rz sart">Şart: ilk ${sayi(x.sart)} ✓</i>`);
+    return r.join("");
+  };
+  const fark = x => { if (!x.ps || x.b === "bos") return `<span class="fk bos">${x.kont - x.yer} boş</span>`;
+    const f = x.ps - durum.sira; return `<span class="fk ${f >= 0 ? "arti" : "eksi"}" title="Programın 2026 taban sırası ile senin sıran arasındaki fark">${f >= 0 ? "+" : "−"}${sayi(Math.abs(f))}</span>`; };
+  const egilim = x => !x.ps || !x.ps25 || !x.gercek ? "" : Math.abs(x.ps - x.ps25) / x.ps25 < .1 ? "" : x.ps < x.ps25 ? `<em class="eg zor" title="2025'e göre daha iyi sırayla doldu">▲</em>` : `<em class="eg kolay" title="2025'e göre daha geriden doldu">▼</em>`;
   const satir = x => {
-    const ekli = liste.some(y => y.kod === x.kod);
-    return `<li class="tr-prg"><div><b>${x.ad}</b><span>${UNI(x.uni)} · ${BUYUK(x.il)}</span><small>${BASLIK(x.fak)} · ${x.tur === "DEVLET" ? "Devlet" : x.tur === "VAKIF" ? "Vakıf" : BUYUK(x.tur)} · Kod ${x.kod}${x.ucret ? ` · yıllık ${sayi(x.ucret)} TL (indirimsiz)` : ""}${x.sart ? ` · en az ${sayi(x.sart)}. sıra şartı` : ""}</small></div>
-      <div class="tr-sayi">${x.b !== "bos" ? `<span><b>${puanY(x.enk)}</b>taban puan</span><span><b>${sayi(x.ps)}</b>${x.gercek ? "2026 sırası" : "tahmini sıra"}</span>${x.ps25 ? `<span><b>${sayi(x.ps25)}</b>2025 sırası</span>` : ""}` : `<span><b>Boş kaldı</b>2026'da dolmadı</span>`}
-      <span><b>${x.yer}/${x.kont}</b>yerleşen</span></div>
-      <button type="button" class="tr-ekle" data-kod="${x.kod}" aria-pressed="${ekli}">${ekli ? "Listende" : "+ Listeme ekle"}</button></li>`;
+    const ekli = liste.includes(x.kod), ac = acik === x.kod;
+    return `<div class="tr-satir b-${x.b}${ac ? " acik" : ""}" data-kod="${x.kod}">
+<button type="button" class="tr-ad" data-ac="${x.kod}" aria-expanded="${ac}"><span class="kod">${x.kod}</span><b>${esc(x.ad.replace(/\s*\((Burslu|Ücretli|%50 İndirimli|%25 İndirimli)\)/, ""))}</b>
+<span class="yer">${esc(x.uni)} · ${esc(x.il)}</span><span class="rzl">${rozetler(x)}</span></button>
+<span class="h" data-e="Genel kont.">${x.kont}<small>yerleşen ${x.yer}</small></span>
+<span class="h guclu" data-e="En küçük puan">${puanY(x.enk)}</span>
+<span class="h guclu" data-e="${x.gercek ? "Başarı sırası 2026" : "Sıra 2026 (tahmini)"}">${sayi(x.ps)}${x.gercek || !x.ps ? "" : "<sup>t</sup>"}</span>
+<span class="h" data-e="2025 sırası">${sayi(x.ps25)}${egilim(x)}</span><span class="h gizle-orta" data-e="2024 sırası">${sayi(x.ps24)}</span>
+<span class="h" data-e="Sana göre">${fark(x)}</span>
+<button type="button" class="tr-ekle" data-ekle="${x.kod}" aria-pressed="${ekli}" aria-label="${ekli ? "Listeden çıkar" : "Listeme ekle"}: ${esc(x.ad)}">${ekli ? "✓" : "+"}</button>
+${ac ? detay(x) : ""}</div>`;
+  };
+  const detay = x => {
+    const od = odenecek(x), kodlar = x.kosul ? x.kosul.split(",") : [];
+    const k = kodlar.length ? (KOSUL ? kodlar.map(c => `<li><b>Bk. ${c}</b> ${esc(KOSUL[c] || "Bu koşulun metni için ÖSYM tercih kılavuzuna bak.")}</li>`).join("") : "<li>Koşullar yükleniyor…</li>") : "";
+    return `<div class="tr-detay"><dl>
+<div><dt>Fakülte / yüksekokul</dt><dd>${esc(x.fak)}${x.ilce ? ` · ${esc(x.ilce)}` : ""}</dd></div>
+<div><dt>Puan türü · süre · dil</dt><dd>${durum.tur} · ${x.sure ? x.sure + " yıl" : "–"} · ${dili(x.ad)}</dd></div>
+<div><dt>Kontenjan</dt><dd>Genel ${x.kont}${x.obs ? ` · okul birincisi ${x.obs}` : ""} · yerleşen ${x.yer}</dd></div>
+<div><dt>2026 puanları</dt><dd>En küçük ${puanY(x.enk)} · en büyük ${puanY(x.enb)}</dd></div>
+${x.ucret ? `<div><dt>Öğrenim ücreti (2026–2027)</dt><dd>${sayi(x.ucret)} TL${od !== x.ucret ? ` · ${od === 0 ? "burslu: ücret ödenmez" : `indirimle yaklaşık ${sayi(od)} TL`}` : ""}</dd></div>` : ""}
+${x.sart ? `<div><dt>Başarı sırası şartı</dt><dd>${durum.tur} puan türünde en düşük ${sayi(x.sart)}. sıra</dd></div>` : ""}
+${x.akr ? `<div><dt>Akreditasyon</dt><dd>${esc(x.akr)}</dd></div>` : ""}</dl>
+${k ? `<p class="kb">Özel koşul ve açıklamalar (ÖSYM kılavuzu)</p><ul class="tr-kosul">${k}</ul>` : ""}</div>`;
   };
   const ciz = () => {
     const say = k => sonuc.filter(x => x.b === k).length;
-    $$("[data-sekme]").forEach(d => { d.setAttribute("aria-pressed", d.dataset.sekme === sekme); d.querySelector("sup").textContent = say(d.dataset.sekme); });
-    const l = sonuc.filter(x => x.b === sekme);
-    $(".tr-sonuclar").innerHTML = l.slice(0, goster).map(satir).join("") || `<li class="tr-bos">Bu grupta program yok. Filtreleri genişletmeyi dene.</li>`;
-    $("[data-daha]").hidden = l.length <= goster;
+    if (!say(durum.sekme)) durum.sekme = ["hedef", "guvenli", "riskli", "bos"].find(say) || "hedef";
+    $$("[data-sekme]").forEach(d => { d.setAttribute("aria-selected", d.dataset.sekme === durum.sekme); d.querySelector("sup").textContent = sayi(say(d.dataset.sekme)); });
+    $(".tr-bant").textContent = BANT[durum.sekme][1];
+    const l = sonuc.filter(x => x.b === durum.sekme).sort(durum.sekme === "bos" && durum.diz === "yakin" ? DIZ.bos : DIZ[durum.diz]);
+    $(".tr-govde").innerHTML = l.slice(0, goster).map(satir).join("") || `<p class="tr-bos">${sartDisi && !sonuc.length ? `${sartDisi} program başarı sırası şartı arıyor ve sıran bu şartı karşılamıyor.` : "Bu grupta program yok. Süzgeçleri genişletmeyi dene."}</p>`;
+    $("[data-daha]").hidden = l.length <= goster; $("[data-daha]").textContent = `Daha fazla göster (${sayi(l.length - goster)} program daha)`;
   };
-  $("[data-bitir]").addEventListener("click", async () => {
-    await veri(); durum.ara = $("#tr-ara").value; hesapla(); sekme = "hedef"; goster = 60;
-    adimGit(5); ciz();
-    const g = sonuc.filter(x => x.b === "guvenli").length, h = sonuc.filter(x => x.b === "hedef").length, r = sonuc.filter(x => x.b === "riskli").length;
-    $(".tr-ozet").textContent = `${durum.puan ? puanY(durum.puan) + " puan · " : ""}tahmini sıra ${sayi(durum.sira)} · ${durum.tur}`;
-    bibi(sonuc.length ? `${h} hedef, ${g} güvenli, ${r} riskli program buldum. Listeni hedef ağırlıklı kur, sonuna mutlaka güvenli ekle!`
-      : sartDisi ? `${sartDisi} program başarı sırası şartı istiyor (2026 şartları: ör. tıp ilk 50.000, hukuk ilk 125.000) ve senin sıran şartı karşılamıyor. Başka bölümlere bakalım mı?`
-        : "Bu filtrelerle program çıkmadı. Şehir ya da bölüm seçimini genişletelim mi?", sonuc.length ? "sevinc" : "uzgun");
-  });
-  $$("[data-sekme]").forEach(d => d.addEventListener("click", () => { sekme = d.dataset.sekme; goster = 60; ciz(); }));
-  $("[data-daha]").addEventListener("click", () => { goster += 60; ciz(); });
-  $("[data-yeniden]").addEventListener("click", () => adimGit(0));
+  const bibiS = m => { $(".tr-bibi-s span").textContent = m; };
+  const yenile = (konus) => {
+    hesapla(); goster = 50; filtreCiz(); ciz(); listeCiz(); kaydet();
+    if (konus) {
+      const n = k => sonuc.filter(x => x.b === k).length;
+      bibiS(sonuc.length - n("bos") > 0 ? `${sayi(n("hedef"))} hedef, ${sayi(n("guvenli"))} güvenli, ${sayi(n("riskli"))} riskli program buldum. Listeni hedef ağırlıklı kur, sonuna mutlaka güvenli ekle.`
+        : sartDisi ? `${sartDisi} program başarı sırası şartı arıyor; sıran bu şartı karşılamıyor. Başka bölümlere bakalım mı?`
+        : n("bos") ? "Sıranla dolan program çıkmadı; yalnız 2026'da boş kalan kontenjanlar var." : "Bu süzgeçlerle program çıkmadı. Şehir ya da bölüm seçimini genişlet.");
+    }
+  };
+  const sonucAc = (konus) => { adim(2); yenile(konus); };
 
-  // ---- tercih listem ----
-  const listeCiz = () => {
-    yaz("kk-tercih", liste);
-    $(".tr-liste-sayi").textContent = liste.length;
-    $(".tr-liste ol").innerHTML = liste.map((x, i) => `<li><span class="no">${i + 1}</span><div><b>${x.ad}</b><small>${UNI(x.uni)} · ${x.kod}${x.enk ? " · taban " + puanY(x.enk) : ""}</small></div>
-      <span class="tr-oklar"><button type="button" data-yukari="${i}" aria-label="Yukarı" ${i ? "" : "disabled"}>↑</button><button type="button" data-asagi="${i}" aria-label="Aşağı" ${i < liste.length - 1 ? "" : "disabled"}>↓</button><button type="button" data-sil="${i}" aria-label="Çıkar">×</button></span></li>`).join("")
-      || `<li class="tr-bos">Henüz boş. Sonuçlardan "+ Listeme ekle" ile ekle.</li>`;
-  };
+  // süzgeç ve tablo olayları
   kok.addEventListener("click", e => {
-    const d = e.target.closest("button"); if (!d) return;
-    if (d.dataset.kod) {
-      const k = d.dataset.kod, i = liste.findIndex(x => x.kod === k);
-      if (i >= 0) liste.splice(i, 1);
-      else if (liste.length >= 24) { bibi("YKS'de en çok 24 tercih yapabilirsin; listen dolu.", "uzgun"); return; }
-      else { const x = sonuc.find(y => y.kod === k); liste.push({ kod: k, ad: x.ad, uni: x.uni, enk: x.enk }); }
-      listeCiz(); ciz();
-    } else if (d.dataset.yukari) { const i = +d.dataset.yukari; [liste[i - 1], liste[i]] = [liste[i], liste[i - 1]]; listeCiz(); }
-    else if (d.dataset.asagi) { const i = +d.dataset.asagi; [liste[i + 1], liste[i]] = [liste[i], liste[i + 1]]; listeCiz(); }
-    else if (d.dataset.sil) { liste.splice(+d.dataset.sil, 1); listeCiz(); if (adim === 5) ciz(); }
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.il) { const il = b.dataset.il; durum.sehir = durum.sehir.includes(il) ? durum.sehir.filter(x => x !== il) : [...durum.sehir, il]; yenile(true); }
+    else if (b.dataset.ut) { const v = b.dataset.ut; durum.ut = durum.ut.includes(v) ? durum.ut.filter(x => x !== v) : [...durum.ut, v]; if (!durum.ut.length) durum.ut = ["DEVLET"]; durum.sehir = []; yenile(true); }
+    else if (b.dataset.burs) { const v = b.dataset.burs; durum.burs = durum.burs.includes(v) ? durum.burs.filter(x => x !== v) : [...durum.burs, v]; yenile(true); }
+    else if (b.dataset.sekme) { durum.sekme = b.dataset.sekme; goster = 50; acik = null; ciz(); kaydet(); }
+    else if (b.dataset.ac) { acik = acik === b.dataset.ac ? null : b.dataset.ac; ciz();
+      if (acik && !KOSUL) fetch(kok.dataset.kosul).then(r => r.json()).then(d => { KOSUL = d; ciz(); }).catch(() => { KOSUL = {}; ciz(); }); }
+    else if (b.dataset.ekle) ekleCikar(b.dataset.ekle);
+    else if (b.hasAttribute("data-daha")) { goster += 50; ciz(); }
+    else if (b.hasAttribute("data-degistir")) { $("#tr-puan").value = durum.puan ? puanY(durum.puan) : ""; $("#tr-sira").value = durum.siraElle ? sayi(durum.sira) : ""; adim(b.dataset.degistir === "tur" ? 0 : 1); onizle(); }
+    else if (b.hasAttribute("data-il-temizle")) { durum.sehir = []; yenile(true); }
+    else if (b.hasAttribute("data-sifirla")) { const { tur, puan, sira: s, siraElle } = durum; durum = Object.assign({}, VARS, { tur, puan, sira: s, siraElle }); $("#tr-ara").value = ""; yenile(true); }
+    else if (b.dataset.yukari) { const i = +b.dataset.yukari; [liste[i - 1], liste[i]] = [liste[i], liste[i - 1]]; listeCiz(); kaydet(); }
+    else if (b.dataset.asagi) { const i = +b.dataset.asagi; [liste[i + 1], liste[i]] = [liste[i], liste[i + 1]]; listeCiz(); kaydet(); }
+    else if (b.dataset.sil) ekleCikar(b.dataset.sil);
   });
-  $("[data-kopyala]").addEventListener("click", () => {
-    const t = liste.map((x, i) => `${i + 1}. ${x.kod} ${x.ad} – ${UNI(x.uni)}`).join("\n");
-    navigator.clipboard?.writeText(t).then(() => bibi("Listeni kopyaladım. Program kodlarıyla ÖSYM'de tercih yaparken işine yarar.", "sevinc"));
+  let bekle = 0;
+  $("#tr-ara").addEventListener("input", e => { clearTimeout(bekle); bekle = setTimeout(() => { durum.ara = e.target.value; yenile(true); }, 200); });
+  $("#tr-il-ara").addEventListener("input", filtreCiz);
+  $("#tr-dil").addEventListener("change", e => { durum.dil = e.target.value; yenile(true); });
+  $("#tr-uzaktan").addEventListener("change", e => { durum.uzaktan = e.target.checked; yenile(true); });
+  $("#tr-diz").addEventListener("change", e => { durum.diz = e.target.value; ciz(); kaydet(); });
+
+  // ---------- tercih listem ----------
+  let geriAl = null;
+  const ekleCikar = kod => {
+    const i = liste.indexOf(kod);
+    if (i >= 0) { geriAl = { kod, i }; liste.splice(i, 1); }
+    else if (liste.length >= 24) { bibiS("YKS'de en çok 24 tercih yapabilirsin; listen dolu."); return; }
+    else liste.push(kod);
+    kaydet(); ciz(); listeCiz();
+  };
+  const listeCiz = () => {
+    if (!V) return;
+    const L = liste.map(k => V.kod.get(k)).filter(Boolean).map(kayit), n = L.length;
+    $$(".tr-liste-sayi").forEach(e => { e.textContent = n; });
+    const bantlar = { riskli: 0, hedef: 0, guvenli: 0, bos: 0 };
+    L.forEach(x => { x.b = x.p[4] === durum.tur && durum.sira ? (bantOf(x.p) || "diger") : "diger"; if (bantlar[x.b] != null) bantlar[x.b]++; });
+    const baskaTur = L.filter(x => x.p[4] !== durum.tur).length;
+    $(".tr-denge").innerHTML = n ? `<span><i class="nk b-riskli"></i>${bantlar.riskli} riskli</span><span><i class="nk b-hedef"></i>${bantlar.hedef} hedef</span><span><i class="nk b-guvenli"></i>${bantlar.guvenli + bantlar.bos} güvenli</span>` +
+      (n >= 4 && !(bantlar.guvenli + bantlar.bos) ? `<span class="uy">Listende güvenli program yok; sona birkaç tane ekle.</span>` : "") +
+      (baskaTur ? `<span class="uy">${baskaTur} program başka puan türünden.</span>` : "") : "";
+    $(".tr-liste ol").innerHTML = L.map((x, i) => `<li class="b-${x.b}"><span class="no">${i + 1}</span><div><span class="kod">${x.kod}</span><b>${esc(x.ad)}</b>
+<small>${esc(x.uni)} · ${esc(x.il)}${x.enk ? ` · taban ${puanY(x.enk)}` : ""}${x.ps ? ` · sıra ${sayi(x.ps)}` : ""}</small></div>
+<span class="tr-oklar"><button type="button" data-yukari="${i}" aria-label="Yukarı taşı" ${i ? "" : "disabled"}>↑</button><button type="button" data-asagi="${i}" aria-label="Aşağı taşı" ${i < n - 1 ? "" : "disabled"}>↓</button><button type="button" data-sil="${x.kod}" aria-label="Listeden çıkar">×</button></span></li>`).join("")
+      || `<li class="tr-bos">Henüz boş. Tablodaki + ile program ekle.</li>`;
+    $(".tr-geri-al").hidden = !geriAl;
+    $(".tr-yazdir-bas").textContent = `${TUR_AD[durum.tur] || ""} · ${durum.siraElle ? "sıra" : "tahmini sıra"} ${sayi(durum.sira)} · ${new Date().toLocaleDateString("tr-TR")}`;
+  };
+  const metin = () => liste.map(k => V.kod.get(k)).filter(Boolean).map(kayit).map((x, i) => `${i + 1}. ${x.kod} · ${x.ad} · ${x.uni} (${x.il})${x.enk ? ` · taban ${puanY(x.enk)}` : ""}${x.ps ? ` · sıra ${sayi(x.ps)}` : ""}`).join("\n");
+  const kopyala = async (t, dug, tamam) => {
+    const eski = dug.dataset.ad || (dug.dataset.ad = dug.textContent); let ok = false;
+    try { await navigator.clipboard.writeText(t); ok = true; } catch (e) {
+      try { const a = document.createElement("textarea"); a.value = t; a.style.cssText = "position:fixed;opacity:0"; document.body.appendChild(a); a.select(); ok = document.execCommand("copy"); a.remove(); } catch (e2) {} }
+    dug.textContent = ok ? tamam : "Kopyalanamadı"; setTimeout(() => { dug.textContent = eski; }, 2200);
+  };
+  $("[data-kopyala]").addEventListener("click", e => { const d = e.currentTarget; if (!liste.length) { d.dataset.ad = d.dataset.ad || d.textContent; d.textContent = "Liste boş"; setTimeout(() => { d.textContent = d.dataset.ad; }, 1800); return; } kopyala(metin(), d, "Kopyalandı ✓"); });
+  $("[data-baglanti]").addEventListener("click", e => {
+    const q = new URLSearchParams(location.search); if (liste.length) q.set("l", liste.join(","));
+    kopyala(location.origin + location.pathname + "?" + q, e.currentTarget, "Bağlantı kopyalandı ✓");
   });
   $("[data-yazdir]").addEventListener("click", () => window.print());
+  $("[data-temizle]").addEventListener("click", () => { if (liste.length && confirm("Tercih listen tamamen silinsin mi?")) { liste = []; geriAl = null; kaydet(); ciz(); listeCiz(); } });
+  $("[data-sirala]").addEventListener("click", () => { liste.sort((a, b) => ((V.kod.get(a) || [])[9] || 9e9) - ((V.kod.get(b) || [])[9] || 9e9)); kaydet(); listeCiz(); });
+  $(".tr-geri-al").addEventListener("click", () => { if (geriAl && liste.length < 24) { liste.splice(geriAl.i, 0, geriAl.kod); geriAl = null; kaydet(); ciz(); listeCiz(); } });
+  $(".tr-cubuk").addEventListener("click", () => $(".tr-liste").scrollIntoView({ block: "start", behavior: "smooth" }));
 
-  // ---- adres: /tercih/?t=SAY&p=450.12 (puan hesaplamadan gelir) ----
+  // ---------- açılış: adres > kayıtlı durum ----------
   const q = new URLSearchParams(location.search);
-  listeCiz();
-  if (q.get("t") && V === null) {
-    const t = q.get("t"), p = parseFloat(q.get("p"));
-    const d = $$("[data-tur]").find(x => x.dataset.tur === t);
-    if (d) { durum.tur = t; d.setAttribute("aria-pressed", "true"); if (p) $("#tr-puan").value = p.toFixed(2).replace(".", ","); adimGit(1); }
-    else adimGit(0);
-  } else adimGit(0);
+  (async () => {
+    const t = q.get("t"), s = parseInt(q.get("s"), 10), p = parseFloat(q.get("p"));
+    if (t && TUR_AD[t]) {
+      if (t !== durum.tur) durum = Object.assign({}, VARS, { tur: t });
+      if (s > 0) { durum.sira = s; durum.siraElle = true; durum.puan = null; }
+      else if (p >= 100) { durum.sira = null; }
+      if (q.get("il")) durum.sehir = q.get("il").split(",").filter(Boolean);
+      if (q.get("q")) durum.ara = q.get("q");
+    }
+    $$("[data-tur]").forEach(x => x.setAttribute("aria-pressed", x.dataset.tur === durum.tur));
+    if (durum.tur && (durum.sira || p >= 100)) {
+      await veri();
+      if (!durum.sira) { durum.puan = p; durum.siraElle = false; durum.sira = sira(p, durum.tur); }
+      const pay = (q.get("l") || "").split(",").filter(k => V.kod.has(k));
+      if (pay.length && !liste.length) liste = pay.slice(0, 24);
+      sonucAc(true);
+    } else if (durum.tur && t) { adim(1); }
+    else adim(0);
+  })();
 })();
 </script>
 <script>
