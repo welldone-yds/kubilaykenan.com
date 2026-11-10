@@ -263,6 +263,39 @@
   });
   D.guncelle(); S.goster();
 })();
+</script><script>
+// Hata defteri ortak kaydı (10.11.2026): seviye testi, YÖKDİL testi, düello ve "O mu, bu mu?" yanlışları buraya yazılır;
+// /yanlislarim/ sayfası aralıklı tekrarla (Leitner: kutu 1–5, 0/1/3/7/14 gün) yeniden sorar. Yalnız bu tarayıcıda (localStorage "kk-yanlis").
+(() => {
+  const A = "kk-yanlis", GUN = 864e5, ARALIK = [0, 1, 3, 7, 14];
+  const oku = () => { try { return JSON.parse(localStorage.getItem(A)) || { soru: {}, kelime: {} }; } catch (e) { return { soru: {}, kelime: {} }; } };
+  const yaz = v => { try { localStorage.setItem(A, JSON.stringify(v)); } catch (e) {} };
+  const Y = window.KKYanlis = {
+    hepsi: oku,
+    ekleSoru(q, kaynak) {   // q: {id, s, o: [5 ya da 2 seçenek], d: "A".., a: açıklama, b: bölüm}
+      if (!q || !q.s) return; const v = oku(), id = String(q.id || q.s.slice(0, 60));
+      const eski = v.soru[id];
+      v.soru[id] = { s: q.s, o: q.o, d: q.d, a: q.a || "", b: q.b || "", kaynak, kutu: 1, sonra: Date.now(), kez: (eski ? eski.kez : 0) + 1, z: Date.now() };
+      yaz(v);
+    },
+    ekleKelime(x, kaynak) {   // x: {k, tr, es, id}
+      if (!x || !x.k) return; const v = oku(), id = x.k.toLocaleLowerCase("en"), eski = v.kelime[id];
+      v.kelime[id] = { k: x.k, tr: x.tr || "", es: x.es || "", id: x.id || "", kaynak, kutu: 1, sonra: Date.now(), kez: (eski ? eski.kez : 0) + 1, z: Date.now() };
+      yaz(v);
+    },
+    cevap(tur, id, dogru) {   // tekrar sonucu: doğruysa bir sonraki kutuya, yanlışsa 1. kutuya; 5. kutuyu geçen öğrenildi → silinir
+      const v = oku(), x = v[tur][id]; if (!x) return "yok";
+      if (dogru) { x.kutu++; if (x.kutu > 5) { delete v[tur][id]; yaz(v); return "ogrenildi"; } x.sonra = Date.now() + ARALIK[x.kutu - 1] * GUN; }
+      else { x.kutu = 1; x.sonra = Date.now(); x.kez++; }
+      yaz(v); return "kaldi";
+    },
+    sil(tur, id) { const v = oku(); delete v[tur][id]; yaz(v); },
+    sayi() { const v = oku(), s = Object.values(v.soru), k = Object.values(v.kelime), n = Date.now();
+      return { soru: s.length, kelime: k.length, bugun: [...s, ...k].filter(x => x.sonra <= n).length }; },
+  };
+  // menüdeki sayaç rozeti (varsa)
+  const r = document.querySelector("[data-yanlis-rozet]"); if (r) { const n = Y.sayi(); r.textContent = n.bugun || ""; r.hidden = !n.bugun; }
+})();
 </script><script>window.KK_MASKOT = "Bibi";</script><script>
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
 (() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
