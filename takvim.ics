@@ -3,8 +3,8 @@ VERSION:2.0
 PRODID:-//kubilaykenan.com//Sinav Takvimi//TR
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:YDS · e-YDS · YÖKDİL · e-TEP · AGS sınav takvimi (Kubil
- ay Kenan Hoca)
+X-WR-CALNAME:YDS · e-YDS · YÖKDİL · e-TEP · AGS · ALES · KPSS sına
+ v takvimi (Kubilay Kenan Hoca)
 X-WR-CALDESC:İngilizce YDS\, e-YDS\, YÖKDİL\, e-TEP ve MEB-AGS sınav\, 
  başvuru ve sonuç tarihleri.
 X-WR-TIMEZONE:Europe/Istanbul
@@ -151,6 +151,46 @@ DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-ales-1-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260510
+DTEND;VALUE=DATE:20260511
+SUMMARY:2026-ALES/1 sınavı
+DESCRIPTION:Saat: 10.15\, 150 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-1-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260325
+DTEND;VALUE=DATE:20260403
+SUMMARY:2026-ALES/1 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-1-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260409
+DTEND;VALUE=DATE:20260410
+SUMMARY:2026-ALES/1 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-1-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260605
+DTEND;VALUE=DATE:20260606
+SUMMARY:2026-ALES/1 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:e-yokdi-l-2026-1-i-ngilizce-sosyal-bilimler-sinav@kubilaykenan.com
 DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20260516
@@ -271,6 +311,46 @@ DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-ales-2-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260802
+DTEND;VALUE=DATE:20260803
+SUMMARY:2026-ALES/2 sınavı
+DESCRIPTION:Saat: 10.15\, 150 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-2-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260610
+DTEND;VALUE=DATE:20260619
+SUMMARY:2026-ALES/2 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-2-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260625
+DTEND;VALUE=DATE:20260626
+SUMMARY:2026-ALES/2 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-2-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260814
+DTEND;VALUE=DATE:20260815
+SUMMARY:2026-ALES/2 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-yokdi-l-2-sinav@kubilaykenan.com
 DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20260809
@@ -331,6 +411,87 @@ DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-kpss-lisans-genel-yetenek-genel-kultur-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260906
+DTEND;VALUE=DATE:20260907
+SUMMARY:2026-KPSS Lisans (Genel Yetenek-Genel Kültür) sınavı
+DESCRIPTION:Saat: 10.15\, 130 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-lisans-genel-yetenek-genel-kultur-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260701
+DTEND;VALUE=DATE:20260714
+SUMMARY:2026-KPSS Lisans (Genel Yetenek-Genel Kültür) başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-lisans-genel-yetenek-genel-kultur-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260722
+DTEND;VALUE=DATE:20260724
+SUMMARY:2026-KPSS Lisans (Genel Yetenek-Genel Kültür) geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-lisans-genel-yetenek-genel-kultur-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261008
+SUMMARY:2026-KPSS Lisans (Genel Yetenek-Genel Kültür) sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-lisans-alan-bilgisi-a-grubu-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260914
+SUMMARY:2026-KPSS Lisans (Alan Bilgisi / A Grubu) sınavı
+DESCRIPTION:Saat: 12.09: 1. oturum 10.15\, 2. oturum 14.45\; 13.09: 3. otur
+ um 10.15 (her test 40 soru/50 dk\, İstatistik 60 dk). Kaynak: ÖSYM. Ayr
+ ıntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-lisans-alan-bilgisi-a-grubu-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260701
+DTEND;VALUE=DATE:20260714
+SUMMARY:2026-KPSS Lisans (Alan Bilgisi / A Grubu) başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-lisans-alan-bilgisi-a-grubu-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260722
+DTEND;VALUE=DATE:20260724
+SUMMARY:2026-KPSS Lisans (Alan Bilgisi / A Grubu) geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-lisans-alan-bilgisi-a-grubu-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261008
+SUMMARY:2026-KPSS Lisans (Alan Bilgisi / A Grubu) sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:e-yds-2026-10-i-ngilizce-sinav@kubilaykenan.com
 DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20260926
@@ -351,6 +512,46 @@ DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-kpss-on-lisans-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261004
+DTEND;VALUE=DATE:20261005
+SUMMARY:2026-KPSS Ön Lisans sınavı
+DESCRIPTION:Saat: 10.15\, 130 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-on-lisans-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260729
+DTEND;VALUE=DATE:20260811
+SUMMARY:2026-KPSS Ön Lisans başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-on-lisans-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260819
+DTEND;VALUE=DATE:20260821
+SUMMARY:2026-KPSS Ön Lisans geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-on-lisans-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:2026-KPSS Ön Lisans sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:e-yds-2026-11-farsca-i-ngilizce-sinav@kubilaykenan.com
 DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20261017
@@ -368,6 +569,87 @@ DTEND;VALUE=DATE:20261009
 SUMMARY:e-YDS 2026/11 Farsça/İngilizce başvuru
 DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
   sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-ortaogretim-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261025
+DTEND;VALUE=DATE:20261026
+SUMMARY:2026-KPSS Ortaöğretim sınavı
+DESCRIPTION:Saat: 10.15\, 130 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-ortaogretim-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260827
+DTEND;VALUE=DATE:20260909
+SUMMARY:2026-KPSS Ortaöğretim başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-ortaogretim-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260915
+DTEND;VALUE=DATE:20260917
+SUMMARY:2026-KPSS Ortaöğretim geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-ortaogretim-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:2026-KPSS Ortaöğretim sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-din-hizmetleri-alan-bilgisi-testi-dhbt-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261101
+DTEND;VALUE=DATE:20261102
+SUMMARY:2026-KPSS Din Hizmetleri Alan Bilgisi Testi (DHBT) sınavı
+DESCRIPTION:Saat: 10.15\, 60 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: h
+ ttps://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-din-hizmetleri-alan-bilgisi-testi-dhbt-basvuru@kubilaykenan.c
+ om
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20260922
+DTEND;VALUE=DATE:20261001
+SUMMARY:2026-KPSS Din Hizmetleri Alan Bilgisi Testi (DHBT) başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-din-hizmetleri-alan-bilgisi-testi-dhbt-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261005
+DTEND;VALUE=DATE:20261006
+SUMMARY:2026-KPSS Din Hizmetleri Alan Bilgisi Testi (DHBT) geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-kpss-din-hizmetleri-alan-bilgisi-testi-dhbt-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:2026-KPSS Din Hizmetleri Alan Bilgisi Testi (DHBT) sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -406,6 +688,46 @@ DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20261210
 DTEND;VALUE=DATE:20261211
 SUMMARY:2026-YDS/2 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-3-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:2026-ALES/3 sınavı
+DESCRIPTION:Saat: 10.15\, 150 dk. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-3-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261007
+DTEND;VALUE=DATE:20261016
+SUMMARY:2026-ALES/3 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-3-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261021
+DTEND;VALUE=DATE:20261022
+SUMMARY:2026-ALES/3 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-ales-3-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20261217
+DTEND;VALUE=DATE:20261218
+SUMMARY:2026-ALES/3 sonuç
 DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
  ntı ve geri sayım: https://kubilaykenan.com/
 TRANSP:TRANSPARENT
@@ -611,6 +933,46 @@ DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:2027-ales-1-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270418
+DTEND;VALUE=DATE:20270419
+SUMMARY:2027-ALES/1 sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-1-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270224
+DTEND;VALUE=DATE:20270305
+SUMMARY:2027-ALES/1 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-1-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270317
+DTEND;VALUE=DATE:20270318
+SUMMARY:2027-ALES/1 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-1-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270507
+DTEND;VALUE=DATE:20270508
+SUMMARY:2027-ALES/1 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:e-yds-2027-4-i-ngilizce-sinav@kubilaykenan.com
 DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20270424
@@ -751,6 +1113,46 @@ DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
+UID:2027-ales-2-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270711
+DTEND;VALUE=DATE:20270712
+SUMMARY:2027-ALES/2 sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-2-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270525
+DTEND;VALUE=DATE:20270603
+SUMMARY:2027-ALES/2 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-2-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270609
+DTEND;VALUE=DATE:20270610
+SUMMARY:2027-ALES/2 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-2-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270730
+DTEND;VALUE=DATE:20270731
+SUMMARY:2027-ALES/2 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
 UID:e-tep-2027-3-i-ngilizce-sinav@kubilaykenan.com
 DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20270717
@@ -838,6 +1240,86 @@ DTEND;VALUE=DATE:20270813
 SUMMARY:e-YDS 2027/9 İngilizce başvuru
 DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
   sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-kpss-a-grubu-genel-yetenek-genel-kultur-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270912
+DTEND;VALUE=DATE:20270913
+SUMMARY:2027-KPSS A Grubu (Genel Yetenek-Genel Kültür) sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-kpss-a-grubu-genel-yetenek-genel-kultur-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270720
+SUMMARY:2027-KPSS A Grubu (Genel Yetenek-Genel Kültür) başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-kpss-a-grubu-genel-yetenek-genel-kultur-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270728
+DTEND;VALUE=DATE:20270730
+SUMMARY:2027-KPSS A Grubu (Genel Yetenek-Genel Kültür) geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-kpss-a-grubu-genel-yetenek-genel-kultur-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271013
+DTEND;VALUE=DATE:20271014
+SUMMARY:2027-KPSS A Grubu (Genel Yetenek-Genel Kültür) sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-kpss-a-grubu-alan-bilgisi-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270918
+DTEND;VALUE=DATE:20270920
+SUMMARY:2027-KPSS A Grubu (Alan Bilgisi) sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-kpss-a-grubu-alan-bilgisi-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270720
+SUMMARY:2027-KPSS A Grubu (Alan Bilgisi) başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-kpss-a-grubu-alan-bilgisi-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20270728
+DTEND;VALUE=DATE:20270730
+SUMMARY:2027-KPSS A Grubu (Alan Bilgisi) geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-kpss-a-grubu-alan-bilgisi-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271013
+DTEND;VALUE=DATE:20271014
+SUMMARY:2027-KPSS A Grubu (Alan Bilgisi) sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
 TRANSP:TRANSPARENT
 END:VEVENT
 BEGIN:VEVENT
@@ -946,6 +1428,46 @@ DTSTAMP:20261020T000000Z
 DTSTART;VALUE=DATE:20271210
 DTEND;VALUE=DATE:20271211
 SUMMARY:2027-YDS/2 sonuç
+DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
+ ntı ve geri sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-3-sinav@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271128
+DTEND;VALUE=DATE:20271129
+SUMMARY:2027-ALES/3 sınavı
+DESCRIPTION:Kaynak: ÖSYM. Ayrıntı ve geri sayım: https://kubilaykenan.c
+ om/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-3-basvuru@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271012
+DTEND;VALUE=DATE:20271021
+SUMMARY:2027-ALES/3 başvuru
+DESCRIPTION:Başvuru dönemi (ÖSYM AİS). Kaynak: ÖSYM. Ayrıntı ve geri
+  sayım: https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-3-gec@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271027
+DTEND;VALUE=DATE:20271028
+SUMMARY:2027-ALES/3 geç başvuru
+DESCRIPTION:Geç başvuru günü. Kaynak: ÖSYM. Ayrıntı ve geri sayım: 
+ https://kubilaykenan.com/
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-ales-3-sonuc@kubilaykenan.com
+DTSTAMP:20261020T000000Z
+DTSTART;VALUE=DATE:20271217
+DTEND;VALUE=DATE:20271218
+SUMMARY:2027-ALES/3 sonuç
 DESCRIPTION:Sonuçların açıklanması beklenen gün. Kaynak: ÖSYM. Ayrı
  ntı ve geri sayım: https://kubilaykenan.com/
 TRANSP:TRANSPARENT
