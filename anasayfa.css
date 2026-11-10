@@ -607,6 +607,11 @@ main { overflow-x: clip; }   /* giriş ışığı (.vk::before) yatay kaydırma 
 .vs-tumu-kap { text-align: center; }
 .vs-tumu { font: inherit; font-weight: 700; cursor: pointer; margin-top: 20px; }
 .vs-tumu[hidden] { display: none; }
+
+/* Instagram'da (10.11.2026): metin kartları, görsel yok */
+.ig-liste a { border-top: 6px solid var(--green); }
+.ig-liste b { font: 800 22px/1.2 var(--font-display); color: var(--heading); }
+.ig-liste a > span:not(.etiket) { font-size: 15px; color: var(--muted); }
 /* Üst çubukta sözlük araması (21.10.2026): her sayfada; ⌘K / Ctrl+K ya da "/" ile açılır, /sozluk/veri.json'dan arar. */
 .ara-dug { display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1 var(--font-sans); color: var(--muted); background: var(--bant, #F6F1EC);
            border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px 8px 12px; cursor: pointer; white-space: nowrap; }

@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YÖKDİL Seviye Testi (Sağlık, Fen, Sosyal) · Kubilay Kenan Hoca</title>
+<meta name="description" content="Sağlık, Fen ya da Sosyal: alanına göre 10 soruluk ücretsiz YÖKDİL seviye testi. Tahmini puan aralığın, bölüm karnen ve her sorunun açıklaması.">
+<link rel="canonical" href="https://kubilaykenan.com/yokdil-testi/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-180.png"><meta name="theme-color" content="#3D091B">
+<link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
+<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="YÖKDİL Alan Testi"><meta property="og:description" content="Sağlık, Fen ya da Sosyal: alanına göre 10 soruluk ücretsiz YÖKDİL seviye testi. Tahmini puan aralığın, bölüm karnen ve her sorunun açıklaması.">
+<meta property="og:image" content="https://kubilaykenan.com/og/seviye-testi.png?v=f48d97eb"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
+<link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
+<link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
+<link rel="stylesheet" href="/site.css?v=d55817e1">
+<style>
+/* Well-Done maskotu (maskot.svg) kıpırtıları: ana sayfa, düello ve seviye testi ortak. Kapsayıcıya .selam / .ucuyor eklenir. */
+/* maskot kıpırtıları: göz kırpma, püskül, kep, el sallama, hafif süzülme */
+.maskot .m-govde { transform-origin: 120px 222px; animation: m-sallan 3.2s ease-in-out infinite; }
+.maskot .m-goz { transform-origin: 120px 134px; animation: m-kirp 4.6s infinite; }
+.maskot .m-puskul { transform-origin: 120px 52px; animation: m-puskul 1.8s ease-in-out infinite; }
+.maskot .m-kep { transform-origin: 120px 70px; transform: rotate(-6deg); }
+.maskot .m-el { transform-origin: 206px 160px; }
+.selam .m-el { animation: m-el 1.1s ease-in-out 1; }
+.maskot .m-bebek { transition: transform .4s; }
+.ucuyor .m-bebek { transform: translate(5px, -4px); }
+@keyframes m-sallan { 0%, 100% { transform: rotate(-2deg) translateY(0); } 50% { transform: rotate(2deg) translateY(-6px); } }
+@keyframes m-kirp { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes m-puskul { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(8deg); } }
+@keyframes m-el { 0% { transform: none; } 25% { transform: translate(-6px, -58px) rotate(-22deg); } 50% { transform: translate(-6px, -58px) rotate(6deg); }
+                  75% { transform: translate(-6px, -58px) rotate(-18deg); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .maskot * { animation: none !important; } }
+.maskot.durgun * { animation-play-state: paused !important; }   /* ekran dışı / kaydırırken (vitrin.js) */
+/* tepkiler (düello, seviye testi): sevinç zıplaması, üzülme */
+.sevinc .maskot { animation: m-zipla .6s cubic-bezier(.3, 1.6, .5, 1) 1; }
+.uzgun .maskot .m-govde { animation: m-uzul 1s ease-in-out 1; }
+@keyframes m-zipla { 0% { transform: none; } 40% { transform: translateY(-22px) scale(1.06, .96); } 100% { transform: none; } }
+@keyframes m-uzul { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(-9deg) translateY(4px); } 60% { transform: rotate(6deg) translateY(4px); } }
+/* konuşma balonu: maskotun yanında; metin kelime kelime yazılır (data-yaz) */
+.balon { position: relative; background: #fff; color: #2B1A1F; border-radius: 18px; padding: 12px 16px; box-shadow: 0 10px 26px rgba(43, 26, 31, .14);
+         font: 600 15px/1.4 var(--font-sans); max-width: 280px; }
+.balon::before { content: ""; position: absolute; left: -7px; top: 22px; width: 16px; height: 16px; background: inherit; transform: rotate(45deg); border-radius: 3px; }
+.balon b { display: block; font: 800 12px/1 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; color: #A84660; margin-bottom: 5px; }
+@media (prefers-reduced-motion: reduce) { .sevinc .maskot, .uzgun .maskot .m-govde { animation: none !important; } }
+/* Mini kelime düellosu (/duello/, 21.10.2026): Well-Done düellosunun 10 kelimelik web sürümü; maskot sunucu. */
+.du { max-width: 760px; margin: 0 auto; padding: 18px 0 40px; }
+.du-bas { text-align: center; margin-bottom: 22px; }
+.du-bas .imza { font: 700 30px/1 "Dancing Script", cursive; color: #A84660; }
+.du-bas h1 { font: 800 clamp(34px, 5vw, 48px)/1.08 var(--font-display); color: var(--heading); margin: 6px 0 10px; letter-spacing: -.02em; }
+.du-bas p { color: var(--muted); margin: 0; font-size: 17px; }
+.du-kart { background: #FFF6F4; border: 1px solid #F1DCE1; border-radius: 26px; padding: 26px; box-shadow: 0 18px 50px rgba(168, 70, 96, .10); }
+.du-kart[hidden] { display: none; }
+.du-maskot { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.du-maskot .maskot { width: 92px; height: auto; flex: none; overflow: visible; }
+.du-rakipler { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0 0 18px; }
+.du-rakip { display: flex; align-items: center; gap: 12px; text-align: left; border: 1.5px solid #EED3D9; background: #fff; border-radius: 16px; padding: 12px 14px; cursor: pointer;
+            font: inherit; color: var(--text); transition: border-color .15s, box-shadow .15s; }
+.du-rakip:hover { border-color: #A84660; }
+.du-rakip[aria-pressed="true"] { border-color: #A84660; box-shadow: 0 0 0 3px rgba(168, 70, 96, .18); }
+.du-av { width: 40px; height: 40px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 800 16px/1 var(--font-display); color: #fff; background: #A84660; }
+.du-av.cirak { background: #6E8B5A; } .du-av.kalfa { background: #C08A2E; } .du-av.usta { background: #A84660; } .du-av.hoca { background: #3D091B; }
+.du-rakip b { display: block; color: var(--heading); }
+.du-rakip small { color: var(--muted); font-size: 13px; line-height: 1.3; display: block; }
+.du-dug { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; cursor: pointer; font: 700 16px/1 var(--font-sans);
+          padding: 16px 24px; border-radius: 14px; background: #A84660; color: #fff; box-shadow: 0 10px 24px rgba(168, 70, 96, .3); text-decoration: none; }
+.du-dug.ikinci { background: #fff; color: #A84660; border: 1.5px solid #EED3D9; box-shadow: none; }
+.du-dug.wa { background: #1FAF54; box-shadow: none; }
+.du-dugmeler { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.du-rekor { color: var(--muted); font-size: 14px; }
+/* oyun */
+.du-skor { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: #3D091B; color: #fff; border-radius: 20px; padding: 14px 18px; }
+.du-skor .taraf { display: flex; align-items: center; gap: 10px; }
+.du-skor .taraf.sag { justify-content: flex-end; text-align: right; }
+.du-skor small { display: block; font-size: 12px; color: #E8D3D8; }
+.du-skor .p { font: 800 30px/1 var(--font-display); }
+.du-skor .tur { text-align: center; font: 700 13px/1.2 var(--font-sans); color: #E8D3D8; }
+.du-skor .tur b { display: block; font: 800 22px/1 var(--font-display); color: #fff; }
+.du-skor .du-av { width: 36px; height: 36px; font-size: 14px; box-shadow: 0 0 0 2px rgba(255, 255, 255, .5); }
+.du-skor .ben { background: #F4C9D2; color: #3D091B; }
+.du-sure { height: 6px; border-radius: 99px; background: #F1DCE1; margin: 14px 0 4px; overflow: hidden; }
+.du-sure i { display: block; height: 100%; width: 100%; background: #A84660; border-radius: inherit; transform-origin: left; }
+.du-durum { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); min-height: 18px; }
+.du-soru { text-align: center; padding: 26px 0 20px; }
+.du-soru .ne { color: var(--muted); font-size: 15px; }
+.du-soru .kel { font: 700 clamp(36px, 7vw, 52px)/1.1 "Cormorant Garamond", Georgia, serif; color: #2B1A1F; margin: 8px 0 2px; }
+.du-soru .kel.tr { font: 800 clamp(24px, 4.6vw, 32px)/1.2 var(--font-display); }
+.du-soru .tt { color: var(--muted); font-size: 14px; }
+.du-sec { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.du-sec button { position: relative; width: 100%; min-height: 58px; text-align: left; font: 600 16px/1.3 var(--font-sans); color: #2B1A1F; background: #fff;
+                 border: 1.5px solid #F1DCE1; border-radius: 16px; padding: 14px 16px; cursor: pointer; transition: border-color .12s, background .12s, transform .12s; }
+.du-sec button:hover:not([disabled]) { border-color: #A84660; transform: translateY(-1px); }
+.du-sec button[disabled] { cursor: default; }
+.du-sec button.dogru { background: #EEF7EE; border-color: #2E7D32; }
+.du-sec button.yanlis { background: #FBEDEC; border-color: #B3261E; }
+.du-sec .rozet { position: absolute; top: -9px; right: 10px; font: 800 10px/1 var(--font-sans); letter-spacing: .05em; padding: 4px 7px; border-radius: 6px; background: #3D091B; color: #fff; }
+.du-alt { display: flex; align-items: center; gap: 12px; margin-top: 18px; min-height: 70px; }
+.du-alt .maskot { width: 64px; height: auto; flex: none; overflow: visible; }
+.du-alt .balon { font-size: 14px; padding: 10px 14px; }
+/* sonuç */
+.du-son h2 { font: 800 34px/1.1 var(--font-display); color: var(--heading); margin: 0 0 4px; }
+.du-son .ozet { color: var(--muted); margin: 0 0 16px; }
+.du-son .tablo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.du-son .tablo div { background: #fff; border-radius: 16px; padding: 14px 16px; border: 1px solid #F1DCE1; }
+.du-son .tablo b { display: block; font: 800 30px/1 var(--font-display); color: #A84660; }
+.du-son .tablo span { font-size: 13px; color: var(--muted); }
+.du-tekrar { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 6px; }
+.du-tekrar li { background: #fff; border-radius: 12px; padding: 10px 14px; border: 1px solid #F1DCE1; font-size: 15px; }
+.du-tekrar b { color: #2B1A1F; } .du-tekrar span { color: var(--muted); }
+.du-tekrar .y { color: #B3261E; font-weight: 700; } .du-tekrar .d { color: #2E7D32; font-weight: 700; }
+.du-wd { margin-top: 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #fff; border-radius: 18px; padding: 16px 18px; border: 1px solid #F1DCE1; }
+.du-wd img { width: 52px; height: 52px; border-radius: 12px; }
+.du-wd div { flex: 1; min-width: 180px; } .du-wd b { display: block; color: #2B1A1F; } .du-wd span { color: var(--muted); font-size: 14px; }
+@media (max-width: 560px) {
+  .du-kart { padding: 18px; border-radius: 22px; }
+  .du-rakipler, .du-sec { grid-template-columns: 1fr; }
+  .du-skor { padding: 12px; } .du-skor .p { font-size: 24px; } .du-skor .du-av { display: none; }
+  .du-soru { padding: 18px 0 14px; }
+}
+/* sonuç görseli (sonuc-kart.js): küçük önizleme + paylaş/indir */
+.sonuc-gorsel { display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #F1DCE1; border-radius: 18px; padding: 14px; margin: 0 0 18px; }
+.sonuc-gorsel img { width: 92px; aspect-ratio: 9 / 16; border-radius: 12px; object-fit: cover; background: #3D091B; flex: none; box-shadow: 0 8px 18px rgba(31, 3, 12, .2); }
+.sonuc-gorsel b { display: block; color: #2B1A1F; font-size: 17px; } .sonuc-gorsel span { display: block; color: var(--muted); font-size: 14px; margin: 2px 0 10px; }
+.sonuc-gorsel .du-dug { padding: 12px 16px; font-size: 14px; }
+[data-sonuc-paylas][hidden] { display: none; }
+</style><style>
+/* Seviye testi (/seviye-testi/): düello.css'in kart/düğme/maskot sınıflarını kullanır; burada yalnız teste özgü parçalar. */
+.sv-giris ul { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 8px; }
+.sv-giris li { position: relative; padding-left: 22px; }
+.sv-giris li::before { content: ""; position: absolute; left: 0; top: .6em; width: 12px; height: 5px; border-radius: 99px; background: #A84660; }
+.sv-onceki { color: var(--muted); font-size: 14px; }
+.sv-ust { display: flex; justify-content: space-between; align-items: center; gap: 10px; font: 700 14px/1 var(--font-sans); color: var(--muted); }
+.sv-ust [data-bolum] { background: #F9E4E7; color: #A84660; padding: 6px 10px; border-radius: 99px; }
+.sv-ilerle { height: 6px; border-radius: 99px; background: #F1DCE1; margin: 12px 0 18px; overflow: hidden; }
+.sv-ilerle i { display: block; height: 100%; width: 0; background: #A84660; border-radius: inherit; transition: width .3s; }
+.sv-metin { font-size: 18px; line-height: 1.55; color: #2B1A1F; margin: 0 0 16px; white-space: pre-line; }
+.sv-siklar { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.sv-sik { width: 100%; display: flex; gap: 12px; align-items: flex-start; text-align: left; font: 16px/1.45 var(--font-sans); color: #2B1A1F; background: #fff;
+          border: 1.5px solid #F1DCE1; border-radius: 14px; padding: 12px 14px; cursor: pointer; transition: border-color .12s; }
+.sv-sik:hover:not([disabled]) { border-color: #A84660; }
+.sv-sik b { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #F9E4E7; color: #A84660; font-size: 13px; }
+.sv-sik.secili { border-color: #A84660; background: #FBEFF2; } .sv-sik.secili b { background: #A84660; color: #fff; }
+.sv-sik[disabled] { cursor: default; }
+.sv-alt { display: flex; justify-content: space-between; margin-top: 16px; }
+.sv-alt button { border: 0; background: none; color: var(--muted); font: 700 14px/1 var(--font-sans); cursor: pointer; padding: 8px 4px; }
+.sv-alt button[disabled] { opacity: .35; cursor: default; }
+.sv-sonuc { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 10px; margin: 0 0 16px; }
+.sv-sonuc div { background: #fff; border-radius: 16px; padding: 14px 16px; border: 1px solid #F1DCE1; }
+.sv-sonuc div:first-child { background: #3D091B; border-color: #3D091B; color: #fff; }
+.sv-sonuc b { display: block; font: 800 32px/1 var(--font-display); color: #A84660; }
+.sv-sonuc div:first-child b { color: #F4C9D2; }
+.sv-sonuc span { font-size: 13px; color: var(--muted); } .sv-sonuc div:first-child span { color: #E8D3D8; }
+.sv-karne { display: grid; gap: 8px; margin-bottom: 16px; }
+.sv-karne div { display: grid; grid-template-columns: 1fr auto; gap: 6px; background: #fff; border-radius: 12px; padding: 10px 14px; border: 1px solid #F1DCE1; }
+.sv-karne b { color: #2B1A1F; }
+.sv-karne i { grid-column: 1 / -1; height: 6px; border-radius: 99px; background: linear-gradient(90deg, #A84660 calc(var(--o) * 100%), #F1DCE1 0); }
+.sv-oneri { background: #fff; border-left: 5px solid #A84660; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px; }
+.sv-oneri b { display: block; color: #2B1A1F; font-size: 17px; margin-bottom: 4px; }
+.sv-oneri p { margin: 0 0 10px; color: var(--text); }
+.sv-oneri a { color: #A84660; font-weight: 700; }
+.sv-cozum { display: grid; gap: 6px; margin: 8px 0 18px; }
+.sv-cozum details { background: #fff; border-radius: 12px; border: 1px solid #F1DCE1; padding: 10px 14px; }
+.sv-cozum summary { cursor: pointer; font-weight: 700; color: #2B1A1F; }
+.sv-cozum summary span { font: 800 11px/1 var(--font-sans); letter-spacing: .05em; text-transform: uppercase; padding: 4px 7px; border-radius: 6px; margin-right: 6px; }
+.sv-cozum .d { background: #EEF7EE; color: #2E7D32; } .sv-cozum .y { background: #FBEDEC; color: #B3261E; }
+.sv-cozum p { margin: 8px 0 0; } .sv-cozum .s { color: #2B1A1F; } .sv-cozum .c { font-weight: 700; color: #A84660; } .sv-cozum .a { color: var(--muted); font-size: 15px; }
+.sv-not { color: var(--muted); font-size: 13px; margin: 14px 0 0; }
+@media (max-width: 560px) { .sv-sonuc { grid-template-columns: 1fr 1fr; } .sv-sonuc div:first-child { grid-column: 1 / -1; } .sv-metin { font-size: 16px; } }
+
+.yk-alan{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}.yk-alan [aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.du-dug:disabled{opacity:.45;cursor:not-allowed}</style>
+<link rel="stylesheet" href="/menu.css?v=1855d8ad">
+</head>
+<body>
+<a class="atla" href="#icerik">İçeriğe geç</a>
+<div class="sayfa">
+<header class="ust mega-ust"><a class="marka" href="/" aria-label="Kubilay Kenan Hoca, ana sayfa"><svg class="marka-isaret" width="34" height="34" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#3D091B"/><rect x="120" y="112" width="70" height="288" fill="#D8B229"/><polyline points="300,112 190,256 300,400" fill="none" stroke="#D8B229" stroke-width="70" stroke-linejoin="miter" stroke-miterlimit="10"/><polyline points="400,112 290,256 400,400" fill="none" stroke="#E9B8C4" stroke-width="70" stroke-linejoin="miter" stroke-miterlimit="10"/></svg><span>Kubilay Kenan<small>Hoca</small></span></a><div class="mega" id="mega" role="navigation" aria-label="Ana menü"><ul class="mega-liste"><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-calis">Çalış<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-calis"><div class="mega-izgara"><a class="mega-sat" href="/sozluk/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg></span><span><b>Sözlük</b><small>Anlam, eş anlam ve örnek cümle</small></span></a><a class="mega-sat" href="/sozluk/calis/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg></span><span><b>Kelime çalış</b><small>Test ve kart, aralıklı tekrar</small></span></a><a class="mega-sat" href="/haftanin-10-kelimesi/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span><span><b>Haftanın 10 kelimesi</b><small>Her hafta sınavdan seçilmiş</small></span></a><a class="mega-sat" href="/deneme/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><span><b>Mini deneme</b><small>20 soru, sınav düzeninde</small></span></a><a class="mega-sat" href="/seviye-testi/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 1 1 16 0"/><path d="M12 18l4-6"/></svg></span><span><b>Seviye testi</b><small>Nereden başlayacağını gör</small></span></a><a class="mega-sat" href="/duello/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><span><b>Kelime düellosu</b><small>Bota karşı, süreye karşı</small></span></a></div><a class="mega-one" href="/defter/"><b>Kelime defterim</b><span>Kaydettiğin kelimeler ve serin bu tarayıcıda durur.</span><em>Deftere git →</em></a></div></li><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-araclar">Araçlar<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-araclar"><div class="mega-izgara"><a class="mega-sat" href="/puan-hesaplama/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2"/></svg></span><span><b>Puan hesaplama</b><small>Doğru sayından YDS puanı</small></span></a><a class="mega-sat" href="/sayac/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></span><span><b>Sınav sayacı</b><small>Sıradaki sınava kalan gün</small></span></a><a class="mega-sat" href="/plan/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg></span><span><b>Çalışma planı üreteci</b><small>Kalan güne göre haftalık plan</small></span></a><a class="mega-sat" href="/pdf/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><span><b>Ücretsiz PDF'ler</b><small>Yazdırılabilir çalışma kâğıtları</small></span></a><a class="mega-sat" href="/yazilar/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></span><span><b>Yazılar</b><small>Kısa çalışma rehberleri</small></span></a><a class="mega-sat" href="/takvim.ics"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><b>ÖSYM takvimi</b><small>Takvimine ekle (.ics)</small></span></a></div><a class="mega-one" href="/puan-hesaplama/"><b>Puanını hesapla</b><span>Doğru sayını gir, hangi eşiği geçtiğini hemen gör.</span><em>Hesapla →</em></a></div></li><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-welldone">Well-Done<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-welldone"><div class="mega-izgara"><a class="mega-sat" href="/welldone/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span><span><b>Uygulama</b><small>Kelime, gramer, okuma, deneme</small></span></a><a class="mega-sat" href="https://apps.apple.com/tr/app/id6824592774?pt=129641580&mt=8&ct=site-menu" target="_blank" rel="noopener"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l12 8-12 8z"/></svg></span><span><b>App Store'dan indir</b><small>Ücretsiz; iPhone, iPad ve Mac</small></span></a><a class="mega-sat" href="/welldone/destek.html"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg></span><span><b>Destek</b><small>Sık sorulanlar ve iletişim</small></span></a><a class="mega-sat" href="/welldone/gizlilik.html"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><span><b>Gizlilik</b><small>Veriler cihazında kalır</small></span></a></div><a class="mega-one" href="/welldone/"><b>Well-Done</b><span>Günde birkaç dakika, sınav düzeninde. Odak sayacı ve bahçe yeni.</span><em>Tanı →</em></a></div></li><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-linkup">LINK UP<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-linkup"><div class="mega-izgara"><a class="mega-sat" href="/linkup/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span><b>Uygulama</b><small>Bağlaçlar: dört grup, artı–eksi</small></span></a><a class="mega-sat" href="/linkup/destek.html"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg></span><span><b>Destek</b><small>Sık sorulanlar ve iletişim</small></span></a><a class="mega-sat" href="/linkup/gizlilik.html"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><span><b>Gizlilik</b><small>Veri toplanmaz, ilerleme cihazda</small></span></a></div><a class="mega-one" href="/linkup/"><b>LINK UP</b><span>Bağlaç sorularını çeviriye girmeden, teknikle çöz.</span><em>Tanı →</em></a></div></li><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-kocluk">Koçluk<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-kocluk"><div class="mega-izgara"><a class="mega-sat" href="/kocluk/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span><b>Koçluk çalışmaları</b><small>Hazırlanan programlar ve yöntem</small></span></a><a class="mega-sat" href="/calisma-plani/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span><b>Çalışma planı rehberi</b><small>Yöntem: neyi, ne zaman, nasıl</small></span></a><a class="mega-sat" href="/plan/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg></span><span><b>Plan üreteci</b><small>Kendi planını kendin kur</small></span></a></div><a class="mega-one" href="/kocluk/"><b>Nasıl çalışıyorum?</b><span>Seviye tespitinden haftalık takibe, öğrencilerle yürüttüğüm süreç.</span><em>Göz at →</em></a></div></li><li class="mega-oge mega-duz"><a class="mega-dug" href="/#hakkimda">Hakkımda</a></li><li class="mega-oge mega-duz"><a class="mega-dug" href="/#iletisim">İletişim</a></li></ul></div><div class="mega-arac"><button type="button" class="ara-dug" aria-label="Sözlükte ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Kelime ara</span><kbd>Ctrl K</kbd></button><a class="defter-dug" href="/defter/" hidden aria-label="Kelime defterim" title="Kelime defterim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-say>0</span></a><button type="button" class="mega-ac" aria-expanded="false" aria-controls="mega" aria-label="Menü"><span></span><span></span><span></span></button></div></header>
+<dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
+<main id="icerik">
+
+<section class="du" id="seviye" data-mod="yokdil" data-veri="/yokdil-testi/veri.json?v=68b9ee75">
+<div class="du-bas"><span class="imza">Well-Done</span><h1>YÖKDİL alan testi</h1><p>10 soru, yaklaşık 5 dakika. Alanını seç; sonunda tahmini YÖKDİL puan aralığını ve önce neye çalışman gerektiğini görürsün.</p></div>
+<div class="du-kart sv-giris">
+<div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+<div class="balon"><b>Bibi</b><span>Ben Bibi. Önce alanını seç, sonra kolaydan zora 10 soru.</span></div></div>
+<ul><li>2 kelime, 2 dil bilgisi, 2 cümle tamamlama, 2 çeviri, 1 paragraf tamamlama, 1 anlamı bozan cümle</li><li>Kolay, orta ve zor sorular karışık; zor sorular daha çok sayılır</li>
+<li>Her seferinde farklı sorular: her alanda 55 soru var, metinler alanına göre</li><li>Sonunda her sorunun açıklaması</li></ul>
+<div class="tur yk-alan" role="group" aria-label="Alan"><button type="button" class="du-dug ikinci" data-alan="saglik" aria-pressed="false">Sağlık</button><button type="button" class="du-dug ikinci" data-alan="fen" aria-pressed="false">Fen</button><button type="button" class="du-dug ikinci" data-alan="sosyal" aria-pressed="false">Sosyal</button></div><div class="du-dugmeler"><button type="button" class="du-dug" data-basla disabled>Teste başla</button><span class="sv-onceki"></span></div>
+</div>
+<div class="du-kart sv-test" hidden>
+<div class="sv-ust"><span data-sira>1 / 10</span><span data-bolum></span></div>
+<div class="sv-ilerle"><i></i></div>
+<p class="sv-metin" lang="en"></p>
+<ol class="sv-siklar" lang="en"><li><button type="button" class="sv-sik"><b>A</b><span></span></button></li><li><button type="button" class="sv-sik"><b>B</b><span></span></button></li><li><button type="button" class="sv-sik"><b>C</b><span></span></button></li><li><button type="button" class="sv-sik"><b>D</b><span></span></button></li><li><button type="button" class="sv-sik"><b>E</b><span></span></button></li></ol>
+<div class="sv-alt"><button type="button" data-geri>← Önceki</button><button type="button" data-bos>Boş bırak →</button></div>
+</div>
+<div class="du-kart du-son sv-son" hidden>
+<div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+<div class="balon"><b>Bibi</b><span></span></div></div>
+<h2>Sonucun</h2>
+<div class="sv-sonuc"><div><b data-aralik>–</b><span>tahmini YÖKDİL puan aralığı</span></div><div><b data-harf>–</b><span>harf seviyesi</span></div><div><b data-dogru>–</b><span>doğru</span></div></div>
+<div class="sv-karne"></div>
+<div class="sonuc-gorsel"><img data-sonuc-onizle alt="Sonuç görseli önizlemesi" width="92" height="164"><div><b>Sonucunu hikâyende paylaş</b><span>Hazır görsel, 1080×1920</span>
+<div class="du-dugmeler"><button type="button" class="du-dug" data-sonuc-paylas hidden>Görseli paylaş</button><button type="button" class="du-dug ikinci" data-sonuc-indir>Görseli indir</button></div></div></div>
+<div class="sv-oneri"><b data-oneri-b></b><p data-oneri></p><a data-oneri-a href="#"></a> · <a data-oneri-a2 href="#"></a></div>
+<p style="font-weight:700;margin:0;color:var(--heading)">Cevaplar ve açıklamalar</p><div class="sv-cozum"></div>
+<div class="du-dugmeler"><button type="button" class="du-dug" data-tekrar>Yeni sorularla tekrar</button><a class="du-dug ikinci" href="/puan-hesaplama/">Puan eşiklerine bak</a>
+<a class="du-dug wa" data-paylas href="#" target="_blank" rel="noopener">Sonucu paylaş</a></div>
+<div class="du-wd"><img src="/simge.png" alt="" width="52" height="52"><div><b>Devamı Well-Done'da</b><span>428 kelimelik düello, Game Center'da arkadaşına karşı maç, 931 soru.</span></div>
+<a class="du-dug" href="/welldone/">Uygulamaya bak</a></div>
+<p class="sv-not">10 soruluk kısa bir testten çıkan kaba bir tahmindir; gerçek puanını en iyi 80 soruluk tam deneme gösterir (Well-Done'da var). YÖKDİL'de her doğru 1,25 puan; YDS ile aynı ölçek.</p>
+</div>
+</section>
+</main>
+<footer>© 2026 Kubilay Kenan Işıklı</footer>
+</div>
+<script>
+// Sonuç görseli (21.10.2026): düello ve seviye testi sonucunu 1080×1920 hikâye kartına çizer; indir ya da telefonda paylaş.
+// window.KKSonuc.hazirla({ cip, ust, buyuk, alt, satirlar: [[ad, oran 0–1, yazi]…], balon, adres, dosya }) → kartı çizer, düğmeleri bağlar.
+// Maskot sayfadaki ilk .maskot SVG'sinden resme çevrilir. Yazı tipleri sitenin (Jost, Inter).
+(() => {
+  const W = 1080, H = 1920;
+  let veri = null, maskot = null;
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const c = cv.getContext("2d");
+  const svg = document.querySelector(".maskot");
+  if (svg) { const im = new Image(); im.onload = () => { maskot = im; if (veri) ciz(); };
+    im.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg).replace("<svg", '<svg width="512" height="460"')); }
+  const kutu = (x, y, w, h, r) => { c.beginPath(); c.roundRect(x, y, w, h, r); };
+  const satirla = (m, en) => { const k = m.split(" "), s = []; let o = ""; for (const w of k) { const d = o ? o + " " + w : w; if (c.measureText(d).width > en && o) { s.push(o); o = w; } else o = d; } if (o) s.push(o); return s; };
+  const sigdir = (m, en, boy, ag, aile) => { let b = boy; do { c.font = `${ag} ${b}px ${aile}`; b -= 4; } while (c.measureText(m).width > en && b > 24); };
+
+  const ciz = () => {
+    const v = veri;
+    const g = c.createRadialGradient(W * .25, H * .1, 40, W * .5, H * .55, H * .95);
+    g.addColorStop(0, "#7A2441"); g.addColorStop(.55, "#3D091B"); g.addColorStop(1, "#1F030C");
+    c.fillStyle = g; c.fillRect(0, 0, W, H);
+    c.strokeStyle = "#D8B229"; c.globalAlpha = .18; c.lineWidth = 3; c.setLineDash([4, 22]);
+    c.beginPath(); c.arc(W * .85, H * .16, 300, 0, Math.PI * 2); c.stroke(); c.setLineDash([]); c.globalAlpha = 1;
+    c.textAlign = "left";
+    // çip
+    c.font = "800 42px Jost, sans-serif"; const cw = c.measureText(v.cip).width + 64;
+    c.fillStyle = "#D8B229"; kutu(90, 230, cw, 82, 41); c.fill(); c.fillStyle = "#3D091B"; c.fillText(v.cip, 122, 286);
+    // üst satır + büyük değer + alt satır
+    c.fillStyle = "rgba(255,255,255,.75)"; c.font = "700 60px Jost, sans-serif"; c.fillText(v.ust, 90, 420);
+    sigdir(v.buyuk, W - 180, 260, 800, "Jost, sans-serif"); c.fillStyle = "#FFFFFF"; c.fillText(v.buyuk, 84, 660);
+    c.fillStyle = "#D8B229"; c.font = "800 72px Jost, sans-serif";
+    let y = 770; for (const s of satirla(v.alt, W - 180)) { c.fillText(s, 90, y); y += 84; }
+    // satırlar (çubuklu)
+    y += 30;
+    for (const [ad, oran, yazi] of v.satirlar || []) {
+      c.fillStyle = "rgba(255,255,255,.85)"; c.font = "600 40px Inter, sans-serif"; c.fillText(ad, 90, y);
+      c.textAlign = "right"; c.fillStyle = "#FFFFFF"; c.font = "800 40px Jost, sans-serif"; c.fillText(yazi, W - 90, y); c.textAlign = "left";
+      c.fillStyle = "rgba(255,255,255,.16)"; kutu(90, y + 22, W - 180, 16, 8); c.fill();
+      if (oran > 0) { c.fillStyle = "#D8B229"; kutu(90, y + 22, Math.max(16, (W - 180) * Math.min(1, oran)), 16, 8); c.fill(); }
+      y += 108;
+    }
+    // maskot + balon
+    const alt = H - 150, mh = 260, mw = mh * 256 / 230, my = alt - 60 - mh;
+    if (maskot && my > y) {
+      c.drawImage(maskot, 70, my, mw, mh);
+      c.font = "700 40px Inter, sans-serif";
+      const ad = window.KK_MASKOT || "", ust = ad ? 38 : 0;
+      const bx = 70 + mw + 10, bw = Math.min(W - bx - 70, c.measureText(v.balon).width + 60), sat = satirla(v.balon, bw - 60), bh = 40 + ust + sat.length * 52, by = my + 30;
+      c.fillStyle = "#FFFFFF"; kutu(bx, by, bw, bh, 30); c.fill();
+      c.beginPath(); c.moveTo(bx + 4, by + 40); c.lineTo(bx - 22, by + 58); c.lineTo(bx + 4, by + 70); c.fill();
+      if (ad) { c.fillStyle = "#A84660"; c.font = "800 26px Inter, sans-serif"; c.fillText(ad.toLocaleUpperCase("tr"), bx + 30, by + 50); c.font = "700 40px Inter, sans-serif"; }
+      c.fillStyle = "#2B1A1F"; sat.forEach((t, i) => c.fillText(t, bx + 30, by + 62 + ust + i * 52));
+    }
+    // alt bilgi
+    c.fillStyle = "#D8B229"; kutu(90, alt + 6, 64, 10, 5); c.fill();
+    c.fillStyle = "#FFFFFF"; c.font = "800 44px Jost, sans-serif"; c.fillText("Kubilay Kenan Hoca", 90, alt + 72);
+    c.fillStyle = "rgba(255,255,255,.72)"; c.font = "600 34px Inter, sans-serif"; c.textAlign = "right"; c.fillText(v.adres, W - 90, alt + 70); c.textAlign = "left";
+    const on = document.querySelector("[data-sonuc-onizle]");
+    if (on) on.src = cv.toDataURL("image/png");
+  };
+
+  const dosya = () => new Promise(r => cv.toBlob(b => r(new File([b], veri.dosya, { type: "image/png" })), "image/png"));
+  const indir = async () => { const f = await dosya(), a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
+  const paylasabilir = !!(navigator.canShare && navigator.canShare({ files: [new File([""], "a.png", { type: "image/png" })] }));
+  document.querySelectorAll("[data-sonuc-paylas]").forEach(b => { b.hidden = !paylasabilir;
+    b.addEventListener("click", async () => { try { await navigator.share({ files: [await dosya()], text: veri.adres }); } catch (e) { if (e.name !== "AbortError") indir(); } }); });
+  document.querySelectorAll("[data-sonuc-indir]").forEach(b => b.addEventListener("click", indir));
+
+  window.KKSonuc = {
+    hazirla: v => { veri = v; Promise.all(["800 100px Jost", "700 50px Inter", "600 40px Inter"].map(f => document.fonts.load(f))).then(ciz, ciz); },
+  };
+})();
+</script><script>
+// Seviye testi (/seviye-testi/, 21.10.2026): 10 soru (3 kelime, 3 dil bilgisi, 2 cümle tamamlama, 2 çeviri), zorluklar karışık.
+// Tahmin: zorluğa göre ağırlıklı doğru oranı (seviye 1/2/3 → 1/1,5/2) × 100, ±8 aralık. Kaba bir tahmindir; sayfada da öyle yazar.
+// Sorular Well-Done havuzundan (/seviye-testi/veri.json: bağımsız, parçaya bağlı olmayan sorular).
+(() => {
+  const kok = document.getElementById("seviye"); if (!kok) return;
+  // 10.11.2026: aynı betik /yokdil-testi/ için (data-mod="yokdil"): alan seçilir (fen/saglik/sosyal), havuz o alanın soruları.
+  const YOK = kok.dataset.mod === "yokdil";
+  const ALAN_AD = { fen: "Fen", saglik: "Sağlık", sosyal: "Sosyal" };
+  const ANAHTAR = YOK ? "yokdil-son" : "seviye-son";
+  const SINAV = () => YOK ? `YÖKDİL ${ALAN_AD[kok.dataset.alan] || ""}`.trim() : "YDS";
+  const PLAN = YOK ? [["kelime", 1], ["dilbilgisi", 1], ["kelime", 2], ["cumle_tamamlama", 2], ["dilbilgisi", 2], ["ceviri", 2],
+                ["paragraf_tamamlama", 2], ["cumle_tamamlama", 3], ["ceviri", 3], ["ilgisiz_cumle", 3]] : [["kelime", 1], ["dilbilgisi", 1], ["kelime", 2], ["dilbilgisi", 2], ["cumle_tamamlama", 2], ["ceviri", 1],
+                ["kelime", 3], ["dilbilgisi", 3], ["ceviri", 3], ["cumle_tamamlama", 3]];
+  const AGIRLIK = { 1: 1, 2: 1.5, 3: 2 };
+  const AD = { kelime: "Kelime", dilbilgisi: "Dil bilgisi", cumle_tamamlama: "Cümle tamamlama", ceviri: "Çeviri",
+              paragraf_tamamlama: "Paragraf tamamlama", ilgisiz_cumle: "Anlamı bozan cümle" };
+  const ONERI = {
+    kelime: ["Kelime", "Her gün sözlükten 10 kelime çalış, düelloda pekiştir.", "/duello/", "Düelloya geç", "/sozluk/", "Sözlüğe göz at"],
+    dilbilgisi: ["Dil bilgisi", "Zamanlar ve bağlaçlarla başla; sık karışan yapılar PDF'i işini görür.", "/pdf/", "PDF'lere bak", "/yazilar/", "Gramer yazıları"],
+    cumle_tamamlama: ["Cümle tamamlama", "Önce bağlacın anlamına bak: zıtlık mı, sebep mi, sonuç mu?", "/yazilar/yds-baglac-sorulari/", "Bağlaç yazısını oku", "/pdf/", "Bağlaç tablosu PDF'i"],
+    ceviri: ["Çeviri", "Önce ana yüklemi bul, sonra yan cümleleri eşleştir; şıkları cümlenin iskeletine göre ele.", "/welldone/", "Well-Done'da çalış", "/yazilar/", "Çalışma rehberleri"],
+    paragraf_tamamlama: ["Paragraf tamamlama", "Boşluktan önceki ve sonraki cümleye bak: boşluk ikisini birbirine bağlamalı; konu dışı şıkkı ele.", "/welldone/", "Well-Done'da çalış", "/yazilar/", "Çalışma rehberleri"],
+    ilgisiz_cumle: ["Anlamı bozan cümle", "Paragrafın ana fikrini bir cümleyle söyle; o fikirden sapan ya da odağı değiştiren cümleyi bul.", "/welldone/", "Well-Done'da çalış", "/yazilar/", "Çalışma rehberleri"],
+  };
+  const $ = s => kok.querySelector(s), $$ = s => [...kok.querySelectorAll(s)];
+  const giris = $(".sv-giris"), test = $(".sv-test"), son = $(".sv-son");
+  const karistir = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const oku = k => { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } };
+  const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  let veri = null, sorular = [], i = 0;
+  const yukle = () => veri || (veri = fetch(kok.dataset.veri).then(r => r.json()));
+  yukle();
+  const onceki = oku(ANAHTAR);
+  if (onceki) $(".sv-onceki").textContent = `Son sonucun: ${onceki.alt}–${onceki.ust} puan aralığı (${onceki.tarih}).`;
+
+  const konus = (yer, m, tepki) => {
+    yer.querySelector(".balon span").textContent = m;
+    if (tepki) { yer.classList.remove("sevinc", "uzgun", "selam"); void yer.offsetWidth; yer.classList.add(tepki); }
+  };
+
+  const basla = async () => {
+    const L = (await yukle()).filter(q => !YOK || q.al === kok.dataset.alan), kullanildi = new Set();
+    sorular = PLAN.map(([b, s]) => {
+      const aday = karistir(L.filter(q => q.b === b && q.v === s && !kullanildi.has(q.id)));
+      const q = aday[0] || karistir(L.filter(q => q.b === b && !kullanildi.has(q.id)))[0];
+      kullanildi.add(q.id); return { ...q, sec: null };
+    });
+    i = 0; giris.hidden = true; son.hidden = true; test.hidden = false; goster();
+  };
+
+  const goster = () => {
+    const q = sorular[i];
+    $("[data-sira]").textContent = `${i + 1} / ${sorular.length}`;
+    $("[data-bolum]").textContent = AD[q.b];
+    $(".sv-ilerle i").style.width = (i / sorular.length * 100) + "%";
+    $(".sv-metin").textContent = q.s;
+    $$(".sv-sik").forEach((d, j) => { d.disabled = false; d.classList.remove("secili"); d.querySelector("span").textContent = q.o[j]; });
+    $("[data-geri]").disabled = i === 0;
+    test.scrollIntoView({ block: "start", behavior: "smooth" });
+  };
+  $$(".sv-sik").forEach((d, j) => d.addEventListener("click", () => {
+    sorular[i].sec = "ABCDE"[j];
+    $$(".sv-sik").forEach(x => x.classList.toggle("secili", x === d));
+    $$(".sv-sik").forEach(x => { x.disabled = true; });
+    setTimeout(() => { i++; if (i < sorular.length) goster(); else sonuc(); }, 280);
+  }));
+  $("[data-geri]").addEventListener("click", () => { if (i > 0) { i--; goster(); } });
+  $("[data-bos]").addEventListener("click", () => { sorular[i].sec = null; i++; if (i < sorular.length) goster(); else sonuc(); });
+
+  const harf = p => p >= 90 ? "A" : p >= 80 ? "B" : p >= 70 ? "C" : p >= 60 ? "D" : p >= 50 ? "E" : "E altı";
+  const sonuc = () => {
+    test.hidden = true; son.hidden = false;
+    let top = 0, al = 0;
+    const bol = {};
+    sorular.forEach(q => { const w = AGIRLIK[q.v] || 1, d = q.sec === q.d; top += w; if (d) al += w;
+      (bol[q.b] = bol[q.b] || [0, 0]); bol[q.b][1]++; if (d) bol[q.b][0]++; });
+    const p = Math.round(al / top * 100), alt = Math.max(0, p - 8), ust = Math.min(100, p + 8);
+    const dogru = sorular.filter(q => q.sec === q.d).length;
+    $("[data-aralik]").textContent = `${alt}–${ust}`;
+    $("[data-harf]").textContent = harf(p);
+    $("[data-dogru]").textContent = `${dogru}/${sorular.length}`;
+    $(".sv-karne").innerHTML = Object.entries(bol).map(([b, [d, n]]) =>
+      `<div><span>${AD[b]}</span><b>${d}/${n}</b><i style="--o:${d / n}"></i></div>`).join("");
+    const zayif = Object.entries(bol).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1])[0][0], o = ONERI[zayif];
+    $("[data-oneri-b]").textContent = `Önce ${o[0].toLocaleLowerCase("tr")} çalış`; $("[data-oneri]").textContent = o[1];
+    const a = $("[data-oneri-a]"); a.href = o[2]; a.textContent = o[3];
+    const a2 = $("[data-oneri-a2]"); a2.href = o[4]; a2.textContent = o[5];
+    $(".sv-cozum").innerHTML = "";
+    sorular.forEach((q, n) => {
+      const d = document.createElement("details"), dogruMu = q.sec === q.d;
+      d.innerHTML = `<summary><span class="${dogruMu ? "d" : "y"}">${dogruMu ? "Doğru" : q.sec ? "Yanlış" : "Boş"}</span> ${n + 1}. ${AD[q.b]}</summary>
+        <p class="s" lang="en"></p><p class="c"></p><p class="a"></p>`;
+      d.querySelector(".s").textContent = q.s;
+      d.querySelector(".c").textContent = `Senin cevabın: ${q.sec || "boş"} · Doğrusu: ${q.d}) ${q.o["ABCDE".indexOf(q.d)]}`;
+      d.querySelector(".a").textContent = q.a;
+      $(".sv-cozum").appendChild(d);
+    });
+    const tarih = new Date().toLocaleDateString("tr-TR");
+    yaz(ANAHTAR, { alt, ust, tarih });
+    if (window.KKSeri) window.KKSeri.isle();
+    if (window.KKSonuc) window.KKSonuc.hazirla({
+      cip: `${SINAV()} seviye testi`, ust: "Tahmini puanım", buyuk: `${alt}–${ust}`, alt: `Harf seviyesi: ${harf(p)}`,
+      satirlar: Object.entries(bol).map(([b, [d, n]]) => [AD[b], d / n, `${d}/${n}`]),
+      balon: "Sen kaç alırsın?", adres: YOK ? "kubilaykenan.com/yokdil-testi" : "kubilaykenan.com/seviye-testi", dosya: `${YOK ? "yokdil" : "seviye"}-testi-${alt}-${ust}.png` });
+    konus($(".sv-son .du-maskot"), p >= 70 ? "Çok iyi! Tam deneme çözmenin zamanı." : p >= 50 ? "Temel sağlam, şimdi zayıf bölüme yüklenelim." : "Başlangıç için harika. Planla gidersek hızla çıkar.", p >= 50 ? "sevinc" : "selam");
+    $("[data-paylas]").href = "https://wa.me/?text=" + encodeURIComponent(`Kubilay Kenan Hoca'nın ${SINAV()} seviye testinde tahmini puanım ${alt}–${ust} çıktı. Sen de dene: https://kubilaykenan.com/${YOK ? "yokdil-testi" : "seviye-testi"}/`);
+  };
+  $$("[data-alan]").forEach(d => d.addEventListener("click", () => {
+    kok.dataset.alan = d.dataset.alan;
+    $$("[data-alan]").forEach(x => x.setAttribute("aria-pressed", x === d));
+    $("[data-basla]").disabled = false;
+  }));
+  $("[data-basla]").addEventListener("click", basla);
+  $("[data-tekrar]").addEventListener("click", basla);
+})();
+</script>
+<script>
+// Üst çubukta sözlük araması: düğme, ⌘K / Ctrl+K ya da "/" ile açılır. Veri ilk açılışta bir kez indirilir (/sozluk/veri.json).
+// Kayıt: [id, kelime, tür, Türkçe, eş anlamlılar, …]. Sıra: kelime başı → kelime içi → Türkçe anlam / eş anlamlı içi.
+(() => {
+  const dug = document.querySelector(".ara-dug"), pen = document.getElementById("ara-pen");
+  if (!dug || !pen || !pen.showModal) { if (dug) dug.hidden = true; return; }
+  const tr = document.documentElement.lang !== "en";
+  const TUR = tr ? { v: "fiil", n: "isim", adj: "sıfat", adv: "zarf", phr: "kalıp", conj: "bağlaç", prep: "edat" }
+                 : { v: "verb", n: "noun", adj: "adj.", adv: "adv.", phr: "phrase", conj: "conj.", prep: "prep." };
+  const g = pen.querySelector("input"), ul = pen.querySelector(".ara-sonuc"), bos = pen.querySelector(".ara-bos");
+  const yalin = s => s.toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i");
+  let veri = null, secili = 0, sonuclar = [];
+  const yukle = () => veri || (veri = fetch("/sozluk/veri.json").then(r => r.json()).then(d => d.v.map(x => ({ x, k: yalin(x[1]), t: yalin(x[3] + " " + x[4]) }))));
+  const ac = () => { pen.showModal(); g.value = ""; g.focus(); yukle(); goster(); };
+  const goster = async () => {
+    const q = yalin(g.value.trim());
+    if (!q) { ul.innerHTML = ""; bos.textContent = tr ? "Kelime ya da Türkçe anlam yaz: abandon, sürdürmek…" : "Type a word or a Turkish meaning…"; bos.hidden = false; sonuclar = []; return; }
+    const L = await yukle();
+    const a = [], b = [], c = [];
+    for (const s of L) { if (s.k.startsWith(q)) a.push(s); else if (s.k.includes(q)) b.push(s); else if (q.length > 2 && s.t.includes(q)) c.push(s); }
+    sonuclar = [...a.sort((m, n) => m.k.length - n.k.length), ...b, ...c].slice(0, 8);
+    secili = 0;
+    ul.innerHTML = sonuclar.map(({ x }, i) => `<li><a href="/sozluk/${x[0]}/" aria-selected="${i === 0}"><b lang="en"></b><span class="tur"></span><span class="tr"></span></a></li>`).join("");
+    ul.querySelectorAll("a").forEach((el, i) => { const x = sonuclar[i].x; el.querySelector("b").textContent = x[1]; el.querySelector(".tur").textContent = TUR[x[2]] || x[2];
+      el.querySelector(".tr").textContent = x[3].split(";")[0]; });
+    bos.hidden = sonuclar.length > 0;
+    if (!sonuclar.length) bos.textContent = tr ? "Bulunamadı. Sözlükte 1.388 kelime var; başka bir yazımla dene." : "No match. Try another spelling.";
+  };
+  const isaretle = () => ul.querySelectorAll("a").forEach((el, i) => { el.setAttribute("aria-selected", String(i === secili)); if (i === secili) el.scrollIntoView({ block: "nearest" }); });
+  dug.addEventListener("click", ac);
+  g.addEventListener("input", goster);
+  g.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown" && sonuclar.length) { e.preventDefault(); secili = (secili + 1) % sonuclar.length; isaretle(); }
+    else if (e.key === "ArrowUp" && sonuclar.length) { e.preventDefault(); secili = (secili - 1 + sonuclar.length) % sonuclar.length; isaretle(); }
+  });
+  pen.querySelector("form").addEventListener("submit", e => { e.preventDefault(); const a = ul.querySelectorAll("a")[secili]; if (a) location.href = a.href; });
+  pen.querySelector(".kapat").addEventListener("click", () => pen.close());
+  pen.addEventListener("click", e => { if (e.target === pen) pen.close(); });
+  addEventListener("keydown", e => {
+    const yaziyor = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
+    if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !yaziyor)) { e.preventDefault(); if (!pen.open) ac(); }
+  });
+  if (/Mac|iPhone|iPad/.test(navigator.platform)) { const k = dug.querySelector("kbd"); if (k) k.textContent = "⌘K"; }
+})();
+</script><script>
+// Kelime defteri + seri sayacı (21.10.2026): her sayfada. Hepsi ziyaretçinin tarayıcısında (localStorage), hesap yok.
+// Defter: { "abandon": {k, t, tr, es, id, z} } — id sözlükte varsa (/sozluk/<id>/), z eklenme zamanı.
+// Seri: { son: "2026-10-21", n, en } — günün sorusu, düello, seviye testi ya da defter kartları bitince o gün "çalışıldı" sayılır.
+(() => {
+  const DK = "kk-defter", SK = "kk-seri";
+  const oku = (k, v) => { try { return JSON.parse(localStorage.getItem(k)) || v; } catch (e) { return v; } };
+  const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  const gun = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const dun = () => { const d = new Date(); d.setDate(d.getDate() - 1); return gun(d); };
+  const anahtar = k => String(k || "").trim().toLocaleLowerCase("en");
+
+  const D = window.KKDefter = {
+    hepsi: () => oku(DK, {}),
+    liste: () => Object.values(oku(DK, {})).sort((a, b) => b.z - a.z),
+    var: k => anahtar(k) in oku(DK, {}),
+    sayi: () => Object.keys(oku(DK, {})).length,
+    ekle: x => { const h = oku(DK, {}); h[anahtar(x.k)] = { k: x.k, t: x.t || "", tr: x.tr || "", es: x.es || "", id: x.id || "", z: Date.now() }; yaz(DK, h); D.guncelle(); },
+    cikar: k => { const h = oku(DK, {}); delete h[anahtar(k)]; yaz(DK, h); D.guncelle(); },
+    guncelle: () => {
+      const n = D.sayi(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".defter-dug").forEach(a => { a.hidden = !n; const s = a.querySelector("[data-say]"); if (s) s.textContent = n; });
+      document.querySelectorAll(".yildiz-dug").forEach(b => {
+        try { const x = JSON.parse(b.dataset.defter); const v = D.var(x.k); b.setAttribute("aria-pressed", String(v));
+          const e = b.querySelector("[data-e]"); if (e) e.textContent = v ? (tr ? "Defterde" : "Saved") : (tr ? "Deftere ekle" : "Save word"); } catch (e) {}
+      });
+    },
+  };
+  const S = window.KKSeri = {
+    durum: () => { const s = oku(SK, { son: "", n: 0, en: 0 }); const aktif = s.son === gun() || s.son === dun(); return { n: aktif ? s.n : 0, en: s.en || 0, bugun: s.son === gun() }; },
+    isle: () => {
+      const s = oku(SK, { son: "", n: 0, en: 0 }), b = gun();
+      if (s.son !== b) { s.n = s.son === dun() ? s.n + 1 : 1; s.son = b; s.en = Math.max(s.en || 0, s.n); yaz(SK, s); }
+      S.goster(); return S.durum();
+    },
+    goster: () => {
+      const d = S.durum(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".seri").forEach(el => {
+        el.hidden = false; el.classList.toggle("sonuk", !d.bugun);
+        el.querySelector("[data-seri]").textContent = d.n
+          ? (tr ? `${d.n} gün üst üste` : `${d.n}-day streak`) + (d.bugun ? "" : (tr ? " · bugün de çöz" : " · keep it going today"))
+          : (tr ? "Seri başlat: bugün bir soru çöz" : "Start a streak: solve one today");
+        const en = el.querySelector("[data-en]"); if (en) en.textContent = d.en > 1 ? (tr ? `en iyi ${d.en}` : `best ${d.en}`) : "";
+      });
+    },
+  };
+  // yıldız düğmeleri (sayfaya sonradan eklenenler dahil): data-defter='{"k":…,"t":…,"tr":…,"es":…,"id":…}'
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".yildiz-dug"); if (!b) return;
+    try { const x = JSON.parse(b.dataset.defter); if (D.var(x.k)) D.cikar(x.k); else D.ekle(x); } catch (er) {}
+  });
+  D.guncelle(); S.goster();
+})();
+</script><script>window.KK_MASKOT = "Bibi";</script><script>
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
+(() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
+  addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });
+  d.forEach(x => x.addEventListener("click", async () => { if (!ist) return; ist.prompt(); await ist.userChoice; ist = null; d.forEach(y => { y.hidden = true; }); }));
+  addEventListener("appinstalled", () => d.forEach(x => { x.hidden = true; })); })();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="/menu.js?v=1855d8ad" defer></script>
+</body>
+</html>

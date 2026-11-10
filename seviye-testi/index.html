@@ -338,15 +338,24 @@
 // Sorular Well-Done havuzundan (/seviye-testi/veri.json: bağımsız, parçaya bağlı olmayan sorular).
 (() => {
   const kok = document.getElementById("seviye"); if (!kok) return;
-  const PLAN = [["kelime", 1], ["dilbilgisi", 1], ["kelime", 2], ["dilbilgisi", 2], ["cumle_tamamlama", 2], ["ceviri", 1],
+  // 10.11.2026: aynı betik /yokdil-testi/ için (data-mod="yokdil"): alan seçilir (fen/saglik/sosyal), havuz o alanın soruları.
+  const YOK = kok.dataset.mod === "yokdil";
+  const ALAN_AD = { fen: "Fen", saglik: "Sağlık", sosyal: "Sosyal" };
+  const ANAHTAR = YOK ? "yokdil-son" : "seviye-son";
+  const SINAV = () => YOK ? `YÖKDİL ${ALAN_AD[kok.dataset.alan] || ""}`.trim() : "YDS";
+  const PLAN = YOK ? [["kelime", 1], ["dilbilgisi", 1], ["kelime", 2], ["cumle_tamamlama", 2], ["dilbilgisi", 2], ["ceviri", 2],
+                ["paragraf_tamamlama", 2], ["cumle_tamamlama", 3], ["ceviri", 3], ["ilgisiz_cumle", 3]] : [["kelime", 1], ["dilbilgisi", 1], ["kelime", 2], ["dilbilgisi", 2], ["cumle_tamamlama", 2], ["ceviri", 1],
                 ["kelime", 3], ["dilbilgisi", 3], ["ceviri", 3], ["cumle_tamamlama", 3]];
   const AGIRLIK = { 1: 1, 2: 1.5, 3: 2 };
-  const AD = { kelime: "Kelime", dilbilgisi: "Dil bilgisi", cumle_tamamlama: "Cümle tamamlama", ceviri: "Çeviri" };
+  const AD = { kelime: "Kelime", dilbilgisi: "Dil bilgisi", cumle_tamamlama: "Cümle tamamlama", ceviri: "Çeviri",
+              paragraf_tamamlama: "Paragraf tamamlama", ilgisiz_cumle: "Anlamı bozan cümle" };
   const ONERI = {
     kelime: ["Kelime", "Her gün sözlükten 10 kelime çalış, düelloda pekiştir.", "/duello/", "Düelloya geç", "/sozluk/", "Sözlüğe göz at"],
     dilbilgisi: ["Dil bilgisi", "Zamanlar ve bağlaçlarla başla; sık karışan yapılar PDF'i işini görür.", "/pdf/", "PDF'lere bak", "/yazilar/", "Gramer yazıları"],
     cumle_tamamlama: ["Cümle tamamlama", "Önce bağlacın anlamına bak: zıtlık mı, sebep mi, sonuç mu?", "/yazilar/yds-baglac-sorulari/", "Bağlaç yazısını oku", "/pdf/", "Bağlaç tablosu PDF'i"],
     ceviri: ["Çeviri", "Önce ana yüklemi bul, sonra yan cümleleri eşleştir; şıkları cümlenin iskeletine göre ele.", "/welldone/", "Well-Done'da çalış", "/yazilar/", "Çalışma rehberleri"],
+    paragraf_tamamlama: ["Paragraf tamamlama", "Boşluktan önceki ve sonraki cümleye bak: boşluk ikisini birbirine bağlamalı; konu dışı şıkkı ele.", "/welldone/", "Well-Done'da çalış", "/yazilar/", "Çalışma rehberleri"],
+    ilgisiz_cumle: ["Anlamı bozan cümle", "Paragrafın ana fikrini bir cümleyle söyle; o fikirden sapan ya da odağı değiştiren cümleyi bul.", "/welldone/", "Well-Done'da çalış", "/yazilar/", "Çalışma rehberleri"],
   };
   const $ = s => kok.querySelector(s), $$ = s => [...kok.querySelectorAll(s)];
   const giris = $(".sv-giris"), test = $(".sv-test"), son = $(".sv-son");
@@ -356,7 +365,7 @@
   let veri = null, sorular = [], i = 0;
   const yukle = () => veri || (veri = fetch(kok.dataset.veri).then(r => r.json()));
   yukle();
-  const onceki = oku("seviye-son");
+  const onceki = oku(ANAHTAR);
   if (onceki) $(".sv-onceki").textContent = `Son sonucun: ${onceki.alt}–${onceki.ust} puan aralığı (${onceki.tarih}).`;
 
   const konus = (yer, m, tepki) => {
@@ -365,7 +374,7 @@
   };
 
   const basla = async () => {
-    const L = await yukle(), kullanildi = new Set();
+    const L = (await yukle()).filter(q => !YOK || q.al === kok.dataset.alan), kullanildi = new Set();
     sorular = PLAN.map(([b, s]) => {
       const aday = karistir(L.filter(q => q.b === b && q.v === s && !kullanildi.has(q.id)));
       const q = aday[0] || karistir(L.filter(q => q.b === b && !kullanildi.has(q.id)))[0];
@@ -422,15 +431,20 @@
       $(".sv-cozum").appendChild(d);
     });
     const tarih = new Date().toLocaleDateString("tr-TR");
-    yaz("seviye-son", { alt, ust, tarih });
+    yaz(ANAHTAR, { alt, ust, tarih });
     if (window.KKSeri) window.KKSeri.isle();
     if (window.KKSonuc) window.KKSonuc.hazirla({
-      cip: "YDS seviye testi", ust: "Tahmini puanım", buyuk: `${alt}–${ust}`, alt: `Harf seviyesi: ${harf(p)}`,
+      cip: `${SINAV()} seviye testi`, ust: "Tahmini puanım", buyuk: `${alt}–${ust}`, alt: `Harf seviyesi: ${harf(p)}`,
       satirlar: Object.entries(bol).map(([b, [d, n]]) => [AD[b], d / n, `${d}/${n}`]),
-      balon: "Sen kaç alırsın?", adres: "kubilaykenan.com/seviye-testi", dosya: `seviye-testi-${alt}-${ust}.png` });
+      balon: "Sen kaç alırsın?", adres: YOK ? "kubilaykenan.com/yokdil-testi" : "kubilaykenan.com/seviye-testi", dosya: `${YOK ? "yokdil" : "seviye"}-testi-${alt}-${ust}.png` });
     konus($(".sv-son .du-maskot"), p >= 70 ? "Çok iyi! Tam deneme çözmenin zamanı." : p >= 50 ? "Temel sağlam, şimdi zayıf bölüme yüklenelim." : "Başlangıç için harika. Planla gidersek hızla çıkar.", p >= 50 ? "sevinc" : "selam");
-    $("[data-paylas]").href = "https://wa.me/?text=" + encodeURIComponent(`Kubilay Kenan Hoca'nın seviye testinde tahmini YDS puanım ${alt}–${ust} çıktı. Sen de dene: https://kubilaykenan.com/seviye-testi/`);
+    $("[data-paylas]").href = "https://wa.me/?text=" + encodeURIComponent(`Kubilay Kenan Hoca'nın ${SINAV()} seviye testinde tahmini puanım ${alt}–${ust} çıktı. Sen de dene: https://kubilaykenan.com/${YOK ? "yokdil-testi" : "seviye-testi"}/`);
   };
+  $$("[data-alan]").forEach(d => d.addEventListener("click", () => {
+    kok.dataset.alan = d.dataset.alan;
+    $$("[data-alan]").forEach(x => x.setAttribute("aria-pressed", x === d));
+    $("[data-basla]").disabled = false;
+  }));
   $("[data-basla]").addEventListener("click", basla);
   $("[data-tekrar]").addEventListener("click", basla);
 })();
