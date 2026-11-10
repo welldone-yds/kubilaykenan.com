@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YKS Tercih Sihirbazı (Robotu): Bibi ile Program Bul · Kubilay Kenan Hoca</title>
+<meta name="description" content="Bibi ile YKS tercih sihirbazı: puanına ya da sırana göre ÖSYM 2026 yerleştirme sonuçlarından güvenli, hedef ve riskli programlar; tercih listeni kur.">
+<link rel="canonical" href="https://kubilaykenan.com/tercih/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-180.png"><meta name="theme-color" content="#3D091B">
+<link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
+<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Tercih Sihirbazı"><meta property="og:description" content="Bibi ile YKS tercih sihirbazı: puanına ya da sırana göre ÖSYM 2026 yerleştirme sonuçlarından güvenli, hedef ve riskli programlar; tercih listeni kur.">
+<meta property="og:image" content="https://kubilaykenan.com/og.png?v=c75e2815"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
+<link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
+<link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
+<link rel="stylesheet" href="/site.css?v=d55817e1">
+<style>
+/* Well-Done maskotu (maskot.svg) kıpırtıları: ana sayfa, düello ve seviye testi ortak. Kapsayıcıya .selam / .ucuyor eklenir. */
+/* maskot kıpırtıları: göz kırpma, püskül, kep, el sallama, hafif süzülme */
+.maskot .m-govde { transform-origin: 120px 222px; animation: m-sallan 3.2s ease-in-out infinite; }
+.maskot .m-goz { transform-origin: 120px 134px; animation: m-kirp 4.6s infinite; }
+.maskot .m-puskul { transform-origin: 120px 52px; animation: m-puskul 1.8s ease-in-out infinite; }
+.maskot .m-kep { transform-origin: 120px 70px; transform: rotate(-6deg); }
+.maskot .m-el { transform-origin: 206px 160px; }
+.selam .m-el { animation: m-el 1.1s ease-in-out 1; }
+.maskot .m-bebek { transition: transform .4s; }
+.ucuyor .m-bebek { transform: translate(5px, -4px); }
+@keyframes m-sallan { 0%, 100% { transform: rotate(-2deg) translateY(0); } 50% { transform: rotate(2deg) translateY(-6px); } }
+@keyframes m-kirp { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes m-puskul { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(8deg); } }
+@keyframes m-el { 0% { transform: none; } 25% { transform: translate(-6px, -58px) rotate(-22deg); } 50% { transform: translate(-6px, -58px) rotate(6deg); }
+                  75% { transform: translate(-6px, -58px) rotate(-18deg); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .maskot * { animation: none !important; } }
+.maskot.durgun * { animation-play-state: paused !important; }   /* ekran dışı / kaydırırken (vitrin.js) */
+/* tepkiler (düello, seviye testi): sevinç zıplaması, üzülme */
+.sevinc .maskot { animation: m-zipla .6s cubic-bezier(.3, 1.6, .5, 1) 1; }
+.uzgun .maskot .m-govde { animation: m-uzul 1s ease-in-out 1; }
+@keyframes m-zipla { 0% { transform: none; } 40% { transform: translateY(-22px) scale(1.06, .96); } 100% { transform: none; } }
+@keyframes m-uzul { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(-9deg) translateY(4px); } 60% { transform: rotate(6deg) translateY(4px); } }
+/* konuşma balonu: maskotun yanında; metin kelime kelime yazılır (data-yaz) */
+.balon { position: relative; background: #fff; color: #2B1A1F; border-radius: 18px; padding: 12px 16px; box-shadow: 0 10px 26px rgba(43, 26, 31, .14);
+         font: 600 15px/1.4 var(--font-sans); max-width: 280px; }
+.balon::before { content: ""; position: absolute; left: -7px; top: 22px; width: 16px; height: 16px; background: inherit; transform: rotate(45deg); border-radius: 3px; }
+.balon b { display: block; font: 800 12px/1 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; color: #A84660; margin-bottom: 5px; }
+@media (prefers-reduced-motion: reduce) { .sevinc .maskot, .uzgun .maskot .m-govde { animation: none !important; } }
+/* Mini kelime düellosu (/duello/, 21.10.2026): Well-Done düellosunun 10 kelimelik web sürümü; maskot sunucu. */
+.du { max-width: 760px; margin: 0 auto; padding: 18px 0 40px; }
+.du-bas { text-align: center; margin-bottom: 22px; }
+.du-bas .imza { font: 700 30px/1 "Dancing Script", cursive; color: #A84660; }
+.du-bas h1 { font: 800 clamp(34px, 5vw, 48px)/1.08 var(--font-display); color: var(--heading); margin: 6px 0 10px; letter-spacing: -.02em; }
+.du-bas p { color: var(--muted); margin: 0; font-size: 17px; }
+.du-kart { background: #FFF6F4; border: 1px solid #F1DCE1; border-radius: 26px; padding: 26px; box-shadow: 0 18px 50px rgba(168, 70, 96, .10); }
+.du-kart[hidden] { display: none; }
+.du-maskot { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.du-maskot .maskot { width: 92px; height: auto; flex: none; overflow: visible; }
+.du-rakipler { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0 0 18px; }
+.du-rakip { display: flex; align-items: center; gap: 12px; text-align: left; border: 1.5px solid #EED3D9; background: #fff; border-radius: 16px; padding: 12px 14px; cursor: pointer;
+            font: inherit; color: var(--text); transition: border-color .15s, box-shadow .15s; }
+.du-rakip:hover { border-color: #A84660; }
+.du-rakip[aria-pressed="true"] { border-color: #A84660; box-shadow: 0 0 0 3px rgba(168, 70, 96, .18); }
+.du-av { width: 40px; height: 40px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 800 16px/1 var(--font-display); color: #fff; background: #A84660; }
+.du-av.cirak { background: #6E8B5A; } .du-av.kalfa { background: #C08A2E; } .du-av.usta { background: #A84660; } .du-av.hoca { background: #3D091B; }
+.du-rakip b { display: block; color: var(--heading); }
+.du-rakip small { color: var(--muted); font-size: 13px; line-height: 1.3; display: block; }
+.du-dug { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; cursor: pointer; font: 700 16px/1 var(--font-sans);
+          padding: 16px 24px; border-radius: 14px; background: #A84660; color: #fff; box-shadow: 0 10px 24px rgba(168, 70, 96, .3); text-decoration: none; }
+.du-dug.ikinci { background: #fff; color: #A84660; border: 1.5px solid #EED3D9; box-shadow: none; }
+.du-dug.wa { background: #1FAF54; box-shadow: none; }
+.du-dugmeler { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.du-rekor { color: var(--muted); font-size: 14px; }
+/* oyun */
+.du-skor { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: #3D091B; color: #fff; border-radius: 20px; padding: 14px 18px; }
+.du-skor .taraf { display: flex; align-items: center; gap: 10px; }
+.du-skor .taraf.sag { justify-content: flex-end; text-align: right; }
+.du-skor small { display: block; font-size: 12px; color: #E8D3D8; }
+.du-skor .p { font: 800 30px/1 var(--font-display); }
+.du-skor .tur { text-align: center; font: 700 13px/1.2 var(--font-sans); color: #E8D3D8; }
+.du-skor .tur b { display: block; font: 800 22px/1 var(--font-display); color: #fff; }
+.du-skor .du-av { width: 36px; height: 36px; font-size: 14px; box-shadow: 0 0 0 2px rgba(255, 255, 255, .5); }
+.du-skor .ben { background: #F4C9D2; color: #3D091B; }
+.du-sure { height: 6px; border-radius: 99px; background: #F1DCE1; margin: 14px 0 4px; overflow: hidden; }
+.du-sure i { display: block; height: 100%; width: 100%; background: #A84660; border-radius: inherit; transform-origin: left; }
+.du-durum { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); min-height: 18px; }
+.du-soru { text-align: center; padding: 26px 0 20px; }
+.du-soru .ne { color: var(--muted); font-size: 15px; }
+.du-soru .kel { font: 700 clamp(36px, 7vw, 52px)/1.1 "Cormorant Garamond", Georgia, serif; color: #2B1A1F; margin: 8px 0 2px; }
+.du-soru .kel.tr { font: 800 clamp(24px, 4.6vw, 32px)/1.2 var(--font-display); }
+.du-soru .tt { color: var(--muted); font-size: 14px; }
+.du-sec { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.du-sec button { position: relative; width: 100%; min-height: 58px; text-align: left; font: 600 16px/1.3 var(--font-sans); color: #2B1A1F; background: #fff;
+                 border: 1.5px solid #F1DCE1; border-radius: 16px; padding: 14px 16px; cursor: pointer; transition: border-color .12s, background .12s, transform .12s; }
+.du-sec button:hover:not([disabled]) { border-color: #A84660; transform: translateY(-1px); }
+.du-sec button[disabled] { cursor: default; }
+.du-sec button.dogru { background: #EEF7EE; border-color: #2E7D32; }
+.du-sec button.yanlis { background: #FBEDEC; border-color: #B3261E; }
+.du-sec .rozet { position: absolute; top: -9px; right: 10px; font: 800 10px/1 var(--font-sans); letter-spacing: .05em; padding: 4px 7px; border-radius: 6px; background: #3D091B; color: #fff; }
+.du-alt { display: flex; align-items: center; gap: 12px; margin-top: 18px; min-height: 70px; }
+.du-alt .maskot { width: 64px; height: auto; flex: none; overflow: visible; }
+.du-alt .balon { font-size: 14px; padding: 10px 14px; }
+/* sonuç */
+.du-son h2 { font: 800 34px/1.1 var(--font-display); color: var(--heading); margin: 0 0 4px; }
+.du-son .ozet { color: var(--muted); margin: 0 0 16px; }
+.du-son .tablo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.du-son .tablo div { background: #fff; border-radius: 16px; padding: 14px 16px; border: 1px solid #F1DCE1; }
+.du-son .tablo b { display: block; font: 800 30px/1 var(--font-display); color: #A84660; }
+.du-son .tablo span { font-size: 13px; color: var(--muted); }
+.du-tekrar { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 6px; }
+.du-tekrar li { background: #fff; border-radius: 12px; padding: 10px 14px; border: 1px solid #F1DCE1; font-size: 15px; }
+.du-tekrar b { color: #2B1A1F; } .du-tekrar span { color: var(--muted); }
+.du-tekrar .y { color: #B3261E; font-weight: 700; } .du-tekrar .d { color: #2E7D32; font-weight: 700; }
+.du-wd { margin-top: 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #fff; border-radius: 18px; padding: 16px 18px; border: 1px solid #F1DCE1; }
+.du-wd img { width: 52px; height: 52px; border-radius: 12px; }
+.du-wd div { flex: 1; min-width: 180px; } .du-wd b { display: block; color: #2B1A1F; } .du-wd span { color: var(--muted); font-size: 14px; }
+@media (max-width: 560px) {
+  .du-kart { padding: 18px; border-radius: 22px; }
+  .du-rakipler, .du-sec { grid-template-columns: 1fr; }
+  .du-skor { padding: 12px; } .du-skor .p { font-size: 24px; } .du-skor .du-av { display: none; }
+  .du-soru { padding: 18px 0 14px; }
+}
+/* sonuç görseli (sonuc-kart.js): küçük önizleme + paylaş/indir */
+.sonuc-gorsel { display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #F1DCE1; border-radius: 18px; padding: 14px; margin: 0 0 18px; }
+.sonuc-gorsel img { width: 92px; aspect-ratio: 9 / 16; border-radius: 12px; object-fit: cover; background: #3D091B; flex: none; box-shadow: 0 8px 18px rgba(31, 3, 12, .2); }
+.sonuc-gorsel b { display: block; color: #2B1A1F; font-size: 17px; } .sonuc-gorsel span { display: block; color: var(--muted); font-size: 14px; margin: 2px 0 10px; }
+.sonuc-gorsel .du-dug { padding: 12px 16px; font-size: 14px; }
+[data-sonuc-paylas][hidden] { display: none; }
+</style><style>
+/* Tercih sihirbazı (/tercih/, 10.11.2026). duello.css + maskot.css üstüne. */
+.tr-bibi { position: sticky; top: 76px; z-index: 3; background: linear-gradient(#fff 85%, transparent); padding: 6px 0 10px; margin-bottom: 4px; }
+.tr-ilerle { display: flex; gap: 6px; margin: 0 0 16px; }
+.tr-ilerle i { flex: 1; height: 6px; border-radius: 99px; background: #F1DCE1; }
+.tr-ilerle i.tamam { background: #A84660; }
+.tr-adim[hidden] { display: none; }
+.tr-adim h2 { font: 800 22px/1.2 var(--font-display); color: var(--heading); margin: 0 0 12px; }
+.tr-turler { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.tr-turler button { border: 1.5px solid #EED3D9; background: #fff; border-radius: 16px; padding: 14px; text-align: left; cursor: pointer; font: 600 14px/1.35 var(--font-sans); color: var(--muted); min-height: 44px; }
+.tr-turler button b { display: block; font: 800 18px/1.2 var(--font-display); color: var(--heading); margin-bottom: 4px; }
+.tr-turler button[aria-pressed=true], .tr-turler button:hover { border-color: #A84660; box-shadow: 0 8px 24px rgba(168, 70, 96, .15); }
+.tr-giris { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
+.tr-giris label { display: grid; gap: 6px; font-weight: 700; color: var(--heading); font-size: 14px; }
+.tr-giris input, #tr-il-ara, #tr-ara { min-height: 46px; border: 1.5px solid #EED3D9; border-radius: 12px; padding: 8px 12px; font: 600 16px var(--font-sans); color: var(--heading); background: #fff; width: 100%; box-sizing: border-box; }
+.tr-not { color: var(--muted); font-size: 14px; margin: 6px 0 14px; }
+.tr-iller { display: flex; flex-wrap: wrap; gap: 6px; max-height: 300px; overflow: auto; margin: 10px 0; padding: 2px; }
+.tr-cip, .tr-sec button { border: 1.5px solid #EED3D9; background: #fff; border-radius: 999px; padding: 8px 14px; font: 600 14px var(--font-sans); color: var(--heading); cursor: pointer; min-height: 40px; }
+.tr-cip[aria-pressed=true], .tr-sec button[aria-pressed=true] { background: #A84660; border-color: #A84660; color: #fff; }
+.tr-sec { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
+.tr-sec-bas { font-weight: 700; color: var(--heading); font-size: 14px; margin: 6px 0 0; }
+.tr-alt { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+.tr-geri { background: none; border: 0; color: var(--muted); font: 600 15px var(--font-sans); cursor: pointer; min-height: 44px; }
+.tr-ozet { color: var(--muted); font-weight: 600; margin: 0 0 10px; }
+.tr-sekmeler { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.tr-sekmeler button { border: 1.5px solid #EED3D9; background: #fff; border-radius: 999px; padding: 9px 16px; font: 700 14px var(--font-sans); cursor: pointer; color: var(--heading); min-height: 44px; }
+.tr-sekmeler button sup { font-size: 11px; margin-left: 4px; color: var(--muted); }
+.tr-sekmeler button[aria-pressed=true] { background: var(--navy); border-color: var(--navy); color: #fff; }
+.tr-sekmeler button[aria-pressed=true] sup { color: #E9D9DF; }
+.tr-bant { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.tr-sonuclar, .tr-liste ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.tr-prg { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+.tr-prg b { color: var(--heading); display: block; }
+.tr-prg span, .tr-prg small { display: block; color: var(--muted); font-size: 14px; }
+.tr-prg small { font-size: 12px; }
+.tr-sayi { display: flex; gap: 14px; text-align: right; }
+.tr-sayi span { font-size: 11px; }
+.tr-sayi b { font: 800 16px/1.2 var(--font-display); }
+.tr-ekle { border: 1.5px solid #A84660; background: #fff; color: #A84660; border-radius: 999px; padding: 8px 12px; font: 700 13px var(--font-sans); cursor: pointer; min-height: 40px; white-space: nowrap; }
+.tr-ekle[aria-pressed=true] { background: #A84660; color: #fff; }
+.tr-bos { color: var(--muted); padding: 14px; text-align: center; }
+.tr-liste { margin-top: 22px; }
+.tr-liste h2 { font: 800 22px var(--font-display); color: var(--heading); margin: 0 0 4px; }
+.tr-liste li { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+.tr-liste .no { width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 13px; }
+.tr-liste small { display: block; color: var(--muted); font-size: 12px; }
+.tr-oklar { display: flex; gap: 4px; }
+.tr-oklar button { width: 36px; height: 36px; border: 1px solid var(--line); background: #fff; border-radius: 10px; cursor: pointer; font-size: 16px; }
+.tr-oklar button:disabled { opacity: .35; cursor: default; }
+.tr-uyari { font-size: 13px; color: var(--muted); margin-top: 16px; }
+@media (max-width: 640px) {
+  .tr-giris { grid-template-columns: 1fr; }
+  .tr-prg { grid-template-columns: 1fr; }
+  .tr-sayi { text-align: left; }
+  .tr-bibi { position: static; }
+}
+@media print {
+  header, footer, .tr-bibi, .tr-ilerle, .tr-adim, .du-bas p, .sz-cta, .tr-alt, .tr-oklar, .tr-uyari { display: none !important; }
+  .tr-liste { margin: 0; }
+}
+</style>
+<link rel="stylesheet" href="/menu.css?v=1855d8ad">
+</head>
+<body>
+<a class="atla" href="#icerik">İçeriğe geç</a>
+<div class="sayfa">
+<header class="ust mega-ust"><a class="marka" href="/" aria-label="Kubilay Kenan Hoca, ana sayfa"><svg class="marka-isaret" width="34" height="34" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#3D091B"/><rect x="120" y="112" width="70" height="288" fill="#D8B229"/><polyline points="300,112 190,256 300,400" fill="none" stroke="#D8B229" stroke-width="70" stroke-linejoin="miter" stroke-miterlimit="10"/><polyline points="400,112 290,256 400,400" fill="none" stroke="#E9B8C4" stroke-width="70" stroke-linejoin="miter" stroke-miterlimit="10"/></svg><span>Kubilay Kenan<small>Hoca</small></span></a><div class="mega" id="mega" role="navigation" aria-label="Ana menü"><ul class="mega-liste"><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-calis">Çalış<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-calis"><div class="mega-izgara"><a class="mega-sat" href="/sozluk/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg></span><span><b>Sözlük</b><small>Anlam, eş anlam ve örnek cümle</small></span></a><a class="mega-sat" href="/sozluk/calis/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg></span><span><b>Kelime çalış</b><small>Test ve kart, aralıklı tekrar</small></span></a><a class="mega-sat" href="/haftanin-10-kelimesi/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg></span><span><b>Haftanın 10 kelimesi</b><small>Her hafta sınavdan seçilmiş</small></span></a><a class="mega-sat" href="/deneme/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><span><b>Mini deneme</b><small>20 soru, sınav düzeninde</small></span></a><a class="mega-sat" href="/seviye-testi/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 1 1 16 0"/><path d="M12 18l4-6"/></svg></span><span><b>Seviye testi</b><small>Nereden başlayacağını gör</small></span></a><a class="mega-sat" href="/duello/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><span><b>Kelime düellosu</b><small>Bota karşı, süreye karşı</small></span></a></div><a class="mega-one" href="/defter/"><b>Kelime defterim</b><span>Kaydettiğin kelimeler ve serin bu tarayıcıda durur.</span><em>Deftere git →</em></a></div></li><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-araclar">Araçlar<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-araclar"><div class="mega-izgara"><a class="mega-sat" href="/puan-hesaplama/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2"/></svg></span><span><b>Puan hesaplama</b><small>Doğru sayından YDS puanı</small></span></a><a class="mega-sat" href="/sayac/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></span><span><b>Sınav sayacı</b><small>Sıradaki sınava kalan gün</small></span></a><a class="mega-sat" href="/plan/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg></span><span><b>Çalışma planı üreteci</b><small>Kalan güne göre haftalık plan</small></span></a><a class="mega-sat" href="/pdf/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><span><b>Ücretsiz PDF'ler</b><small>Yazdırılabilir çalışma kâğıtları</small></span></a><a class="mega-sat" href="/yazilar/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></span><span><b>Yazılar</b><small>Kısa çalışma rehberleri</small></span></a><a class="mega-sat" href="/takvim.ics"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span><b>ÖSYM takvimi</b><small>Takvimine ekle (.ics)</small></span></a></div><a class="mega-one" href="/puan-hesaplama/"><b>Puanını hesapla</b><span>Doğru sayını gir, hangi eşiği geçtiğini hemen gör.</span><em>Hesapla →</em></a></div></li><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-welldone">Well-Done<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-welldone"><div class="mega-izgara"><a class="mega-sat" href="/welldone/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span><span><b>Uygulama</b><small>Kelime, gramer, okuma, deneme</small></span></a><a class="mega-sat" href="https://apps.apple.com/tr/app/id6824592774?pt=129641580&mt=8&ct=site-menu" target="_blank" rel="noopener"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l12 8-12 8z"/></svg></span><span><b>App Store'dan indir</b><small>Ücretsiz; iPhone, iPad ve Mac</small></span></a><a class="mega-sat" href="/welldone/destek.html"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg></span><span><b>Destek</b><small>Sık sorulanlar ve iletişim</small></span></a><a class="mega-sat" href="/welldone/gizlilik.html"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><span><b>Gizlilik</b><small>Veriler cihazında kalır</small></span></a></div><a class="mega-one" href="/welldone/"><b>Well-Done</b><span>Günde birkaç dakika, sınav düzeninde. Odak sayacı ve bahçe yeni.</span><em>Tanı →</em></a></div></li><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-linkup">LINK UP<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-linkup"><div class="mega-izgara"><a class="mega-sat" href="/linkup/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span><b>Uygulama</b><small>Bağlaçlar: dört grup, artı–eksi</small></span></a><a class="mega-sat" href="/linkup/destek.html"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg></span><span><b>Destek</b><small>Sık sorulanlar ve iletişim</small></span></a><a class="mega-sat" href="/linkup/gizlilik.html"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><span><b>Gizlilik</b><small>Veri toplanmaz, ilerleme cihazda</small></span></a></div><a class="mega-one" href="/linkup/"><b>LINK UP</b><span>Bağlaç sorularını çeviriye girmeden, teknikle çöz.</span><em>Tanı →</em></a></div></li><li class="mega-oge"><button type="button" class="mega-dug" aria-expanded="false" aria-controls="mm-kocluk">Koçluk<svg class="mega-ok" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-pano" id="mm-kocluk"><div class="mega-izgara"><a class="mega-sat" href="/kocluk/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span><b>Koçluk çalışmaları</b><small>Hazırlanan programlar ve yöntem</small></span></a><a class="mega-sat" href="/calisma-plani/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span><b>Çalışma planı rehberi</b><small>Yöntem: neyi, ne zaman, nasıl</small></span></a><a class="mega-sat" href="/plan/"><span class="mega-simge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg></span><span><b>Plan üreteci</b><small>Kendi planını kendin kur</small></span></a></div><a class="mega-one" href="/kocluk/"><b>Nasıl çalışıyorum?</b><span>Seviye tespitinden haftalık takibe, öğrencilerle yürüttüğüm süreç.</span><em>Göz at →</em></a></div></li><li class="mega-oge mega-duz"><a class="mega-dug" href="/#hakkimda">Hakkımda</a></li><li class="mega-oge mega-duz"><a class="mega-dug" href="/#iletisim">İletişim</a></li></ul></div><div class="mega-arac"><button type="button" class="ara-dug" aria-label="Sözlükte ara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><span>Kelime ara</span><kbd>Ctrl K</kbd></button><a class="defter-dug" href="/defter/" hidden aria-label="Kelime defterim" title="Kelime defterim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-say>0</span></a><button type="button" class="mega-ac" aria-expanded="false" aria-controls="mega" aria-label="Menü"><span></span><span></span><span></span></button></div></header>
+<dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
+<main id="icerik">
+
+<section class="du" id="tercih" data-veri="/tercih/veri.json?v=7a488a49">
+<div class="du-bas"><span class="imza">Bibi ile</span><h1>Tercih sihirbazı</h1><p>Puanını ya da sıranı söyle; ÖSYM'nin 2026 yerleştirme sonuçlarındaki 12.239 lisans ve 9.254 ön lisans programından sana uyanları güvenli, hedef ve riskli diye ayırayım.</p></div>
+<div class="du-kart">
+<div class="tr-bibi"><div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
+  
+  <ellipse class="m-golge" cx="120" cy="236" rx="70" ry="8" fill="rgba(168,70,96,.18)"/>
+  <g class="m-govde">
+    <g class="m-el"><circle cx="216" cy="168" r="17" fill="#A84660"/></g>
+    <circle cx="24" cy="172" r="17" fill="#A84660"/>
+    <path d="M58 74 H182 A46 46 0 0 1 228 120 V170 A46 46 0 0 1 182 216 H96 L62 238 L70 214 A46 46 0 0 1 12 170 V120 A46 46 0 0 1 58 74 Z" fill="#A84660"/>
+    <path d="M58 86 H150 A30 30 0 0 1 150 96 H64 A34 34 0 0 0 30 130 V150 A6 6 0 0 1 24 150 V124 A38 38 0 0 1 58 86 Z" fill="#fff" opacity=".22"/>
+    <ellipse cx="62" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/><ellipse cx="178" cy="168" rx="14" ry="9" fill="#F4C9D2" opacity=".95"/>
+    <g class="m-goz">
+      <ellipse cx="88" cy="134" rx="19" ry="22" fill="#fff"/><ellipse cx="152" cy="134" rx="19" ry="22" fill="#fff"/>
+      <g class="m-bebek"><circle cx="92" cy="134" r="10" fill="#2B1A1F"/><circle cx="156" cy="134" r="10" fill="#2B1A1F"/>
+        <circle cx="96" cy="129" r="3.6" fill="#fff"/><circle cx="160" cy="129" r="3.6" fill="#fff"/></g>
+    </g>
+    <path d="M103 176 Q120 192 137 176" fill="none" stroke="#FFF6F4" stroke-width="6" stroke-linecap="round"/>
+    <g class="m-kep">
+      <path d="M84 62 H156 L150 84 Q120 92 90 84 Z" fill="#B8941A"/>
+      <path d="M120 26 L204 52 L120 78 L36 52 Z" fill="#D8B229" stroke="#8A6A0E" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="120" cy="52" r="6" fill="#8A6A0E"/>
+      <g class="m-puskul"><path d="M120 52 L178 64 L180 100" fill="none" stroke="#8A6A0E" stroke-width="4" stroke-linecap="round"/>
+        <rect x="173" y="96" width="14" height="22" rx="5" fill="#D8B229" stroke="#8A6A0E" stroke-width="2"/></g>
+    </g>
+  </g>
+</svg>
+<div class="balon"><b>Bibi</b><span>Merhaba, ben Bibi!</span></div></div></div>
+<div class="tr-ilerle" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="tr-adim"><h2>1. Hangi puan türüyle?</h2><div class="tr-turler"><button type="button" data-tur="TYT" aria-pressed="false"><b>TYT</b>Ön lisans (2 yıllık)</button><button type="button" data-tur="SAY" aria-pressed="false"><b>Sayısal</b>Mühendislik, tıp, fen</button><button type="button" data-tur="EA" aria-pressed="false"><b>Eşit ağırlık</b>Hukuk, işletme, psikoloji</button><button type="button" data-tur="SÖZ" aria-pressed="false"><b>Sözel</b>Tarih, edebiyat, iletişim</button><button type="button" data-tur="DİL" aria-pressed="false"><b>Dil</b>İngilizce öğretmenliği, mütercimlik</button></div></div>
+<div class="tr-adim" hidden><h2>2. Puanın ya da sıran</h2><div class="tr-giris">
+<label>Yerleştirme puanı (OBP dâhil)<input id="tr-puan" inputmode="decimal" placeholder="örn. 412,35"></label>
+<label>ya da başarı sırası<input id="tr-sira" inputmode="numeric" placeholder="örn. 85.000"></label></div>
+<p class="tr-not">İkisini birden yazarsan sırayı esas alırım. Puanını bilmiyor musun? <a href="/yks-puan-hesaplama/">YKS puan hesaplama</a> netlerinden bulur.</p>
+<div class="tr-alt"><button type="button" class="du-dug" data-ileri2>Devam</button></div></div>
+<div class="tr-adim" hidden><h2>3. Şehir</h2><input id="tr-il-ara" placeholder="Şehir ara" aria-label="Şehir ara"><div class="tr-iller"></div>
+<p class="tr-not"><span class="tr-secili"></span> · <button type="button" class="tr-geri" data-il-temizle style="min-height:auto">Seçimi temizle</button></p>
+<div class="tr-alt"><button type="button" class="du-dug" data-ileri="3">Devam</button></div></div>
+<div class="tr-adim" hidden><h2>4. Üniversite ve burs</h2>
+<p class="tr-sec-bas">Üniversite türü</p><div class="tr-sec"><button type="button" data-ut="DEVLET" aria-pressed="true">Devlet</button><button type="button" data-ut="VAKIF" aria-pressed="true">Vakıf</button><button type="button" data-ut="KKTC" aria-pressed="false">KKTC</button><button type="button" data-ut="YURTDISI" aria-pressed="false">Yurt dışı</button></div>
+<p class="tr-sec-bas">Vakıf ve KKTC'de burs</p><div class="tr-sec"><button type="button" data-burs="Burslu" aria-pressed="true">Tam burslu</button><button type="button" data-burs="%50" aria-pressed="true">%50 indirimli</button><button type="button" data-burs="%25" aria-pressed="true">%25 indirimli</button><button type="button" data-burs="Ücretli" aria-pressed="true">Ücretli</button><button type="button" data-burs="ücretsiz" aria-pressed="true">Belirtilmemiş</button></div>
+<p class="tr-sec-bas">Eğitim dili</p><div class="tr-sec"><button type="button" data-dil="hepsi" aria-pressed="true">Fark etmez</button><button type="button" data-dil="tr" aria-pressed="false">Türkçe</button><button type="button" data-dil="ing" aria-pressed="false">İngilizce</button><button type="button" data-dil="diger" aria-pressed="false">Diğer diller</button></div>
+<label class="tr-not"><input type="checkbox" id="tr-orgun" checked> Açıköğretim ve uzaktan öğretim programlarını gösterme</label>
+<div class="tr-alt"><button type="button" class="du-dug" data-ileri="4">Devam</button></div></div>
+<div class="tr-adim" hidden><h2>5. Bölüm (isteğe bağlı)</h2><input id="tr-ara" placeholder="örn. psikoloji, mühendislik, öğretmenliği" aria-label="Bölüm ya da fakülte ara">
+<div class="tr-alt"><button type="button" class="du-dug" data-bitir>Programları göster</button></div></div>
+<div class="tr-adim" hidden><p class="tr-ozet"></p>
+<div class="tr-sekmeler"><button type="button" data-sekme="hedef" aria-pressed="false">Hedef<sup>0</sup></button><button type="button" data-sekme="guvenli" aria-pressed="false">Güvenli<sup>0</sup></button><button type="button" data-sekme="riskli" aria-pressed="false">Riskli<sup>0</sup></button><button type="button" data-sekme="bos" aria-pressed="false">2026'da boş kalan<sup>0</sup></button></div>
+<p class="tr-bant">Hedef: 2026'da senin sıranla girilen, sınırına yakın programlar. Güvenli: taban sırası seninkinden en az %25 geride. Riskli: 2026'da senden biraz daha iyi sırayla dolan programlar (%20'ye kadar).</p>
+<ul class="tr-sonuclar"></ul>
+<div class="tr-alt"><button type="button" class="du-dug ikinci" data-daha hidden>Daha fazla göster</button><button type="button" class="du-dug ikinci" data-yeniden>Filtreleri değiştir</button></div></div>
+<div class="tr-alt"><button type="button" class="tr-geri">← Geri</button></div>
+</div>
+<div class="tr-liste du-kart" style="margin-top:18px"><h2>Tercih listem (<span class="tr-liste-sayi">0</span>/24)</h2>
+<p class="tr-not">Liste yalnız bu tarayıcıda saklanır. Sıralamayı oklarla değiştir; ÖSYM'ye program kodlarıyla girersin.</p><ol></ol>
+<div class="tr-alt"><button type="button" class="du-dug" data-kopyala>Listeyi kopyala</button><button type="button" class="du-dug ikinci" data-yazdir>Yazdır / PDF</button></div></div>
+<p class="tr-uyari">Veri: ÖSYM 2026-YKS yerleştirme sonuçları, TABLO-3 ve TABLO-4 (en küçük puanlar, kontenjan, yerleşen). ÖSYM bu tablolarda başarı sırası vermez; sıralar 2026-YKS sayısal bilgilerindeki resmî puan dağılımından tahmin edilir. 2027 kontenjanları ve taban puanları farklı olacaktır; Bibi'nin önerileri yol göstericidir, tercihten önce ÖSYM'nin 2027 tercih kılavuzunu mutlaka kontrol et.</p>
+</section>
+</main>
+<footer>© 2026 Kubilay Kenan Işıklı</footer>
+</div>
+<script>
+// Tercih sihirbazı (/tercih/, 10.11.2026): Bibi adım adım sorar, ÖSYM 2026 yerleştirme tablolarından (TABLO-3/4) programları
+// güvenli / hedef / riskli diye ayırır. Veri /tercih/veri.json (kisisel/yks/yks_veri.json). Bant kuralı (bizim, ÖSYM'nin değil):
+// programın 2026 tahmini sırası ps, adayın sırası s → güvenli ps ≥ 1,25 s · hedef s ≤ ps < 1,25 s · riskli 0,8 s ≤ ps < s.
+// Tercih listesi tarayıcıda (localStorage "kk-tercih"), en çok 24 (YKS tercih sınırı).
+(() => {
+  const kok = document.getElementById("tercih"); if (!kok) return;
+  const $ = s => kok.querySelector(s), $$ = s => [...kok.querySelectorAll(s)];
+  const oku = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } };
+  const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  const TR = s => s.toLocaleLowerCase("tr");
+  const BUYUK = s => s.toLocaleLowerCase("tr").replace(/(^|[\s(\-/])(\p{L})/gu, (m, a, b) => a + b.toLocaleUpperCase("tr"));
+  const KUCUK = new Set(["ve", "ile", "için", "de", "da"]);
+  const BASLIK = s => BUYUK(s).replace(/(?<=\s)(\p{L}+)/gu, w => KUCUK.has(TR(w)) ? TR(w) : w);
+  const UNI = s => BASLIK(s.replace(/\s*\([^()]*\)\s*$/, ""));
+  const sayi = n => Math.round(n).toLocaleString("tr-TR");
+  const puanY = p => p.toFixed(2).replace(".", ",");
+  let V = null, durum = { tur: null, puan: null, sira: null, sehir: [], uturu: ["DEVLET", "VAKIF"], burs: ["Burslu", "%50", "%25", "Ücretli", "ücretsiz"],
+    dil: "hepsi", orgun: true, ara: "" }, adim = 0, sonuc = [], sekme = "hedef", goster = 60;
+  let liste = oku("kk-tercih", []);
+  const veri = () => V ? Promise.resolve(V) : fetch(kok.dataset.veri).then(r => r.json()).then(d => (V = d));
+
+  // ---- Bibi konuşur ----
+  const bibi = (m, tepki) => {
+    const b = $(".tr-bibi"); b.querySelector(".balon span").textContent = m;
+    if (tepki) { b.classList.remove("sevinc", "selam", "uzgun"); void b.offsetWidth; b.classList.add(tepki); }
+  };
+  const ADIM_SOZ = [
+    "Merhaba, ben Bibi! Önce hangi puan türüyle tercih yapacağını seçelim.",
+    "Şimdi yerleştirme puanını ya da başarı sıranı yaz. Bilmiyorsan puan hesaplamadan bulabilirsin.",
+    "Nerede okumak istersin? İstediğin kadar şehir seç; boş bırakırsan bütün Türkiye.",
+    "Devlet mi vakıf mı, burslu mu? Eğitim dilini de seçebilirsin.",
+    "Aklında bir bölüm var mı? Yazarsan yalnız onları gösteririm; boş bırakırsan hepsini.",
+  ];
+  const adimGit = n => {
+    adim = n;
+    $$(".tr-adim").forEach((d, i) => { d.hidden = i !== n; });
+    $$(".tr-ilerle i").forEach((d, i) => d.classList.toggle("tamam", i <= n));
+    $(".tr-geri").hidden = n === 0 || n > 4;
+    if (n <= 4) bibi(ADIM_SOZ[n], "selam");
+    if (n === 2 && V) sehirCiz();
+    kok.scrollIntoView({ block: "start", behavior: "smooth" });
+  };
+
+  // ---- 1. puan türü ----
+  $$("[data-tur]").forEach(d => d.addEventListener("click", () => {
+    durum.tur = d.dataset.tur; $$("[data-tur]").forEach(x => x.setAttribute("aria-pressed", x === d)); adimGit(1);
+  }));
+  // ---- 2. puan / sıra ----
+  const sira = (p, tur) => {
+    const t = V.yer, k = V.tur.indexOf(tur) + 1;
+    if (p >= t[0][0]) return Math.max(1, Math.round(t[0][k] * (1 - Math.min(1, (p - t[0][0]) / 10))));
+    for (let i = 0; i < t.length - 1; i++) { const a = t[i], b = t[i + 1]; if (p <= a[0] && p >= b[0]) return Math.round(b[k] + (a[k] - b[k]) * (p - b[0]) / (a[0] - b[0])); }
+    return t[t.length - 1][k];
+  };
+  $("[data-ileri2]").addEventListener("click", async () => {
+    await veri();
+    const p = parseFloat(($("#tr-puan").value || "").replace(",", ".")), s = parseInt(($("#tr-sira").value || "").replace(/\D/g, ""), 10);
+    if (!(p >= 100 && p <= 560) && !(s > 0)) { bibi("Puanını (100–560) ya da sıranı yazman gerekiyor.", "uzgun"); return; }
+    durum.puan = p >= 100 ? p : null; durum.sira = s > 0 ? s : sira(p, durum.tur);
+    adimGit(2);
+  });
+  // ---- 3. şehir ----
+  const sehirCiz = () => {
+    const iller = [...new Set(V.u.map(u => u[2]))].sort((a, b) => a.localeCompare(b, "tr"));
+    const q = TR($("#tr-il-ara").value.trim());
+    $(".tr-iller").innerHTML = iller.filter(i => !q || TR(i).includes(q)).map(i =>
+      `<button type="button" class="tr-cip" data-il="${i}" aria-pressed="${durum.sehir.includes(i)}">${BUYUK(i)}</button>`).join("");
+    $(".tr-secili").textContent = durum.sehir.length ? `${durum.sehir.length} şehir seçili` : "Bütün Türkiye";
+  };
+  $(".tr-iller").addEventListener("click", e => {
+    const d = e.target.closest("[data-il]"); if (!d) return;
+    const i = d.dataset.il; durum.sehir = durum.sehir.includes(i) ? durum.sehir.filter(x => x !== i) : [...durum.sehir, i]; sehirCiz();
+  });
+  $("#tr-il-ara").addEventListener("input", sehirCiz);
+  $("[data-il-temizle]").addEventListener("click", () => { durum.sehir = []; sehirCiz(); });
+  // ---- 4. tür, burs, dil ----
+  const coklu = (sec, alan) => $$(sec).forEach(d => d.addEventListener("click", () => {
+    const v = d.dataset.v, a = durum[alan]; durum[alan] = a.includes(v) ? a.filter(x => x !== v) : [...a, v];
+    d.setAttribute("aria-pressed", durum[alan].includes(v));
+  }));
+  coklu("[data-ut]", "uturu"); coklu("[data-burs]", "burs");
+  $$("[data-dil]").forEach(d => d.addEventListener("click", () => { durum.dil = d.dataset.dil; $$("[data-dil]").forEach(x => x.setAttribute("aria-pressed", x === d)); }));
+  $("#tr-orgun").addEventListener("change", e => { durum.orgun = e.target.checked; });
+  $$("[data-ileri]").forEach(d => d.addEventListener("click", () => adimGit(+d.dataset.ileri)));
+  $(".tr-geri").addEventListener("click", () => adimGit(Math.max(0, adim - 1)));
+
+  // ---- program özellikleri adından ----
+  const burs = ad => /\(Burslu\)/.test(ad) ? "Burslu" : /%50/.test(ad) ? "%50" : /%25/.test(ad) ? "%25" : /\(Ücretli\)/.test(ad) ? "Ücretli" : "ücretsiz";
+  const dil = ad => /\((İngilizce|Almanca|Fransızca|Arapça|Rusça|İspanyolca)\)/.test(ad) ? (/\(İngilizce\)/.test(ad) ? "ing" : "diger") : "tr";
+  const uzaktan = ad => /\((Açıköğretim|Uzaktan Öğretim)\)/.test(ad);
+
+  // ---- sonuç ----
+  const BANT = { guvenli: [1.25, Infinity], hedef: [1, 1.25], riskli: [0.8, 1] };
+  const bant = ps => { const r = ps / durum.sira; return r >= 1.25 ? "guvenli" : r >= 1 ? "hedef" : r >= 0.8 ? "riskli" : null; };
+  const hesapla = () => {
+    const q = TR(durum.ara.trim()), uturu = new Set(durum.uturu.flatMap(t => t === "YURTDISI" ? ["YURTDISI KAMU", "YURTDISI VAKIF"] : [t]));
+    sonuc = [];
+    for (const p of V.p) {
+      const [kod, ui, fi, ad, pt, kont, yer, enk, , ps, duzey] = p, u = V.u[ui];
+      if (pt !== durum.tur || /KKTC Uyruklu|M\.T\.O\.K\.|Bakanlığı Adına/.test(ad)) continue;
+      if (!uturu.has(u[1]) || (durum.sehir.length && !durum.sehir.includes(u[2]))) continue;
+      if (u[1] !== "DEVLET" && !durum.burs.includes(burs(ad))) continue;
+      if (durum.dil !== "hepsi" && dil(ad) !== durum.dil) continue;
+      if (durum.orgun && uzaktan(ad)) continue;
+      if (q && !TR(ad).includes(q) && !TR(V.f[fi]).includes(q)) continue;
+      const b = ps ? bant(ps) : (kont > yer ? "bos" : null);
+      if (b) sonuc.push({ kod, ad, uni: u[0], tur: u[1], il: u[2], fak: V.f[fi], kont, yer, enk, ps, b, duzey });
+    }
+    sonuc.sort((a, b) => (a.ps || 9e9) - (b.ps || 9e9));
+  };
+  const satir = x => {
+    const ekli = liste.some(y => y.kod === x.kod);
+    return `<li class="tr-prg"><div><b>${x.ad}</b><span>${UNI(x.uni)} · ${BUYUK(x.il)}</span><small>${BASLIK(x.fak)} · ${x.tur === "DEVLET" ? "Devlet" : x.tur === "VAKIF" ? "Vakıf" : BUYUK(x.tur)} · Kod ${x.kod}</small></div>
+      <div class="tr-sayi">${x.enk ? `<span><b>${puanY(x.enk)}</b>taban puan</span><span><b>${sayi(x.ps)}</b>tahmini sıra</span>` : `<span><b>Boş kaldı</b>2026'da dolmadı</span>`}
+      <span><b>${x.yer}/${x.kont}</b>yerleşen</span></div>
+      <button type="button" class="tr-ekle" data-kod="${x.kod}" aria-pressed="${ekli}">${ekli ? "Listende" : "+ Listeme ekle"}</button></li>`;
+  };
+  const ciz = () => {
+    const say = k => sonuc.filter(x => x.b === k).length;
+    $$("[data-sekme]").forEach(d => { d.setAttribute("aria-pressed", d.dataset.sekme === sekme); d.querySelector("sup").textContent = say(d.dataset.sekme); });
+    const l = sonuc.filter(x => x.b === sekme);
+    $(".tr-sonuclar").innerHTML = l.slice(0, goster).map(satir).join("") || `<li class="tr-bos">Bu grupta program yok. Filtreleri genişletmeyi dene.</li>`;
+    $("[data-daha]").hidden = l.length <= goster;
+  };
+  $("[data-bitir]").addEventListener("click", async () => {
+    await veri(); durum.ara = $("#tr-ara").value; hesapla(); sekme = "hedef"; goster = 60;
+    adimGit(5); ciz();
+    const g = sonuc.filter(x => x.b === "guvenli").length, h = sonuc.filter(x => x.b === "hedef").length, r = sonuc.filter(x => x.b === "riskli").length;
+    $(".tr-ozet").textContent = `${durum.puan ? puanY(durum.puan) + " puan · " : ""}tahmini sıra ${sayi(durum.sira)} · ${durum.tur}`;
+    bibi(sonuc.length ? `${h} hedef, ${g} güvenli, ${r} riskli program buldum. Listeni hedef ağırlıklı kur, sonuna mutlaka güvenli ekle!`
+      : "Bu filtrelerle program çıkmadı. Şehir ya da bölüm seçimini genişletelim mi?", sonuc.length ? "sevinc" : "uzgun");
+  });
+  $$("[data-sekme]").forEach(d => d.addEventListener("click", () => { sekme = d.dataset.sekme; goster = 60; ciz(); }));
+  $("[data-daha]").addEventListener("click", () => { goster += 60; ciz(); });
+  $("[data-yeniden]").addEventListener("click", () => adimGit(0));
+
+  // ---- tercih listem ----
+  const listeCiz = () => {
+    yaz("kk-tercih", liste);
+    $(".tr-liste-sayi").textContent = liste.length;
+    $(".tr-liste ol").innerHTML = liste.map((x, i) => `<li><span class="no">${i + 1}</span><div><b>${x.ad}</b><small>${UNI(x.uni)} · ${x.kod}${x.enk ? " · taban " + puanY(x.enk) : ""}</small></div>
+      <span class="tr-oklar"><button type="button" data-yukari="${i}" aria-label="Yukarı" ${i ? "" : "disabled"}>↑</button><button type="button" data-asagi="${i}" aria-label="Aşağı" ${i < liste.length - 1 ? "" : "disabled"}>↓</button><button type="button" data-sil="${i}" aria-label="Çıkar">×</button></span></li>`).join("")
+      || `<li class="tr-bos">Henüz boş. Sonuçlardan "+ Listeme ekle" ile ekle.</li>`;
+  };
+  kok.addEventListener("click", e => {
+    const d = e.target.closest("button"); if (!d) return;
+    if (d.dataset.kod) {
+      const k = d.dataset.kod, i = liste.findIndex(x => x.kod === k);
+      if (i >= 0) liste.splice(i, 1);
+      else if (liste.length >= 24) { bibi("YKS'de en çok 24 tercih yapabilirsin; listen dolu.", "uzgun"); return; }
+      else { const x = sonuc.find(y => y.kod === k); liste.push({ kod: k, ad: x.ad, uni: x.uni, enk: x.enk }); }
+      listeCiz(); ciz();
+    } else if (d.dataset.yukari) { const i = +d.dataset.yukari; [liste[i - 1], liste[i]] = [liste[i], liste[i - 1]]; listeCiz(); }
+    else if (d.dataset.asagi) { const i = +d.dataset.asagi; [liste[i + 1], liste[i]] = [liste[i], liste[i + 1]]; listeCiz(); }
+    else if (d.dataset.sil) { liste.splice(+d.dataset.sil, 1); listeCiz(); if (adim === 5) ciz(); }
+  });
+  $("[data-kopyala]").addEventListener("click", () => {
+    const t = liste.map((x, i) => `${i + 1}. ${x.kod} ${x.ad} – ${UNI(x.uni)}`).join("\n");
+    navigator.clipboard?.writeText(t).then(() => bibi("Listeni kopyaladım. Program kodlarıyla ÖSYM'de tercih yaparken işine yarar.", "sevinc"));
+  });
+  $("[data-yazdir]").addEventListener("click", () => window.print());
+
+  // ---- adres: /tercih/?t=SAY&p=450.12 (puan hesaplamadan gelir) ----
+  const q = new URLSearchParams(location.search);
+  listeCiz();
+  if (q.get("t") && V === null) {
+    const t = q.get("t"), p = parseFloat(q.get("p"));
+    const d = $$("[data-tur]").find(x => x.dataset.tur === t);
+    if (d) { durum.tur = t; d.setAttribute("aria-pressed", "true"); if (p) $("#tr-puan").value = p.toFixed(2).replace(".", ","); adimGit(1); }
+    else adimGit(0);
+  } else adimGit(0);
+})();
+</script>
+<script>
+// Üst çubukta sözlük araması: düğme, ⌘K / Ctrl+K ya da "/" ile açılır. Veri ilk açılışta bir kez indirilir (/sozluk/veri.json).
+// Kayıt: [id, kelime, tür, Türkçe, eş anlamlılar, …]. Sıra: kelime başı → kelime içi → Türkçe anlam / eş anlamlı içi.
+(() => {
+  const dug = document.querySelector(".ara-dug"), pen = document.getElementById("ara-pen");
+  if (!dug || !pen || !pen.showModal) { if (dug) dug.hidden = true; return; }
+  const tr = document.documentElement.lang !== "en";
+  const TUR = tr ? { v: "fiil", n: "isim", adj: "sıfat", adv: "zarf", phr: "kalıp", conj: "bağlaç", prep: "edat" }
+                 : { v: "verb", n: "noun", adj: "adj.", adv: "adv.", phr: "phrase", conj: "conj.", prep: "prep." };
+  const g = pen.querySelector("input"), ul = pen.querySelector(".ara-sonuc"), bos = pen.querySelector(".ara-bos");
+  const yalin = s => s.toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i");
+  let veri = null, secili = 0, sonuclar = [];
+  const yukle = () => veri || (veri = fetch("/sozluk/veri.json").then(r => r.json()).then(d => d.v.map(x => ({ x, k: yalin(x[1]), t: yalin(x[3] + " " + x[4]) }))));
+  const ac = () => { pen.showModal(); g.value = ""; g.focus(); yukle(); goster(); };
+  const goster = async () => {
+    const q = yalin(g.value.trim());
+    if (!q) { ul.innerHTML = ""; bos.textContent = tr ? "Kelime ya da Türkçe anlam yaz: abandon, sürdürmek…" : "Type a word or a Turkish meaning…"; bos.hidden = false; sonuclar = []; return; }
+    const L = await yukle();
+    const a = [], b = [], c = [];
+    for (const s of L) { if (s.k.startsWith(q)) a.push(s); else if (s.k.includes(q)) b.push(s); else if (q.length > 2 && s.t.includes(q)) c.push(s); }
+    sonuclar = [...a.sort((m, n) => m.k.length - n.k.length), ...b, ...c].slice(0, 8);
+    secili = 0;
+    ul.innerHTML = sonuclar.map(({ x }, i) => `<li><a href="/sozluk/${x[0]}/" aria-selected="${i === 0}"><b lang="en"></b><span class="tur"></span><span class="tr"></span></a></li>`).join("");
+    ul.querySelectorAll("a").forEach((el, i) => { const x = sonuclar[i].x; el.querySelector("b").textContent = x[1]; el.querySelector(".tur").textContent = TUR[x[2]] || x[2];
+      el.querySelector(".tr").textContent = x[3].split(";")[0]; });
+    bos.hidden = sonuclar.length > 0;
+    if (!sonuclar.length) bos.textContent = tr ? "Bulunamadı. Sözlükte 1.388 kelime var; başka bir yazımla dene." : "No match. Try another spelling.";
+  };
+  const isaretle = () => ul.querySelectorAll("a").forEach((el, i) => { el.setAttribute("aria-selected", String(i === secili)); if (i === secili) el.scrollIntoView({ block: "nearest" }); });
+  dug.addEventListener("click", ac);
+  g.addEventListener("input", goster);
+  g.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown" && sonuclar.length) { e.preventDefault(); secili = (secili + 1) % sonuclar.length; isaretle(); }
+    else if (e.key === "ArrowUp" && sonuclar.length) { e.preventDefault(); secili = (secili - 1 + sonuclar.length) % sonuclar.length; isaretle(); }
+  });
+  pen.querySelector("form").addEventListener("submit", e => { e.preventDefault(); const a = ul.querySelectorAll("a")[secili]; if (a) location.href = a.href; });
+  pen.querySelector(".kapat").addEventListener("click", () => pen.close());
+  pen.addEventListener("click", e => { if (e.target === pen) pen.close(); });
+  addEventListener("keydown", e => {
+    const yaziyor = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
+    if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !yaziyor)) { e.preventDefault(); if (!pen.open) ac(); }
+  });
+  if (/Mac|iPhone|iPad/.test(navigator.platform)) { const k = dug.querySelector("kbd"); if (k) k.textContent = "⌘K"; }
+})();
+</script><script>
+// Kelime defteri + seri sayacı (21.10.2026): her sayfada. Hepsi ziyaretçinin tarayıcısında (localStorage), hesap yok.
+// Defter: { "abandon": {k, t, tr, es, id, z} } — id sözlükte varsa (/sozluk/<id>/), z eklenme zamanı.
+// Seri: { son: "2026-10-21", n, en } — günün sorusu, düello, seviye testi ya da defter kartları bitince o gün "çalışıldı" sayılır.
+(() => {
+  const DK = "kk-defter", SK = "kk-seri";
+  const oku = (k, v) => { try { return JSON.parse(localStorage.getItem(k)) || v; } catch (e) { return v; } };
+  const yaz = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  const gun = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const dun = () => { const d = new Date(); d.setDate(d.getDate() - 1); return gun(d); };
+  const anahtar = k => String(k || "").trim().toLocaleLowerCase("en");
+
+  const D = window.KKDefter = {
+    hepsi: () => oku(DK, {}),
+    liste: () => Object.values(oku(DK, {})).sort((a, b) => b.z - a.z),
+    var: k => anahtar(k) in oku(DK, {}),
+    sayi: () => Object.keys(oku(DK, {})).length,
+    ekle: x => { const h = oku(DK, {}); h[anahtar(x.k)] = { k: x.k, t: x.t || "", tr: x.tr || "", es: x.es || "", id: x.id || "", z: Date.now() }; yaz(DK, h); D.guncelle(); },
+    cikar: k => { const h = oku(DK, {}); delete h[anahtar(k)]; yaz(DK, h); D.guncelle(); },
+    guncelle: () => {
+      const n = D.sayi(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".defter-dug").forEach(a => { a.hidden = !n; const s = a.querySelector("[data-say]"); if (s) s.textContent = n; });
+      document.querySelectorAll(".yildiz-dug").forEach(b => {
+        try { const x = JSON.parse(b.dataset.defter); const v = D.var(x.k); b.setAttribute("aria-pressed", String(v));
+          const e = b.querySelector("[data-e]"); if (e) e.textContent = v ? (tr ? "Defterde" : "Saved") : (tr ? "Deftere ekle" : "Save word"); } catch (e) {}
+      });
+    },
+  };
+  const S = window.KKSeri = {
+    durum: () => { const s = oku(SK, { son: "", n: 0, en: 0 }); const aktif = s.son === gun() || s.son === dun(); return { n: aktif ? s.n : 0, en: s.en || 0, bugun: s.son === gun() }; },
+    isle: () => {
+      const s = oku(SK, { son: "", n: 0, en: 0 }), b = gun();
+      if (s.son !== b) { s.n = s.son === dun() ? s.n + 1 : 1; s.son = b; s.en = Math.max(s.en || 0, s.n); yaz(SK, s); }
+      S.goster(); return S.durum();
+    },
+    goster: () => {
+      const d = S.durum(), tr = document.documentElement.lang !== "en";
+      document.querySelectorAll(".seri").forEach(el => {
+        el.hidden = false; el.classList.toggle("sonuk", !d.bugun);
+        el.querySelector("[data-seri]").textContent = d.n
+          ? (tr ? `${d.n} gün üst üste` : `${d.n}-day streak`) + (d.bugun ? "" : (tr ? " · bugün de çöz" : " · keep it going today"))
+          : (tr ? "Seri başlat: bugün bir soru çöz" : "Start a streak: solve one today");
+        const en = el.querySelector("[data-en]"); if (en) en.textContent = d.en > 1 ? (tr ? `en iyi ${d.en}` : `best ${d.en}`) : "";
+      });
+    },
+  };
+  // yıldız düğmeleri (sayfaya sonradan eklenenler dahil): data-defter='{"k":…,"t":…,"tr":…,"es":…,"id":…}'
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".yildiz-dug"); if (!b) return;
+    try { const x = JSON.parse(b.dataset.defter); if (D.var(x.k)) D.cikar(x.k); else D.ekle(x); } catch (er) {}
+  });
+  D.guncelle(); S.goster();
+})();
+</script><script>window.KK_MASKOT = "Bibi";</script><script>
+if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
+(() => { let ist = null; const d = [...document.querySelectorAll(".kur-dug")];
+  addEventListener("beforeinstallprompt", e => { e.preventDefault(); ist = e; d.forEach(x => { x.hidden = false; }); });
+  d.forEach(x => x.addEventListener("click", async () => { if (!ist) return; ist.prompt(); await ist.userChoice; ist = null; d.forEach(y => { y.hidden = true; }); }));
+  addEventListener("appinstalled", () => d.forEach(x => { x.hidden = true; })); })();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5bfe31e556a84b308a801fb8a0254baf"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="/menu.js?v=1855d8ad" defer></script>
+</body>
+</html>
