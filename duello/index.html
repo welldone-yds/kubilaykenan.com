@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
 <link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
 <link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
-<link rel="stylesheet" href="/site.css?v=64db7b7c">
+<link rel="stylesheet" href="/site.css?v=9a7564e2">
 <style>
 /* Well-Done maskotu (maskot.svg) kıpırtıları: ana sayfa, düello ve seviye testi ortak. Kapsayıcıya .selam / .ucuyor eklenir. */
 /* maskot kıpırtıları: göz kırpma, püskül, kep, el sallama, hafif süzülme */
@@ -138,7 +138,7 @@
 <dialog class="ara-pen" id="ara-pen" aria-label="Sözlükte ara"><form role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/></svg><input type="search" placeholder="Kelime ya da Türkçe anlam…" aria-label="Sözlükte ara" autocomplete="off" enterkeyhint="go"><button type="button" class="kapat">Esc</button></form><ul class="ara-sonuc" role="listbox"></ul><p class="ara-bos"></p><div class="ara-alt"><span>↑↓ seç · Enter aç</span><a href="/sozluk/">Tüm sözlük →</a></div></dialog>
 <main id="icerik">
 
-<section class="du" id="duello" data-veri="/duello/veri.json?v=2c237a45">
+<section class="du" id="duello" data-veri="/duello/veri.json?v=2c237a45" data-celd="/duello/celdirici.json?v=41c93dcc" data-celd-say="219">
 <div class="du-bas"><span class="imza">Well-Done</span><h1>Kelime düellosu</h1><p>10 kelime, her biri 10 saniye. Eş anlamlıyı, Türkçe anlamı ya da İngilizcesini rakibinden önce bul.</p></div>
 <div class="du-kart du-giris">
 <div class="du-maskot selam "><svg class="maskot" viewBox="-8 14 256 230" aria-hidden="true" focusable="false">
@@ -168,6 +168,7 @@
 <div class="balon"><b>Bibi</b><span>Merhaba! Ben Bibi, bu düellonun sunucusuyum. Rakibini seç, başlayalım.</span></div></div>
 <div class="du-rakipler"><button type="button" class="du-rakip" data-r="cirak" aria-pressed="false"><span class="du-av cirak">Ç</span><span><b>Çırak</b><small>Yavaş düşünür, sık yanılır. Isınmak için.</small></span></button><button type="button" class="du-rakip" data-r="kalfa" aria-pressed="false"><span class="du-av kalfa">K</span><span><b>Kalfa</b><small>Kelimelerin çoğunu bilir, acele etmez.</small></span></button><button type="button" class="du-rakip" data-r="usta" aria-pressed="false"><span class="du-av usta">U</span><span><b>Usta</b><small>Hızlı ve isabetli; dikkat etmezsen geçer.</small></span></button><button type="button" class="du-rakip" data-r="hoca" aria-pressed="false"><span class="du-av hoca">H</span><span><b>Hoca</b><small>Neredeyse hiç yanılmaz, saniyeler içinde cevaplar.</small></span></button></div>
 <div class="du-dugmeler"><button type="button" class="du-dug" data-basla>Düelloyu başlat</button><span class="du-rekor"></span></div>
+<p class="du-kip" style="margin:14px 0 0;font-size:14.5px"><a data-kip-celd href="/duello/?mod=celdirici" style="font-weight:700;color:#A84660">Çeldiriciler modu →</a> <span style="color:var(--muted)">Çıkmış sınavlarda hep şıkta olup hiç doğru cevap olmayan 219 kelimeyle oyna.</span></p>
 </div>
 <div class="du-kart du-oyun" hidden>
 <div class="du-skor"><div class="taraf"><span class="du-av ben">S</span><div><small>Sen</small><span class="p" data-ben>0</span></div></div>
@@ -331,6 +332,13 @@
   const SURE = 10;
   let TUR_SAY = 10;
   const DEFTER_KIPI = new URLSearchParams(location.search).has("defter");   // /duello/?defter=1: yalnız defterdeki düello kelimeleri
+  const CELD_KIPI = new URLSearchParams(location.search).get("mod") === "celdirici" && !!kok.dataset.celd;   // 12.11.2026: çıkmış sınavların hep-şık kelimeleri
+  if (CELD_KIPI) {
+    const h = kok.querySelector(".du-bas h1"), p = kok.querySelector(".du-bas p"), k = kok.querySelector(".du-kip");
+    if (h) h.textContent = "Çeldirici düellosu";
+    if (p) p.textContent = "Çıkmış YDS, e-YDS ve YÖKDİL sınavlarında sürekli şıkta görünen ama hiç doğru cevap olmayan kelimeler. Anlamını bilirsen sınavda saniyeler içinde elersin.";
+    if (k) k.innerHTML = '<a href="/duello/" style="font-weight:700;color:#A84660">Normal düelloya dön →</a> <a href="/sozluk/kelime-sikligi/?sira=celd" style="color:var(--muted)">Listeyi gör</a>';
+  }
   const RAKIP = {
     cirak: { ad: "Çırak", bel: "Çırak'ı", yon: "Çırak'a", dog: .55, sure: [4.5, 8.5] },
     kalfa: { ad: "Kalfa", bel: "Kalfa'yı", yon: "Kalfa'ya", dog: .72, sure: [3.2, 6.5] },
@@ -348,7 +356,7 @@
   const yaz = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
 
   let veri = null, rakip = oku("duello-rakip") || "kalfa", turlar = [], t = 0, ben = 0, o = 0, zam = null, bas = 0, bitti = false;
-  const yukle = () => veri || (veri = fetch(kok.dataset.veri).then(r => r.json()));
+  const yukle = () => veri || (veri = fetch(CELD_KIPI ? kok.dataset.celd : kok.dataset.veri).then(r => r.json()));
   yukle();
 
   // maskot: tepki + balon
@@ -360,7 +368,7 @@
   const TESELLI = ["Olsun, sıradakine!", "Bunu Well-Done'da tekrar ederiz.", "Yakındın!", "Dert etme, devam!"];
 
   // rakip seçimi
-  const rekorGoster = () => { const r = oku("duello-rekor-" + rakip); $(".du-rekor").textContent = r ? `${RAKIP[rakip].ad} karşısında en iyi skorun: ${r}` : ""; };
+  const rekorGoster = () => { const r = oku("duello-rekor-" + (CELD_KIPI ? "celd-" : "") + rakip); $(".du-rekor").textContent = r ? `${RAKIP[rakip].ad} karşısında en iyi skorun: ${r}` : ""; };
   $$(".du-rakip").forEach(d => {
     d.setAttribute("aria-pressed", String(d.dataset.r === rakip));
     d.addEventListener("click", () => { rakip = d.dataset.r; yaz("duello-rakip", rakip); $$(".du-rakip").forEach(x => x.setAttribute("aria-pressed", String(x === d))); rekorGoster(); });
@@ -464,8 +472,8 @@
     $(".du-son .ozet").textContent = `${TUR_SAY} kelimeden ${dogru} doğru · Sen ${ben} – ${o} ${R.ad}`;
     
     $("[data-s-ben]").textContent = ben; $("[data-s-dogru]").textContent = `${dogru}/${TUR_SAY}`;
-    const eski = Number(oku("duello-rekor-" + rakip) || 0);
-    if (ben > eski) yaz("duello-rekor-" + rakip, ben);
+    const rk = "duello-rekor-" + (CELD_KIPI ? "celd-" : "") + rakip, eski = Number(oku(rk) || 0);
+    if (ben > eski) yaz(rk, ben);
     $("[data-s-rekor]").textContent = ben > eski && eski ? "Yeni rekor!" : (ben > eski ? "İlk skorun" : `Rekorun ${eski}`);
     const yanlis = turlar.filter(s => s.benSecim !== s.d);
     if (window.KKYanlis) yanlis.forEach(s => window.KKYanlis.ekleKelime(kayit(s.x), "Kelime düellosu"));   // hata defteri

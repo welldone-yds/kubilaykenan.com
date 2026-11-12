@@ -311,6 +311,11 @@ footer { color: var(--muted); font-size: 14px; padding: 18px 0 40px; }
 .sz-tek ul.sz-osym { margin: 0; padding-left: 20px; }
 .sz-tek ul.sz-osym li { margin: 2px 0; }
 .sz-tek ul.sz-osym b { color: var(--green-dark); }
+
+.ks-rozet { margin: 14px 0 6px; padding: 12px 14px; border: 1px solid var(--line); border-left: 4px solid #D8B229; border-radius: 0 14px 14px 0; background: #FFFCF4; }
+.ks-rozet .etiket { display: inline-block; font: 700 11px/1 var(--font-body, Inter); letter-spacing: .08em; text-transform: uppercase; color: #7A5D0B; margin-bottom: 6px; }
+.ks-rozet p { margin: 0 0 4px; } .ks-rozet small { color: var(--muted); } .ks-rozet b { color: #3D091B; }
+
 .sz-dinle { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--line); background: #fff; color: var(--heading); display: grid; place-items: center; cursor: pointer; }
 .sz-dinle:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
 .sz-dinle svg { width: 18px; height: 18px; fill: currentColor; }
