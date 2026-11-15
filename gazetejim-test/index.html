@@ -6,41 +6,37 @@
 <title>Gazetejim · yeniden tasarım denemesi</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Gazetejim için yeniden tasarım denemesi: Türkiye ve dünya basınının son manşetleri tek sayfada. Geçici test sayfası.">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#E30A17">
 <link rel="icon" href="simge.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/fontlar/fontlar.css">
-<link rel="stylesheet" href="stil.css?v=2">
-<script>try{var t=localStorage.getItem("gj-tema");if(t)document.documentElement.dataset.theme=JSON.parse(t)}catch(e){}</script>
+<link rel="stylesheet" href="stil.css?v=4">
 <link rel="stylesheet" href="/altbilgi.css?v=e53d49c5">
 </head>
 <body class="yukleniyor">
 <div class="test-bandi" role="note">Tasarım denemesi · gazetejim.com ile resmî bağı yoktur · geçici test sayfası</div>
 
 <header class="kunye">
-  <div class="kunye-ic">
-    <a class="marka" href="./" aria-label="Gazetejim ana sayfa">Gazete<span>jim</span></a>
-    <div class="kunye-bilgi">
-      <span id="tarih"></span>
-      <span class="ayrac" aria-hidden="true"></span>
-      <span id="guncel">Manşetler toplanıyor…</span>
+  <div class="bar">
+    <div class="bar-ic">
+      <a class="marka" href="./" aria-label="Gazetejim ana sayfa"><span class="m-simge" aria-hidden="true">G</span>Gazete<i>jim</i></a>
+      <label class="ara">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <input id="ara" type="search" placeholder="Gazete ya da manşette ara" autocomplete="off" aria-label="Gazete ya da manşette ara">
+        <kbd aria-hidden="true">/</kbd>
+      </label>
+      <div class="bar-sag">
+        <span class="canli" id="guncel">Manşetler toplanıyor</span>
+        <div class="saat-kutu"><b id="saat">--.--</b><span id="tarih"></span></div>
+      </div>
     </div>
-    <label class="ara">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
-      <input id="ara" type="search" placeholder="Gazete ya da manşette ara" autocomplete="off" aria-label="Gazete ya da manşette ara">
-      <kbd aria-hidden="true">/</kbd>
-    </label>
-    <button id="tema" class="ikon-dugme" type="button" aria-label="Açık / koyu tema">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
-    </button>
   </div>
-  <nav class="kategoriler-sar" aria-label="Kategoriler">
-    <div id="kategoriler" class="kategoriler" role="tablist">
-      <button type="button" aria-selected="true">Öne çıkanlar</button>
-    </div>
+  <nav class="sekme-bar" aria-label="Kategoriler">
+    <div id="kategoriler" class="kategoriler" role="tablist"></div>
   </nav>
 </header>
 
 <main class="sayfa">
+  <section id="ust-alan"></section>
   <div class="bolum-ust">
     <div>
       <h1 id="baslik">Öne çıkanlar</h1>
@@ -58,7 +54,6 @@
   <section id="icerik" class="izgara-alani" aria-live="polite">
     <div class="izgara iskelet" aria-hidden="true">
       <div class="kart"></div><div class="kart"></div><div class="kart"></div><div class="kart"></div>
-      <div class="kart"></div><div class="kart"></div><div class="kart"></div><div class="kart"></div>
     </div>
   </section>
 </main>
@@ -70,6 +65,6 @@
 <div class="ab-sos"><a href="https://www.instagram.com/_kenanhoca/" target="_blank" rel="noopener me" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a><a href="https://www.youtube.com/@kubilaykenan" target="_blank" rel="noopener me" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://www.linkedin.com/in/kubilaykenan/" target="_blank" rel="noopener me" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1V21H9z"/></svg></a><a href="https://www.facebook.com/kubilaykenanhoca" target="_blank" rel="noopener me" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.6 22v-8.6h2.9l.45-3.4H13.6V7.85c0-.98.28-1.65 1.68-1.65h1.8V3.16A24 24 0 0 0 14.46 3c-2.6 0-4.38 1.59-4.38 4.5V10H7.14v3.4h2.94V22z"/></svg></a><a href="https://x.com/yvl00kk" target="_blank" rel="noopener me" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93zm-1.29 19.5h2.04L6.48 3.24H4.3z"/></svg></a><a href="https://wa.me/905357357864" target="_blank" rel="noopener me" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></a></div></div>
 <div class="ab-son"><span>© 2026 Kubilay Kenan Işıklı</span><span>Reklamsız ve üyeliksiz; veriler tarayıcında kalır.</span></div></div>
 </footer>
-<script src="uygulama.js?v=2" defer></script>
+<script src="uygulama.js?v=4" defer></script>
 </body>
 </html>
