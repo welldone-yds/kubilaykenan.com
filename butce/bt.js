@@ -11,7 +11,7 @@
   if (document.body.dataset.ekran === "gercek") {
     document.querySelectorAll("[data-ekran-dosya]").forEach(function (el) {
       var img = new Image();
-      img.src = "/butce/ekran/" + el.dataset.ekranDosya;
+      img.src = "/butce/ekran/" + el.dataset.ekranDosya + "?v=2";
       img.alt = el.dataset.alt || "";
       img.loading = el.classList.contains("ekr") ? "eager" : "lazy";
       img.decoding = "async";
