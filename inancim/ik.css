@@ -1,0 +1,56 @@
+/* İnancım sayfası: "Gökyüzü" teması. Uygulamanın imzası olan canlı gökyüzü: kahraman alanı gece → şafak → gündüz →
+   akşam arasında yavaşça döner, yıldızlar ışıldar, ortada dinlerin ışıklarının döndüğü yörünge. Suflör'ün stüdyo
+   dilinden ve LINK UP'ın bento kutularından farklı: yumuşak geçişler, cam kartlar, yörünge hareketi. */
+:root{--gece:#0B1026;--lacivert:#1C2559;--mor:#5A3F78;--safak:#E07A5F;--gunduz:#4F86D9;--yazi:#F4F6FB;--soluk:rgba(244,246,251,.72);--kart:rgba(255,255,255,.07);--cizgi:rgba(255,255,255,.12);--isik:#FFF6D5}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--gece);color:var(--yazi);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}img{max-width:100%;display:block}
+.sar{width:min(1120px,calc(100% - 32px));margin:0 auto}
+h1,h2,h3{font-family:Jost,system-ui,sans-serif;line-height:1.08;margin:0;letter-spacing:-.01em}
+.ust{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:12px;position:relative;z-index:3}
+.marka{display:flex;align-items:center;gap:10px;font:700 20px Jost,sans-serif;text-decoration:none}
+.marka img{width:34px;height:34px;border-radius:9px}
+.ust nav{display:flex;gap:18px;font-size:15px;flex-wrap:wrap;justify-content:flex-end}.ust nav a{text-decoration:none;opacity:.85}.ust nav a:hover{opacity:1}
+/* Kahraman: dönen gökyüzü */
+.gok{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column}
+.gok::before{content:"";position:absolute;inset:-20%;background:linear-gradient(180deg,var(--gece),var(--lacivert) 40%,var(--mor) 70%,var(--safak));animation:gun 28s ease-in-out infinite alternate;z-index:0}
+@keyframes gun{0%{filter:hue-rotate(0) brightness(.8)}50%{filter:hue-rotate(-12deg) brightness(1)}100%{filter:hue-rotate(10deg) brightness(1.15)}}
+.yildiz{position:absolute;inset:0;z-index:1;pointer-events:none}
+.yildiz i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:isil 3s ease-in-out infinite}
+@keyframes isil{0%,100%{opacity:.25}50%{opacity:1}}
+.sahne{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:24px 0 64px}
+.sahne h1{font-size:clamp(40px,6.4vw,76px);font-weight:800}
+.sahne h1 span{display:block;opacity:0;transform:translateY(18px);animation:belir .9s cubic-bezier(.2,.8,.2,1) forwards}
+.sahne h1 span:nth-child(2){animation-delay:.15s}
+@keyframes belir{to{opacity:1;transform:none}}
+.alt{font-size:19px;color:var(--soluk);max-width:540px;margin:18px 0 26px}
+.dugmeler{display:flex;gap:12px;flex-wrap:wrap}
+.dugme{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--cizgi)}
+.dugme.ana{background:#fff;color:#0B1026;border-color:#fff}.dugme.pasif{opacity:.9;cursor:default}
+.dugme.ikinci{background:var(--kart);backdrop-filter:blur(8px)}
+.cipler{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.cipler span{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--kart);border:1px solid var(--cizgi)}
+/* Yörünge */
+.yorunge{position:relative;aspect-ratio:1;width:min(460px,100%);margin:0 auto}
+.yorunge .halka{position:absolute;inset:var(--b);border:1px solid rgba(255,255,255,.18);border-radius:50%;animation:don var(--s) linear infinite}
+.yorunge .halka b{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--r);box-shadow:0 0 18px 6px color-mix(in srgb,var(--r) 45%,transparent);left:calc(50% - 7px);top:-7px;transform:rotate(var(--a)) translateY(0);transform-origin:7px calc(var(--yc))}
+.yorunge .merkez{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px;border-radius:50%;background:var(--isik);box-shadow:0 0 60px 30px rgba(255,231,163,.35);animation:nefes 4s ease-in-out infinite}
+@keyframes don{to{transform:rotate(360deg)}}@keyframes nefes{50%{transform:scale(1.08);box-shadow:0 0 80px 40px rgba(255,231,163,.45)}}
+/* Bölümler */
+section{padding:84px 0;position:relative}
+.baslik{max-width:680px;margin-bottom:36px}.baslik h2{font-size:clamp(30px,4vw,46px)}.baslik p{color:var(--soluk);font-size:18px;margin:12px 0 0}
+.izgara{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.kart{background:var(--kart);border:1px solid var(--cizgi);border-radius:24px;padding:22px;backdrop-filter:blur(10px);opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.kart.gorundu{opacity:1;transform:none}
+.kart h3{font-size:21px;margin-bottom:8px}.kart p{margin:0;color:var(--soluk);font-size:15px}
+.dinler{display:flex;flex-wrap:wrap;gap:10px}.dinler span{padding:9px 14px;border-radius:14px;background:var(--kart);border:1px solid var(--cizgi);font-size:15px}
+.dinler span i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;background:var(--r)}
+.ekranlar{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+.ekranlar img{width:250px;border-radius:30px;scroll-snap-align:start;border:1px solid var(--cizgi)}
+.seffaf{background:linear-gradient(180deg,transparent,rgba(255,255,255,.03))}
+.not{font-size:14px;color:var(--soluk)}
+footer{border-top:1px solid var(--cizgi);padding:26px 0;font-size:14px;color:var(--soluk)}
+footer .sar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}footer a{margin-right:16px}
+/* Metin sayfaları */
+.metin{width:min(760px,calc(100% - 32px));margin:20px auto 80px}.metin h1{font-size:40px;margin:20px 0}.metin h2{font-size:24px;margin:32px 0 8px}.metin p,.metin li{color:var(--soluk)}.metin b{color:var(--yazi)}
+@media (max-width:820px){.sahne{grid-template-columns:1fr;padding-top:8px}.yorunge{width:min(320px,86%)}.izgara{grid-template-columns:1fr}.ust nav a:not(:last-child){display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.kart,.sahne h1 span{opacity:1;transform:none}}
