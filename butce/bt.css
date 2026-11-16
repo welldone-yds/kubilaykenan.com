@@ -360,3 +360,5 @@ footer b{color:var(--murekkep)}
   *,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important;animation-iteration-count:1!important;transition-delay:0s!important}
   .js .belir{opacity:1;transform:none}
 }
+/* Gerçek ekran görüntüsünün kendi durum çubuğu var: çerçevenin çizilmiş saatini gizle (16.11.2026). */
+body[data-ekran="gercek"] .tel .durum{display:none}
