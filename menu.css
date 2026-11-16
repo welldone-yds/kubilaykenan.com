@@ -128,3 +128,20 @@
   .mega-izgara.mega-gruplu { columns: 1; }
   .mega-grup-ad { margin: 10px 6px 4px; }
 }
+/* Üç dil (TR · EN · DE, 16.11.2026): diğer iki dilin düğmesi yan yana */
+.dil-grup { display: inline-flex; gap: 4px; align-items: center; }
+.mega-arac .dil-grup .dil:not(.mega-dil) { display: inline-grid; place-items: center; min-width: 40px; min-height: 34px; padding: 0 8px;
+  border: 1.5px solid var(--line, #E7E0D8); border-radius: 99px; font: 700 12.5px/1 var(--font-sans, Inter, system-ui, sans-serif);
+  letter-spacing: .04em; color: var(--heading, #3D091B); text-decoration: none; }
+@media (max-width: 520px) { .dil-grup { gap: 2px; } .mega-arac .dil-grup .dil { min-width: 34px; padding: 0 6px; } }
+/* 16.11.2026: Well-Done sayfası koyu görünümde şerit koyu; menü yazıları (mürdüm) zeminde kayboluyordu → açık renk.
+   Yalnız masaüstünde üst öğeler şeritte durur; telefonda açılan liste beyaz kart olduğu için orada dokunulmaz. */
+@media (prefers-color-scheme: dark) {
+  .mega-ust > .mega-ic .mega-dil, .mega-ust > .mega-ic .dil-grup .dil { color: #F6E9ED; border-color: rgba(255,255,255,.3); }
+  .mega-ust > .mega-ic .mega-dil:hover { background: rgba(255,255,255,.08); }
+  .mega-ust > .mega-ic .mega-ac span { background: #F6E9ED; }
+}
+@media (prefers-color-scheme: dark) and (min-width: 900px) {
+  .mega-ust > .mega-ic .mega-oge > .mega-dug { color: #F6E9ED; }
+  .mega-ust > .mega-ic .mega-oge.aktif > .mega-dug { color: #E8C35A; }
+}

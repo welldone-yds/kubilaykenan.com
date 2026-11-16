@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Çevrimdışısın · Kubilay Kenan Işıklı</title>
+<title>Çevrim dışısın · Kubilay Kenan Işıklı</title>
 <meta name="description" content="İnternet yokken de sözlük, düello, seviye testi ve puan hesaplama açılır.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-180.png"><meta name="theme-color" content="#3D091B">
 <link rel="manifest" href="/manifest.webmanifest"><meta name="apple-mobile-web-app-title" content="Kenan Hoca">
-<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
-<meta property="og:title" content="Çevrimdışısın"><meta property="og:description" content="İnternet yokken de sözlük, düello, seviye testi ve puan hesaplama açılır.">
+<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR"><meta property="og:url" content="https://kubilaykenan.com/cevrimdisi/">
+<meta property="og:title" content="Çevrim dışısın"><meta property="og:description" content="İnternet yokken de sözlük, düello, seviye testi ve puan hesaplama açılır.">
 <meta property="og:image" content="https://kubilaykenan.com/og.png?v=c75e2815"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fontlar/Jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fontlar/fontlar.css?v=1">
-<link rel="stylesheet" href="/ada-tokenler.css?v=48b342d0">
-<link rel="stylesheet" href="/ada-bilesenler.css?v=48b342d0">
-<link rel="stylesheet" href="/site.css?v=9a7564e2">
+<link rel="stylesheet" href="/ada-tokenler.css?v=5bfc76b9">
+<link rel="stylesheet" href="/ada-bilesenler.css?v=5bfc76b9">
+<link rel="stylesheet" href="/site.css?v=f2e6f803">
 <style>
 /* Well-Done maskotu (maskot.svg) kıpırtıları: ana sayfa, düello ve seviye testi ortak. Kapsayıcıya .selam / .ucuyor eklenir. */
 /* maskot kıpırtıları: göz kırpma, püskül, kep, el sallama, hafif süzülme */
@@ -172,8 +172,10 @@
 (() => {
   const dug = document.querySelector(".ara-dug"), pen = document.getElementById("ara-pen");
   if (!dug || !pen || !pen.showModal) { if (dug) dug.hidden = true; return; }
-  const tr = document.documentElement.lang !== "en";
+  const SZ = "/" + "sozluk/";   // Google betikteki şablon adresi gerçek adres sanıp 404 kaydediyordu (Search Console, 16.11.2026); bu yüzden parçalı
+  const dil = document.documentElement.lang, tr = dil === "tr", de = dil === "de";
   const TUR = tr ? { v: "fiil", n: "isim", adj: "sıfat", adv: "zarf", phr: "kalıp", conj: "bağlaç", prep: "edat" }
+                 : de ? { v: "Verb", n: "Nomen", adj: "Adj.", adv: "Adv.", phr: "Wendung", conj: "Konj.", prep: "Präp." }
                  : { v: "verb", n: "noun", adj: "adj.", adv: "adv.", phr: "phrase", conj: "conj.", prep: "prep." };
   const g = pen.querySelector("input"), ul = pen.querySelector(".ara-sonuc"), bos = pen.querySelector(".ara-bos");
   const yalin = s => s.toLocaleLowerCase("tr").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ı/g, "i");
@@ -182,17 +184,17 @@
   const ac = () => { pen.showModal(); g.value = ""; g.focus(); yukle(); goster(); };
   const goster = async () => {
     const q = yalin(g.value.trim());
-    if (!q) { ul.innerHTML = ""; bos.textContent = tr ? "Kelime ya da Türkçe anlam yaz: abandon, sürdürmek…" : "Type a word or a Turkish meaning…"; bos.hidden = false; sonuclar = []; return; }
+    if (!q) { ul.innerHTML = ""; bos.textContent = tr ? "Kelime ya da Türkçe anlam yaz: abandon, sürdürmek…" : de ? "Wort oder türkische Bedeutung eingeben…" : "Type a word or a Turkish meaning…"; bos.hidden = false; sonuclar = []; return; }
     const L = await yukle();
     const a = [], b = [], c = [];
     for (const s of L) { if (s.k.startsWith(q)) a.push(s); else if (s.k.includes(q)) b.push(s); else if (q.length > 2 && s.t.includes(q)) c.push(s); }
     sonuclar = [...a.sort((m, n) => m.k.length - n.k.length), ...b, ...c].slice(0, 8);
     secili = 0;
-    ul.innerHTML = sonuclar.map(({ x }, i) => `<li><a href="/sozluk/${x[0]}/" aria-selected="${i === 0}"><b lang="en"></b><span class="tur"></span><span class="tr"></span></a></li>`).join("");
+    ul.innerHTML = sonuclar.map(({ x }, i) => `<li><a href="${SZ}${x[0]}/" aria-selected="${i === 0}"><b lang="en"></b><span class="tur"></span><span class="tr"></span></a></li>`).join("");
     ul.querySelectorAll("a").forEach((el, i) => { const x = sonuclar[i].x; el.querySelector("b").textContent = x[1]; el.querySelector(".tur").textContent = TUR[x[2]] || x[2];
       el.querySelector(".tr").textContent = x[3].split(";")[0]; });
     bos.hidden = sonuclar.length > 0;
-    if (!sonuclar.length) bos.textContent = tr ? "Bulunamadı. Sözlükte 1.388 kelime var; başka bir yazımla dene." : "No match. Try another spelling.";
+    if (!sonuclar.length) bos.textContent = tr ? "Bulunamadı. Sözlükte 1.388 kelime var; başka bir yazımla dene." : de ? "Kein Treffer. Versuch eine andere Schreibweise." : "No match. Try another spelling.";
   };
   const isaretle = () => ul.querySelectorAll("a").forEach((el, i) => { el.setAttribute("aria-selected", String(i === secili)); if (i === secili) el.scrollIntoView({ block: "nearest" }); });
   dug.addEventListener("click", ac);
@@ -230,11 +232,11 @@
     ekle: x => { const h = oku(DK, {}); h[anahtar(x.k)] = { k: x.k, t: x.t || "", tr: x.tr || "", es: x.es || "", id: x.id || "", z: Date.now() }; yaz(DK, h); D.guncelle(); },
     cikar: k => { const h = oku(DK, {}); delete h[anahtar(k)]; yaz(DK, h); D.guncelle(); },
     guncelle: () => {
-      const n = D.sayi(), tr = document.documentElement.lang !== "en";
+      const n = D.sayi(), tr = document.documentElement.lang === "tr", de = document.documentElement.lang === "de";
       document.querySelectorAll(".defter-dug").forEach(a => { a.hidden = !n; const s = a.querySelector("[data-say]"); if (s) s.textContent = n; });
       document.querySelectorAll(".yildiz-dug").forEach(b => {
         try { const x = JSON.parse(b.dataset.defter); const v = D.var(x.k); b.setAttribute("aria-pressed", String(v));
-          const e = b.querySelector("[data-e]"); if (e) e.textContent = v ? (tr ? "Defterde" : "Saved") : (tr ? "Deftere ekle" : "Save word"); } catch (e) {}
+          const e = b.querySelector("[data-e]"); if (e) e.textContent = v ? (tr ? "Defterde" : de ? "Gespeichert" : "Saved") : (tr ? "Deftere ekle" : de ? "Merken" : "Save word"); } catch (e) {}
       });
     },
   };
@@ -246,13 +248,13 @@
       S.goster(); return S.durum();
     },
     goster: () => {
-      const d = S.durum(), tr = document.documentElement.lang !== "en";
+      const d = S.durum(), tr = document.documentElement.lang === "tr", de = document.documentElement.lang === "de";
       document.querySelectorAll(".seri").forEach(el => {
         el.hidden = false; el.classList.toggle("sonuk", !d.bugun);
         el.querySelector("[data-seri]").textContent = d.n
-          ? (tr ? `${d.n} gün üst üste` : `${d.n}-day streak`) + (d.bugun ? "" : (tr ? " · bugün de çöz" : " · keep it going today"))
-          : (tr ? "Seri başlat: bugün bir soru çöz" : "Start a streak: solve one today");
-        const en = el.querySelector("[data-en]"); if (en) en.textContent = d.en > 1 ? (tr ? `en iyi ${d.en}` : `best ${d.en}`) : "";
+          ? (tr ? `${d.n} gün üst üste` : de ? `${d.n} Tage in Folge` : `${d.n}-day streak`) + (d.bugun ? "" : (tr ? " · bugün de çöz" : de ? " · mach heute weiter" : " · keep it going today"))
+          : (tr ? "Seri başlat: bugün bir soru çöz" : de ? "Starte eine Serie: löse heute eine Frage" : "Start a streak: solve one today");
+        const en = el.querySelector("[data-en]"); if (en) en.textContent = d.en > 1 ? (tr ? `en iyi ${d.en}` : de ? `Bestwert ${d.en}` : `best ${d.en}`) : "";
       });
     },
   };

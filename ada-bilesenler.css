@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Jost:wght@500;600;700;800&family=Montserrat:wght@800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:15px;line-height:1.6}
 .ada-h{font-family:var(--font-display);color:var(--heading);margin:0;letter-spacing:0}
 .ada-h b{color:var(--green);font-weight:inherit}
