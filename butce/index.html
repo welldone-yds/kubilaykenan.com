@@ -1,0 +1,233 @@
+<!doctype html>
+<!--
+  Bütçe Defteri tanıtım sayfası (/butce/), 16.11.2026. Statik; kisisel_site_uret.py klasörü olduğu gibi kopyalar.
+  Gizlilik metnine uysun diye ölçüm (analiz betiği) YOK. Menü/alt bilgi betikleri bu klasörü atlar (kendi kimliği).
+
+  EKRAN GÖRÜNTÜLERİ (ana oturum koyacak):
+    ekran/01.png  Özet         (telefon çerçevesi 1. ekran + galeri)
+    ekran/02.png  Harcamalar   (telefon çerçevesi 2. ekran + galeri)
+    ekran/03.png  Skala        (telefon çerçevesi 3. ekran + galeri)
+    ekran/04.png  Ödemeler     (telefon çerçevesi 4. ekran + galeri)
+    ekran/05.png  Harcama ekle (hızlı giriş sayfası, galeri)
+    ekran/06.png  Ayarlar › Kilit / Şifreli yedek (galeri)
+  Boyut: dikey iPhone ekranı, oran 1290×2796 (6,9"). Sitede 590×1279'a küçült, ~150 KB altı:
+    sips -Z 1279 kaynak.png --out ekran/01.png   (ya da pngquant ile sıkıştır)
+  Görüntüler yerine koyulunca <body data-ekran="gercek"> → data-ekran="gercek" yap: bt.js çizilmiş (HTML) örnek
+  ekranların yerine ekran/0N.png'yi koyar. "cizim" kalırsa sayfa dosya istemez (404 / konsol hatası olmaz).
+  App Store bağlantısı gelince iki ".dugme.ana.pasif" span'ı <a href="https://apps.apple.com/tr/app/id…"> olur,
+  metin "App Store'dan indir".
+-->
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bütçe Defteri: harcama, skala, kart takibi | Kubilay Kenan Hoca</title>
+<meta name="description" content="Bütçe Defteri: harcamanı saniyeler içinde yaz, kategori limitlerini skala ile izle, kartlarını, taksitlerini ve son ödeme günlerini tek yerde gör. iPhone ve Apple Watch. Hesap yok, sunucu yok; veriler yalnız telefonda.">
+<meta property="og:type" content="website"><meta property="og:title" content="Bütçe Defteri: paran nereye gidiyor, bir bakışta">
+<meta property="og:description" content="Harcama kaydı, kategori skalası, kart ve taksit takibi. Hesap yok, sunucu yok; veriler yalnız telefonda.">
+<meta property="og:image" content="https://kubilaykenan.com/butce/simge.png"><meta property="og:url" content="https://kubilaykenan.com/butce/">
+<link rel="canonical" href="https://kubilaykenan.com/butce/">
+<link rel="preload" href="/fontlar/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fontlar/fontlar.css?v=1"><link rel="stylesheet" href="/butce/bt.css?v=1">
+<link rel="icon" href="/butce/simge.png"><link rel="apple-touch-icon" href="/butce/simge.png"><meta name="theme-color" content="#F3F1EC">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Bütçe Defteri","operatingSystem":"iOS, watchOS","applicationCategory":"FinanceApplication","inLanguage":"tr","url":"https://kubilaykenan.com/butce/","image":"https://kubilaykenan.com/butce/simge.png","author":{"@type":"Person","name":"Kubilay Kenan Işıklı","alternateName":"Kubilay Kenan Hoca","url":"https://kubilaykenan.com/"}}</script>
+<script>document.documentElement.className+=" js"</script>
+<link rel="alternate" type="application/rss+xml" title="Yazılar · Kubilay Kenan Hoca" href="/feed.xml">
+</head><body data-ekran="gercek">
+<div class="sar ust"><a class="marka" href="/butce/"><img src="/butce/simge.png" alt="" width="34" height="34">Bütçe Defteri</a>
+<nav aria-label="Sayfa"><a class="gizle" href="#kaydet">Özellikler</a><a href="/butce/gizlilik.html">Gizlilik</a><a href="/butce/destek.html">Destek</a><a class="gizle" href="/">kubilaykenan.com</a></nav></div>
+
+<header class="giris"><div class="sar">
+<div>
+<span class="cip"><i></i>iPhone ve Apple Watch</span>
+<h1>Paran nereye gidiyor, <span class="mavi">bir bakışta.</span></h1>
+<p class="alt">Harcamanı saniyeler içinde yaz; skala her kategoride ne kadar kaldığını söylesin. Kartların, taksitlerin ve son ödeme günlerin tek yerde. Hesap yok, sunucu yok: her şey telefonunda.</p>
+<div class="dugmeler"><span class="dugme ana pasif" aria-disabled="true"><span><small>Yakında</small>App Store'da</span></span><a class="dugme ikinci" href="#kaydet">Neler var</a></div>
+<div class="makbuz" aria-label="Özet: hesap yok, sunucu yok, reklam ve takip yok, veriler telefonda">
+<b>BÜTÇE DEFTERİ · DÖKÜM</b>
+<div class="satir-n"><span>Hesap, giriş</span><i class="nokta"></i><span>yok</span></div>
+<div class="satir-n"><span>Sunucu, bulut eşitlemesi</span><i class="nokta"></i><span>yok</span></div>
+<div class="satir-n"><span>Reklam, takip, analiz</span><i class="nokta"></i><span>yok</span></div>
+<div class="satir-n"><span>Verilerin</span><i class="nokta"></i><span class="ok">telefonunda</span></div>
+</div>
+</div>
+
+<div class="sahne" id="sahne">
+<div class="yuzer y1" aria-hidden="true"><span class="s" style="background:#30B0C7">M</span><span><b>Market · −₺450</b><small>Skala: %78, tempoda</small></span></div>
+<div class="yuzer y2" aria-hidden="true"><span class="s" style="background:var(--turuncu)">!</span><span><b>Kart son ödeme</b><small>3 gün kaldı</small></span></div>
+<div class="tel" role="group" aria-roledescription="ekran gösterisi" aria-label="Uygulama ekranları">
+<div class="durum" aria-hidden="true"><span>9:41</span><i></i></div>
+<div class="ekranlar">
+
+<div class="ekr aktif" id="ekr-1" role="tabpanel" aria-label="Özet" data-ekran-dosya="01.png" data-alt="Bütçe Defteri Özet ekranı">
+<p class="e-bas">Özet</p><span class="e-hap">Kasım 2026</span>
+<div class="e-kart"><span class="e-et">Kalan bütçe</span><span class="e-tutar" data-say="9120" data-on="₺">₺9.120</span>
+<span class="e-alt">Bugün harcayabileceğin <b>₺608</b></span>
+<div class="e-yol"><b style="left:52%"></b><i style="--d:.48"></i></div></div>
+<div class="e-ikili"><div class="e-kart"><span class="e-et">Gelir</span><span class="e-tutar" style="color:var(--yesil)">+₺42.000</span></div>
+<div class="e-kart"><span class="e-et">Gider</span><span class="e-tutar">−₺15.580</span></div></div>
+<div class="e-kart"><span class="e-et">En çok harcanan</span>
+<div class="e-kat"><span class="s" style="background:#30B0C7">M</span><b>Market</b><em>₺4.680</em><div class="e-yol"><i style="--d:.78"></i></div></div>
+<div class="e-kat"><span class="s" style="background:#FF9500">Y</span><b>Yemek</b><em>₺2.160</em><div class="e-yol"><i style="--d:.54"></i></div></div>
+</div></div>
+
+<div class="ekr" id="ekr-2" role="tabpanel" aria-label="Harcamalar" data-ekran-dosya="02.png" data-alt="Harcamalar ekranı">
+<p class="e-bas">Harcamalar</p><div class="e-ara">Ara</div>
+<div class="e-kart" style="padding-top:.4em;padding-bottom:.4em">
+<p class="e-gun">Bugün</p>
+<div class="e-sat"><span class="s" style="background:#30B0C7">M</span><b>Market alışverişi</b><em>−₺450</em><small>Market · 18:40</small></div>
+<div class="e-sat"><span class="s" style="background:#5856D6">U</span><b>Toplu taşıma</b><em>−₺42</em><small>Ulaşım · 08:12</small></div>
+<p class="e-gun">Dün</p>
+<div class="e-sat"><span class="s" style="background:#FF9500">Y</span><b>Kahve</b><em>−₺95</em><small>Yemek · 15:03</small></div>
+<div class="e-sat"><span class="s" style="background:#34C759">+</span><b>İade</b><em class="ar">+₺320</em><small>Giyim · harcamaya bağlı</small></div>
+<div class="e-sat"><span class="s" style="background:#FF2D55">F</span><b>Elektrik faturası</b><em>−₺610</em><small>Fatura · düzenli</small></div>
+</div></div>
+
+<div class="ekr" id="ekr-3" role="tabpanel" aria-label="Skala" data-ekran-dosya="03.png" data-alt="Skala ekranı">
+<p class="e-bas">Skala</p>
+<div class="e-kart"><div class="e-halka"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="yol" cx="60" cy="60" r="50" stroke-width="12"/><circle class="dolu" cx="60" cy="60" r="50" stroke-width="12" pathLength="100" style="--d:62"/></svg>
+<div><b data-say="62" data-on="%">%62</b><span>₺14.880 / ₺24.000</span></div></div>
+<div class="e-kat"><span class="s" style="background:#30B0C7">M</span><b>Market</b><em>₺4.680</em><div class="e-yol"><b style="left:52%"></b><i style="--d:.78"></i></div><small>₺6.000 limitin %78'i</small></div>
+<div class="e-kat"><span class="s" style="background:#AF52DE">E</span><b>Eğlence</b><em>₺1.620</em><div class="e-yol"><b style="left:52%"></b><i class="kir" style="--d:1"></i></div><small class="as">₺120 aşıldı</small></div>
+</div></div>
+
+<div class="ekr" id="ekr-4" role="tabpanel" aria-label="Ödemeler" data-ekran-dosya="04.png" data-alt="Ödemeler ekranı">
+<p class="e-bas">Ödemeler</p>
+<div class="e-kredi"><b>Kredi kartı</b><div><span>•••• 4021</span><i></i></div></div>
+<div class="e-uyari"><i></i>Son ödeme 3 gün sonra · asgari ₺2.140</div>
+<div class="e-ikili"><div class="e-kart"><span class="e-et">Taksit / ay</span><span class="e-tutar">₺2.150</span></div>
+<div class="e-kart"><span class="e-et">Abonelik</span><span class="e-tutar">₺389</span></div></div>
+<div class="e-kart" style="padding-top:.5em;padding-bottom:.5em">
+<div class="e-sat"><span class="s" style="background:#5856D6">K</span><b>Kira</b><em>₺15.000</em><small>8 gün sonra</small></div>
+</div></div>
+
+<div class="e-cubuk" aria-hidden="true">Harcama ekle<span>migros 450</span></div>
+<div class="sekmeler" role="tablist" aria-label="Sekmeler"><span class="imlec" aria-hidden="true"></span>
+<button role="tab" aria-selected="true" aria-controls="ekr-1" data-i="0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 11h2.7v9h5v-6h3.6v6h5v-9h2.7z"/></svg>Özet</button>
+<button role="tab" aria-selected="false" aria-controls="ekr-2" data-i="1" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h2.2v2.2H4zm4.5.1H20v2H8.5zM4 10.9h2.2v2.2H4zm4.5.1H20v2H8.5zM4 16.3h2.2v2.2H4zm4.5.1H20v2H8.5z"/></svg>Harcamalar</button>
+<button role="tab" aria-selected="false" aria-controls="ekr-3" data-i="2" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 2.6A9.5 9.5 0 1 0 21.4 13H11zm2 0V11h8.4A9.5 9.5 0 0 0 13 2.6z"/></svg>Skala</button>
+<button role="tab" aria-selected="false" aria-controls="ekr-4" data-i="3" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 6.5A2.5 2.5 0 0 1 5 4h14a2.5 2.5 0 0 1 2.5 2.5V8h-19zm0 3.5h19v7.5A2.5 2.5 0 0 1 19 20H5a2.5 2.5 0 0 1-2.5-2.5zm3 5v1.6h5V15z"/></svg>Ödemeler</button>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<p class="sar ornek">Ekranlar örnek veriyle çizilmiştir. Uygulama ilk açılışta boş başlar.</p>
+</header>
+
+<div class="guven"><ul>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Hesap yok</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sunucu yok</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Reklam ve takip yok</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Abonelik yok</li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Veriler yalnız telefonda</li>
+</ul></div>
+
+<main>
+<section id="kaydet"><div class="sar">
+<div class="bas belir"><span class="ust-et">Kaydetmek</span><h2>"migros 450" yaz, <span class="mavi">bitti.</span></h2><p>Harcama eklemek bir sekme değil, her ekranın altında duran tek dokunuş. Kategori yazdığından bulunur; tarih, kart ve not istersen.</p></div>
+<div class="iki">
+<ul class="yollar belir">
+<li><span class="s"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/></svg></span><b>Yazarak</b><span>Tek satır yeter: "1.250,50 market", "120+45" gibi toplamlar da olur. Sık kullanılanlar tek dokunuşla dolar.</span></li>
+<li><span class="s"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg></span><b>Sesle</b><span>"Market dört yüz elli" de, yazıya dönsün. Telefon destekliyorsa ses cihazda işlenir.</span></li>
+<li><span class="s"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg></span><b>Fişten</b><span>Fişin fotoğrafını çek; mağaza, toplam ve tarih cihaz üstünde okunur.</span></li>
+<li><span class="s"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>SMS ve Apple Pay ile, kendiliğinden</b><span>Kestirmeler otomasyonu kurarsan banka SMS'i ya da Apple Pay ödemesi uygulamayı açmadan kaydedilir. Aynı harcama iki kez yazılmaz.</span></li>
+<li><span class="s"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 13h5M10 17h5"/></svg></span><b>Ekstre PDF'inden</b><span>Banka uygulamasında ekstreyi Paylaş, Bütçe'yi seç. Satırlar İnceleme kutusuna düşer, sen onaylarsın.</span></li>
+</ul>
+<div class="giris-demo belir" id="demo" aria-label="Harcama ekleme örneği">
+<div class="d-ust" aria-hidden="true"><span class="s">Gider</span><span>Gelir</span></div>
+<div class="d-alan" aria-live="off"><span class="yaz"></span><span class="imlec2" aria-hidden="true"></span><span class="yer">migros 450</span></div>
+<div class="d-on" aria-hidden="true"><span class="s">M</span><span><b>Market</b><small>Bugün · nakit ya da kart</small></span><em>−₺450</em></div>
+<div class="d-cipler" aria-hidden="true"><span data-c="market">Market</span><span>Kahve</span><span>Akaryakıt</span><span>Eczane</span></div>
+<span class="d-kaydet" aria-hidden="true">Kaydet</span>
+<div class="d-liste" aria-hidden="true">
+<div class="d-sat"><span class="s" style="background:#5856D6">U</span><span><b>Toplu taşıma</b><small>Ulaşım · 08:12</small></span><em>−₺42</em></div>
+<div class="d-sat"><span class="s" style="background:#FF9500">Y</span><span><b>Kahve</b><small>Yemek · dün</small></span><em>−₺95</em></div>
+</div>
+</div>
+</div>
+</div></section>
+
+<section id="skala" style="padding-top:0"><div class="sar iki">
+<div class="belir">
+<div class="bas" style="margin-bottom:0"><span class="ust-et">Skala</span><h2>Her kategoriye bir sınır, <span class="mavi">her güne bir tempo.</span></h2><p>Market, yemek, ulaşım: her birine aylık limit koy. Skala, harcamanın ayın gidişine göre önde mi geride mi olduğunu çentikle gösterir.</p></div>
+<ul class="maddeler">
+<li><span><b>Bugün ne kadar harcayabilirim?</b> Kalan bütçe, ayın kalan günlerine bölünür.</span></li>
+<li><span><b>Devir ve aktarım.</b> Artan tutar sonraki aya devredebilir; ay içinde bir kategoriden ötekine aktarabilirsin.</span></li>
+<li><span><b>Zamanında uyarı.</b> Limitin %80'ine ve %100'üne gelince bildirim.</span></li>
+<li><span><b>Bütçe ayı maaş gününden.</b> Maaşın ayın 15'inde yatıyorsa ay da 15'inde başlasın.</span></li>
+</ul>
+</div>
+<div class="skala-kutu belir" aria-label="Skala örneği">
+<div class="halka-b"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="yol" cx="60" cy="60" r="52" stroke-width="10"/><circle class="dolu" cx="60" cy="60" r="52" stroke-width="10" pathLength="100" style="--d:62"/></svg>
+<div><b data-say="62" data-on="%">%62</b><span>ayın %52'si geçti</span></div></div>
+<div class="kat-b">
+<div class="k"><b>Market</b><em>₺4.680 / ₺6.000</em><div class="e-yol"><b style="left:52%"></b><i style="--d:.78"></i></div><small>Tempodan biraz hızlı</small></div>
+<div class="k"><b>Yemek</b><em>₺2.160 / ₺4.000</em><div class="e-yol"><b style="left:52%"></b><i style="--d:.54"></i></div><small>Tempoda</small></div>
+<div class="k"><b>Ulaşım</b><em>₺620 / ₺2.000</em><div class="e-yol"><b style="left:52%"></b><i style="--d:.31"></i></div><small>Rahat</small></div>
+<div class="k"><b>Eğlence</b><em>₺1.620 / ₺1.500</em><div class="e-yol"><b style="left:52%"></b><i class="kir" style="--d:1"></i></div><small class="as">₺120 aşıldı</small></div>
+</div>
+</div>
+</div></section>
+
+<section id="odemeler" style="padding-top:0"><div class="sar">
+<div class="bas belir"><span class="ust-et">Ödemeler</span><h2>Son ödeme günü <span class="mavi">sürpriz olmasın.</span></h2><p>Kredi kartlarının kesim ve son ödeme günleri, taksitler, abonelikler, kira ve faturalar: önümüzdeki 30 gün tek çizgide.</p></div>
+<div class="zaman belir" aria-label="Önümüzdeki 30 gün örneği">
+<h3>Önümüzdeki 30 gün</h3>
+<div class="ray">
+<div class="olay tur"><small>3 gün sonra</small><b>Kart son ödeme</b><span>Asgari ve dönem borcu</span></div>
+<div class="olay"><small>8 gün sonra</small><b>Kira</b><span>Düzenli ödeme</span></div>
+<div class="olay"><small>12 gün sonra</small><b>Taksit 4/9</b><span>Ekstreden okunur</span></div>
+<div class="olay mor"><small>19 gün sonra</small><b>Abonelik</b><span>Aylık yenileme</span></div>
+<div class="olay"><small>27 gün sonra</small><b>Yıllık gider</b><span>Bu ay ayrılacak pay</span></div>
+</div>
+</div>
+<div class="dortlu belir">
+<div><h3>Kartlar</h3><p>Borç, asgari, limit doluluğu; son ödemeden önce bildirim. Son 3 günde kilit ekranında canlı etkinlik.</p></div>
+<div><h3>Taksit takvimi</h3><p>Önümüzdeki 12 ayın taksitleri ay ay; hangisi kaçıncı taksit, ne zaman biter.</p></div>
+<div><h3>Borç ve alacak</h3><p>Kime ne borçlusun, kim sana ne borçlu; vadesi gelince hatırlatma.</p></div>
+<div><h3>Hedefler</h3><p>Birikim hedefi ve yıllık giderler: son tarihe kadar ayda ne kadar ayırman gerektiği.</p></div>
+</div>
+</div></section>
+
+<section id="her-yerde" style="padding-top:0"><div class="sar">
+<div class="bas belir"><span class="ust-et">Her yerde</span><h2>Uygulamayı açmadan da <span class="mavi">yanında.</span></h2><p>Ana ekranda, kilit ekranında, bileğinde ve Siri'de: aynı rakam, aynı hesap.</p></div>
+<div class="yerler">
+<div class="yer belir"><div class="mini" aria-hidden="true"><div class="w-kare"><small>Kasım · Skala</small><b data-say="9120" data-on="₺">₺9.120</b><div class="e-yol"><b style="left:52%"></b><i style="--d:.62"></i></div></div></div><h3>Widget</h3><p>Ana ekran ve kilit ekranı widget'ı; hızlı giriş widget'ı, Denetim Merkezi düğmeleri. İstersen tutarlar gizli.</p></div>
+<div class="yer belir"><div class="mini" aria-hidden="true"><div class="saat"><div><span><svg viewBox="0 0 40 40"><circle class="yol" cx="20" cy="20" r="16" stroke-width="5"/><circle class="dolu" cx="20" cy="20" r="16" stroke-width="5" pathLength="100" style="--d:62"/></svg><small>Bugün</small><b>₺608</b></span></div></div></div><h3>Apple Watch</h3><p>Skala halkası, bugün harcayabileceğin tutar, yaklaşan son ödeme; bileğinden "market 450" yaz.</p></div>
+<div class="yer belir"><div class="mini" aria-hidden="true"><div class="siri"><span class="gec">Bütçe, bugün ne kadar harcayabilirim?</span><em class="gec ik">Bugün <b>₺608</b> harcayabilirsin.</em></div></div><h3>Siri ve Kestirmeler</h3><p>"Bütçe harcama ekle", "bugün ne kadar harcayabilirim", "bunu alsam mı": 48 saat bekle, sonra karar ver.</p></div>
+<div class="yer belir"><div class="mini" aria-hidden="true"><div class="canli"><i></i><span><b>Kart son ödeme</b><small>Asgari ₺2.140</small></span><em>2 gün</em></div></div><h3>Canlı etkinlik</h3><p>Son ödemesine üç gün kalan kart kilit ekranında ve Dynamic Island'da görünür.</p></div>
+</div>
+</div></section>
+
+<section id="gizlilik" class="gece"><div class="sar">
+<div class="bas belir"><span class="ust-et">Gizlilik</span><h2>Paran senin, <span style="color:#7DB3FF">verin de.</span></h2><p>Bütçe Defteri hiçbir veri toplamaz. Harcamaların, kartların ve notların yalnız telefonunda durur; iCloud eşitlemesi kapalı, sunucu yok.</p></div>
+<div class="gece-liste belir">
+<div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg><h3>Yalnız telefonda</h3><p>Veri cihazdaki veritabanında. Hesap, giriş, bulut eşitlemesi yok; uygulama internete veri göndermez.</p></div>
+<div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><h3>PIN ve Face ID</h3><p>İsteğe bağlı 4 haneli kilit. Açıkken uygulama değiştiricide de içerik görünmez.</p></div>
+<div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12s-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M4 20 20 4"/></svg><h3>Misafir modu</h3><p>Telefonu salla, bütün tutarlar gizlensin. Yanındakine ekran gösterirken rahat ol.</p></div>
+<div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4"/><rect x="9.5" y="12.5" width="6" height="5" rx="1"/><path d="M11 12.5v-1.2a1.5 1.5 0 0 1 3 0v1.2"/></svg><h3>Şifreli yedek</h3><p>Bütün veri parolayla şifrelenmiş tek dosyaya (AES-GCM). Dosyayı nereye koyacağına sen karar verirsin.</p></div>
+<div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4.5 17v3.5h15V17"/></svg><h3>Dışa aktar</h3><p>Ayın harcamaları Excel'de açılan CSV'ye ya da tek sayfalık PDF rapora.</p></div>
+<div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg><h3>Reklamsız, takipsiz</h3><p>Üçüncü taraf analiz, reklam ya da izleme aracı yok. Bu sayfa da ölçüm yapmaz.</p></div>
+</div>
+<a class="bag" href="/butce/gizlilik.html">Gizlilik politikasının tamamı →</a>
+</div></section>
+
+<section id="ekranlar"><div class="sar">
+<div class="bas belir"><span class="ust-et">Ekrandan</span><h2>Sade, okunaklı, <span class="mavi">tanıdık.</span></h2><p>Apple'ın kendi uygulamaları gibi: sistem sekmeleri, büyük başlıklar, açık ve koyu görünüm.</p></div>
+<div class="galeri belir" tabindex="0" aria-label="Ekran görüntüleri, yana kaydır">
+<figure><div class="kare" data-ekran-dosya="01.png" data-alt="Özet ekranı"><b>Özet</b><span>Kalan bütçe, bugün harcayabileceğin, tempo.</span></div><figcaption>Özet</figcaption></figure>
+<figure><div class="kare" data-ekran-dosya="02.png" data-alt="Harcamalar ekranı"><b>Harcamalar</b><span>Gün gün liste, arama, takvim.</span></div><figcaption>Harcamalar</figcaption></figure>
+<figure><div class="kare" data-ekran-dosya="03.png" data-alt="Skala ekranı"><b>Skala</b><span>Kategori limitleri ve tempo çentiği.</span></div><figcaption>Skala</figcaption></figure>
+<figure><div class="kare" data-ekran-dosya="04.png" data-alt="Ödemeler ekranı"><b>Ödemeler</b><span>Kartlar, taksitler, abonelikler.</span></div><figcaption>Ödemeler</figcaption></figure>
+<figure><div class="kare" data-ekran-dosya="05.png" data-alt="Harcama ekle ekranı"><b>Harcama ekle</b><span>Yaz, söyle ya da fişi çek.</span></div><figcaption>Harcama ekle</figcaption></figure>
+<figure><div class="kare" data-ekran-dosya="06.png" data-alt="Kilit ve şifreli yedek ayarları"><b>Kilit ve yedek</b><span>PIN, Face ID, şifreli yedek.</span></div><figcaption>Kilit ve yedek</figcaption></figure>
+</div>
+</div></section>
+
+<section class="son" style="padding-top:0"><div class="sar belir">
+<h2>Ay sonunu <span class="mavi">bugünden</span> gör.</h2>
+<p>iPhone ve Apple Watch için. Abonelik yok, uygulama içi satın alma yok. Arayüz Türkçe, tutarlar Türk lirası.</p>
+<div class="dugmeler"><span class="dugme ana pasif" aria-disabled="true"><span><small>Yakında</small>App Store'da</span></span><a class="dugme ikinci" href="/butce/destek.html">Sık sorulanlar</a></div>
+</div></section>
+</main>
+<footer><div class="sar"><span><a href="/butce/gizlilik.html">Gizlilik</a><a href="/butce/destek.html">Destek</a><a href="/">kubilaykenan.com</a></span><span class="imza"><b>Bütçe Defteri</b> · Kubilay Kenan Hoca</span></div></footer>
+<script src="/butce/bt.js?v=1" defer></script>
+</body></html>
