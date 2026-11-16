@@ -58,7 +58,7 @@
 }
 /* 16.11.2026: uygulama menüleri eklenince 1280 px'te sağdaki "Well-Done" düğmesi taşıyordu (yatay kaydırma) → dizüstünde gizle;
    Well-Done zaten menüde. */
-@media (max-width: 1440px) { .mega-arac .ust-cta { display: none; } }
+@media (max-width: 1640px) { .mega-arac .ust-cta { display: none; } }   /* 1512 px MacBook'ta da taşıyordu */
 
 /* Telefon ve dikey iPad: ☰ ile tam ekran, katlanır liste */
 @media (max-width: 899px) {
