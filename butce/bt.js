@@ -110,12 +110,12 @@
     sec(0);
   }
 
-  /* 5) Yazma örneği: "migros 450" yazılır → Market önerisi → Kaydet → listeye iner. Yalnız görünürken döner. */
+  /* 5) Yazma örneği: "market 450" yazılır → Market önerisi → Kaydet → listeye iner. Yalnız görünürken döner. */
   var demo = document.getElementById("demo");
   if (demo) {
     var yaz = demo.querySelector(".yaz"), yer = demo.querySelector(".yer"), on = demo.querySelector(".d-on");
     var cip = demo.querySelector('[data-c="market"]'), kaydet = demo.querySelector(".d-kaydet"), liste = demo.querySelector(".d-liste");
-    var METIN = "migros 450", tur = 0;
+    var METIN = "market 450", tur = 0;
     var bekle = function (ms, t) {
       return new Promise(function (ok, hayir) { setTimeout(function () { t === tur ? ok() : hayir(); }, ms); });
     };
