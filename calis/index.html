@@ -318,6 +318,7 @@
     kpss: ["Türkçe", "Matematik", "Tarih", "Coğrafya", "Vatandaşlık", "Güncel", "Deneme"],
     ags: ["Sözel yetenek", "Sayısal yetenek", "Tarih", "Coğrafya", "Eğitimin temelleri ve TMES", "Mevzuat", "ÖABT", "Deneme"],
   };
+  const esc = x => String(x ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const oku = () => { try { return JSON.parse(localStorage.getItem(ANAHTAR)) || null; } catch (e) { return null; } };
   let V = oku() || { sinav: "yds", hedef: { dk: 120, soru: 60 }, oturum: [], acik: null };
   const yaz = () => { try { localStorage.setItem(ANAHTAR, JSON.stringify(V)); } catch (e) {} };
@@ -336,7 +337,7 @@
   // ---- sınav ve ders seçimi ----
   const dersCiz = () => {
     $("#c-sinav").value = V.sinav;
-    $("#c-ders").innerHTML = DERSLER[V.sinav].map(d => `<option>${d}</option>`).join("");
+    $("#c-ders").innerHTML = DERSLER[V.sinav].map(d => `<option>${esc(d)}</option>`).join("");
     if (V.acik) $("#c-ders").value = V.acik.ders;
   };
   $("#c-sinav").addEventListener("change", e => { V.sinav = e.target.value; yaz(); dersCiz(); takipCiz(); });
@@ -405,7 +406,7 @@
     for (const d of dersler) {
       const s = gunler.map(g => top(g, d, "soru")), dk = gunler.map(g => top(g, d, "dk"));
       if (!s.some(Boolean) && !dk.some(Boolean)) continue;
-      h += `<tr><td>${d}</td>${gunler.map((g, i) => `<td>${s[i] || dk[i] ? `<b>${s[i] || "–"}</b><small>${dk[i] ? dk[i] + " dk" : ""}</small>` : ""}</td>`).join("")}<td><b>${s.reduce((a, b) => a + b, 0)}</b><small>${dkYaz(dk.reduce((a, b) => a + b, 0))}</small></td></tr>`;
+      h += `<tr><td>${esc(d)}</td>${gunler.map((g, i) => `<td>${s[i] || dk[i] ? `<b>${s[i] || "–"}</b><small>${dk[i] ? dk[i] + " dk" : ""}</small>` : ""}</td>`).join("")}<td><b>${s.reduce((a, b) => a + b, 0)}</b><small>${dkYaz(dk.reduce((a, b) => a + b, 0))}</small></td></tr>`;
     }
     const gs = gunler.map(g => top(g, null, "soru")), gd = gunler.map(g => top(g, null, "dk"));
     h += `</tbody><tfoot><tr><td>Toplam</td>${gunler.map((g, i) => {
@@ -416,7 +417,7 @@
     $(".t-tablo").innerHTML = h;
     const tamam = gunler.filter((g, i) => gs[i] >= V.hedef.soru || gd[i] >= V.hedef.dk).length;
     $(".t-ozet").textContent = `Bu hafta ${tamam}/7 gün hedefini tutturdun. Hedef: günde ${V.hedef.soru} soru ya da ${dkYaz(V.hedef.dk)}.`;
-    $("#c-e-ders").innerHTML = dersler.map(d => `<option>${d}</option>`).join("");
+    $("#c-e-ders").innerHTML = dersler.map(d => `<option>${esc(d)}</option>`).join("");
   };
   $("[data-onceki]").addEventListener("click", () => { hafta--; takipCiz(); });
   $("[data-sonraki]").addEventListener("click", () => { if (hafta < 0) hafta++; takipCiz(); });
@@ -447,7 +448,7 @@
       g14.map((g, i) => { const dk = gunTop[g]?.dk || 0, h = dk / mx * 170, x = i * 50 + 8; return `<rect x="${x}" y="${190 - h}" width="34" height="${Math.max(h, 1)}" rx="6" fill="${dk >= V.hedef.dk ? "#3D091B" : "#A84660"}" opacity="${dk ? 1 : .25}"><title>${g}: ${dk} dk</title></rect><text x="${x + 17}" y="210" text-anchor="middle" font-size="12" fill="#6E6266">${+g.slice(8)}</text>`; }).join("") + `</svg>`;
     const dersTop = {}; V.oturum.forEach(o => { dersTop[o.ders] = (dersTop[o.ders] || 0) + o.dk; });
     const dm = Math.max(1, ...Object.values(dersTop));
-    $(".r-dersler").innerHTML = Object.entries(dersTop).sort((a, b) => b[1] - a[1]).map(([d, dk]) => `<li><span>${d}</span><i style="--o:${dk / dm}"></i><b>${dkYaz(dk)}</b></li>`).join("") || "<li>Henüz kayıt yok.</li>";
+    $(".r-dersler").innerHTML = Object.entries(dersTop).sort((a, b) => b[1] - a[1]).map(([d, dk]) => `<li><span>${esc(d)}</span><i style="--o:${dk / dm}"></i><b>${dkYaz(dk)}</b></li>`).join("") || "<li>Henüz kayıt yok.</li>";
   };
 
   // ---- yedek ----
@@ -455,9 +456,21 @@
     const b = new Blob([JSON.stringify(V, null, 1)], { type: "application/json" }), a = document.createElement("a");
     a.href = URL.createObjectURL(b); a.download = `calisma-kayitlarim-${bugun()}.json`; a.click(); URL.revokeObjectURL(a.href);
   });
+  // Yedek dosyası dışarıdan gelir: yapı doğrulanır, sayılar sayıya çevrilir, yazılar kaçışlanarak çizilir (17.11.2026).
+  const sayiYap = (x, ust) => { const n = Number(x); return Number.isFinite(n) && n >= 0 ? Math.min(n, ust) : 0; };
+  const yedekTemizle = d => {
+    if (!d || typeof d !== "object" || !Array.isArray(d.oturum)) throw 0;
+    return {
+      sinav: Object.hasOwn(DERSLER, d.sinav) ? d.sinav : "yds",
+      hedef: { dk: sayiYap(d.hedef?.dk, 1440) || 120, soru: sayiYap(d.hedef?.soru, 10000) || 60 },
+      oturum: d.oturum.filter(o => o && /^\d{4}-\d{2}-\d{2}$/.test(o.g) && typeof o.ders === "string").slice(-20000)
+        .map(o => ({ g: o.g, ders: o.ders.slice(0, 60), dk: sayiYap(o.dk, 1440), soru: sayiYap(o.soru, 10000), z: sayiYap(o.z, 9e15), ...(o.elle ? { elle: 1 } : {}) })),
+      acik: null,
+    };
+  };
   $("#c-ice").addEventListener("change", e => {
     const f = e.target.files[0]; if (!f) return;
-    f.text().then(t => { const d = JSON.parse(t); if (!Array.isArray(d.oturum)) throw 0; V = d; yaz(); dersCiz(); takipCiz(); rekorCiz(); ciz(); $(".c-son").textContent = "Yedek yüklendi."; })
+    f.text().then(t => { const d = yedekTemizle(JSON.parse(t)); V = d; yaz(); dersCiz(); takipCiz(); rekorCiz(); ciz(); $(".c-son").textContent = "Yedek yüklendi."; })
       .catch(() => { $(".c-son").textContent = "Bu dosya okunamadı."; });
   });
 

@@ -504,8 +504,10 @@
     $("#tr-dil").value = durum.dil; $("#tr-uzaktan").checked = durum.uzaktan; if (document.activeElement !== $("#tr-ara")) $("#tr-ara").value = durum.ara; $("#tr-diz").value = durum.diz;
     const q = TR($("#tr-il-ara").value.trim()), L = ilSecenek();
     $(".tr-iller").innerHTML = L.filter(([il]) => !q || TR(il).includes(q)).map(([il, n]) =>
-      `<button type="button" class="tr-cip" data-il="${esc(il)}" aria-pressed="${durum.sehir.includes(il)}">${BASLIK(il)}<sup>${n}</sup></button>`).join("");
-    $(".tr-il-ozet").innerHTML = durum.sehir.length ? durum.sehir.map(il => `<button type="button" class="tr-cip secili" data-il="${esc(il)}" aria-label="${BASLIK(il)} seçimini kaldır">${BASLIK(il)} ×</button>`).join("") : "<span>Bütün Türkiye</span>";
+      `<button type="button" class="tr-cip" data-il="${esc(il)}" aria-pressed="${durum.sehir.includes(il)}">${esc(BASLIK(il))}<sup>${n}</sup></button>`).join("");
+    // adresten ya da kayıttan gelen iller yalnız veride olanlarla sınırlanır; görünen ad da kaçışlanır (XSS, 17.11.2026)
+    const gecerliIl = new Set(V.il); durum.sehir = durum.sehir.filter(il => gecerliIl.has(il));
+    $(".tr-il-ozet").innerHTML = durum.sehir.length ? durum.sehir.map(il => `<button type="button" class="tr-cip secili" data-il="${esc(il)}" aria-label="${esc(BASLIK(il))} seçimini kaldır">${esc(BASLIK(il))} ×</button>`).join("") : "<span>Bütün Türkiye</span>";
     // bölüm önerileri (bu puan türündeki bölüm adları)
     if ($("#tr-bolumler").dataset.tur !== durum.tur) {
       const b = new Set(); for (const p of V.p) if (p[4] === durum.tur) b.add(p[3].replace(/\s*\(.*/, ""));
