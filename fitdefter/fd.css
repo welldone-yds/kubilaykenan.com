@@ -17,6 +17,7 @@ em{font-style:normal;color:var(--volt)}
 .ust nav{display:flex;gap:20px;font-size:15px}
 .ust nav a{text-decoration:none;color:var(--soluk)}
 .ust nav a:hover{color:var(--yazi)}
+.ust nav .dil{color:var(--soluk);white-space:nowrap}.ust nav .dil a{font-weight:600}
 
 /* giriş */
 .giris{position:relative;overflow:hidden;padding:40px 0 0}
@@ -134,7 +135,8 @@ footer .atif{flex-basis:100%;font-size:13px;opacity:.75}
   .sayilar .sar{grid-template-columns:repeat(2,1fr);row-gap:22px}
 }
 @media (max-width:600px){
-  .ust nav .gizle{display:none}
+  .ust nav .gizle,.ust nav .ev{display:none}
+  .ust nav{gap:14px}
   .tel.yan{display:none}
   .tel.orta{width:min(70vw,296px)}
   .telefonlar{margin-bottom:-90px}
