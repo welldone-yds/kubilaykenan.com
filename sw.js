@@ -1,7 +1,7 @@
 // kubilaykenan.com servis çalışanı (21.10.2026): siteyi telefona "uygulama gibi" kurulabilir ve çevrimdışı kullanılabilir yapar.
 // Üretici sürümü ve ön bellek listesini aşağıya yazar; sürüm, ön belleğe alınan dosyaların içerik özetidir (içerik değişince yenilenir).
 // Sayfalar: önce ağ, olmazsa önbellek (güncel içerik önce). Veri/stil/görsel: önbellekten hemen, arkada tazele.
-const SURUM = "db678a6548";
+const SURUM = "f7912770a5";
 const KAP = "kk-" + SURUM;
 const ON_BELLEK = ["/", "/en/", "/sozluk/", "/sozluk/calis/", "/haftanin-10-kelimesi/", "/deneme/", "/plan/", "/calisma-plani/", "/deneme/veri.json", "/duello/", "/seviye-testi/", "/puan-hesaplama/", "/cevrimdisi/", "/defter/", "/sayac/", "/ada-tokenler.css?v=5bfc76b9", "/ada-bilesenler.css?v=5bfc76b9", "/site.css?v=f2e6f803", "/fontlar/fontlar.css?v=1", "/fontlar/Inter-latin.woff2", "/fontlar/Inter-latin-ext.woff2", "/fontlar/Jost-latin.woff2", "/fontlar/Jost-latin-ext.woff2", "/fontlar/CormorantGaramond-Bold.ttf", "/fontlar/DancingScript-Bold.ttf", "/sozluk/veri.json", "/sozluk/veri.json?v=45db7baa", "/duello/veri.json?v=2c237a45", "/duello/celdirici.json?v=41c93dcc", "/seviye-testi/veri.json?v=4841a6b1", "/simge.png", "/favicon.svg", "/simge-192.png", "/apple-touch-180.png", "/manifest.webmanifest", "/pdf/"];
 const CEVRIMDISI = "/cevrimdisi/";
