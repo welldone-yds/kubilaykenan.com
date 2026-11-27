@@ -15,7 +15,7 @@
 .ab-ep { display: inline-flex; align-items: center; gap: 8px; color: #E9D9DF; text-decoration: none; font-size: 15px; }
 .ab-ep svg { width: 18px; height: 18px; color: #D8B229; }
 .ab-ep:hover { color: #D8B229; }
-.ab-sos { display: flex; gap: 10px; }
+.ab-sos { display: flex; flex-wrap: wrap; gap: 10px; }   /* 320 px'te taşıyordu (27.11.2026) */
 .ab-sos a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .2); display: grid; place-items: center; color: #fff; transition: background .2s, border-color .2s; }
 .ab-sos a:hover, .ab-sos a:focus-visible { background: #D8B229; border-color: #D8B229; color: #2A0612; }
 .ab-sos svg { width: 18px; height: 18px; }

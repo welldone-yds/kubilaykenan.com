@@ -145,3 +145,16 @@
   .mega-ust > .mega-ic .mega-oge > .mega-dug { color: #F6E9ED; }
   .mega-ust > .mega-ic .mega-oge.aktif > .mega-dug { color: #E8C35A; }
 }
+
+/* Dar telefonlar (27.11.2026): logo + arama + TR/EN/DE + menü 375 px'te 1,6 px, 360 px'te 37 px taşıyor, sayfa yana kayıyordu */
+@media (max-width: 420px) {
+  .mega-ust, .mega-ust > .mega-ic { gap: 8px; }
+  .mega-ust > .mega-ic { padding-inline: 12px; }
+  .mega-arac { gap: 4px; }
+  .mega-arac .dil-grup .dil { min-width: 30px; padding: 0 4px; }
+}
+@media (max-width: 380px) {
+  .mega-ust .marka span { font-size: .9em; }
+  .mega-arac .dil-grup .dil { min-width: 28px; padding: 0 3px; }
+}
+@media (max-width: 350px) { .mega-ust .marka span { display: none; } }   /* yalnız Çift K; bağlantının aria-label'ı adı taşır */
